@@ -1,0 +1,84 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="TeacherControlWeb.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Teacher Control</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="/css/materialize.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <header>
+        <nav class="navbar-fixed blue darken-1">
+            <div class="nav-wrapper ">
+                <a href="#" class="brand-logo">Teacher Control
+                </a>
+                <ul id="movil" class="right side-nav">
+                    <li><a href="#">Inicio
+                    </a></li>
+                    <li><a href="#" class="dropdown-button" data-activate="dropdown1">Registros
+                    </a>
+                        <!-- Dropdown Structure -->
+                        <ul class="dropdown-content">
+                            <li><a href="#!">Registro de Cursos</a></li>
+                            <li><a href="#!">Registro de Materias</a></li>
+                            <li><a href="#!">Registro de Categoria de Calificaciones</a></li>
+                            <li><a href="#!">Registro de Grupos</a></li>
+                            <li><a href="#!">Registro de Estudiantes</a></li>
+                            <li><a href="#!">Registro de Asistencia</a></li>
+                            <li><a href="#!">Registro de Calificaciones</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="dropdown-button" data-activate="dropdown">Consultas
+                    </a>
+                        <!-- Dropdown Structure -->
+                        <ul class="dropdown-content">
+                             <li><a href="#!">Consulta de Cursos</a></li>
+                            <li><a href="#!">Consulta de Materias</a></li>
+                            <li><a href="#!">Consulta de Categoria de Calificaciones</a></li>
+                            <li><a href="#!">Consulta de Grupos</a></li>
+                            <li><a href="#!">Consulta de Estudiantes</a></li>
+                            <li><a href="#!">Consulta de Asistencia</a></li>
+                            <li><a href="#!">Consulta de Calificaciones</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Contatos
+                    </a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <form runat="server">
+
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="card-panel grey darken-3 white-text z-depth-2">
+                    <p>&copy; <%: DateTime.Now.Year %> - JMC</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="\js\jquery-3.1.0.min.js"> </script>
+    <script src="\js\materialize.min.js"></script>
+    <script>
+        $(document).ready(Function(
+            $('.dropdown-button').dropdown()
+
+            ));
+         
+                
+    </script>
+</body>
+</html>
