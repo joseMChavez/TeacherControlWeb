@@ -10,34 +10,28 @@ namespace BLL
     public class Usuarios : ClaseMaestra
     {
        public int usuarioId { get; set; }
-       public string nombre { get; set; }
-        public string apellido { get; set; }
-        public string userName { get; set; }
-       
-        public string email { get; set; }
-        public string telefono { get; set; }
-        public string direccion { get; set; }
-        public string pass { get; set; }
-        public string passConfir { get; set; }
+        public String Nombres{ get; set; }
+        public string UserName { get; set; }
+        public string Email { get; set; }
+        public string Telefonos { get; set; }
+        public string Clave { get; set; }
+        public string ConfirmaClave { get; set; }
         public string TipoUsuario { get; set; }
-
+        public byte[] Imagen { get; set; }
         public Usuarios() {
             this.usuarioId = 0;
-            this.nombre = "";
-            this.apellido = "";
-            this.userName = "";
-            this.email = "";
-            this.telefono = "";
-            this.direccion = "";
-            this.pass = "";
+            this.UserName = "";
+            this.Email = "";
+            this.Telefonos = "";
+            this.Clave = "";
             this.TipoUsuario = "";
           
 
         }
         public Usuarios(int id, string nombre, string pass) {
             this.usuarioId = id;
-            this.nombre = nombre;
-            this.pass = pass;
+            this.Nombres = nombre;
+            this.Clave = pass;
         }
 
         public override bool Insertar()
@@ -46,7 +40,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("insert into Usuario(nombre,apellido,userName,telefono,email,direccion,clave,confirmarClave,tipoUsuario) Values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}')", nombre, this.apellido,this.userName,this.telefono,this.email,this.direccion, this.pass,this.passConfir,this.TipoUsuario));
+                retorno = conexion.Ejecutar(string.Format("insert into Usuarios(Nombres,UserName,Email,Telefono,Clave,ConfirmarClave,TipoUsuario,Imagen) Values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')", this.Nombres,this.UserName,this.Email, this.Telefonos,this.Clave,this.ConfirmaClave,this.TipoUsuario, this.Imagen));
             }
             catch (Exception ex)
             {
@@ -62,7 +56,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("update Usuario set nombre= '{0}',apellido = '{1}' ,userName='{2}',telefono='{3}',email='{4}',direccion='{5}',clave='{6}', confirmarClave='{7}', tipoUsuario='{8}' where usuarioId= {9}",this.nombre, this.apellido,this.userName, this.telefono ,this.email, this.direccion,this.pass, this.passConfir,this.TipoUsuario ,this.usuarioId));
+                retorno = conexion.Ejecutar(string.Format("update Usuarios set Nombres= '{0}',UserName='{1}',Telefonos='{2}',Email='{3}',clave='{4}', ConfirmarClave='{5}', TipoUsuario='{6}', Imagen='{7}' where UsuarioId= {8}",this.Nombres,this.UserName, this.Telefonos ,this.Email, this.Clave, this.ConfirmaClave,this.TipoUsuario ,this.Imagen,this.usuarioId));
             }
             catch (Exception ex)
             {
@@ -78,7 +72,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("delete from Usuario where usuarioId= {0} ", this.usuarioId));
+                retorno = conexion.Ejecutar(string.Format("delete from Usuarios where UsuarioId= {0} ", this.usuarioId));
             }
             catch (Exception ex)
             {
@@ -94,19 +88,18 @@ namespace BLL
 
             try
             {
-                dt = conexion.ObtenerDatos(string.Format("select * from Usuario where  usuarioId= {0}", IdBuscado));
+                dt = conexion.ObtenerDatos(string.Format("select * from Usuarios where  usuarioId= {0}", IdBuscado));
                 if (dt.Rows.Count > 0)
                 {
-                    this.usuarioId = (int)dt.Rows[0]["usuarioId"];
-                    this.nombre = dt.Rows[0]["nombre"].ToString();
-                    this.apellido = dt.Rows[0]["apellido"].ToString();
-                    this.userName = dt.Rows[0]["userName"].ToString();
-                    this.telefono = dt.Rows[0]["telefono"].ToString();
-                    this.email = dt.Rows[0]["email"].ToString();
-                    this.direccion = dt.Rows[0]["direccion"].ToString();
-                    this.pass = dt.Rows[0]["clave"].ToString();
-                    this.passConfir = dt.Rows[0]["confirmarClave"].ToString();
-                    this.TipoUsuario = dt.Rows[0]["tipoUsuario"].ToString();
+                    this.usuarioId = (int)dt.Rows[0]["UsuarioId"];
+                    this.Nombres = dt.Rows[0]["Nombres"].ToString();
+                    this.UserName = dt.Rows[0]["UserName"].ToString();
+                    this.Telefonos = dt.Rows[0]["Telefono"].ToString();
+                    this.Email = dt.Rows[0]["Email"].ToString();
+                    this.Clave = dt.Rows[0]["clave"].ToString();
+                    this.ConfirmaClave = dt.Rows[0]["ConfirmarClave"].ToString();
+                    this.TipoUsuario = dt.Rows[0]["TipoUsuario"].ToString();
+                    this.Imagen = System.Text.Encoding.ASCII.GetBytes(dt.Rows[0]["Imagen"].ToString());
                 }
             }
             catch (Exception ex)
@@ -124,11 +117,11 @@ namespace BLL
 
             try
             {
-                dt = conexion.ObtenerDatos(string.Format("select * from Usuario where UserName= '{0}'", nombre));
+                dt = conexion.ObtenerDatos(string.Format("select * from Usuarios where UserName= '{0}'", nombre));
                 if (dt.Rows.Count>0)
                 {
-                    this.TipoUsuario = dt.Rows[0]["tipoUsuario"].ToString();
-                    this.userName = dt.Rows[0]["userName"].ToString();
+                    this.TipoUsuario = dt.Rows[0]["TipoUsuario"].ToString();
+                    this.UserName = dt.Rows[0]["UserName"].ToString();
                 }
             }
             catch (Exception ex)
@@ -146,7 +139,7 @@ namespace BLL
 
             try
             {
-                dt = conexion.ObtenerDatos(string.Format("select * from Usuario where userName= '{0}' AND clave='{1}' AND tipoUsuario='Administrador'", nombre, clave));
+                dt = conexion.ObtenerDatos(string.Format("select * from Usuarios where UserName= '{0}' AND clave='{1}' AND TipoUsuario='Administrador'", nombre, clave));
                 
             }
             catch (Exception ex)
@@ -164,7 +157,7 @@ namespace BLL
 
             try
             {
-                dt = conexion.ObtenerDatos(string.Format("select * from Usuario where clave='{0}'", clave));
+                dt = conexion.ObtenerDatos(string.Format("select * from Usuarios where clave='{0}'", clave));
 
             }
             catch (Exception ex)
@@ -181,7 +174,7 @@ namespace BLL
             string ordenFinal = "";
             if (!Orden.Equals(""))
                 ordenFinal = " order by  " + Orden;
-            return conexion.ObtenerDatos(string.Format("select " + Campos + " from Usuario where " + Condicion + ordenFinal));
+            return conexion.ObtenerDatos(string.Format("select " + Campos + " from Usuarios where " + Condicion + ordenFinal));
         }
     }
 }

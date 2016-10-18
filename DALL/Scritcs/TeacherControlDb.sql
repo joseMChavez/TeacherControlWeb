@@ -1,17 +1,22 @@
-﻿use [C:\USERS\JOSE\SOURCE\REPOS\TEACHERCONTROL2016\TEACHERCONTROL2016\DATABASE\TEACHERCONTROLDB.MDF]
+﻿Create Database TeacherControlWebDB
 go
-create table Usuario(
- usuarioId int identity(1,1),
- nombre varchar(50),
- apellido varchar(50),
- email varchar(100),
- direccion varchar(100),
- clave varchar(15),
- confirmarClave Varchar(15),
- primary key(usuarioId)
+
+go
+
+create table Usuarios(
+			 UsuarioId int identity(1,1),
+			 Nombres varchar(70),
+			 UserName varchar(30),
+			 Email varchar(100),
+			 Telefono varchar(15),
+			 Clave varchar(15),
+			 ConfirmarClave Varchar(15),
+			 Imagen varchar(250),
+			 TipoUsuario varchar(20),
+			 primary key(UsuarioId)
 ) 
 Go
-create table Curso(
+create table Cursos(
 	CursoId int identity(1,1),
 	Descripcion varchar(50),
 	 primary key (CursoId) 
@@ -19,21 +24,12 @@ create table Curso(
 go
 CREATE TABLE Grupos(
   GrupoId int identity(1,1),
-  Descripcion varchar(10),
+  Descripcion varchar(15),
   primary key(GrupoId)
 )
+
 go
-Create table CursosDetalle(
-	Id  int identity(1,1),
-	Grupo varchar(5),
-	Curso int Foreign key References Curso(CursoId) ,
-	Nombre varchar(50),
-	Apellidos varchar(50),
-	Matricula int,
-    primary key (Id)
-)
-go
-Create table Estudiante( 
+Create table Estudiantes( 
 		EstudianteId int identity(1,1),
 		Matricula int,
 		Nombre varchar(50),
@@ -44,7 +40,7 @@ Create table Estudiante(
 		Celular varchar(15),
 		Email Varchar(70),
 		Direccion varchar(100),
-		CursoId int Foreign key References Curso(CursoId),
+		CursoId int Foreign key References Cursos(CursoId),
 		Grupo varchar(10),
 		NombrePadre varchar(50),
 		TelefonoPadre varchar(15),
@@ -60,26 +56,27 @@ create table Materias(
 go
 create table Asistencias(
        AsistenciaId int identity(1,1),
-	   Curso int,
-	   CursoGrupo varchar(5),
+	   CursoId int,
+	   GrupoId int,
 	   Fecha DateTime,
 	   CantidaEst int,
-	   
+	   foreign key(GrupoId) references Grupos(GrupoId),
+	   foreign key(CursoId) references Cursos(CursoId),
 	   primary key(AsistenciaId)
 ) 
 go
 Create table AsistenciaDetalle(
  Id int identity(1,1),
- Estudiante varchar(100), 
+ Estudiante varchar(30), 
  Matricula int,
  AsistenciaId int foreign key references Asistencias(AsistenciaId),
- Activo varchar(15),
+ Estado varchar(15),
  primary key(Id)
 )
 go
 create table Calificaciones(
 		CalificacionId int identity(1,1) primary key,
-		Estudiante varchar(50), 
+		EstudianteId int foreign key references Estudiantes(EstudianteId), 
 		Materia varchar(20), 
 	    Curso varchar(20),
 	    Cursogrupo varchar(5),
@@ -93,18 +90,16 @@ create table CalificacionDetalle(
 		Descripcion varchar(70),
 		Puntuacion float
 )
-go
-create table Evaluaciones(
-	EvaluacionId int identity(1,1) primary key,
-	AsitenciaId int,
-	CalificacionId int,
-)
+
+
 go
 CREATE TABLE CategoriaCalificaciones
 (
 	CategoriaCalificacionesId INT identity(1,1) NOT NULL PRIMARY KEY, 
     Descripcion VARCHAR(100) NOT NULL
 )
+
+go
 
 go
 select * from  AsistenciaDetalle;

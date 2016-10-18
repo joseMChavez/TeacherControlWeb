@@ -8,50 +8,93 @@
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link href="/css/materialize.css" rel="stylesheet" />
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <header>
-        <nav class="navbar-fixed blue darken-1">
-            <div class="nav-wrapper ">
-                <a href="#" class="brand-logo">Teacher Control
-                </a>
-                <ul id="movil" class="right side-nav">
-                    <li><a href="#">Inicio
-                    </a></li>
-                    <li><a href="#" class="dropdown-button" data-beloworigin="true" data-activate="dropdown1">Registros
-                    </a>
-                        <!-- Dropdown Structure -->
-                        <ul class="dropdown-content" id="dropdown1">
-                            <li><a href="#!">Registro de Cursos</a></li>
-                            <li><a href="#!">Registro de Materias</a></li>
-                            <li><a href="#!">Registro de Categoria de Calificaciones</a></li>
-                            <li><a href="#!">Registro de Grupos</a></li>
-                            <li><a href="#!">Registro de Estudiantes</a></li>
-                            <li><a href="#!">Registro de Asistencia</a></li>
-                            <li><a href="#!">Registro de Calificaciones</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#" data-beloworigin="true" class="dropdown-button1" data-activate="dropdown">Consultas
-                    </a>
-                        <!-- Dropdown Structure -->
-                        <ul id="dropdown" class="dropdown-content">
-                             <li><a href="#!">Consulta de Cursos</a></li>
-                            <li><a href="#!">Consulta de Materias</a></li>
-                            <li><a href="#!">Consulta de Categoria de Calificaciones</a></li>
-                            <li><a href="#!">Consulta de Grupos</a></li>
-                            <li><a href="#!">Consulta de Estudiantes</a></li>
-                            <li><a href="#!">Consulta de Asistencia</a></li>
-                            <li><a href="#!">Consulta de Calificaciones</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Contatos
-                    </a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+  
+ <header class="navbar-fixed">
+  <!--opciones menu desktop-->
+    <ul id="Registros-dropdown-desktop" class="dropdown-content">
+      <li><a href="#">Cursos</a></li>
+      <li><a href="#">Grupos</a></li>
+      <li><a href="#">Materias</a></li>
+     <li><a href="#">Categorias de Calificaciones</a></li>
+        <li class="divider"></li>
+     <li><a href="#">Estudiantes</a></li>
+      <li><a href="#">Asistencias</a></li>
+      <li><a href="#">Calificaciones</a></li>
+      <li class="divider"></li>
+    </ul>
+    
+    <ul id="Consultas-dropdown-desktop" class="dropdown-content">
+       <li><a href="#">Cursos</a></li>
+      <li><a href="#">Grupos</a></li>
+      <li><a href="#">Materias</a></li>
+     <li><a href="#">Categorias de Calificaciones</a></li>
+        <li class="divider"></li>
+     <li><a href="#">Estudiantes</a></li>
+      <li><a href="#">Asistencias</a></li>
+      <li><a href="#">Calificaciones</a></li>
+      <li class="divider"></li>
+    </ul>
+   
+  
+
+  <!--opciones menu movil-->
+  <ul id="Registros-dropdown-movil" class="dropdown-content">
+    
+       <li><a href="#">Cursos</a></li>
+      <li><a href="#">Grupos</a></li>
+      <li><a href="#">Materias</a></li>
+     <li><a href="#">Categorias de Calificaciones</a></li>
+      <li class="divider"></li>
+     <li><a href="#">Estudiantes</a></li>
+      <li><a href="#">Asistencias</a></li>
+      <li><a href="#">Calificaciones</a></li>
+      
+  </ul>
+  <ul id="Consultas-dropdown-movil" class="dropdown-content">
+     <li><a href="#">Cursos</a></li>
+      <li><a href="#">Grupos</a></li>
+      <li><a href="#">Materias</a></li>
+     <li><a href="#">Categorias de Calificaciones</a></li>
+      <li class="divider"></li>
+     <li><a href="#">Estudiantes</a></li>
+      <li><a href="#">Asistencias</a></li>
+      <li><a href="#">Calificaciones</a></li>
+      
+  </ul>
+  
+
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+    <a id="logo-container" href="#" class="brand-logo"> <i class="material-icons prefix">mode_edit</i>Teacher Control</a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="#">Inicio</a></li>
+      <li><a class="dropdown-button" href="#!" data-activates="Registros-dropdown-desktop">Registros</a></li>
+      <li><a class="dropdown-button" href="#!" data-activates="Consultas-dropdown-desktop">Consultas</a></li>
+      <li><a class="dropdown-button" href="#!" >Calificaciones</a></li>
+      <li><a class="dropdown-button" href="#!">Asistencias</a></li>
+     
+      <li><a href="#">Acceder</a></li>
+    </ul>
+
+    <ul id="nav-mobile" class="side-nav">
+      <li><a href="#">Inicio</a></li>
+      <li><a class="dropdown-button" href="#!" data-activates="Registros-dropdown-movil">Registros<i class="material-icons right">arrow_drop_down</i></a></li>
+      <li><a class="dropdown-button" href="#!" data-activates="Consultas-dropdown-movil">Consultas<i class="material-icons right">arrow_drop_down</i></a></li>
+      <li><a  href="#!" >Calificaciones</a></li>
+      <li><a  href="#!">Asistencias</a></li>
+      <li><a href="#">Accerder</a></li>
+    </ul>
+    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+      
+</header>
+
     <form runat="server">
 
         <div>
@@ -62,7 +105,7 @@
 
 
     <footer>
-        <div class="container">
+        <div class=" footer-copyright ">
             <div class="row">
                 <div class="card-panel grey darken-3 white-text z-depth-2">
                     <p>&copy; <%: DateTime.Now.Year %> - JMC</p>
@@ -74,10 +117,28 @@
     <script src="/js/materialize.min.js"></script>
     <script>
         $(document).ready(Function(
-             $('dropdown-button').dropdown(
-             
+            $('.dropdown-button').dropdown({
+                inDuration: 300,
+                outDuration: 225,
+                constrain_width: false, // Does not change width of dropdown to that of the activator
+                hover: true, // Activate on hover
+                gutter: 2, // Spacing from edge
+                belowOrigin: false, // Displays dropdown below the button
+                alignment: 'left' // Displays dropdown with edge aligned to the left of button
+            }
   )
   ));
+        $('.button-collapse').sideNav({
+            menuWidth: 300, // Default is 240
+            edge: 'left', // Choose the horizontal origin
+            closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+        }
+
+ );
+        $(document).ready(function () {
+            $('TipoDropDownList').material_select();
+        });
+       
     </script>
 </body>
 </html>

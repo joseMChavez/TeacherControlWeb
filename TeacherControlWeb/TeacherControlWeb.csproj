@@ -40,6 +40,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -58,10 +59,31 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="rEstudiantes.aspx" />
+    <Content Include="App_Data\TeacherControlWebDB.mdf" />
+    <Content Include="App_Data\TeacherControlWebDB_log.ldf">
+      <DependentUpon>TeacherControlWebDB.mdf</DependentUpon>
+    </Content>
+    <Content Include="Consultas\cUsuarios.aspx" />
+    <Content Include="Consultas\reporteUsuarios.aspx" />
+    <Content Include="Registros\rEstudiantes.aspx" />
+    <Content Include="Registros\rUsuarios.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Consultas\cUsuarios.aspx.cs">
+      <DependentUpon>cUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cUsuarios.aspx.designer.cs">
+      <DependentUpon>cUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\reporteUsuarios.aspx.cs">
+      <DependentUpon>reporteUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\reporteUsuarios.aspx.designer.cs">
+      <DependentUpon>reporteUsuarios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -69,23 +91,64 @@
     <Compile Include="MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
+    <Compile Include="PrincipalDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrincipalDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="rEstudiantes.aspx.cs">
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rEstudiantes.aspx.cs">
       <DependentUpon>rEstudiantes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="rEstudiantes.aspx.designer.cs">
+    <Compile Include="Registros\rEstudiantes.aspx.designer.cs">
       <DependentUpon>rEstudiantes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rUsuarios.aspx.cs">
+      <DependentUpon>rUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rUsuarios.aspx.designer.cs">
+      <DependentUpon>rUsuarios.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="MasterPage.Master" />
+    <Content Include="PrincipalDataSet.xsc">
+      <DependentUpon>PrincipalDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="PrincipalDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PrincipalDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="PrincipalDataSet.xss">
+      <DependentUpon>PrincipalDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{0ed25c59-86b5-4deb-ad82-51cc6fcf4107}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Reportes\UsuariosReport.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
