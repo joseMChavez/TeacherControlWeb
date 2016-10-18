@@ -45,5 +45,11 @@ namespace TeacherControlWeb.Consultas
             Usuarios user = new Usuarios();
             Mostrar(user);
         }
+
+        protected void ImprimirButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Consultas/reporteUsuarios.aspx");
+            Response.Clear();
+        }
     }
 }

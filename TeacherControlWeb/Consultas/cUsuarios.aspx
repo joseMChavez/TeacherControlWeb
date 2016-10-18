@@ -54,9 +54,12 @@
                                 </asp:Repeater>
                             </div>
                         </div>
+                        
                     </div>
                 </div>
-
+                <div class="card-action">
+                            <asp:LinkButton ID="ImprimirButton" CssClass=" waves-effect green darken-1 white-text btn" runat="server" OnClick="ImprimirButton_Click" style="left: 0px; top: 1px"><i class="material-icons prefix">print</i>Imprimir</asp:LinkButton>
+                        </div>
             </div>
         </div>
 

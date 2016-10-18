@@ -17,6 +17,7 @@
  <header class="navbar-fixed">
   <!--opciones menu desktop-->
     <ul id="Registros-dropdown-desktop" class="dropdown-content">
+        <li><a href="Registros/rUsuarios.aspx">Usuarios</a></li>
       <li><a href="#">Cursos</a></li>
       <li><a href="#">Grupos</a></li>
       <li><a href="#">Materias</a></li>
@@ -29,6 +30,7 @@
     </ul>
     
     <ul id="Consultas-dropdown-desktop" class="dropdown-content">
+        <li><a href="/Consultas/cUsuarios.aspx">Usuarios</a></li>
        <li><a href="#">Cursos</a></li>
       <li><a href="#">Grupos</a></li>
       <li><a href="#">Materias</a></li>

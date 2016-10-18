@@ -19,7 +19,7 @@ namespace TeacherControlWeb.Consultas
         {
             //Configurar(UsuariosReportViewer);
             //RedirecRepor(UsuariosReportViewer,Response);
-            
+            Response.Clear();
         }
 
         private void Configurar( ReportViewer rv)
