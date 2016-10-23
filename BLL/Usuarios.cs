@@ -17,13 +17,14 @@ namespace BLL
         public string Clave { get; set; }
         public string ConfirmaClave { get; set; }
         public string TipoUsuario { get; set; }
-        public byte[] Imagen { get; set; }
+        public string Imagen { get; set; }
         public Usuarios() {
             this.usuarioId = 0;
             this.UserName = "";
             this.Email = "";
             this.Telefonos = "";
             this.Clave = "";
+            this.Imagen = "";
             this.TipoUsuario = "";
           
 
@@ -56,7 +57,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("update Usuarios set Nombres= '{0}',UserName='{1}',Telefonos='{2}',Email='{3}',clave='{4}', ConfirmarClave='{5}', TipoUsuario='{6}', Imagen='{7}' where UsuarioId= {8}",this.Nombres,this.UserName, this.Telefonos ,this.Email, this.Clave, this.ConfirmaClave,this.TipoUsuario ,this.Imagen,this.usuarioId));
+                retorno = conexion.Ejecutar(string.Format("update Usuarios set Nombres= '{0}',UserName='{1}',Telefono='{2}',Email='{3}',clave='{4}', ConfirmarClave='{5}', TipoUsuario='{6}', Imagen='{7}' where UsuarioId= {8}",this.Nombres,this.UserName, this.Telefonos ,this.Email, this.Clave, this.ConfirmaClave,this.TipoUsuario ,this.Imagen,this.usuarioId));
             }
             catch (Exception ex)
             {
@@ -99,7 +100,7 @@ namespace BLL
                     this.Clave = dt.Rows[0]["clave"].ToString();
                     this.ConfirmaClave = dt.Rows[0]["ConfirmarClave"].ToString();
                     this.TipoUsuario = dt.Rows[0]["TipoUsuario"].ToString();
-                    this.Imagen = System.Text.Encoding.ASCII.GetBytes(dt.Rows[0]["Imagen"].ToString());
+                    this.Imagen = dt.Rows[0]["Imagen"].ToString();
                 }
             }
             catch (Exception ex)
@@ -175,6 +176,12 @@ namespace BLL
             if (!Orden.Equals(""))
                 ordenFinal = " order by  " + Orden;
             return conexion.ObtenerDatos(string.Format("select " + Campos + " from Usuarios where " + Condicion + ordenFinal));
+        }
+        public static DataTable ListadoDt(string Condicion)
+        {
+            ConexionDb conexion = new ConexionDb();
+           
+            return conexion.ObtenerDatos(string.Format("select * from Usuarios where " + Condicion));
         }
     }
 }

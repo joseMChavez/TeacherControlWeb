@@ -31,6 +31,15 @@ namespace TeacherControlWeb.Registros {
         protected global::System.Web.UI.WebControls.FileUpload CargarArchivoBTN;
         
         /// <summary>
+        /// CargarImgButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton CargarImgButton;
+        
+        /// <summary>
         /// IdTextBox control.
         /// </summary>
         /// <remarks>

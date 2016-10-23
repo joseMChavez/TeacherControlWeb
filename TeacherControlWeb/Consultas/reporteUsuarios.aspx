@@ -11,15 +11,14 @@
             <div class="col s12">
                 <div class="card">
                     <div class="card-content">
-                        <rsweb:ReportViewer ID="UsuariosReportViewer" runat="server" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="824px">
-                            <LocalReport ReportPath="Reportes\UsuariosReport.rdlc">
-                                <DataSources>
-                                    <rsweb:ReportDataSource DataSourceId="SqlDataSourceUsuarios" Name="DataSet1" />
-                                </DataSources>
-                            </LocalReport>
+                        <div class="col s4">
+                                <asp:LinkButton ID="CargarImgButton" runat="server" CssClass=" waves-effect blue darken-1 white-text btn" OnClick="CargarImgButton_Click">Cargar<i class="material-icons prefix">input</i></asp:LinkButton>
+                                </div>
+                        <rsweb:ReportViewer ID="UsuariosReportViewer" runat="server" Width="721px">
+
                         </rsweb:ReportViewer>
                         
-                        <asp:SqlDataSource ID="SqlDataSourceUsuarios" runat="server" ConnectionString="<%$ ConnectionStrings:ConStr %>" SelectCommand="SELECT [Nombres], [UserName], [Email], [Telefono], [TipoUsuario] FROM [Usuarios]"></asp:SqlDataSource>
+                       
                     </div>
                 </div>
             </div>

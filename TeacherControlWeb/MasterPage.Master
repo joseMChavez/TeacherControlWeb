@@ -17,7 +17,7 @@
  <header class="navbar-fixed">
   <!--opciones menu desktop-->
     <ul id="Registros-dropdown-desktop" class="dropdown-content">
-        <li><a href="Registros/rUsuarios.aspx">Usuarios</a></li>
+        <li><a href="/Registros/rUsuarios.aspx">Usuarios</a></li>
       <li><a href="#">Cursos</a></li>
       <li><a href="#">Grupos</a></li>
       <li><a href="#">Materias</a></li>
@@ -116,6 +116,7 @@
         </div>
     </footer>
     <script src="/js/jquery-3.1.0.min.js"> </script>
+    <script src="/js/toastr.min.js"></script>
     <script src="/js/materialize.min.js"></script>
     <script>
         $(document).ready(Function(
@@ -139,6 +140,10 @@
  );
         $(document).ready(function () {
             $('TipoDropDownList').material_select();
+        });
+        $(document).ready(function () {
+            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+            $('.modal-trigger').leanModal();
         });
        
     </script>

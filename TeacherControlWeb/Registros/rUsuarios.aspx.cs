@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Security.Permissions;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BLL;
@@ -10,9 +11,14 @@ namespace TeacherControlWeb.Registros
 {
     public partial class rUsuarios : System.Web.UI.Page
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-           // NombresTextBox.Text = CargarArchivoBTN.PostedFile.ToString();
+            Session["usiario"] = null;
+            if (!IsPostBack)
+            {
+               
+            }
         }
         private void Limpiar()
         {
@@ -28,7 +34,7 @@ namespace TeacherControlWeb.Registros
         }
         private void Llenardatos(Usuarios user)
         {
-           int id= Utility.ConvierteEntero(IdTextBox.Text);
+            int id = Utility.ConvierteEntero(IdTextBox.Text);
             user.usuarioId = id;
             user.Nombres = NombresTextBox.Text;
             user.Email = EmailTextBox.Text;
@@ -37,7 +43,7 @@ namespace TeacherControlWeb.Registros
             user.Clave = ClaveTextBox.Text;
             user.ConfirmaClave = ConfirmarTextBox.Text;
             user.TipoUsuario = TipoDropDownList.SelectedValue;
-            user.Imagen = CargarArchivoBTN.FileBytes;
+            user.Imagen = "~/img/"+ Session["usiario"];
 
         }
         private void DevolverDatos(Usuarios user)
@@ -50,11 +56,11 @@ namespace TeacherControlWeb.Registros
             ClaveTextBox.Text = user.Clave;
             ConfirmarTextBox.Text = user.ConfirmaClave;
             TipoDropDownList.Text = user.TipoUsuario;
-           // Imagen.ImageUrl=ResolveUrl(user.Imagen.ToString());
+            Imagen.ImageUrl = user.Imagen;
         }
         private bool Validar()
         {
-            if (!String.IsNullOrWhiteSpace(NombresTextBox.Text) && !string.IsNullOrWhiteSpace(UserTextBox.Text) && !string.IsNullOrWhiteSpace(EmailTextBox.Text) && !string.IsNullOrWhiteSpace(TelefonoTextBox.Text) && !string.IsNullOrWhiteSpace(ClaveTextBox.Text) && !string.IsNullOrWhiteSpace(ConfirmarTextBox.Text) && ConfirmarTextBox.Text.Equals(ClaveTextBox.Text) && CargarArchivoBTN.HasFile)
+            if (!String.IsNullOrWhiteSpace(NombresTextBox.Text) && !string.IsNullOrWhiteSpace(UserTextBox.Text) && !string.IsNullOrWhiteSpace(EmailTextBox.Text) && !string.IsNullOrWhiteSpace(TelefonoTextBox.Text) && !string.IsNullOrWhiteSpace(ClaveTextBox.Text) && !string.IsNullOrWhiteSpace(ConfirmarTextBox.Text) && ConfirmarTextBox.Text.Equals(ClaveTextBox.Text))
             {
                 return true;
             }
@@ -81,7 +87,8 @@ namespace TeacherControlWeb.Registros
                         Llenardatos(user);
                         if (user.Insertar())
                         {
-                            Response.Write("<script>alert('Guardo!')</script>");
+                            Utility.MensajeToastr(this.Page, "Se Guardo con exito", "Exito", "success");
+                           // Response.Write("<script>Materialize.toast('I am a toast!', 3000, 'rounded')</script>");
                             Limpiar();
                             NombresTextBox.Focus();
                         }
@@ -98,7 +105,7 @@ namespace TeacherControlWeb.Registros
                         Llenardatos(user);
                         if (user.Editar())
                         {
-                            Response.Write("<script>alert('Modifico!')</script>");
+                            Response.Write("<script>Materialize.toast('I am a toast!', 3000, 'rounded')</script>");
                             Limpiar();
                             NombresTextBox.Focus();
                         }
@@ -117,12 +124,13 @@ namespace TeacherControlWeb.Registros
             Usuarios user = new Usuarios();
             try
             {
-                if (!string.IsNullOrWhiteSpace(IdTextBox.Text) && Validar())
+                if (!string.IsNullOrWhiteSpace(IdTextBox.Text))
                 {
                     if (user.Eliminar())
                     {
+                        
                         Limpiar();
-                        Response.Write("<script>alert('Eliminado!')</script>");
+                       
                         NombresTextBox.Focus();
                     }
                 }
@@ -154,6 +162,22 @@ namespace TeacherControlWeb.Registros
             {
 
                 throw ex;
+            }
+        }
+
+        protected void CargarImgButton_Click(object sender, EventArgs e)
+        {
+            Session["usiario"] = CargarArchivoBTN.FileName;
+            Usuarios user = new Usuarios();
+            user.Imagen = "~/img/" + CargarArchivoBTN.FileName;
+            CargarArchivoBTN.SaveAs(Server.MapPath("~/img/"+CargarArchivoBTN.FileName));
+            if (CargarArchivoBTN.HasFile)
+            {
+               
+                Imagen.ImageUrl = "~/img/" + CargarArchivoBTN.FileName;
+              
+
+
             }
         }
     }

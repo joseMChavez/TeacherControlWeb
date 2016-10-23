@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Text.RegularExpressions;
-using System.Globalization;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using Microsoft.Reporting.WebForms;
+using System.Data;
+
 
 
 namespace BLL
@@ -12,20 +15,23 @@ namespace BLL
     public static class Utility
     {
 
-        // Regex esta función permite mediante un patrón verificar si una cadena cumple con ese patrón 
-        public static bool ComprobarFormatoEmail(string sEmailAComprobar)
+        public static void MensajeToastr(Page page, string message, string title, string type = "info")
         {
-            if (!Regex.Match(sEmailAComprobar, @"\A(\w+\.?\w*\@\w+.)(com)\z").Success)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            page.ClientScript.RegisterStartupScript(page.GetType(), "toastr_message",
+                  String.Format("toastr.{0}('{1}', '{2}');", type.ToLower(), message, title), addScriptTags: true);
         }
-        //Este metodo es para Validar los Textbox
-        //1 Informacion...2 Error....3 Cuidado.
+        public static void ConfigurarReporte(ReportViewer rv, string ruta,string DataSets, DataTable listado)
+        {
+            rv.LocalReport.DataSources.Clear();
+            rv.ProcessingMode = ProcessingMode.Local;
+
+
+            rv.LocalReport.ReportPath = @ruta;
+            ReportDataSource sourse = new ReportDataSource(DataSets, listado);
+
+            rv.LocalReport.DataSources.Add(sourse);
+            rv.LocalReport.Refresh();
+        }
 
         public static int ConvierteEntero(string s)
         {

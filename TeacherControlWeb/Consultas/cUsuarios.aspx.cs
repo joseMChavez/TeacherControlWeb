@@ -48,8 +48,9 @@ namespace TeacherControlWeb.Consultas
 
         protected void ImprimirButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Consultas/reporteUsuarios.aspx");
-            Response.Clear();
+            //Response.Redirect("~/Consultas/reporteUsuarios.aspx");
+            //Response.Clear();
+            Utility.ConfigurarReporte(UsuariosReportViewer, @"Reportes\UsuariosReport.rdlc", "Usuarios", Usuarios.ListadoDt("1=1"));
         }
     }
 }

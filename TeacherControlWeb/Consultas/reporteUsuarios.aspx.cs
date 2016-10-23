@@ -10,6 +10,7 @@ using System.Web.UI.WebControls.WebParts;
 using Microsoft.Reporting.WebForms;
 using System.IO;
 using System.Web.UI.HtmlControls;
+using BLL;
 
 namespace TeacherControlWeb.Consultas
 {
@@ -17,31 +18,29 @@ namespace TeacherControlWeb.Consultas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Configurar(UsuariosReportViewer);
-            //RedirecRepor(UsuariosReportViewer,Response);
-            Response.Clear();
+            
+                //Configurar(UsuariosReportViewer);
+            
         }
 
         private void Configurar( ReportViewer rv)
         {
             rv.LocalReport.DataSources.Clear();
+            rv.ProcessingMode = ProcessingMode.Local;
+
+
             rv.LocalReport.ReportPath = @"Reportes\UsuariosReport.rdlc";
+            ReportDataSource sourse = new ReportDataSource("Usuarios",Usuarios.ListadoDt("1=1"));
+
+            rv.LocalReport.DataSources.Add(sourse);
             rv.LocalReport.Refresh();
         }
-        private void RedirecRepor(ReportViewer rv, HttpResponse response)
-        {
-            Warning[] warning;
-            string[] streamind;
-            string minitype;
-            string encodin;
-            string extenciones;
-            byte[] Bytes = rv.LocalReport.Render("PDF", null, out minitype, out encodin, out extenciones, out streamind, out warning);
+       
 
-            response.Clear();
-            response.ContentType = minitype;
-            response.AppendHeader("content-Disposition", "inline: filename= TrainingofficalRecord."+extenciones);
-            response.BinaryWrite(Bytes);
-            response.End();
+        protected void CargarImgButton_Click(object sender, EventArgs e)
+        {
+            //Configurar(UsuariosReportViewer);
+            Utility.ConfigurarReporte(UsuariosReportViewer, @"Reportes\UsuariosReport.rdlc", "Usuarios", Usuarios.ListadoDt("1=1"));
         }
     }
 }

@@ -10,7 +10,7 @@
 namespace TeacherControlWeb.Consultas {
     
     
-    public partial class cUsuarios {
+    public partial class cCalificaciones {
         
         /// <summary>
         /// ScriptManager1 control.
@@ -58,13 +58,13 @@ namespace TeacherControlWeb.Consultas {
         protected global::System.Web.UI.WebControls.LinkButton BuscarButton;
         
         /// <summary>
-        /// UsuariosRepeater control.
+        /// CalificacionesGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater UsuariosRepeater;
+        protected global::System.Web.UI.WebControls.GridView CalificacionesGridView;
         
         /// <summary>
         /// ImprimirButton control.
@@ -76,12 +76,12 @@ namespace TeacherControlWeb.Consultas {
         protected global::System.Web.UI.WebControls.LinkButton ImprimirButton;
         
         /// <summary>
-        /// UsuariosReportViewer control.
+        /// UsuariosReport control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Microsoft.Reporting.WebForms.ReportViewer UsuariosReportViewer;
+        protected global::Microsoft.Reporting.WebForms.ReportViewer UsuariosReport;
     }
 }

@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div class=" container">
-
+        
         <%--<div class="row center"> Registro de Usuarios</div>--%>
         <div class="row">
             <div class=" col s12">
@@ -23,8 +23,12 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col s12 center-align">
+                                <div class="col s8 center-align">
                                     <asp:FileUpload ID="CargarArchivoBTN" runat="server" CssClass="file-field input-field" BorderStyle="Groove" ForeColor="#3366FF" ViewStateMode="Enabled" />
+                                </div>
+                                <div class="col s4">
+                                    
+                                <asp:LinkButton ID="CargarImgButton" runat="server" CssClass=" waves-effect blue darken-1 white-text btn" OnClick="CargarImgButton_Click"><i class="material-icons prefix">input</i></asp:LinkButton>
                                 </div>
                             </div>
 
@@ -33,7 +37,7 @@
                                 <div class="input-field col s3">
                                     <i class="material-icons prefix">turned_in</i>
                                     <label for="IdTextBox">Id:</label>
-                                    <asp:TextBox CssClass="validate" ID="IdTextBox" runat="server"></asp:TextBox>
+                                    <asp:TextBox CssClass="validate" ID="IdTextBox" runat="server" ></asp:TextBox>
                                    
                                 </div>
                                 <div class="col s3">
@@ -126,8 +130,9 @@
             </div>
 
 
-
+</div>
+                </div>
         </div>
-    </div>
+    
 
 </asp:Content>

@@ -2,7 +2,7 @@
 go
 
 go
-
+Drop table Usuarios;
 create table Usuarios(
 			 UsuarioId int identity(1,1),
 			 Nombres varchar(70),
@@ -11,7 +11,7 @@ create table Usuarios(
 			 Telefono varchar(15),
 			 Clave varchar(15),
 			 ConfirmarClave Varchar(15),
-			 Imagen varchar(250),
+			 Imagen varchar(Max),
 			 TipoUsuario varchar(20),
 			 primary key(UsuarioId)
 ) 
@@ -30,21 +30,18 @@ CREATE TABLE Grupos(
 
 go
 Create table Estudiantes( 
-		EstudianteId int identity(1,1),
+		EstudianteId int identity(1,1) primary key,
 		Matricula int,
-		Nombre varchar(50),
-		Apellido varchar(50),
-		Genero Varchar(3),
-		FechaNacimiento varchar(20),
+		Nombre varchar(70),
+		Genero bit,
+		FechaNacimiento Date,
 		Edad int,
 		Celular varchar(15),
 		Email Varchar(70),
 		Direccion varchar(100),
 		CursoId int Foreign key References Cursos(CursoId),
 		Grupo varchar(10),
-		NombrePadre varchar(50),
-		TelefonoPadre varchar(15),
-		primary key(EstudianteId)
+		
 )
 
 go
@@ -58,7 +55,7 @@ create table Asistencias(
        AsistenciaId int identity(1,1),
 	   CursoId int,
 	   GrupoId int,
-	   Fecha DateTime,
+	   Fecha Date,
 	   CantidaEst int,
 	   foreign key(GrupoId) references Grupos(GrupoId),
 	   foreign key(CursoId) references Cursos(CursoId),
@@ -67,7 +64,7 @@ create table Asistencias(
 go
 Create table AsistenciaDetalle(
  Id int identity(1,1),
- Estudiante varchar(30), 
+ EstudianteId  Int references Estudiantes(EstudianteId), 
  Matricula int,
  AsistenciaId int foreign key references Asistencias(AsistenciaId),
  Estado varchar(15),
@@ -77,9 +74,9 @@ go
 create table Calificaciones(
 		CalificacionId int identity(1,1) primary key,
 		EstudianteId int foreign key references Estudiantes(EstudianteId), 
-		Materia varchar(20), 
+		MateriaId int references Materias(MateriaId), 
 	    Curso varchar(20),
-	    Cursogrupo varchar(5),
+	    Grupo varchar(5),
 		TotalPuntos float,
 	    Fecha DateTime	
 )

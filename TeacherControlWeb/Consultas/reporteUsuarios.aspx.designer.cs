@@ -22,6 +22,15 @@ namespace TeacherControlWeb.Consultas {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
+        /// CargarImgButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton CargarImgButton;
+        
+        /// <summary>
         /// UsuariosReportViewer control.
         /// </summary>
         /// <remarks>
@@ -29,14 +38,5 @@ namespace TeacherControlWeb.Consultas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Microsoft.Reporting.WebForms.ReportViewer UsuariosReportViewer;
-        
-        /// <summary>
-        /// SqlDataSourceUsuarios control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceUsuarios;
     }
 }
