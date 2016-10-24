@@ -73,7 +73,7 @@ Create table AsistenciaDetalle(
 go
 create table Calificaciones(
 		CalificacionId int identity(1,1) primary key,
-		EstudianteId int foreign key references Estudiantes(EstudianteId), 
+		EstudianteIdM int foreign key references Estudiantes(EstudianteId), 
 		MateriaId int references Materias(MateriaId), 
 	    Curso varchar(20),
 	    Grupo varchar(5),
@@ -83,12 +83,13 @@ create table Calificaciones(
 go
 create table CalificacionDetalle(
 		Id int identity(1,1) primary key,
-		CalificacionId int foreign key references Calificaciones(CalificacionId),
+		CalificacionIdM int foreign key references Calificaciones(CalificacionId),
 		Descripcion varchar(70),
 		Puntuacion float
 )
 
-
+Drop table CalificacionDetalle
+Drop table Calificaciones
 go
 CREATE TABLE CategoriaCalificaciones
 (
@@ -104,3 +105,6 @@ select * From Estudiante
 Insert Into Asistencias(Curso,CursoGrupo,Fecha) values(1,'C','2016-03-31 09:21:32 PM',1) ;
 Insert into AsistenciaDetalle(AsistenciaId,EstudianteId,Activo) Values(5,'Jose','Presente')
 select A.AsistenciaId as Id,A.Curso, A.CursoGrupo as Grupo,AD.EstudianteId as Estudiante,AD.Activo as Estado, A.Fecha from Asistencias as  A Inner join AsistenciaDetalle as AD ON A.AsistenciaId=AD.AsistenciaId;
+
+ Drop View CalificacionesPView
+ Select * from CalificacionesPromedioView 

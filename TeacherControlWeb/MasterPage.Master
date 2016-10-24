@@ -115,9 +115,11 @@
             </div>
         </div>
     </footer>
-    <script src="/js/jquery-3.1.0.min.js"> </script>
+    <script src="/js/angular.min.js"></script>
     <script src="/js/toastr.min.js"></script>
+    <script src="/js/jquery-3.1.0.min.js"> </script>
     <script src="/js/materialize.min.js"></script>
+    
     <script>
         $(document).ready(Function(
             $('.dropdown-button').dropdown({

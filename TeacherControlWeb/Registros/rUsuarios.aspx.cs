@@ -43,7 +43,7 @@ namespace TeacherControlWeb.Registros
             user.Clave = ClaveTextBox.Text;
             user.ConfirmaClave = ConfirmarTextBox.Text;
             user.TipoUsuario = TipoDropDownList.SelectedValue;
-            user.Imagen = "~/img/"+ Session["usiario"];
+            user.Imagen = @"/img/"+ Session["usiario"];
 
         }
         private void DevolverDatos(Usuarios user)

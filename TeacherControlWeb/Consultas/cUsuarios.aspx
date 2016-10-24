@@ -46,7 +46,7 @@
                                                     <img class="responsive-img" alt="NO HAY" src='<%# Eval("Imagen")%>'>
                                                 </div>
                                                 <div class="card-content">
-                                                    <asp:Label ID="Label1" runat="server" Text='<%# Eval("Imagen")%>'></asp:Label>
+                                                    <asp:Label ID="Label1" runat="server" Text='<%# Eval("Imagen")%>'></asp:Label> <br />
                                                     <asp:Label ID="UserLabel" runat="server" Text='<%# Eval("UserName")%>'></asp:Label><br />
                                                     <asp:Label ID="EmailLabel" runat="server" Text='<%# Eval("Email")%>'></asp:Label><br />
                                                     <asp:Label ID="TellLabel" runat="server" Text='<%# Eval("Telefono")%>'></asp:Label>
@@ -70,10 +70,11 @@
                 <div id="modal1" class="modal modal-fixed-footer">
                    
                     <div class="modal-content">
-                         <asp:LinkButton  data-target="modal1" ID="ImprimirButton" CausesValidation="false" CssClass=" waves-effect green darken-1 white-text btn" runat="server" OnClick="ImprimirButton_Click" Style="left: 0px; top: 1px"><i class="material-icons prefix">print</i>Imprimir</asp:LinkButton>
+                        
                         <rsweb:ReportViewer ID="UsuariosReportViewer" runat="server" Width="721px"></rsweb:ReportViewer>
                     </div>
                     <div class="modal-footer">
+                         <asp:LinkButton  data-target="modal1" ID="ImprimirButton" CausesValidation="false" CssClass=" waves-effect green darken-1 white-text btn" runat="server" OnClick="ImprimirButton_Click" Style="left: 0px; top: 1px"><i class="material-icons prefix">repeat</i></asp:LinkButton>
                         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
                     </div>
                 </div>

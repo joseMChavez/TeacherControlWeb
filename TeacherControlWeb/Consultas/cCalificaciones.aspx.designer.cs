@@ -58,6 +58,60 @@ namespace TeacherControlWeb.Consultas {
         protected global::System.Web.UI.WebControls.LinkButton BuscarButton;
         
         /// <summary>
+        /// ActivadorLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ActivadorLabel;
+        
+        /// <summary>
+        /// ActivadorCheckBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox ActivadorCheckBox;
+        
+        /// <summary>
+        /// DesdeLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label DesdeLabel;
+        
+        /// <summary>
+        /// TextBox1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        
+        /// <summary>
+        /// HastaLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label HastaLabel;
+        
+        /// <summary>
+        /// TextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox;
+        
+        /// <summary>
         /// CalificacionesGridView control.
         /// </summary>
         /// <remarks>
@@ -76,12 +130,12 @@ namespace TeacherControlWeb.Consultas {
         protected global::System.Web.UI.WebControls.LinkButton ImprimirButton;
         
         /// <summary>
-        /// UsuariosReport control.
+        /// CalificacionesReport control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Microsoft.Reporting.WebForms.ReportViewer UsuariosReport;
+        protected global::Microsoft.Reporting.WebForms.ReportViewer CalificacionesReport;
     }
 }

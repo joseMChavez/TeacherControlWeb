@@ -1,0 +1,9 @@
+﻿****Vista de Promedio primera Edicion****
+create view CalificacionesPromedioView as 
+select
+ COUNT(Calificaciones.CalificacionId) as Id, Calificaciones.Curso, Calificaciones.Grupo, E.Nombre, E.Matricula, Sum(CD.Puntuacion) as Total, AVG(Calificaciones.TotalPuntos) as Promedio, Calificaciones.Fecha 
+  from 
+  Calificaciones inner join CalificacionDetalle as CD on Calificaciones.CalificacionId= CD.CalificacionIdM
+   inner join Estudiantes as E on E.EstudianteId = Calificaciones.EstudianteIdM  
+   inner join Materias as M on M.MateriaId = Calificaciones.MateriaId 
+   Group by Calificaciones.CalificacionId, E.Nombre, E.Matricula, Calificaciones.Curso, Calificaciones.Grupo, Calificaciones.Fecha;
