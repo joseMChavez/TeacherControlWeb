@@ -108,3 +108,4 @@ select A.AsistenciaId as Id,A.Curso, A.CursoGrupo as Grupo,AD.EstudianteId as Es
 
  Drop View CalificacionesPView
  Select * from CalificacionesPromedioView 
+ select * from CalificacionDetalle
