@@ -24,7 +24,7 @@
 
                                 </div>
                                 <div class="col s3">
-                                    <asp:LinkButton ToolTip="Buscar" ID="BuscarButton" runat="server" CssClass=" waves-effect blue darken-1 white-text btn"><i class="material-icons prefix">search</i></asp:LinkButton>
+                                    <asp:LinkButton ToolTip="Buscar" ID="BuscarButton" runat="server" CssClass=" waves-effect blue darken-1 white-text btn" OnClick="BuscarButton_Click"><i class="material-icons prefix">search</i></asp:LinkButton>
                                 </div>
 
                             </div>
@@ -43,9 +43,9 @@
                                 <div class="col s6">
                                     <div class="card-action center">
 
-                                        <asp:Button CssClass="waves-effect  light-blue lighten-1 btn " ID="NuevoButton" runat="server" Text="Nuevo"  />
-                                        <asp:Button CssClass="waves-effect  waves-light btn" ID="GuardarButton" runat="server" Text="Guardar"  Style="left: 0px; top: 0px" />
-                                        <asp:Button CssClass="waves-effect  red  btn materialize-red " ID="EliminarButton" runat="server" Text="Eliminar"  />
+                                        <asp:Button CssClass="waves-effect  light-blue lighten-1 btn " ID="NuevoButton" runat="server" Text="Nuevo" OnClick="NuevoButton_Click"  />
+                                        <asp:Button CssClass="waves-effect  waves-light btn" ID="GuardarButton" runat="server" Text="Guardar"  Style="left: 0px; top: 0px" OnClick="GuardarButton_Click" />
+                                        <asp:Button CssClass="waves-effect  red  btn materialize-red " ID="EliminarButton" runat="server" Text="Eliminar" OnClick="EliminarButton_Click"  />
                                     </div>
                                 </div>
                                 <div class="col s3">

@@ -165,19 +165,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Sum(</Value>
-                              <Style>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                            <TextRun>
-                              <Value>=Fields!CursoId.Value</Value>
-                              <Style>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                            <TextRun>
-                              <Value>)</Value>
+                              <Value>=Count(Fields!CursoId.Value)</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -269,7 +257,6 @@
       </Tablix>
       <Line Name="Line1">
         <Top>1.19972cm</Top>
-        <Left>0cm</Left>
         <Height>0cm</Height>
         <Width>16.51cm</Width>
         <ZIndex>1</ZIndex>
@@ -523,7 +510,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>PrincipalDataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\jose\Documents\Proyecto\TeacherControlWeb\TeacherControlWeb\PrincipalDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\jose\Desktop\Proyecto\TeacherControlWeb\TeacherControlWeb\PrincipalDataSet.xsd</rd:SchemaPath>
         <rd:TableName>Cursos</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

@@ -116,5 +116,12 @@ namespace BLL
 
             return conexion.ObtenerDatos("Select " + Campos + " From Grupos Where " + Condicion + ordenFinal);
         }
+        public static DataTable ListadoDos(string Condicion)
+        {
+            ConexionDb conexion = new ConexionDb();
+           
+
+            return conexion.ObtenerDatos("Select * From Grupos Where " + Condicion);
+        }
     }
 }

@@ -32,7 +32,7 @@
     
     <ul id="Consultas-dropdown-desktop" class="dropdown-content">
         <li><a href="/Consultas/cUsuarios.aspx">Usuarios</a></li>
-       <li><a href="#">Cursos</a></li>
+       <li><a href="/Consultas/cCursos.aspx">Cursos</a></li>
       <li><a href="#">Grupos</a></li>
       <li><a href="#">Materias</a></li>
      <li><a href="#">Categorias de Calificaciones</a></li>
@@ -71,11 +71,11 @@
   </ul>
   
 
-  <nav class="light-blue lighten-1" role="navigation">
+  <nav class="light-blue lighten-2" role="navigation">
     <div class="nav-wrapper container">
-    <a id="logo-container" href="#" class="brand-logo"> <i class="material-icons prefix">mode_edit</i>TC</a>
+    <a id="logo-container" href="Default.aspx" class="brand-logo"> <i class="material-icons prefix">mode_edit</i>TC</a>
     <ul class="right hide-on-med-and-down">
-      <li><a href="#">Inicio</a></li>
+      <li><a href="Default.aspx">Inicio</a></li>
       <li><a class="dropdown-button" href="#!" data-activates="Registros-dropdown-desktop">Registros</a></li>
       <li><a class="dropdown-button" href="#!" data-activates="Consultas-dropdown-desktop">Consultas</a></li>
       <li><a class="dropdown-button" href="#!" >Calificaciones</a></li>
@@ -85,12 +85,12 @@
     </ul>
 
     <ul id="nav-mobile" class="side-nav">
-      <li><a href="#">Inicio</a></li>
+      <li><a href="Default.aspx">Inicio</a></li>
       <li><a class="dropdown-button" href="#!" data-activates="Registros-dropdown-movil">Registros<i class="material-icons right">arrow_drop_down</i></a></li>
       <li><a class="dropdown-button" href="#!" data-activates="Consultas-dropdown-movil">Consultas<i class="material-icons right">arrow_drop_down</i></a></li>
       <li><a  href="#!" >Calificaciones</a></li>
       <li><a  href="#!">Asistencias</a></li>
-      <li><a href="#">Accerder</a></li>
+      <li><a href="#">Usuario</a></li>
     </ul>
     <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>

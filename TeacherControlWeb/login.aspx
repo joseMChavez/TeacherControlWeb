@@ -9,7 +9,7 @@
     <link href="/css/materialize.css" rel="stylesheet" />
 </head>
 <body class="responsive-img background center-block" background="/img/fondo2.jpg">
-    <br>
+    
     <form id="form1" runat="server">
     
      <div class="container  center-align">

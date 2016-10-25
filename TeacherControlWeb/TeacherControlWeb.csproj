@@ -65,6 +65,7 @@
       <DependentUpon>TeacherControlWebDB.mdf</DependentUpon>
     </Content>
     <Content Include="Consultas\cCalificaciones.aspx" />
+    <Content Include="Consultas\cCursos.aspx" />
     <Content Include="Consultas\cUsuarios.aspx" />
     <Content Include="css\materialize.css" />
     <Content Include="css\materialize.min.css" />
@@ -93,6 +94,13 @@
     </Compile>
     <Compile Include="Consultas\cCalificaciones.aspx.designer.cs">
       <DependentUpon>cCalificaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\cCursos.aspx.cs">
+      <DependentUpon>cCursos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cCursos.aspx.designer.cs">
+      <DependentUpon>cCursos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Consultas\cUsuarios.aspx.cs">
       <DependentUpon>cUsuarios.aspx</DependentUpon>
