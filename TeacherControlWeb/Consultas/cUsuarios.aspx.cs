@@ -10,6 +10,7 @@ namespace TeacherControlWeb.Consultas
 {
     public partial class cUsuarios : System.Web.UI.Page
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -18,9 +19,10 @@ namespace TeacherControlWeb.Consultas
             {
                 UsuariosRepeater.DataSource = user.Listado("Nombres,UserName,Imagen,Email,Telefono", "1=1", "");
                 UsuariosRepeater.DataBind();
+                Utility.ConfigurarReporte(UsuariosReportViewer, @"Reportes\UsuariosReport.rdlc", "Usuarios", Usuarios.ListadoDt(Mostrar(user)));
             }
         }
-        private void Mostrar(Usuarios user)
+        private string Mostrar(Usuarios user)
         {
             string filtro = "";
 
@@ -39,6 +41,7 @@ namespace TeacherControlWeb.Consultas
             }
             UsuariosRepeater.DataSource = user.Listado("Nombres,UserName,Imagen,Email,Telefono", filtro, "");
             UsuariosRepeater.DataBind();
+            return filtro;
         }
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
@@ -48,9 +51,10 @@ namespace TeacherControlWeb.Consultas
 
         protected void ImprimirButton_Click(object sender, EventArgs e)
         {
+            Usuarios user = new Usuarios();
             //Response.Redirect("~/Consultas/reporteUsuarios.aspx");
             //Response.Clear();
-            Utility.ConfigurarReporte(UsuariosReportViewer, @"Reportes\UsuariosReport.rdlc", "Usuarios", Usuarios.ListadoDt("1=1"));
+            Utility.ConfigurarReporte(UsuariosReportViewer, @"Reportes\UsuariosReport.rdlc", "Usuarios", Usuarios.ListadoDt(Mostrar(user)));
         }
     }
 }

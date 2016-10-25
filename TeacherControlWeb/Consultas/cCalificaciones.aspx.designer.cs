@@ -58,24 +58,6 @@ namespace TeacherControlWeb.Consultas {
         protected global::System.Web.UI.WebControls.LinkButton BuscarButton;
         
         /// <summary>
-        /// ActivadorLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ActivadorLabel;
-        
-        /// <summary>
-        /// ActivadorCheckBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ActivadorCheckBox;
-        
-        /// <summary>
         /// DesdeLabel control.
         /// </summary>
         /// <remarks>
@@ -85,13 +67,13 @@ namespace TeacherControlWeb.Consultas {
         protected global::System.Web.UI.WebControls.Label DesdeLabel;
         
         /// <summary>
-        /// TextBox1 control.
+        /// DesdeTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox DesdeTextBox;
         
         /// <summary>
         /// HastaLabel control.
@@ -103,13 +85,31 @@ namespace TeacherControlWeb.Consultas {
         protected global::System.Web.UI.WebControls.Label HastaLabel;
         
         /// <summary>
-        /// TextBox control.
+        /// HastaTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox;
+        protected global::System.Web.UI.WebControls.TextBox HastaTextBox;
+        
+        /// <summary>
+        /// ActivadorLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ActivadorLabel;
+        
+        /// <summary>
+        /// CheckBox1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox CheckBox1;
         
         /// <summary>
         /// CalificacionesGridView control.
@@ -121,15 +121,6 @@ namespace TeacherControlWeb.Consultas {
         protected global::System.Web.UI.WebControls.GridView CalificacionesGridView;
         
         /// <summary>
-        /// ImprimirButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton ImprimirButton;
-        
-        /// <summary>
         /// CalificacionesReport control.
         /// </summary>
         /// <remarks>
@@ -137,5 +128,14 @@ namespace TeacherControlWeb.Consultas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Microsoft.Reporting.WebForms.ReportViewer CalificacionesReport;
+        
+        /// <summary>
+        /// ImprimirButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton ImprimirButton;
     }
 }

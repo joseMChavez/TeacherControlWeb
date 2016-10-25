@@ -68,13 +68,21 @@
     <Content Include="Consultas\cUsuarios.aspx" />
     <Content Include="css\materialize.css" />
     <Content Include="css\materialize.min.css" />
+    <Content Include="Default.aspx" />
     <Content Include="img\1455915673_Courses.png" />
     <Content Include="img\images.png" />
     <Content Include="js\jquery-3.1.0.min.js" />
     <Content Include="js\materialize.js" />
     <Content Include="js\materialize.min.js" />
     <Content Include="js\toastr.js" />
+    <Content Include="login.aspx" />
+    <Content Include="Registros\rAsistencias.aspx" />
+    <Content Include="Registros\rCalificaciones.aspx" />
+    <Content Include="Registros\rCategorias.aspx" />
+    <Content Include="Registros\rCursos.aspx" />
     <Content Include="Registros\rEstudiantes.aspx" />
+    <Content Include="Registros\rGrupos.aspx" />
+    <Content Include="Registros\rMaterias.aspx" />
     <Content Include="Registros\rUsuarios.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -92,6 +100,20 @@
     </Compile>
     <Compile Include="Consultas\cUsuarios.aspx.designer.cs">
       <DependentUpon>cUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
@@ -111,12 +133,54 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Registros\rAsistencias.aspx.cs">
+      <DependentUpon>rAsistencias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rAsistencias.aspx.designer.cs">
+      <DependentUpon>rAsistencias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rCalificaciones.aspx.cs">
+      <DependentUpon>rCalificaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rCalificaciones.aspx.designer.cs">
+      <DependentUpon>rCalificaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rCategorias.aspx.cs">
+      <DependentUpon>rCategorias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rCategorias.aspx.designer.cs">
+      <DependentUpon>rCategorias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rCursos.aspx.cs">
+      <DependentUpon>rCursos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rCursos.aspx.designer.cs">
+      <DependentUpon>rCursos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Registros\rEstudiantes.aspx.cs">
       <DependentUpon>rEstudiantes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Registros\rEstudiantes.aspx.designer.cs">
       <DependentUpon>rEstudiantes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rGrupos.aspx.cs">
+      <DependentUpon>rGrupos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rGrupos.aspx.designer.cs">
+      <DependentUpon>rGrupos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rMaterias.aspx.cs">
+      <DependentUpon>rMaterias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rMaterias.aspx.designer.cs">
+      <DependentUpon>rMaterias.aspx</DependentUpon>
     </Compile>
     <Compile Include="Registros\rUsuarios.aspx.cs">
       <DependentUpon>rUsuarios.aspx</DependentUpon>
