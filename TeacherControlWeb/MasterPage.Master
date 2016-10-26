@@ -125,12 +125,12 @@
      <script src="/js/toastr.min.js"></script>
      <script src="/js/plugin-min.js"></script>
     <script src="/js/custom-min.js"></script>
-    <script src="http://handlingquotas.azurewebsites.net/js/jquery.js"></script>
+  <%--  <script src="http://handlingquotas.azurewebsites.net/js/jquery.js"></script>
     <script src ="http://handlingquotas.azurewebsites.net/js/jquery-1.10.2.js"></script>
     <script src ="http://handlingquotas.azurewebsites.net/js/toastr.min.js"></script>
     <script src ="http://handlingquotas.azurewebsites.net/js/jquery-1.9.1.min.js"></script>
     <script src="http://handlingquotas.azurewebsites.net/js/bootstrap.min.js"></script>
-    
+    --%>
     <script>
         $(document).ready(Function(
             $('.dropdown-button').dropdown({

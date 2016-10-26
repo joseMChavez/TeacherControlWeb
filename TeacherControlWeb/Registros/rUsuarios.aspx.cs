@@ -43,8 +43,8 @@ namespace TeacherControlWeb.Registros
             user.Clave = ClaveTextBox.Text;
             user.ConfirmaClave = ConfirmarTextBox.Text;
             user.TipoUsuario = TipoDropDownList.SelectedValue;
-            user.Imagen = Imagen.ImageUrl;
-            Response.Write("<script>alert('"+user.Imagen+"')</script>");
+            user.Imagen = Imagen.ImageUrl;// le agrega la ruta de la imagen a la BLL
+           // Response.Write("<script>alert('"+user.Imagen+"')</script>");
 
         }
         private void DevolverDatos(Usuarios user)
