@@ -75,7 +75,8 @@ namespace TeacherControlWeb.Registros
                         if (curso.Insertar())
                         {
                             Limpiar();
-                            Utility.MensajeToastr(this.Page, "Se Guardo Correctamente!", "TC","Success");
+                            // Utility.MensajeToastr(this.Page, "Se Guardo Correctamente!", "TC","Success");
+                            Utility.Mensaje(this.Page, "Guardo");
                         }
                         else
                         {
@@ -124,9 +125,9 @@ namespace TeacherControlWeb.Registros
             try
             {
                 Cursos curso = new Cursos();
-                if (string.IsNullOrWhiteSpace(IdTextBox.Text))
+                if (!string.IsNullOrWhiteSpace(IdTextBox.Text))
                 {
-                    if (Validad(curso).Equals(true))
+                    if (Validad(curso).Equals(false))
                     {
                         LlenarDatos(curso);
                         if (curso.Eliminar())

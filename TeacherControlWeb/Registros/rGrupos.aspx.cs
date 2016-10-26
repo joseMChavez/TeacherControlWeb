@@ -18,6 +18,7 @@ namespace TeacherControlWeb.Registros
         {
             IdTextBox.Text = string.Empty;
             DescripcionTextBox.Text = string.Empty;
+            DescripcionTextBox.Focus();
         }
         private void LlenarDatos(Grupos grupo)
         {
@@ -39,6 +40,104 @@ namespace TeacherControlWeb.Registros
             else
             {
                 return false;
+            }
+        }
+
+        protected void NuevoButton_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
+
+        protected void GuardarButton_Click(object sender, EventArgs e)
+        {
+            Grupos grupos = new Grupos();
+            try
+            {
+                if (string.IsNullOrWhiteSpace(IdTextBox.Text))
+                {
+                    if (Validad(grupos).Equals(true))
+                    {
+                        LlenarDatos(grupos);
+                        if (grupos.Insertar())
+                        {
+                            Limpiar();
+                            // Utility.MensajeToastr(this.Page, "Se Guardo Correctamente!", "TC","Success");
+                            Utility.Mensaje(this.Page, "Guardo");
+                        }
+                        else
+                        {
+                            Utility.MensajeToastr(this.Page, "No se Guardo!", "TC", "Error");
+                            DescripcionTextBox.Focus();
+                        }
+                    }
+                    else
+                    {
+                        DescripcionTextBox.Focus();
+                        Utility.MensajeToastr(this.Page, "Intente Nuevamente!", "TC");
+                    }
+                }
+                else
+                {
+                    if (Validad(grupos).Equals(true))
+                    {
+                        LlenarDatos(grupos);
+                        if (grupos.Editar())
+                        {
+                            Limpiar();
+                            Utility.MensajeToastr(this.Page, "Se Modifico Correctamente!", "TC", "Success");
+                        }
+                        else
+                        {
+                            Utility.MensajeToastr(this.Page, "No se Modifico!", "TC", "Error");
+                            DescripcionTextBox.Focus();
+                        }
+                    }
+                    else
+                    {
+                        DescripcionTextBox.Focus();
+                        Utility.MensajeToastr(this.Page, "Intente Nuevamente!", "TC");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Response.Write(ex.Message);
+            }
+        }
+
+        protected void EliminarButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Grupos grupos = new Grupos();
+                if (!string.IsNullOrWhiteSpace(IdTextBox.Text))
+                {
+                    if (Validad(grupos).Equals(false))
+                    {
+                        LlenarDatos(grupos);
+                        if (grupos.Eliminar())
+                        {
+                            Limpiar();
+                            Utility.MensajeToastr(this.Page, "Se Elimino Correctamente!", "TC", "Success");
+                        }
+                        else
+                        {
+                            Utility.MensajeToastr(this.Page, "No se Elimino!", "TC", "Error");
+                            DescripcionTextBox.Focus();
+                        }
+                    }
+                    else
+                    {
+                        DescripcionTextBox.Focus();
+                        Utility.MensajeToastr(this.Page, "Intente Nuevamente!", "TC");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.MensajeToastr(this.Page, ""+ex.Message+"", "TC");
+
             }
         }
     }

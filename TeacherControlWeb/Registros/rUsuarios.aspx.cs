@@ -14,7 +14,7 @@ namespace TeacherControlWeb.Registros
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["usiario"] = null;
+           // Session["usiario"] = null;
             if (!IsPostBack)
             {
                
@@ -43,7 +43,8 @@ namespace TeacherControlWeb.Registros
             user.Clave = ClaveTextBox.Text;
             user.ConfirmaClave = ConfirmarTextBox.Text;
             user.TipoUsuario = TipoDropDownList.SelectedValue;
-            user.Imagen = @"/img/"+ Session["usiario"];
+            user.Imagen = Imagen.ImageUrl;
+            Response.Write("<script>alert('"+user.Imagen+"')</script>");
 
         }
         private void DevolverDatos(Usuarios user)
@@ -167,14 +168,14 @@ namespace TeacherControlWeb.Registros
 
         protected void CargarImgButton_Click(object sender, EventArgs e)
         {
-            Session["usiario"] = CargarArchivoBTN.FileName;
+            //Session["usiario"] = CargarArchivoBTN.FileName;
             Usuarios user = new Usuarios();
-            user.Imagen = "~/img/" + CargarArchivoBTN.FileName;
-            CargarArchivoBTN.SaveAs(Server.MapPath("~/img/"+CargarArchivoBTN.FileName));
+            user.Imagen = "/img/" + CargarArchivoBTN.FileName;
+            CargarArchivoBTN.SaveAs(Server.MapPath("/img/"+CargarArchivoBTN.FileName));
             if (CargarArchivoBTN.HasFile)
             {
                
-                Imagen.ImageUrl = "~/img/" + CargarArchivoBTN.FileName;
+                Imagen.ImageUrl = "/img/" + CargarArchivoBTN.FileName;
               
 
 

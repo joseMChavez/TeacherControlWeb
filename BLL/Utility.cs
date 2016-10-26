@@ -20,6 +20,11 @@ namespace BLL
             page.ClientScript.RegisterStartupScript(page.GetType(), "toastr_message",
                   String.Format("toastr.{0}('{1}', '{2}');", type.ToLower(), message, title), addScriptTags: true);
         }
+        public static void Mensaje(Page page, string message)
+        {
+            page.ClientScript.RegisterStartupScript(page.GetType(), "toastr_materialize",
+                  String.Format(" Materialize.toast('"+ message + "', 3000, 'rounded')"), addScriptTags: true);
+        }
         public static void ConfigurarReporte(ReportViewer rv, string ruta,string DataSets, DataTable listado)
         {
             rv.LocalReport.DataSources.Clear();
