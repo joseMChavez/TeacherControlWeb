@@ -11,7 +11,7 @@
 
                 <div class=" card-panel">
                     <div class=" card-title center-align light-green-text">
-                        <h3>Consulta de Usuarios</h3>
+                        <h3>Consulta de Calificaciones</h3>
                     </div>
                     <div class="card-small">
                         <div class="card-content">
@@ -70,8 +70,8 @@
 
                             </div>
                             <div class="row">
-                                <div class=" col s1 l2 Table responsive-table picker__table">
-                                    <asp:GridView ID="CalificacionesGridView" runat="server"></asp:GridView>
+                                <div class=" col s12 m12 l2 ">
+                                    <asp:GridView ID="CalificacionesGridView" CssClass="Table responsive-table table-of-contents highlight" runat="server"></asp:GridView>
                                 </div>
                             </div>
                         </div>

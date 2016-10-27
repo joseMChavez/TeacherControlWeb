@@ -16,7 +16,9 @@ namespace TeacherControlWeb.Consultas
             if (!IsPostBack)
             {
                 Utility.ConfigurarReporte(CalificacionesReport, @"Reportes\CalificacionesReport.rdlc", "Calificaciones", Calificaciones.ListadoVista("1=1"));
-            
+               
+                CalificacionesGridView.DataSource = Calificaciones.ListadoVista("1=1");
+                CalificacionesGridView.DataBind(); 
         }
         }
 
