@@ -67,10 +67,11 @@
     <Content Include="Consultas\cCalificaciones.aspx" />
     <Content Include="Consultas\cCursos.aspx" />
     <Content Include="Consultas\cUsuarios.aspx" />
+    <Content Include="content\toastr.css" />
+    <Content Include="css\toastr.min.css" />
     <Content Include="css\materialize.css" />
     <Content Include="css\materialize.min.css" />
     <Content Include="Default.aspx" />
-    <Content Include="img\1455915673_Courses.png" />
     <Content Include="img\a .png" />
     <Content Include="img\b.png" />
     <Content Include="img\C.ico" />
@@ -82,6 +83,8 @@
     <Content Include="img\logo.ico" />
     <Content Include="img\logo.png" />
     <Content Include="img\p.jpg" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\jquery-1.9.1.min.js" />
     <Content Include="js\jquery-2.2.0.min.js" />
     <Content Include="js\jquery-3.1.0.min.js" />
     <Content Include="js\materialize.js" />
@@ -96,6 +99,16 @@
     <Content Include="Registros\rGrupos.aspx" />
     <Content Include="Registros\rMaterias.aspx" />
     <Content Include="Registros\rUsuarios.aspx" />
+    <Content Include="packages.config" />
+    <Content Include="content\toastr.scss" />
+    <Content Include="content\toastr.less" />
+    <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.1.1.js" />
+    <Content Include="js\jquery-3.1.1.min.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="js\toastr.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -246,6 +259,8 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.1.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -14,8 +14,11 @@ namespace TeacherControlWeb.Registros
         {
             Cursos curso = new Cursos();
             int id = 0;
+           
             if (!IsPostBack)
             {
+                Cursos2GridView.DataSource = curso.Listado("*", "1=1", "");
+                Cursos2GridView.DataBind();
                 if (Request.QueryString["ID"]!= null)
                 {
                     id = Utility.ConvierteEntero(Request.QueryString["ID"].ToString());
@@ -75,8 +78,8 @@ namespace TeacherControlWeb.Registros
                         if (curso.Insertar())
                         {
                             Limpiar();
-                            // Utility.MensajeToastr(this.Page, "Se Guardo Correctamente!", "TC","Success");
-                            Utility.Mensaje(this.Page, "Guardo");
+                             Utility.MensajeToastr(this.Page, "Se Guardo Correctamente!", "TC","Success");
+                            //Utility.Mensaje(this.Page, "Guardo");
                         }
                         else
                         {

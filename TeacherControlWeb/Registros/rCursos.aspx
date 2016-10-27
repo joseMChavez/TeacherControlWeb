@@ -20,11 +20,12 @@
                                 <div class="input-field col s3">
                                     <i class="material-icons prefix">turned_in</i>
                                     <label for="IdTextBox">Id:</label>
-                                    <asp:TextBox CssClass="validate" ID="IdTextBox" runat="server"></asp:TextBox>
+                                    <asp:TextBox CssClass="validate" ID="IdTextBox" ReadOnly="true" runat="server" TextMode="Number"></asp:TextBox>
 
                                 </div>
                                 <div class="col s3">
-                                    <asp:LinkButton ToolTip="Buscar" ID="BuscarButton" runat="server" CssClass=" waves-effect blue darken-1 white-text btn" OnClick="BuscarButton_Click"><i class="material-icons prefix">search</i></asp:LinkButton>
+                                    <a class="waves-effect blue darken-1 white-text btn modal-trigger" href="#modal1"><i class="material-icons prefix">search</i></a>
+                                    <asp:LinkButton  Visible="false" ToolTip="Buscar" ID="BuscarButton" runat="server" CssClass=" waves-effect blue darken-1 white-text btn" OnClick="BuscarButton_Click"><i class="material-icons prefix">search</i></asp:LinkButton>
                                 </div>
 
                             </div>
@@ -50,6 +51,34 @@
                                 </div>
                                 <div class="col s3">
                                 </div>
+                                 <!-- Modal Trigger -->
+                <%--<a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="material-icons prefix">print</i></a>--%>
+
+                <!-- Modal Structure -->
+                <div id="modal1" class="modal bottom-sheet">
+                   
+                    <div class="modal-content">
+                        <h1>Listado de Cursos</h1>
+                         <div class="row">
+                                <asp:GridView ID="Cursos2GridView" CssClass=" striped highlight responsive-table picker__table" runat="server">
+                                   <Columns>
+                                        <asp:HyperLinkField
+                                        DataNavigateUrlFields="CursoId"
+                                        DataNavigateUrlFormatString="/Registros/rCursos.aspx?ID={0}"
+                                        Text="Editar"
+                                         ControlStyle-CssClass="label select-label " />
+                                       </Columns>
+                                </asp:GridView>
+
+                            </div>
+                        </div>
+                    <div class="modal-footer">
+                         
+                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
+                    </div>
+                    </div>
+                    
+                </div>
 
                             </div>
                         </div>
