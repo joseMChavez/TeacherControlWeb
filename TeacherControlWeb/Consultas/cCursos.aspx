@@ -56,7 +56,7 @@
                 <a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="material-icons prefix">print</i></a>
 
                 <!-- Modal Structure -->
-                <div id="modal1" class="modal modal-fixed-footer">
+                <div id="modal1" class="modal bottom-shee">
                    
                     <div class="modal-content">
                         

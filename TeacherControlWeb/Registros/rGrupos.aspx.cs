@@ -12,6 +12,21 @@ namespace TeacherControlWeb.Registros
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Grupos grupos = new Grupos();
+            if (!IsPostBack)
+            {
+                GrupoGridView.DataSource = grupos.Listado("*","1=1","");
+                GrupoGridView.DataBind();
+                if (Request.QueryString["ID"] != null)
+                {
+                   int id = Utility.ConvierteEntero(Request.QueryString["ID"].ToString());
+                    if (grupos.Buscar(id))
+                    {
+                        Devolverdatos(grupos);
+                        DescripcionTextBox.Focus();
+                    }
+                }
+            }
 
         }
         private void Limpiar()
@@ -61,8 +76,8 @@ namespace TeacherControlWeb.Registros
                         if (grupos.Insertar())
                         {
                             Limpiar();
-                            // Utility.MensajeToastr(this.Page, "Se Guardo Correctamente!", "TC","Success");
-                            Utility.Mensaje(this.Page, "Guardo");
+                            Utility.MensajeToastr(this.Page, "Se Guardo Correctamente!", "TC","Success");
+                            //Utility.Mensaje(this.Page, "Guardo");
                         }
                         else
                         {

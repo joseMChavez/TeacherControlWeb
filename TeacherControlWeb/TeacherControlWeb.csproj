@@ -72,10 +72,12 @@
     <Content Include="css\materialize.css" />
     <Content Include="css\materialize.min.css" />
     <Content Include="Default.aspx" />
+    <Content Include="img\4m.jpg" />
     <Content Include="img\a .png" />
     <Content Include="img\b.png" />
     <Content Include="img\C.ico" />
     <Content Include="img\Courses.png" />
+    <Content Include="img\cs.jpg" />
     <Content Include="img\e.png" />
     <Content Include="img\fondo2.jpg" />
     <Content Include="img\icono.ico" />

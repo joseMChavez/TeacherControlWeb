@@ -73,7 +73,7 @@
       
   </ul>
   
-
+<%-- Menu --%>
   <nav class="light-blue lighten-2 z-depth-4" role="navigation">
     <div class="nav-wrapper container ">
     <a id="logo-container" href="Default.aspx" class="brand-logo"> <i class="material-icons prefix">mode_edit</i>TC</a>
@@ -122,12 +122,12 @@
     <%--<script src="/js/angular.min.js"></script>--%>
    
     <%--<script src="/js/jquery-2.2.0.min.js"></script>--%>
-    <script src="/js/jquery-3.1.0.min.js"></script>
+    <script src="/js/jquery-3.1.1.min.js"></script>
    <%-- <script src="/js/jquery-1.9.1.min.js"></scrip--%>
     <script src="/js/materialize.min.js"></script>
   <%--  <script src="/js/bootstrap.min.js"></script>--%>
     <script src="/js/toastr.min.js"></script>
-   <%--  <script src="/js/plugin-min.js"></script>--%>
+     <script src="/js/plugin-min.js"></script>
     <script src="/js/custom-min.js"></script>
  
     <script>
@@ -143,21 +143,24 @@
             }
   )
   ));
-        $('.button-collapse').sideNav({
-            menuWidth: 300, // Default is 240
-            edge: 'left', // Choose the horizontal origin
-            closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
-        }
+        
 
- );
+ 
         $(document).ready(function () {
             $('TipoDropDownList').material_select();
         });
         $(document).ready(function () {
             // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
             $('.modal-trigger').leanModal();
+            $('.parallax').parallax();
+            $('.button-collapse').sideNav({
+                menuWidth: 300, // Default is 240
+                edge: 'left', // Choose the horizontal origin
+                closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+            });
         });
-       
+      
+
     </script>
 </body>
 </html>

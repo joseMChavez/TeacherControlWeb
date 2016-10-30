@@ -8,21 +8,21 @@
         <h1 class="text_h center header cd-headline letters type">
             <span>Teacher Control es </span> 
             <span class="cd-words-wrapper waiting">
-                <b class="is-visible">Comodidad</b>
-                <b>Modernidad</b>
-                <b>Portabilidad</b>
+                <b class="is-visible">Comodidad.</b>
+                <b>Modernidad.</b>
+                <b>Portabilidad.</b>
             </span>
         </h1>
     </div>
 </div>
-<div class="parallax-container">
+<div class=" parallax-container">
     <div class="parallax"><img src="img/fondo2.jpg"></div>
 </div>
 <div class="section scrollspy" id="work">
     <div class="container">
-        <h2 class="header text_b">Facil Acceso </h2>
+        <h2 class="header text_b mdi-action-label-outline">Facil Acceso </h2>
         <div class="row">
-            <div class="col s12 m4 l4">
+            <div class="col s10 m4 l4">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
                         <img class=" circle activator" src="/img/images.png">
@@ -113,6 +113,10 @@
                 </div>
             </div>
         </div>
+        <div class=" parallax-container">
+    <div class=" parallax">
+        <img src="img/cs.jpg" /> </div>
+</div>
     </div>
 </div>
 </asp:Content>

@@ -24,7 +24,7 @@
 
                                 </div>
                                 <div class="col s3">
-                                    <asp:LinkButton ToolTip="Buscar" ID="BuscarButton" runat="server" CssClass=" waves-effect blue darken-1 white-text btn"><i class="material-icons prefix">search</i></asp:LinkButton>
+                                        <a class="waves-effect blue darken-1 white-text btn modal-trigger" href="#modal1"><i class="material-icons prefix">search</i></a>
                                 </div>
 
                             </div>
@@ -51,6 +51,29 @@
                                 <div class="col s3">
                                 </div>
 
+                            </div>
+                             <%-- modal --%>
+                             <div id="modal1" class="modal bottom-sheet">
+
+                                <div class="modal-content">
+                                    <h1>Listado de Grupos</h1>
+                                    <div class="row">
+                                        <asp:GridView ID="GrupoGridView" CssClass=" striped highlight responsive-table picker__table" runat="server">
+                                            <Columns>
+                                                <asp:HyperLinkField
+                                                    DataNavigateUrlFields="GrupoId"
+                                                    DataNavigateUrlFormatString="/Registros/rGrupos.aspx?Id={0}"
+                                                    Text="Editar"
+                                                    ControlStyle-CssClass="btn btn-block waves-effect white-text" />
+                                            </Columns>
+                                        </asp:GridView>
+
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+
+                                    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat"><i class="material-icons">power_settings_new</i></a>
+                                </div>
                             </div>
                         </div>
                     </div>

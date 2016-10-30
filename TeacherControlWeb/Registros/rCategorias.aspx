@@ -23,8 +23,8 @@
                                     <asp:TextBox CssClass="validate" ID="IdTextBox" runat="server"></asp:TextBox>
 
                                 </div>
-                                <div class="col s3">
-                                    <asp:LinkButton ToolTip="Buscar" ID="BuscarButton" runat="server" CssClass=" waves-effect blue darken-1 white-text btn"><i class="material-icons prefix">search</i></asp:LinkButton>
+                                <div class="col s3 m3 l3">
+                                   <a class="waves-effect blue darken-1 white-text btn modal-trigger" href="#modal1"><i class="material-icons prefix">search</i></a>
                                 </div>
 
                             </div>
@@ -43,14 +43,37 @@
                                 <div class="col s6">
                                     <div class="card-action center">
 
-                                        <asp:Button CssClass="waves-effect  light-blue lighten-1 btn " ID="NuevoButton" runat="server" Text="Nuevo"  />
-                                        <asp:Button CssClass="waves-effect  waves-light btn" ID="GuardarButton" runat="server" Text="Guardar"  Style="left: 0px; top: 0px" />
-                                        <asp:Button CssClass="waves-effect  red  btn materialize-red " ID="EliminarButton" runat="server" Text="Eliminar"  />
+                                        <asp:Button CssClass="waves-effect  light-blue lighten-1 btn " ID="NuevoButton" runat="server" Text="Nuevo" OnClick="NuevoButton_Click" style="left: 0px; top: 0px"  />
+                                        <asp:Button CssClass="waves-effect  waves-light btn" ID="GuardarButton" runat="server" Text="Guardar"  Style="left: 0px; top: -1px" OnClick="GuardarButton_Click" />
+                                        <asp:Button CssClass="waves-effect  red  btn materialize-red " ID="EliminarButton" runat="server" Text="Eliminar" OnClick="EliminarButton_Click" style="left: 0px; top: 0px"  />
                                     </div>
                                 </div>
                                 <div class="col s3">
                                 </div>
 
+                            </div>
+                            <%-- modal --%>
+                             <div id="modal1" class="modal bottom-sheet">
+
+                                <div class="modal-content">
+                                    <h1>Listado de Categorias</h1>
+                                    <div class="row">
+                                        <asp:GridView ID="CategoriasGridView" CssClass=" striped highlight responsive-table picker__table" runat="server">
+                                            <Columns>
+                                                <asp:HyperLinkField
+                                                    DataNavigateUrlFields="CategoriaCalificacionesId"
+                                                    DataNavigateUrlFormatString="/Registros/rCategorias.aspx?Id={0}"
+                                                    Text="Editar"
+                                                    ControlStyle-CssClass="btn btn-block waves-effect white-text" />
+                                            </Columns>
+                                        </asp:GridView>
+
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+
+                                    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat"><i class="material-icons">power_settings_new</i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
