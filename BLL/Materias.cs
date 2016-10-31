@@ -121,5 +121,12 @@ namespace BLL
 
             return conexion.ObtenerDatos("Select " + Campos + " From Materias Where " + Condicion + ordenFinal);
         }
+        public static DataTable ListadoMMat(string Condicion)
+        {
+            ConexionDb conexion = new ConexionDb();
+           
+
+            return conexion.ObtenerDatos("Select * From Materias Where " + Condicion);
+        }
     }
 }

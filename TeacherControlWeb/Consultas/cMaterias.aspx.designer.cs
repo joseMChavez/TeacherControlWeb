@@ -10,7 +10,7 @@
 namespace TeacherControlWeb.Consultas {
     
     
-    public partial class cCursos {
+    public partial class cMaterias {
         
         /// <summary>
         /// ScriptManager1 control.
@@ -58,21 +58,21 @@ namespace TeacherControlWeb.Consultas {
         protected global::System.Web.UI.WebControls.LinkButton BuscarButton;
         
         /// <summary>
-        /// CursosGridView control.
+        /// MateriasGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView CursosGridView;
+        protected global::System.Web.UI.WebControls.GridView MateriasGridView;
         
         /// <summary>
-        /// CursosReportViewer control.
+        /// MateriasReportViewer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Microsoft.Reporting.WebForms.ReportViewer CursosReportViewer;
+        protected global::Microsoft.Reporting.WebForms.ReportViewer MateriasReportViewer;
     }
 }

@@ -66,6 +66,7 @@
     </Content>
     <Content Include="Consultas\cCalificaciones.aspx" />
     <Content Include="Consultas\cCursos.aspx" />
+    <Content Include="Consultas\cMaterias.aspx" />
     <Content Include="Consultas\cUsuarios.aspx" />
     <Content Include="content\toastr.css" />
     <Content Include="css\toastr.min.css" />
@@ -127,6 +128,13 @@
     </Compile>
     <Compile Include="Consultas\cCursos.aspx.designer.cs">
       <DependentUpon>cCursos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\cMaterias.aspx.cs">
+      <DependentUpon>cMaterias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cMaterias.aspx.designer.cs">
+      <DependentUpon>cMaterias.aspx</DependentUpon>
     </Compile>
     <Compile Include="Consultas\cUsuarios.aspx.cs">
       <DependentUpon>cUsuarios.aspx</DependentUpon>
@@ -279,6 +287,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Reportes\CalificacionesReport.rdlc" />
     <EmbeddedResource Include="Reportes\CursosReport.rdlc" />
+    <EmbeddedResource Include="Reportes\MateriaReport.rdlc" />
     <EmbeddedResource Include="Reportes\UsuariosReport.rdlc" />
   </ItemGroup>
   <PropertyGroup>

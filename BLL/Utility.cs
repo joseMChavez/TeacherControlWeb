@@ -31,7 +31,7 @@ namespace BLL
             rv.ProcessingMode = ProcessingMode.Local;
 
 
-            rv.LocalReport.ReportPath = @ruta;
+            rv.LocalReport.ReportPath = ruta;
             ReportDataSource sourse = new ReportDataSource(DataSets, listado);
 
             rv.LocalReport.DataSources.Add(sourse);
