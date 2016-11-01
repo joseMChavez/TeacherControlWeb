@@ -17,20 +17,20 @@
 
                             <%-- Id --%>
                             <div class="row">
-                                <div class="input-field col s3">
+                                <div class="input-field col s3 m3 l2">
                                     <i class="material-icons prefix">turned_in</i>
                                     <label for="IdTextBox">Id:</label>
-                                    <asp:TextBox CssClass="validate" ID="IdTextBox" runat="server"></asp:TextBox>
+                                    <asp:TextBox CssClass="validate" ID="IdTextBox" ReadOnly="true" runat="server"></asp:TextBox>
 
                                 </div>
-                                <div class="col s3">
+                                <div class="col s3 m2 l2">
                                         <a class="waves-effect blue darken-1 white-text btn modal-trigger" href="#modal1"><i class="material-icons prefix">search</i></a>
                                 </div>
 
                             </div>
-                            <%-- Nombres --%>
+                            <%-- Desc --%>
                             <div class="row">
-                                <div class="input-field col s8">
+                                <div class="input-field col s12 m8 l6">
                                     <i class="material-icons prefix">description</i>
                                     <label for="DescripcionTextBox">Descripcion:</label>
                                     <asp:TextBox CssClass="validate" ID="DescripcionTextBox" runat="server"></asp:TextBox>

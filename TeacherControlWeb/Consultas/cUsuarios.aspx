@@ -43,10 +43,10 @@
                                                     <asp:Label ID="NombresLabel" runat="server" Text='<%# Eval("Nombres")%>'></asp:Label>
                                                 </div>
                                                 <div class="card-image">
-                                                    <img class="responsive-img" alt="NO HAY" src='<%# Eval("Imagen")%>'>
+                                                    <img class=" responsive-img circle" alt="NO HAY" src='<%# Eval("Imagen")%>'>
                                                 </div>
                                                 <div class="card-content">
-                                                    <asp:Label ID="Label1" runat="server" Text='<%# Eval("Imagen")%>'></asp:Label> <br />
+                                                    
                                                     <asp:Label ID="UserLabel" runat="server" Text='<%# Eval("UserName")%>'></asp:Label><br />
                                                     <asp:Label ID="EmailLabel" runat="server" Text='<%# Eval("Email")%>'></asp:Label><br />
                                                     <asp:Label ID="TellLabel" runat="server" Text='<%# Eval("Telefono")%>'></asp:Label>
@@ -54,6 +54,7 @@
                                             </div>
                                         </div>
                                     </ItemTemplate>
+                                   
                                 </asp:Repeater>
                             </div>
                         </div>

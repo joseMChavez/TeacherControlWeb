@@ -65,7 +65,10 @@
       <DependentUpon>TeacherControlWebDB.mdf</DependentUpon>
     </Content>
     <Content Include="Consultas\cCalificaciones.aspx" />
+    <Content Include="Consultas\cCategoria.aspx" />
     <Content Include="Consultas\cCursos.aspx" />
+    <Content Include="Consultas\cEstudiantesCursos.aspx" />
+    <Content Include="Consultas\cGrupos.aspx" />
     <Content Include="Consultas\cMaterias.aspx" />
     <Content Include="Consultas\cUsuarios.aspx" />
     <Content Include="content\toastr.css" />
@@ -122,12 +125,33 @@
     <Compile Include="Consultas\cCalificaciones.aspx.designer.cs">
       <DependentUpon>cCalificaciones.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Consultas\cCategoria.aspx.cs">
+      <DependentUpon>cCategoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cCategoria.aspx.designer.cs">
+      <DependentUpon>cCategoria.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Consultas\cCursos.aspx.cs">
       <DependentUpon>cCursos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Consultas\cCursos.aspx.designer.cs">
       <DependentUpon>cCursos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\cEstudiantesCursos.aspx.cs">
+      <DependentUpon>cEstudiantesCursos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cEstudiantesCursos.aspx.designer.cs">
+      <DependentUpon>cEstudiantesCursos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\cGrupos.aspx.cs">
+      <DependentUpon>cGrupos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cGrupos.aspx.designer.cs">
+      <DependentUpon>cGrupos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Consultas\cMaterias.aspx.cs">
       <DependentUpon>cMaterias.aspx</DependentUpon>
@@ -286,6 +310,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reportes\CalificacionesReport.rdlc" />
+    <EmbeddedResource Include="Reportes\CursoEstReport.rdlc" />
     <EmbeddedResource Include="Reportes\CursosReport.rdlc" />
     <EmbeddedResource Include="Reportes\MateriaReport.rdlc" />
     <EmbeddedResource Include="Reportes\UsuariosReport.rdlc" />

@@ -189,5 +189,13 @@ namespace BLL
 
             return conexion.ObtenerDatos("Select " + Campos + " From Estudiante Where " + Condicion + ordenFinal);
         }
+        public static DataTable ListadoEstudianteCurso( string Condicion, string Orden)
+        {
+            ConexionDb conexion = new ConexionDb();
+            string ordenFinal = "";
+            if (!Orden.Equals(""))
+                ordenFinal = " Order by  " + Orden;
+            return conexion.ObtenerDatos("Select * From EstudiantePorCursos Where " + Condicion + ordenFinal);
+        }
     }
 }

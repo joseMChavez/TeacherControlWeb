@@ -7,3 +7,10 @@ select
    inner join Estudiantes as E on E.EstudianteId = Calificaciones.EstudianteIdM  
    inner join Materias as M on M.MateriaId = Calificaciones.MateriaId 
    Group by Calificaciones.CalificacionId, E.Nombre, E.Matricula, Calificaciones.Curso, Calificaciones.Grupo, Calificaciones.Fecha;
+
+
+   ****Creacion de Vista Estudiantes Por Cursos****
+    create view EstudiantePorCursos as
+ select
+  E.Nombre, E.Matricula,C.Descripcion as Curso, E.Grupo as Seccion, YEar(GETDate())-YEAR(E.FechaNacimiento) as Edad 
+  from Estudiantes as E inner join Cursos as C on E.CursoId = C.CursoId;

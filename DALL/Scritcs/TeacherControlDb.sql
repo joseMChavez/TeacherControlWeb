@@ -35,7 +35,6 @@ Create table Estudiantes(
 		Nombre varchar(70),
 		Genero bit,
 		FechaNacimiento Date,
-		Edad int,
 		Celular varchar(15),
 		Email Varchar(70),
 		Direccion varchar(100),
@@ -43,6 +42,7 @@ Create table Estudiantes(
 		Grupo varchar(10),
 		
 )
+
 
 go
 create table Materias(
@@ -105,7 +105,9 @@ select * From Estudiante
 Insert Into Asistencias(Curso,CursoGrupo,Fecha) values(1,'C','2016-03-31 09:21:32 PM',1) ;
 Insert into AsistenciaDetalle(AsistenciaId,EstudianteId,Activo) Values(5,'Jose','Presente')
 select A.AsistenciaId as Id,A.Curso, A.CursoGrupo as Grupo,AD.EstudianteId as Estudiante,AD.Activo as Estado, A.Fecha from Asistencias as  A Inner join AsistenciaDetalle as AD ON A.AsistenciaId=AD.AsistenciaId;
-
+select E.Nombre, E.Matricula,C.Descripcion as Curso, E.Grupo as Seccion, YEar(GETDate())-YEAR(E.FechaNacimiento) as Edad from Estudiantes as E inner join Cursos as C on E.CursoId = C.CursoId
  Drop View CalificacionesPView
  Select * from CalificacionesPromedioView 
  select * from CalificacionDetalle
+
+ select Genero  from  Estudiantes;

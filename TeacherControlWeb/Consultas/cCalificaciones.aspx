@@ -21,18 +21,18 @@
                                 </div>
                                 <div class="col s3">
                                     <asp:DropDownList ToolTip="Tipo de Usuarios" ID="FiltroDropDownList" runat="server" CssClass="select-dropdown btn white black-text">
-                                        <asp:ListItem Value="CalifficacionesId">Id</asp:ListItem>
-                                        <asp:ListItem Value="Estudiante">Nombres</asp:ListItem>
-                                        <asp:ListItem Value="E.Matricula">Matricula</asp:ListItem>
-                                        <asp:ListItem Value="M.Materia">Materia</asp:ListItem>
-                                        <asp:ListItem Value="C.Curso">Curso</asp:ListItem>
+                                        <asp:ListItem Value="Id">Id</asp:ListItem>
+                                        <asp:ListItem Value="Nombre">Nombre</asp:ListItem>
+                                        <asp:ListItem Value="Matricula">Matricula</asp:ListItem>
+                                        <asp:ListItem Value="Materia">Materia</asp:ListItem>
+                                        <asp:ListItem Value="Curso">Curso</asp:ListItem>
                                     </asp:DropDownList>
                                 </div>
                                 <div class="input-field col s6">
                                     <asp:TextBox ID="FiltroTextBox" runat="server"></asp:TextBox>
                                 </div>
                                 <div class="col s2">
-                                    <asp:LinkButton ToolTip="Buscar" ID="BuscarButton" runat="server" CssClass=" waves-effect blue darken-1 white-text btn"><i class="material-icons prefix">search</i></asp:LinkButton>
+                                    <asp:LinkButton ToolTip="Buscar" ID="BuscarButton" runat="server" CssClass=" waves-effect blue darken-1 white-text btn" OnClick="BuscarButton_Click"><i class="material-icons prefix">search</i></asp:LinkButton>
                                 </div>
                             </div>
                                
@@ -62,7 +62,7 @@
                                 <div class="col s3 switch">
                                     <label >
                                       
-                                      <asp:CheckBox ID="CheckBox1" runat="server"  />
+                                      <asp:CheckBox ID="ONCheckBox" runat="server"  />
                                         <span class="lever"></span>
                                         
                                     </label>

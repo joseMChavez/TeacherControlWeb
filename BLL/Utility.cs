@@ -37,7 +37,7 @@ namespace BLL
             rv.LocalReport.DataSources.Add(sourse);
             rv.LocalReport.Refresh();
         }
-
+        
         public static int ConvierteEntero(string s)
         {
             int id = 0;
