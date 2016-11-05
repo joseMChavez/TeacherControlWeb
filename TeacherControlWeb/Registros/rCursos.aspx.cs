@@ -12,14 +12,15 @@ namespace TeacherControlWeb.Registros
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Cursos curso = new Cursos();
-            int id = 0;
-           
+            
+
             if (!IsPostBack)
             {
+                Cursos curso = new Cursos();
+                int id = 0;
                 Cursos2GridView.DataSource = curso.Listado("*", "1=1", "");
                 Cursos2GridView.DataBind();
-                if (Request.QueryString["ID"]!= null)
+                if (Request.QueryString["ID"] != null)
                 {
                     id = Utility.ConvierteEntero(Request.QueryString["ID"].ToString());
                     if (curso.Buscar(id))
@@ -37,7 +38,8 @@ namespace TeacherControlWeb.Registros
             DescripcionTextBox.Text = string.Empty;
             DescripcionTextBox.Focus();
         }
-        private void LlenarDatos(Cursos curso) {
+        private void LlenarDatos(Cursos curso)
+        {
             curso.CursoId = Utility.ConvierteEntero(IdTextBox.Text);
             curso.Descripcion = DescripcionTextBox.Text;
 
@@ -47,79 +49,40 @@ namespace TeacherControlWeb.Registros
             IdTextBox.Text = curso.CursoId.ToString();
             DescripcionTextBox.Text = curso.Descripcion;
         }
-        private bool Validad(Cursos curso)
-        {
-            if (!string.IsNullOrWhiteSpace(DescripcionTextBox.Text) && curso.BuscarDescripcion(DescripcionTextBox.Text).Equals(false))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
+        
         protected void NuevoButton_Click(object sender, EventArgs e)
         {
             Limpiar();
-         
+
         }
 
         protected void GuardarButton_Click(object sender, EventArgs e)
         {
             Cursos curso = new Cursos();
+            LlenarDatos(curso);
+            bool exito = false;
             try
             {
-                if (string.IsNullOrWhiteSpace(IdTextBox.Text))
-                {
-                    if (Validad(curso).Equals(true))
+                    if (string.IsNullOrWhiteSpace(IdTextBox.Text))
                     {
-                        LlenarDatos(curso);
-                        if (curso.Insertar())
-                        {
-                            Limpiar();
-                             Utility.MensajeToastr(this.Page, "Se Guardo Correctamente!", "TC","Success");
-                            //Utility.Mensaje(this.Page, "Guardo");
-                        }
-                        else
-                        {
-                            Utility.MensajeToastr(this.Page, "No se Guardo!", "TC", "Error");
-                            DescripcionTextBox.Focus();
-                        }
+                        exito = curso.Insertar();
                     }
                     else
                     {
-                        DescripcionTextBox.Focus();
-                        Utility.MensajeToastr(this.Page, "Intente Nuevamente!", "TC");
+                        exito = curso.Editar();
                     }
-                }
-                else
+           
+            
+            if (exito)
                 {
-                    if (Validad(curso).Equals(true))
-                    {
-                        LlenarDatos(curso);
-                        if (curso.Editar())
-                        {
-                            Limpiar();
-                            Utility.MensajeToastr(this.Page, "Se Modifico Correctamente!", "TC", "Success");
-                        }
-                        else
-                        {
-                            Utility.MensajeToastr(this.Page, "No se Modifico!", "TC", "Error");
-                            DescripcionTextBox.Focus();
-                        }
-                    }
-                    else
-                    {
-                        DescripcionTextBox.Focus();
-                        Utility.MensajeToastr(this.Page, "Intente Nuevamente!", "TC");
-                    }
+                    Utility.MensajeToastr(this.Page, "Exito!", "TC", "Success");
+                    Limpiar();
                 }
             }
             catch (Exception ex)
             {
 
-                Response.Write(ex.Message);
+                Utility.MensajeToastr(this.Page, "Comunicase con el administrador \n" + ex.Message + "", "Error", "Warning");
             }
         }
 
@@ -128,39 +91,30 @@ namespace TeacherControlWeb.Registros
             try
             {
                 Cursos curso = new Cursos();
-                if (!string.IsNullOrWhiteSpace(IdTextBox.Text))
+                if (Request.QueryString["ID"] != null)
                 {
-                    if (Validad(curso).Equals(false))
+                    curso.CursoId = Utility.ConvierteEntero(IdTextBox.Text);
+
+                    if (curso.Eliminar())
                     {
-                        LlenarDatos(curso);
-                        if (curso.Eliminar())
-                        {
-                            Limpiar();
-                            Utility.MensajeToastr(this.Page, "Se Elimino Correctamente!", "TC", "Success");
-                        }
-                        else
-                        {
-                            Utility.MensajeToastr(this.Page, "No se Elimino!", "TC", "Error");
-                            DescripcionTextBox.Focus();
-                        }
-                    }
-                    else
-                    {
-                        DescripcionTextBox.Focus();
-                        Utility.MensajeToastr(this.Page, "Intente Nuevamente!", "TC");
+                        Limpiar();
+                        Utility.MensajeToastr(this.Page, "Se Elimino Correctamente!", "TC", "Success");
+                        Request.QueryString["ID"] = null;
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                Utility.MensajeToastr(this.Page, "Comunicase con el administrador \n" + ex.Message + "", "Error", "Warning");
             }
         }
 
-        protected void BuscarButton_Click(object sender, EventArgs e)
+        protected void BuscarButton_Click(object sender, EventArgs e) 
         {
-            Response.Redirect("/Consultas/cCursos.aspx");
+            Cursos curso = new Cursos();
+            Cursos2GridView.DataSource = curso.Listado("*", "1=1", "");
+            Cursos2GridView.DataBind();
         }
     }
 }

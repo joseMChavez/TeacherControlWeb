@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.Reporting.WebForms;
 using System.Data;
+using DAL;
 
 
 
@@ -20,11 +21,7 @@ namespace BLL
             page.ClientScript.RegisterStartupScript(page.GetType(), "toastr_message",
                   String.Format("toastr.{0}('{1}', '{2}');", type.ToLower(), message, title), addScriptTags: true);
         }
-        public static void Mensaje(Page page, string message)
-        {
-            page.ClientScript.RegisterStartupScript(page.GetType(), "toastr_materialize",
-                  String.Format(" Materialize.toast('"+ message + "', 3000, 'rounded')"), addScriptTags: true);
-        }
+       
         public static void ConfigurarReporte(ReportViewer rv, string ruta,string DataSets, DataTable listado)
         {
             rv.LocalReport.DataSources.Clear();
@@ -37,7 +34,22 @@ namespace BLL
             rv.LocalReport.DataSources.Add(sourse);
             rv.LocalReport.Refresh();
         }
-        
+        public static bool BuscarDuplicado(string tabla,string campoBusqueda,string DescripcionBuscada)
+        {
+            ConexionDb conexion = new ConexionDb();
+            DataTable datatable = new DataTable();
+            try
+            {
+                datatable = conexion.ObtenerDatos(string.Format("select * from "+tabla+" where "+campoBusqueda+"= '" + DescripcionBuscada + "'"));
+            }
+            catch (Exception exc)
+            {
+
+                throw exc;
+            }
+            return datatable.Rows.Count > 0;
+
+        }
         public static int ConvierteEntero(string s)
         {
             int id = 0;

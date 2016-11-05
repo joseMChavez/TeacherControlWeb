@@ -47,18 +47,7 @@ namespace TeacherControlWeb.Registros
             IdTextBox.Text = categoria.CategoriaCalificacionesId.ToString();
             DescripcionTextBox.Text = categoria.Descripcion;
         }
-        private bool Validad(CategoriaCalificaciones categoria)
-        {
-            if (!string.IsNullOrWhiteSpace(DescripcionTextBox.Text) && categoria.BuscarDescripcion(DescripcionTextBox.Text).Equals(false))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
+        
         protected void NuevoButton_Click(object sender, EventArgs e)
         {
             Limpiar();
@@ -67,59 +56,28 @@ namespace TeacherControlWeb.Registros
         protected void GuardarButton_Click(object sender, EventArgs e)
         {
             CategoriaCalificaciones categoria = new CategoriaCalificaciones();
-
+            LlenarDatos(categoria);
+            bool exito = false;
             try
             {
                 if (string.IsNullOrWhiteSpace(IdTextBox.Text))
                 {
-                    if (Validad(categoria).Equals(true))
-                    {
-                        LlenarDatos(categoria);
-                        if (categoria.Insertar())
-                        {
-                            Limpiar();
-                            Utility.MensajeToastr(this.Page, "Se Guardo Correctamente!", "TC", "Success");
-                            //Utility.Mensaje(this.Page, "Guardo");
-                        }
-                        else
-                        {
-                            Utility.MensajeToastr(this.Page, "No se Guardo!", "TC", "Error");
-                            DescripcionTextBox.Focus();
-                        }
-                    }
-                    else
-                    {
-                        DescripcionTextBox.Focus();
-                        Utility.MensajeToastr(this.Page, "Intente Nuevamente!", "TC");
-                    }
+                    exito = categoria.Insertar();
                 }
                 else
                 {
-                    if (Validad(categoria).Equals(true))
-                    {
-                        LlenarDatos(categoria);
-                        if (categoria.Editar())
-                        {
-                            Limpiar();
-                            Utility.MensajeToastr(this.Page, "Se Modifico Correctamente!", "TC", "Success");
-                        }
-                        else
-                        {
-                            Utility.MensajeToastr(this.Page, "No se Modifico!", "TC", "Error");
-                            DescripcionTextBox.Focus();
-                        }
-                    }
-                    else
-                    {
-                        DescripcionTextBox.Focus();
-                        Utility.MensajeToastr(this.Page, "Intente Nuevamente!", "TC");
-                    }
+                    exito = categoria.Editar();
+                }
+                if (exito)
+                {
+                    Utility.MensajeToastr(this.Page, "Exito!", "TC", "Success");
+                    Limpiar();
                 }
             }
             catch (Exception ex)
             {
 
-                Utility.MensajeToastr(this.Page, "" + ex.Message + "", "TC");
+                Utility.MensajeToastr(this.Page, "Comunicase con el administrador \n" + ex.Message + "", "Error", "Warning");
             }
         }
 
@@ -127,32 +85,21 @@ namespace TeacherControlWeb.Registros
         {
             try
             {
-
                 CategoriaCalificaciones categoria = new CategoriaCalificaciones();
 
-                if (!string.IsNullOrWhiteSpace(IdTextBox.Text))
+                if (Request.QueryString["ID"] != null)
                 {
-                    if (Validad(categoria).Equals(false))
+                    categoria.CategoriaCalificacionesId = Utility.ConvierteEntero(IdTextBox.Text);
+
+                    if (categoria.Eliminar())
                     {
-                        LlenarDatos(categoria);
-                        if (categoria.Eliminar())
-                        {
-                            Limpiar();
-                            Utility.MensajeToastr(this.Page, "Se Elimino Correctamente!", "TC", "Success");
-                        }
-                        else
-                        {
-                            Utility.MensajeToastr(this.Page, "No se Elimino!", "TC", "Error");
-                            DescripcionTextBox.Focus();
-                        }
-                    }
-                    else
-                    {
-                        DescripcionTextBox.Focus();
-                        Utility.MensajeToastr(this.Page, "Intente Nuevamente!", "TC");
+                        Limpiar();
+                        Utility.MensajeToastr(this.Page, "Se Elimino Correctamente!", "TC", "Success");
+                        
                     }
                 }
             }
+            
             catch (Exception ex)
             {
                 Utility.MensajeToastr(this.Page, "" + ex.Message + "", "TC");

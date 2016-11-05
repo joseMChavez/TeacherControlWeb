@@ -100,7 +100,7 @@ namespace BLL
             return datatable.Rows.Count > 0;
 
         }
-        public bool BuscarDescripcion(string DescripcionBuscada)
+        public static bool BuscarDescripcion(string DescripcionBuscada)
         {
             ConexionDb conexion = new ConexionDb();
             DataTable datatable = new DataTable();

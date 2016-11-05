@@ -66,58 +66,27 @@ namespace TeacherControlWeb.Registros
         protected void GuardarButton_Click(object sender, EventArgs e)
         {
             Grupos grupos = new Grupos();
+            bool exito = false;
+            LlenarDatos(grupos);
             try
             {
                 if (string.IsNullOrWhiteSpace(IdTextBox.Text))
                 {
-                    if (Validad(grupos).Equals(true))
-                    {
-                        LlenarDatos(grupos);
-                        if (grupos.Insertar())
-                        {
-                            Limpiar();
-                            Utility.MensajeToastr(this.Page, "Se Guardo Correctamente!", "TC","Success");
-                            //Utility.Mensaje(this.Page, "Guardo");
-                        }
-                        else
-                        {
-                            Utility.MensajeToastr(this.Page, "No se Guardo!", "TC", "Error");
-                            DescripcionTextBox.Focus();
-                        }
-                    }
-                    else
-                    {
-                        DescripcionTextBox.Focus();
-                        Utility.MensajeToastr(this.Page, "Intente Nuevamente!", "TC");
-                    }
+                    exito = grupos.Insertar();
                 }
                 else
                 {
-                    if (Validad(grupos).Equals(true))
-                    {
-                        LlenarDatos(grupos);
-                        if (grupos.Editar())
-                        {
-                            Limpiar();
-                            Utility.MensajeToastr(this.Page, "Se Modifico Correctamente!", "TC", "Success");
-                        }
-                        else
-                        {
-                            Utility.MensajeToastr(this.Page, "No se Modifico!", "TC", "Error");
-                            DescripcionTextBox.Focus();
-                        }
-                    }
-                    else
-                    {
-                        DescripcionTextBox.Focus();
-                        Utility.MensajeToastr(this.Page, "Intente Nuevamente!", "TC");
-                    }
+                    exito = grupos.Editar();
+                }
+                if (exito)
+                {
+                    Utility.MensajeToastr(this.Page, "Exito!", "TC", "Success");
+                    Limpiar();
                 }
             }
             catch (Exception ex)
             {
-
-                Response.Write(ex.Message);
+                Utility.MensajeToastr(this.Page, "Comunicase con el administrador \n" + ex.Message + "", "Error", "Warning");
             }
         }
 
@@ -126,33 +95,22 @@ namespace TeacherControlWeb.Registros
             try
             {
                 Grupos grupos = new Grupos();
-                if (!string.IsNullOrWhiteSpace(IdTextBox.Text))
+                if (Request.QueryString["ID"] != null)
                 {
-                    if (Validad(grupos).Equals(false))
+                    grupos.GrupoId = Utility.ConvierteEntero(IdTextBox.Text);
+
+                    if (grupos.Eliminar())
                     {
-                        LlenarDatos(grupos);
-                        if (grupos.Eliminar())
-                        {
-                            Limpiar();
-                            Utility.MensajeToastr(this.Page, "Se Elimino Correctamente!", "TC", "Success");
-                        }
-                        else
-                        {
-                            Utility.MensajeToastr(this.Page, "No se Elimino!", "TC", "Error");
-                            DescripcionTextBox.Focus();
-                        }
-                    }
-                    else
-                    {
-                        DescripcionTextBox.Focus();
-                        Utility.MensajeToastr(this.Page, "Intente Nuevamente!", "TC");
+                        Limpiar();
+                        Utility.MensajeToastr(this.Page, "Se Elimino Correctamente!", "TC", "Success");
+                       
                     }
                 }
+            
             }
             catch (Exception ex)
             {
-                Utility.MensajeToastr(this.Page, ""+ex.Message+"", "TC");
-
+                Utility.MensajeToastr(this.Page, "Comunicase con el administrador \n" + ex.Message + "", "Error", "Warning");
             }
         }
     }

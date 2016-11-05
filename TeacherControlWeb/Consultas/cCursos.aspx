@@ -40,7 +40,7 @@
                                         DataNavigateUrlFields="CursoId"
                                         DataNavigateUrlFormatString="/Registros/rCursos.aspx?ID={0}"
                                         Text="Editar"
-                                         ControlStyle-CssClass="label  label-info" />
+                                         ControlStyle-CssClass="btn waves-effect white-text" />
                                        </Columns>
                                 </asp:GridView>
 

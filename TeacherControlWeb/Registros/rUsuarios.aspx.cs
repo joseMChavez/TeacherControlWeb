@@ -11,13 +11,13 @@ namespace TeacherControlWeb.Registros
 {
     public partial class rUsuarios : System.Web.UI.Page
     {
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
-           // Session["usiario"] = null;
+            // Session["usiario"] = null;
             if (!IsPostBack)
             {
-               
+
             }
         }
         private void Limpiar()
@@ -44,7 +44,7 @@ namespace TeacherControlWeb.Registros
             user.ConfirmaClave = ConfirmarTextBox.Text;
             user.TipoUsuario = TipoDropDownList.SelectedValue;
             user.Imagen = Imagen.ImageUrl;// le agrega la ruta de la imagen a la BLL
-           // Response.Write("<script>alert('"+user.Imagen+"')</script>");
+                                          // Response.Write("<script>alert('"+user.Imagen+"')</script>");
 
         }
         private void DevolverDatos(Usuarios user)
@@ -70,7 +70,7 @@ namespace TeacherControlWeb.Registros
                 return false;
             }
         }
-      
+
         protected void NuevoButton_Click(object sender, EventArgs e)
         {
             Limpiar();
@@ -89,16 +89,16 @@ namespace TeacherControlWeb.Registros
                         if (user.Insertar())
                         {
                             Utility.MensajeToastr(this.Page, "Se Guardo con exito", "Exito", "success");
-                           // Response.Write("<script>Materialize.toast('I am a toast!', 3000, 'rounded')</script>");
+                           
                             Limpiar();
                             NombresTextBox.Focus();
                         }
                         else
                         {
-                            Response.Write("<script>alert('NO Guardo!')</script>");
+                            Utility.MensajeToastr(this.Page, "No Se Guardo", "Exito", "Error");
                         }
+                    }
                 }
-            }
                 else
                 {
                     if (Validar())
@@ -106,9 +106,13 @@ namespace TeacherControlWeb.Registros
                         Llenardatos(user);
                         if (user.Editar())
                         {
-                            Response.Write("<script>Materialize.toast('I am a toast!', 3000, 'rounded')</script>");
+                            Utility.MensajeToastr(this.Page, "Se Modifico con exito", "Error", "success");
                             Limpiar();
                             NombresTextBox.Focus();
+                        }
+                        else
+                        {
+                            Utility.MensajeToastr(this.Page, "No se Modifico", "Error", "Error");
                         }
                     }
                 }
@@ -116,7 +120,7 @@ namespace TeacherControlWeb.Registros
             catch (Exception ex)
             {
 
-                throw ex;
+                Utility.MensajeToastr(this.Page, "Comunicase con el administrador \n" + ex.Message + "", "Error", "Warning");
             }
         }
 
@@ -129,17 +133,21 @@ namespace TeacherControlWeb.Registros
                 {
                     if (user.Eliminar())
                     {
-                        
+
                         Limpiar();
-                       
+                        Utility.MensajeToastr(this.Page, "Se Elimino con exito", "Exito", "success");
                         NombresTextBox.Focus();
+                    }
+                    else
+                    {
+                        Utility.MensajeToastr(this.Page, "No se Elimino", "Error", "Error");
                     }
                 }
             }
             catch (Exception ex)
             {
 
-                throw ex;
+                Utility.MensajeToastr(this.Page, "Comunicase con el administrador \n" + ex.Message + "", "Error", "Warning");
             }
         }
 
@@ -162,23 +170,20 @@ namespace TeacherControlWeb.Registros
             catch (Exception ex)
             {
 
-                throw ex;
+                Utility.MensajeToastr(this.Page, "Comunicase con el administrador \n" + ex.Message + "", "Error", "Warning");
             }
         }
 
         protected void CargarImgButton_Click(object sender, EventArgs e)
         {
-            //Session["usiario"] = CargarArchivoBTN.FileName;
+
             Usuarios user = new Usuarios();
             user.Imagen = "/img/" + CargarArchivoBTN.FileName;
-            CargarArchivoBTN.SaveAs(Server.MapPath("/img/"+CargarArchivoBTN.FileName));
+            CargarArchivoBTN.SaveAs(Server.MapPath("/img/" + CargarArchivoBTN.FileName));
             if (CargarArchivoBTN.HasFile)
             {
-               
+
                 Imagen.ImageUrl = "/img/" + CargarArchivoBTN.FileName;
-              
-
-
             }
         }
     }

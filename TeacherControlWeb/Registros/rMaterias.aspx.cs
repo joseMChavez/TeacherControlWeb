@@ -68,58 +68,27 @@ namespace TeacherControlWeb.Registros
         protected void GuardarButton_Click(object sender, EventArgs e)
         {
             Materias materia = new Materias();
+            bool exito = false;
+            LlenarDatos(materia);
             try
             {
                 if (string.IsNullOrWhiteSpace(IdTextBox.Text))
                 {
-                    if (Validad(materia).Equals(true))
-                    {
-                        LlenarDatos(materia);
-                        if (materia.Insertar())
-                        {
-                            Limpiar();
-                            Utility.MensajeToastr(this.Page, "Se Guardo Correctamente!", "TC", "Success");
-                            //Utility.Mensaje(this.Page, "Guardo");
-                        }
-                        else
-                        {
-                            Utility.MensajeToastr(this.Page, "No se Guardo!", "TC", "Error");
-                            DescripcionTextBox.Focus();
-                        }
-                    }
-                    else
-                    {
-                        DescripcionTextBox.Focus();
-                        Utility.MensajeToastr(this.Page, "Intente Nuevamente!", "TC");
-                    }
+                    exito = materia.Insertar();
                 }
                 else
                 {
-                    if (Validad(materia).Equals(true))
-                    {
-                        LlenarDatos(materia);
-                        if (materia.Editar())
-                        {
-                            Limpiar();
-                            Utility.MensajeToastr(this.Page, "Se Modifico Correctamente!", "TC", "Success");
-                        }
-                        else
-                        {
-                            Utility.MensajeToastr(this.Page, "No se Modifico!", "TC", "Error");
-                            DescripcionTextBox.Focus();
-                        }
-                    }
-                    else
-                    {
-                        DescripcionTextBox.Focus();
-                        Utility.MensajeToastr(this.Page, "Intente Nuevamente!", "TC");
-                    }
+                    exito = materia.Editar();
+                }
+                if (exito)
+                {
+                    Utility.MensajeToastr(this.Page, "Exito!", "TC", "Success");
+                    Limpiar();
                 }
             }
             catch (Exception ex)
             {
-
-                Utility.MensajeToastr(this.Page, "" + ex.Message + "", "TC");
+                Utility.MensajeToastr(this.Page, "Comunicase con el administrador \n" + ex.Message + "", "Error", "Warning");
             }
         }
 
@@ -128,26 +97,15 @@ namespace TeacherControlWeb.Registros
             try
             {
                 Materias materia = new Materias();
-                if (!string.IsNullOrWhiteSpace(IdTextBox.Text))
+                if (Request.QueryString["ID"] != null)
                 {
-                    if (Validad(materia).Equals(false))
+                    materia.MateriaId= Utility.ConvierteEntero(IdTextBox.Text);
+
+                    if (materia.Eliminar())
                     {
-                        LlenarDatos(materia);
-                        if (materia.Eliminar())
-                        {
-                            Limpiar();
-                            Utility.MensajeToastr(this.Page, "Se Elimino Correctamente!", "TC", "Success");
-                        }
-                        else
-                        {
-                            Utility.MensajeToastr(this.Page, "No se Elimino!", "TC", "Error");
-                            DescripcionTextBox.Focus();
-                        }
-                    }
-                    else
-                    {
-                        DescripcionTextBox.Focus();
-                        Utility.MensajeToastr(this.Page, "Intente Nuevamente!", "TC");
+                        Limpiar();
+                        Utility.MensajeToastr(this.Page, "Se Elimino Correctamente!", "TC", "Success");
+
                     }
                 }
             }
