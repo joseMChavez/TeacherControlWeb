@@ -11,14 +11,15 @@
 
                 <div class="card-panel">
                     <div class=" card-title center-align light-green-text">
-                        <h3>Registro de Estudiantes</h3>
+                        <h3 class="center">Registro de Estudiantes</h3>
+                         <asp:Label ID="FechaLabel" CssClass="amber-text center" runat="server"></asp:Label><br />
                     </div>
                     <div class="card-small">
                         <div class=" card-content">
                             <%-- Imagen --%>
                             <div class="row">
-                                <div class="circle responsive-img col s12 center-align">
-                                    <asp:Image ID="Imagen" runat="server" CssClass=" avatar" Height="93px" Width="146px" ImageUrl="/img/images.png" />
+                                <div class=" circle responsive-img col s12 center-align">
+                                    <asp:Image ID="Imagen" runat="server" CssClass=" circle-clipper avatar" Height="93px" Width="146px" ImageUrl="/img/images.png" />
 
                                 </div>
                             </div>
@@ -28,7 +29,7 @@
                                 </div>
                                 <div class="col s4">
 
-                                    <asp:LinkButton ID="CargarImgButton" runat="server" CssClass=" waves-effect blue darken-1 white-text btn"><i class="material-icons prefix">input</i></asp:LinkButton>
+                                    <asp:LinkButton ID="CargarImgButton" runat="server" CssClass=" waves-effect blue darken-1 white-text btn" OnClick="CargarImgButton_Click"><i class="material-icons prefix">input</i></asp:LinkButton>
                                 </div>
                             </div>
 
@@ -43,7 +44,7 @@
                                 <div class="col s3">
                                     <a class="waves-effect blue darken-1 white-text btn modal-trigger" href="#modal1"><i class="material-icons prefix">search</i></a>
                                 </div>
-
+                                
                             </div>
                             <%-- Matricula --%>
                             <div class="row">
@@ -120,9 +121,9 @@
                                  <div class=" col s2 m2 l2">
                                     <b>Cursos:</b>
                                 </div>
-                                <div class=" col s4 m4 l4">
+                                <div class=" input-field col s4 m4 l4">
 
-                                    <asp:DropDownList ToolTip="Lista de Cursos" ID="CursosDropDownList" runat="server" CssClass="select-dropdown accent-1 btn white black-text">
+                                    <asp:DropDownList ToolTip="Lista de Cursos" ID="CursosDropDownList" runat="server" CssClass="select-dropdown accent-1 btn  white black-text">
                                     </asp:DropDownList>
                                 </div>
                             </div>

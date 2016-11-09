@@ -67,6 +67,7 @@
     <Content Include="Consultas\cCalificaciones.aspx" />
     <Content Include="Consultas\cCategoria.aspx" />
     <Content Include="Consultas\cCursos.aspx" />
+    <Content Include="Consultas\cEstudiantes.aspx" />
     <Content Include="Consultas\cEstudiantesCursos.aspx" />
     <Content Include="Consultas\cGrupos.aspx" />
     <Content Include="Consultas\cMaterias.aspx" />
@@ -97,6 +98,7 @@
     <Content Include="js\materialize.min.js" />
     <Content Include="js\toastr.js" />
     <Content Include="login.aspx" />
+    <Content Include="Registros\rAsistencia.aspx" />
     <Content Include="Registros\rAsistencias.aspx" />
     <Content Include="Registros\rCalificaciones.aspx" />
     <Content Include="Registros\rCategorias.aspx" />
@@ -138,6 +140,13 @@
     </Compile>
     <Compile Include="Consultas\cCursos.aspx.designer.cs">
       <DependentUpon>cCursos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\cEstudiantes.aspx.cs">
+      <DependentUpon>cEstudiantes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cEstudiantes.aspx.designer.cs">
+      <DependentUpon>cEstudiantes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Consultas\cEstudiantesCursos.aspx.cs">
       <DependentUpon>cEstudiantesCursos.aspx</DependentUpon>
@@ -198,6 +207,13 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rAsistencia.aspx.cs">
+      <DependentUpon>rAsistencia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rAsistencia.aspx.designer.cs">
+      <DependentUpon>rAsistencia.aspx</DependentUpon>
     </Compile>
     <Compile Include="Registros\rAsistencias.aspx.cs">
       <DependentUpon>rAsistencias.aspx</DependentUpon>

@@ -50,14 +50,7 @@ namespace TeacherControlWeb.Registros
         }
         private bool Validad(Materias materia)
         {
-            if (!string.IsNullOrWhiteSpace(DescripcionTextBox.Text) && materia.BuscarDescripcion(DescripcionTextBox.Text).Equals(false))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+                return !string.IsNullOrWhiteSpace(DescripcionTextBox.Text) && materia.BuscarDescripcion(DescripcionTextBox.Text).Equals(false);
         }
 
         protected void NuevoButton_Click(object sender, EventArgs e)
@@ -73,13 +66,10 @@ namespace TeacherControlWeb.Registros
             try
             {
                 if (string.IsNullOrWhiteSpace(IdTextBox.Text))
-                {
                     exito = materia.Insertar();
-                }
                 else
-                {
                     exito = materia.Editar();
-                }
+         
                 if (exito)
                 {
                     Utility.MensajeToastr(this.Page, "Exito!", "TC", "Success");

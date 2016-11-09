@@ -7,46 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TeacherControlWeb {
+namespace TeacherControlWeb.Registros {
     
     
-    public partial class rEstudiantes {
+    public partial class rAsistencia {
         
         /// <summary>
-        /// FechaLabel control.
+        /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label FechaLabel;
-        
-        /// <summary>
-        /// Imagen control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Imagen;
-        
-        /// <summary>
-        /// CargarArchivoBTN control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload CargarArchivoBTN;
-        
-        /// <summary>
-        /// CargarImgButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton CargarImgButton;
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
         /// IdTextBox control.
@@ -58,94 +31,94 @@ namespace TeacherControlWeb {
         protected global::System.Web.UI.WebControls.TextBox IdTextBox;
         
         /// <summary>
-        /// MatriculaTextBox control.
+        /// BuscarButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox MatriculaTextBox;
+        protected global::System.Web.UI.WebControls.LinkButton BuscarButton;
         
         /// <summary>
-        /// NombresTextBox control.
+        /// FechaLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NombresTextBox;
+        protected global::System.Web.UI.WebControls.Label FechaLabel;
         
         /// <summary>
-        /// TelefonoTextBox control.
+        /// UpdatePanel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TelefonoTextBox;
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
-        /// EmailTextBox control.
+        /// CursoDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox EmailTextBox;
+        protected global::System.Web.UI.WebControls.DropDownList CursoDropDownList;
         
         /// <summary>
-        /// DireccionTextBox control.
+        /// GrupoDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox DireccionTextBox;
+        protected global::System.Web.UI.WebControls.DropDownList GrupoDropDownList;
         
         /// <summary>
-        /// McRadioButton control.
+        /// EstudiantesDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton McRadioButton;
+        protected global::System.Web.UI.WebControls.DropDownList EstudiantesDropDownList;
         
         /// <summary>
-        /// FmRadioButton control.
+        /// MatDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton FmRadioButton;
+        protected global::System.Web.UI.WebControls.DropDownList MatDropDownList;
         
         /// <summary>
-        /// FNacTextBox control.
+        /// EstadoDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox FNacTextBox;
+        protected global::System.Web.UI.WebControls.DropDownList EstadoDropDownList;
         
         /// <summary>
-        /// CursosDropDownList control.
+        /// AddButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList CursosDropDownList;
+        protected global::System.Web.UI.WebControls.LinkButton AddButton;
         
         /// <summary>
-        /// GruposDropDownList control.
+        /// AsistenciaGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList GruposDropDownList;
+        protected global::System.Web.UI.WebControls.GridView AsistenciaGridView;
         
         /// <summary>
         /// NuevoButton control.

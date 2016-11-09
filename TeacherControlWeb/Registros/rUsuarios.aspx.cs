@@ -17,7 +17,7 @@ namespace TeacherControlWeb.Registros
             // Session["usiario"] = null;
             if (!IsPostBack)
             {
-
+                FechaLabel.Text = DateTime.Now.ToString("dd/MM/yyyy");
             }
         }
         private void Limpiar()

@@ -21,31 +21,14 @@ namespace TeacherControlWeb.Consultas
         }
         private string Mostrar(CategoriaCalificaciones categoria)
         {
-
-
             string filtro = "";
 
             if (string.IsNullOrWhiteSpace(FiltroTextBox.Text))
-            {
                 filtro = "1=1";
-            }
             else
-            {
+                 filtro = FiltroDropDownList.SelectedValue + " like '%" + FiltroTextBox.Text + "%'";
 
-                if (FiltroDropDownList.SelectedIndex == 0)
-                {
-                    filtro = "CategoriaCalificacionesId = " + FiltroTextBox.Text;
-                }
-                else
-                {
-                    filtro = FiltroDropDownList.SelectedValue + " like '%" + FiltroTextBox.Text + "%'";
-                }
-
-
-
-            }
-
-            CategoriaGridView.DataSource = categoria.Listado("* ", filtro, "");
+            CategoriaGridView.DataSource = categoria.Listado("CategoriaCalificacionesId as Id, Descripcion ", filtro, "");
             CategoriaGridView.DataBind();
             return filtro;
         }

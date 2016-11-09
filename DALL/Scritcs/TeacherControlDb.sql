@@ -111,3 +111,5 @@ select E.Nombre, E.Matricula,C.Descripcion as Curso, E.Grupo as Seccion, YEar(GE
  select * from CalificacionDetalle
 
  select Genero  from  Estudiantes;
+
+ 

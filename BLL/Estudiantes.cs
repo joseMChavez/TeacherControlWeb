@@ -15,7 +15,7 @@ namespace BLL
         public int EstudianteId { get; set; }
         public int Matricula { get; set; }
         public string Nombre { get; set; }
-        public bool Genero { get; set; }
+        public int Genero { get; set; }
         public string FechaNacimiento { get; set; }
         public string Foto { get; set; }
         public string Celular { get; set; }
@@ -33,7 +33,7 @@ namespace BLL
             this.Matricula = 0;
             this.Nombre = "";
             this.Foto = "";
-            this.Genero = false;
+            this.Genero = 0;
 
             this.FechaNacimiento = "";
 
@@ -51,11 +51,9 @@ namespace BLL
         {
             ConexionDb conexion = new ConexionDb();
             bool retorno = false;
-            Cursos curso = new Cursos();
-
             try
             {
-                retorno = conexion.Ejecutar(string.Format("insert into Estudiantes(Matricula,Nombre,Genero,FechaNacimiento,Celular,Email, Direccion,CursoId,Grupo,Fecha) values({0},'{1}',{2},'{3}','{4}','{5}',{6},{7},'{8}','{9}','{10}')", this.Matricula, this.Nombre, this.Genero, this.FechaNacimiento, this.Celular, this.Email, this.Direccion, this.Curso, this.Grupo, this.Fecha,this.Foto));
+                retorno = conexion.Ejecutar(string.Format("insert into Estudiantes(Matricula,Nombre,Genero,FechaNacimiento,Celular,Email, Direccion,CursoId,Grupo,Fecha,Foto) values({0},'{1}',{2},'{3}','{4}','{5}','{6}',{7},'{8}','{9}','{10}')", this.Matricula, this.Nombre, this.Genero, this.FechaNacimiento, this.Celular, this.Email, this.Direccion, this.Curso, this.Grupo, this.Fecha,this.Foto));
 
             }
             catch (Exception ex)
@@ -114,7 +112,7 @@ namespace BLL
                     this.Matricula = (int)dt.Rows[0]["Matricula"];
                     this.Nombre = dt.Rows[0]["Nombre"].ToString();
                     this.Foto = dt.Rows[0]["Foto"].ToString();
-                    this.Genero = (bool)dt.Rows[0]["Genero"];
+                    this.Genero = (int)dt.Rows[0]["Genero"];
                     this.FechaNacimiento = dt.Rows[0]["FechaNacimiento"].ToString();
 
                     this.Celular = dt.Rows[0]["Celular"].ToString();
@@ -152,6 +150,15 @@ namespace BLL
         }
 
         public override DataTable Listado(string Campos, string Condicion, string Orden)
+        {
+            ConexionDb conexion = new ConexionDb();
+            string ordenFinal = "";
+            if (!Orden.Equals(""))
+                ordenFinal = " Order by  " + Orden;
+
+            return conexion.ObtenerDatos("Select " + Campos + " From Estudiantes Where " + Condicion + ordenFinal);
+        }
+        public static DataTable ListadoDos(string Campos, string Condicion, string Orden)
         {
             ConexionDb conexion = new ConexionDb();
             string ordenFinal = "";

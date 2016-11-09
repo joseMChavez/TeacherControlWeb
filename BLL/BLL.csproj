@@ -48,7 +48,6 @@
     <Compile Include="CategoriaCalificaciones.cs" />
     <Compile Include="ClaseMaestra.cs" />
     <Compile Include="Cursos.cs" />
-    <Compile Include="CursosDetalle.cs" />
     <Compile Include="Estudiantes.cs" />
     <Compile Include="Grupos.cs" />
     <Compile Include="Materias.cs" />

@@ -4,15 +4,16 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div class=" container">
-        
+
         <%--<div class="row center"> Registro de Usuarios</div>--%>
         <div class="row">
             <div class=" col s12">
-                
+
                 <div class="card-panel">
                     <div class=" card-title center-align light-green-text">
-                    <h3>Registro de Usuarios</h3>
-                </div>
+                        <h3>Registro de Usuarios</h3>
+                        <asp:Label ID="FechaLabel" CssClass="amber-text center" runat="server"></asp:Label><br />
+                    </div>
                     <div class="card-small">
                         <div class=" card-content">
                             <%-- Imagen --%>
@@ -27,8 +28,8 @@
                                     <asp:FileUpload ID="CargarArchivoBTN" runat="server" CssClass="file-field input-field" BorderStyle="Groove" ForeColor="#3366FF" ViewStateMode="Enabled" />
                                 </div>
                                 <div class="col s4">
-                                    
-                                <asp:LinkButton ID="CargarImgButton" runat="server" CssClass=" waves-effect blue darken-1 white-text btn" OnClick="CargarImgButton_Click"><i class="material-icons prefix">input</i></asp:LinkButton>
+
+                                    <asp:LinkButton ID="CargarImgButton" runat="server" CssClass=" waves-effect blue darken-1 white-text btn" OnClick="CargarImgButton_Click"><i class="material-icons prefix">input</i></asp:LinkButton>
                                 </div>
                             </div>
 
@@ -37,11 +38,11 @@
                                 <div class="input-field col s3">
                                     <i class="material-icons prefix">turned_in</i>
                                     <label for="IdTextBox">Id:</label>
-                                    <asp:TextBox CssClass="validate" ID="IdTextBox" runat="server" ></asp:TextBox>
-                                   
+                                    <asp:TextBox CssClass="validate" ID="IdTextBox" runat="server"></asp:TextBox>
+
                                 </div>
                                 <div class="col s3">
-                                     <asp:LinkButton ToolTip="Buscar" ID="BuscarButton" runat="server" CssClass=" waves-effect blue darken-1 white-text btn" OnClick="BuscarButton_Click"><i class="material-icons prefix">search</i></asp:LinkButton>
+                                    <asp:LinkButton ToolTip="Buscar" ID="BuscarButton" runat="server" CssClass=" waves-effect blue darken-1 white-text btn" OnClick="BuscarButton_Click"><i class="material-icons prefix">search</i></asp:LinkButton>
                                 </div>
 
                             </div>
@@ -93,19 +94,19 @@
                                     <i class="material-icons prefix">lock</i>
                                     <label for="ConfirmarTextBox">Repetir Contraseña:</label>
                                     <asp:TextBox CssClass="validate" ID="ConfirmarTextBox" runat="server" TextMode="Password" MaxLength="10"></asp:TextBox>
-                                    
+
                                 </div>
                             </div>
                             <%-- tipo de Usuario --%>
                             <div class="row">
-                               
+
                                 <div class="input-field col s6">
-                                   
-                                   
-                                     <i class="material-icons prefix">list</i>
-                                 
+
+
+                                    <i class="material-icons prefix">list</i>
+
                                     <asp:DropDownList ToolTip="Tipo de Usuarios" ID="TipoDropDownList" runat="server" CssClass="select-dropdown accent-1 btn white black-text">
-                                        <asp:ListItem >Maestro</asp:ListItem>
+                                        <asp:ListItem>Maestro</asp:ListItem>
                                         <asp:ListItem>Asistente</asp:ListItem>
                                         <asp:ListItem>Administrador</asp:ListItem>
                                     </asp:DropDownList>
@@ -114,25 +115,26 @@
                         </div>
                     </div>
                     <div class="row">
-                       <div class="col s3"></div> <div class="col s6">
+                        <div class="col s3"></div>
+                        <div class="col s6">
                             <div class="card-action center">
-                                
+
                                 <asp:Button CssClass="waves-effect  light-blue lighten-1 btn " ID="NuevoButton" runat="server" Text="Nuevo" OnClick="NuevoButton_Click" />
-                                <asp:Button CssClass="waves-effect  waves-light btn" ID="GuardarButton" runat="server" Text="Guardar" OnClick="GuardarButton_Click" style="left: 0px; top: 0px" />
+                                <asp:Button CssClass="waves-effect  waves-light btn" ID="GuardarButton" runat="server" Text="Guardar" OnClick="GuardarButton_Click" Style="left: 0px; top: 0px" />
                                 <asp:Button CssClass="waves-effect  red  btn materialize-red " ID="EliminarButton" runat="server" Text="Eliminar" OnClick="EliminarButton_Click" />
                             </div>
                         </div>
                         <div class="col s3">
+                        </div>
+
                     </div>
 
                 </div>
 
+
             </div>
-
-
-</div>
-                </div>
         </div>
-    
+    </div>
+
 
 </asp:Content>

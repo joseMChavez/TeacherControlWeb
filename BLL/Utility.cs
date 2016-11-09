@@ -50,6 +50,14 @@ namespace BLL
             return datatable.Rows.Count > 0;
 
         }
+        public static DataTable ListadoView(string View,string Condicion, string Orden)
+        {
+            ConexionDb conexion = new ConexionDb();
+            string ordenFinal = "";
+            if (!Orden.Equals(""))
+                ordenFinal = " Order BY  " + Orden;
+            return conexion.ObtenerDatos("Select * From "+View+" Where " + Condicion + ordenFinal);
+        }
         public static int ConvierteEntero(string s)
         {
             int id = 0;

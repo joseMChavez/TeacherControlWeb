@@ -13,6 +13,15 @@ namespace TeacherControlWeb.Registros {
     public partial class rUsuarios {
         
         /// <summary>
+        /// FechaLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label FechaLabel;
+        
+        /// <summary>
         /// Imagen control.
         /// </summary>
         /// <remarks>

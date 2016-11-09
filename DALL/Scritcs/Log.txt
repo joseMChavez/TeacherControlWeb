@@ -14,3 +14,7 @@ select
  select
   E.Nombre, E.Matricula,C.Descripcion as Curso, E.Grupo as Seccion, YEar(GETDate())-YEAR(E.FechaNacimiento) as Edad 
   from Estudiantes as E inner join Cursos as C on E.CursoId = C.CursoId;
+
+  ***Creacion de Vista para Estudianes***
+  create view View_Estudiantes as
+ select E.EstudianteId Id, E.Nombre, E.Matricula,E.Celular,E.Email,E.Direccion,C.Descripcion as Curso, E.Grupo as Seccion, YEar(GETDate())-YEAR(E.FechaNacimiento) as Edad,E.Fecha from Estudiantes as E inner join Cursos as C on E.CursoId = C.CursoId;
