@@ -76,6 +76,15 @@ namespace TeacherControlWeb.Registros {
         protected global::System.Web.UI.WebControls.DropDownList GrupoDropDownList;
         
         /// <summary>
+        /// CargarButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton CargarButton;
+        
+        /// <summary>
         /// EstudiantesDropDownList control.
         /// </summary>
         /// <remarks>
@@ -119,6 +128,24 @@ namespace TeacherControlWeb.Registros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView AsistenciaGridView;
+        
+        /// <summary>
+        /// letraLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label letraLabel;
+        
+        /// <summary>
+        /// CantidadLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label CantidadLabel;
         
         /// <summary>
         /// NuevoButton control.

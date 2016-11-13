@@ -10,7 +10,7 @@
 
                 <div class="card-panel">
                     <div class=" card-title center-align light-green-text">
-                        <h3>Registro de Grupos</h3>
+                        <h3>Registro de Secciones</h3>
                     </div>
                     <div class="card-small">
                         <div class=" card-content">
@@ -27,6 +27,12 @@
                                         <a class="waves-effect blue darken-1 white-text btn modal-trigger" href="#modal1"><i class="material-icons prefix">search</i></a>
                                 </div>
 
+                            </div>
+                            <div class="row">
+                                  <div class="input-field col s12 m6 l4">
+                                      <asp:DropDownList CssClass="select-dropdown accent-1 btn white black-text" ID="CursosDropDownList" runat="server"></asp:DropDownList>
+
+                                </div>
                             </div>
                             <%-- Desc --%>
                             <div class="row">
@@ -61,7 +67,7 @@
                                         <asp:GridView ID="GrupoGridView" CssClass=" striped highlight responsive-table picker__table" runat="server">
                                             <Columns>
                                                 <asp:HyperLinkField
-                                                    DataNavigateUrlFields="GrupoId"
+                                                    DataNavigateUrlFields="Id"
                                                     DataNavigateUrlFormatString="/Registros/rGrupos.aspx?Id={0}"
                                                     Text="Editar"
                                                     ControlStyle-CssClass="btn btn-block waves-effect white-text" />

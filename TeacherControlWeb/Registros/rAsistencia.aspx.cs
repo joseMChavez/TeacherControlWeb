@@ -21,7 +21,6 @@ namespace TeacherControlWeb.Registros
                 ViewState["Asistencia"] = dt;
                 CargarDropDs();
                 CargarGrupos();
-                Cargarmatricula();
 
                 FechaLabel.Text = DateTime.Now.ToString("dd/MM/yyyy"); 
             }
@@ -31,15 +30,46 @@ namespace TeacherControlWeb.Registros
             AsistenciaGridView.DataSource = (DataTable)ViewState["Asistencia"];
             AsistenciaGridView.DataBind();
         }
+        private void LlenarDatos(Asistencia asistencia)
+        {
+            asistencia.AsistenciaId = Utility.ConvierteEntero(IdTextBox.Text);
+            asistencia.CursoId = Utility.ConvierteEntero(CursoDropDownList.SelectedValue);
+            asistencia.CursoGrupo = GrupoDropDownList.SelectedValue;
+            asistencia.Fecha = FechaLabel.Text;
+            asistencia.CantidadEst = Utility.ConvierteEntero(CantidadLabel.Text);
+            foreach (GridViewRow item in AsistenciaGridView.Rows)
+            {
+                asistencia.AgregarAsistencia(item.Cells[0].Text, item.Cells[2].Text, Utility.ConvierteEntero(item.Cells[1].Text));
+            }
+        }
+        private void DevolverDatos(Asistencia asistencia)
+        {
+            IdTextBox.Text = asistencia.AsistenciaId.ToString();
+            CursoDropDownList.SelectedValue = asistencia.CursoId.ToString();
+            GrupoDropDownList.SelectedValue = asistencia.CursoGrupo;
+            FechaLabel.Text = asistencia.Fecha;
+            CantidadLabel.Text = asistencia.CantidadEst.ToString();
+            foreach (var item in asistencia.aDetalle)
+            {
+                DataTable dt = (DataTable)ViewState["Asistencia"];
+                dt.Rows.Add(item.EstudianteId, item.Matricula, item.Activo);
+                ViewState["Asistencia"] = dt;
+                AsistenciaGridView.DataSource = ViewState["Asistencia"];
+                AsistenciaGridView.DataBind();
+            }
+        }
         private void Limpiar()
         {
             DataTable dt = new DataTable();
 
-            CursoDropDownList.SelectedIndex = 0;
-            GrupoDropDownList.SelectedIndex = 0;
-            EstadoDropDownList.SelectedIndex = 0;
-            EstudiantesDropDownList.SelectedIndex = 0;
-            MatDropDownList.SelectedIndex = 0;
+            if (!string.IsNullOrWhiteSpace(GrupoDropDownList.Text))
+            {
+                CursoDropDownList.SelectedIndex = 0;
+                GrupoDropDownList.SelectedIndex = 0;
+                EstadoDropDownList.SelectedIndex = 0;
+               
+            }
+            CantidadLabel.Text = "0";
             dt.Columns.AddRange(new DataColumn[3] { new DataColumn("Estudiante"), new DataColumn("Matricula"), new DataColumn("Estado") });
             ViewState["Asistencia"] = dt;
             CargarGrid();
@@ -52,10 +82,10 @@ namespace TeacherControlWeb.Registros
             CursoDropDownList.DataBind();
             
         }
-        private void CargarEstudiantes(string CursoId) {
-            EstudiantesDropDownList.DataSource = Estudiantes.ListadoDos("EstudianteId, Nombre", "CursoId='" + CursoId + "'And Grupo='" + GrupoDropDownList.Text + "'", "");
+        private void CargarEstudiantes() {
+            EstudiantesDropDownList.DataSource = Estudiantes.ListadoDos("EstudianteId, Nombre", "CursoId='" + CursoDropDownList.SelectedValue + "'And Grupo='" + GrupoDropDownList.SelectedValue + "'", "");
             EstudiantesDropDownList.DataTextField = "Nombre";
-            EstudiantesDropDownList.DataValueField = "EstudianteId";
+            EstudiantesDropDownList.DataValueField = "Nombre";
             EstudiantesDropDownList.DataBind();
            
         }
@@ -63,26 +93,31 @@ namespace TeacherControlWeb.Registros
         {
             GrupoDropDownList.DataSource = Estudiantes.ListadoDos("EstudianteId, Grupo", "CursoId='" + CursoDropDownList.SelectedValue + "'", "CursoId");
             GrupoDropDownList.DataTextField = "Grupo";
-            GrupoDropDownList.DataValueField = "EstudianteId";
+            GrupoDropDownList.DataValueField = "Grupo";
             GrupoDropDownList.DataBind();
           
 
         }
         private void Cargarmatricula() {
-            MatDropDownList.DataSource = Estudiantes.ListadoDos("EstudianteId,Matricula", "Nombre = '" + EstudiantesDropDownList.Text + "' and CursoId = '" + CursoDropDownList.SelectedValue +"'", "");
+            MatDropDownList.DataSource = Estudiantes.ListadoDos("EstudianteId,Matricula", "Nombre = '" + EstudiantesDropDownList.SelectedValue + "'", "");
             MatDropDownList.DataTextField = "Matricula";
-            MatDropDownList.DataValueField = "EstudianteId";
+            MatDropDownList.DataValueField = "Matricula";
             MatDropDownList.DataBind();
         }
         protected void AddButton_Click(object sender, EventArgs e)
         {
             try
             {
-                DataTable dt = (DataTable)ViewState["Asistencia"];
-                dt.Rows.Add(EstudiantesDropDownList.Text, MatDropDownList.Text, EstadoDropDownList.SelectedValue);
-                CargarGrid();
-                EstadoDropDownList.SelectedIndex = 0;
+                int cantidad = AsistenciaGridView.Rows.Count+1;
+                if (!string.IsNullOrWhiteSpace(MatDropDownList.Text))
+                {
+                    DataTable dt = (DataTable)ViewState["Asistencia"];
+                    dt.Rows.Add(EstudiantesDropDownList.Text, MatDropDownList.Text, EstadoDropDownList.SelectedValue);
+                    CargarGrid();
+                    EstadoDropDownList.SelectedIndex = 0;
 
+                    CantidadLabel.Text = cantidad.ToString();
+                }
             }
             catch (Exception ex )
             {
@@ -100,16 +135,15 @@ namespace TeacherControlWeb.Registros
         {
             CargarGrupos();
         }
-
-        protected void GrupoDropDownList_TextChanged(object sender, EventArgs e)
-        {
-            CargarEstudiantes(GrupoDropDownList.SelectedValue);
-        }
-
         protected void EstudiantesDropDownList_TextChanged(object sender, EventArgs e)
         {
             Cargarmatricula();
         }
 
+        protected void CargarButton_Click(object sender, EventArgs e)
+        {
+            CargarEstudiantes();
+            Cargarmatricula();
+        }
     }
 }

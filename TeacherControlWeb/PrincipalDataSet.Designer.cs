@@ -2228,7 +2228,7 @@ namespace TeacherControlWeb {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columnId = base.Columns["Id"];
-                this.columnEstudianteId = base.Columns["EstudianteId"];
+                this.columnEstudianteId = base.Columns["Estudiante"];
                 this.columnMatricula = base.Columns["Matricula"];
                 this.columnAsistenciaId = base.Columns["AsistenciaId"];
                 this.columnEstado = base.Columns["Estado"];
@@ -2239,7 +2239,7 @@ namespace TeacherControlWeb {
             private void InitClass() {
                 this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnId);
-                this.columnEstudianteId = new global::System.Data.DataColumn("EstudianteId", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnEstudianteId = new global::System.Data.DataColumn("Estudiante", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEstudianteId);
                 this.columnMatricula = new global::System.Data.DataColumn("Matricula", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMatricula);
@@ -3170,7 +3170,7 @@ namespace TeacherControlWeb {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnEstudianteId = base.Columns["EstudianteId"];
+                this.columnEstudianteId = base.Columns["Estudiante"];
                 this.columnMatricula = base.Columns["Matricula"];
                 this.columnNombre = base.Columns["Nombre"];
                 this.columnGenero = base.Columns["Genero"];
@@ -3186,7 +3186,7 @@ namespace TeacherControlWeb {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnEstudianteId = new global::System.Data.DataColumn("EstudianteId", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnEstudianteId = new global::System.Data.DataColumn("Estudiante", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEstudianteId);
                 this.columnMatricula = new global::System.Data.DataColumn("Matricula", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMatricula);
@@ -3815,7 +3815,7 @@ namespace TeacherControlWeb {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columnId = base.Columns["Id"];
-                this.columnCurso = base.Columns["Curso"];
+                this.columnCurso = base.Columns["CursoId"];
                 this.columnGrupo = base.Columns["Grupo"];
                 this.columnNombre = base.Columns["Nombre"];
                 this.columnMatricula = base.Columns["Matricula"];
@@ -3829,7 +3829,7 @@ namespace TeacherControlWeb {
             private void InitClass() {
                 this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnId);
-                this.columnCurso = new global::System.Data.DataColumn("Curso", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnCurso = new global::System.Data.DataColumn("CursoId", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCurso);
                 this.columnGrupo = new global::System.Data.DataColumn("Grupo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnGrupo);
@@ -4167,7 +4167,7 @@ namespace TeacherControlWeb {
                 this.columnCalificacionId = base.Columns["CalificacionId"];
                 this.columnEstudianteIdM = base.Columns["EstudianteIdM"];
                 this.columnMateriaId = base.Columns["MateriaId"];
-                this.columnCurso = base.Columns["Curso"];
+                this.columnCurso = base.Columns["CursoId"];
                 this.columnGrupo = base.Columns["Grupo"];
                 this.columnTotalPuntos = base.Columns["TotalPuntos"];
                 this.columnFecha = base.Columns["Fecha"];
@@ -4182,7 +4182,7 @@ namespace TeacherControlWeb {
                 base.Columns.Add(this.columnEstudianteIdM);
                 this.columnMateriaId = new global::System.Data.DataColumn("MateriaId", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMateriaId);
-                this.columnCurso = new global::System.Data.DataColumn("Curso", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnCurso = new global::System.Data.DataColumn("CursoId", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCurso);
                 this.columnGrupo = new global::System.Data.DataColumn("Grupo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnGrupo);
@@ -4793,7 +4793,7 @@ namespace TeacherControlWeb {
             internal void InitVars() {
                 this.columnNombre = base.Columns["Nombre"];
                 this.columnMatricula = base.Columns["Matricula"];
-                this.columnCurso = base.Columns["Curso"];
+                this.columnCurso = base.Columns["CursoId"];
                 this.columnSeccion = base.Columns["Seccion"];
                 this.columnEdad = base.Columns["Edad"];
             }
@@ -4805,7 +4805,7 @@ namespace TeacherControlWeb {
                 base.Columns.Add(this.columnNombre);
                 this.columnMatricula = new global::System.Data.DataColumn("Matricula", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMatricula);
-                this.columnCurso = new global::System.Data.DataColumn("Curso", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnCurso = new global::System.Data.DataColumn("CursoId", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCurso);
                 this.columnSeccion = new global::System.Data.DataColumn("Seccion", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSeccion);
@@ -5178,7 +5178,7 @@ namespace TeacherControlWeb {
                 this.columnCelular = base.Columns["Celular"];
                 this.columnEmail = base.Columns["Email"];
                 this.columnDireccion = base.Columns["Direccion"];
-                this.columnCurso = base.Columns["Curso"];
+                this.columnCurso = base.Columns["CursoId"];
                 this.columnSeccion = base.Columns["Seccion"];
                 this.columnEdad = base.Columns["Edad"];
                 this.columnFecha = base.Columns["Fecha"];
@@ -5201,7 +5201,7 @@ namespace TeacherControlWeb {
                 base.Columns.Add(this.columnEmail);
                 this.columnDireccion = new global::System.Data.DataColumn("Direccion", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDireccion);
-                this.columnCurso = new global::System.Data.DataColumn("Curso", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnCurso = new global::System.Data.DataColumn("CursoId", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCurso);
                 this.columnSeccion = new global::System.Data.DataColumn("Seccion", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSeccion);
@@ -5954,7 +5954,7 @@ namespace TeacherControlWeb {
                         return ((int)(this[this.tableAsistenciaDetalle.EstudianteIdColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'EstudianteId\' in table \'AsistenciaDetalle\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Estudiante\' in table \'AsistenciaDetalle\' is DBNull.", e);
                     }
                 }
                 set {
@@ -6647,7 +6647,7 @@ namespace TeacherControlWeb {
                         return ((string)(this[this.tableCalificacionesPromedioView.CursoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Curso\' in table \'CalificacionesPromedioView\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'CursoId\' in table \'CalificacionesPromedioView\' is DBNull.", e);
                     }
                 }
                 set {
@@ -6914,7 +6914,7 @@ namespace TeacherControlWeb {
                         return ((string)(this[this.tableCalificaciones.CursoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Curso\' in table \'Calificaciones\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'CursoId\' in table \'Calificaciones\' is DBNull.", e);
                     }
                 }
                 set {
@@ -7251,7 +7251,7 @@ namespace TeacherControlWeb {
                         return ((string)(this[this.tableEstudiantePorCursos.CursoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Curso\' in table \'EstudiantePorCursos\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'CursoId\' in table \'EstudiantePorCursos\' is DBNull.", e);
                     }
                 }
                 set {
@@ -7481,7 +7481,7 @@ namespace TeacherControlWeb {
                         return ((string)(this[this.tableView_Estudiantes.CursoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Curso\' in table \'View_Estudiantes\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'CursoId\' in table \'View_Estudiantes\' is DBNull.", e);
                     }
                 }
                 set {
@@ -9579,7 +9579,7 @@ namespace TeacherControlWeb.PrincipalDataSetTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "AsistenciaDetalle";
             tableMapping.ColumnMappings.Add("Id", "Id");
-            tableMapping.ColumnMappings.Add("EstudianteId", "EstudianteId");
+            tableMapping.ColumnMappings.Add("Estudiante", "Estudiante");
             tableMapping.ColumnMappings.Add("Matricula", "Matricula");
             tableMapping.ColumnMappings.Add("AsistenciaId", "AsistenciaId");
             tableMapping.ColumnMappings.Add("Estado", "Estado");
@@ -9591,20 +9591,20 @@ namespace TeacherControlWeb.PrincipalDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[AsistenciaDetalle] ([EstudianteId], [Matricula], [AsistenciaId" +
-                "], [Estado]) VALUES (@EstudianteId, @Matricula, @AsistenciaId, @Estado)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[AsistenciaDetalle] ([Estudiante], [Matricula], [AsistenciaId" +
+                "], [Estado]) VALUES (@Estudiante, @Matricula, @AsistenciaId, @Estado)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EstudianteId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EstudianteId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estudiante", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estudiante", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Matricula", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Matricula", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AsistenciaId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AsistenciaId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[AsistenciaDetalle] SET [EstudianteId] = @EstudianteId, [Matricula] " +
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[AsistenciaDetalle] SET [Estudiante] = @Estudiante, [Matricula] " +
                 "= @Matricula, [AsistenciaId] = @AsistenciaId, [Estado] = @Estado WHERE (([Id] = " +
                 "@Original_Id))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EstudianteId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EstudianteId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estudiante", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estudiante", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Matricula", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Matricula", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AsistenciaId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AsistenciaId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estado", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -9624,7 +9624,7 @@ namespace TeacherControlWeb.PrincipalDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id, EstudianteId, Matricula, AsistenciaId, Estado FROM dbo.AsistenciaDetal" +
+            this._commandCollection[0].CommandText = "SELECT Id, Estudiante, Matricula, AsistenciaId, Estado FROM dbo.AsistenciaDetal" +
                 "le";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
@@ -10501,7 +10501,7 @@ namespace TeacherControlWeb.PrincipalDataSetTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Estudiantes";
-            tableMapping.ColumnMappings.Add("EstudianteId", "EstudianteId");
+            tableMapping.ColumnMappings.Add("Estudiante", "Estudiante");
             tableMapping.ColumnMappings.Add("Matricula", "Matricula");
             tableMapping.ColumnMappings.Add("Nombre", "Nombre");
             tableMapping.ColumnMappings.Add("Genero", "Genero");
@@ -10515,10 +10515,10 @@ namespace TeacherControlWeb.PrincipalDataSetTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Estudiantes] WHERE (([EstudianteId] = @Original_EstudianteId))" +
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Estudiantes] WHERE (([Estudiante] = @Original_EstudianteId))" +
                 "";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EstudianteId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EstudianteId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EstudianteId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estudiante", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Estudiantes] ([Matricula], [Nombre], [Genero], [FechaNacimiento], [Edad], [Celular], [Email], [Direccion], [CursoId], [Grupo]) VALUES (@Matricula, @Nombre, @Genero, @FechaNacimiento, @Edad, @Celular, @Email, @Direccion, @CursoId, @Grupo)";
@@ -10535,7 +10535,7 @@ namespace TeacherControlWeb.PrincipalDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Grupo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Grupo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Estudiantes] SET [Matricula] = @Matricula, [Nombre] = @Nombre, [Genero] = @Genero, [FechaNacimiento] = @FechaNacimiento, [Edad] = @Edad, [Celular] = @Celular, [Email] = @Email, [Direccion] = @Direccion, [CursoId] = @CursoId, [Grupo] = @Grupo WHERE (([EstudianteId] = @Original_EstudianteId))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Estudiantes] SET [Matricula] = @Matricula, [Nombre] = @Nombre, [Genero] = @Genero, [FechaNacimiento] = @FechaNacimiento, [Edad] = @Edad, [Celular] = @Celular, [Email] = @Email, [Direccion] = @Direccion, [CursoId] = @CursoId, [Grupo] = @Grupo WHERE (([Estudiante] = @Original_EstudianteId))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Matricula", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Matricula", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -10547,7 +10547,7 @@ namespace TeacherControlWeb.PrincipalDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Direccion", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Direccion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CursoId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CursoId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Grupo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Grupo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EstudianteId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EstudianteId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EstudianteId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estudiante", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10563,7 +10563,7 @@ namespace TeacherControlWeb.PrincipalDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT EstudianteId, Matricula, Nombre, Genero, FechaNacimiento, Edad, Celular, E" +
+            this._commandCollection[0].CommandText = "SELECT Estudiante, Matricula, Nombre, Genero, FechaNacimiento, Edad, Celular, E" +
                 "mail, Direccion, CursoId, Grupo FROM dbo.Estudiantes";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
@@ -11220,7 +11220,7 @@ namespace TeacherControlWeb.PrincipalDataSetTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "CalificacionesPromedioView";
             tableMapping.ColumnMappings.Add("Id", "Id");
-            tableMapping.ColumnMappings.Add("Curso", "Curso");
+            tableMapping.ColumnMappings.Add("CursoId", "CursoId");
             tableMapping.ColumnMappings.Add("Grupo", "Grupo");
             tableMapping.ColumnMappings.Add("Nombre", "Nombre");
             tableMapping.ColumnMappings.Add("Matricula", "Matricula");
@@ -11243,7 +11243,7 @@ namespace TeacherControlWeb.PrincipalDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id, Curso, Grupo, Nombre, Matricula, Total, Promedio, Fecha FROM dbo.Calif" +
+            this._commandCollection[0].CommandText = "SELECT Id, CursoId, Grupo, Nombre, Matricula, Total, Promedio, Fecha FROM dbo.Calif" +
                 "icacionesPromedioView";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
@@ -11397,7 +11397,7 @@ namespace TeacherControlWeb.PrincipalDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("CalificacionId", "CalificacionId");
             tableMapping.ColumnMappings.Add("EstudianteIdM", "EstudianteIdM");
             tableMapping.ColumnMappings.Add("MateriaId", "MateriaId");
-            tableMapping.ColumnMappings.Add("Curso", "Curso");
+            tableMapping.ColumnMappings.Add("CursoId", "CursoId");
             tableMapping.ColumnMappings.Add("Grupo", "Grupo");
             tableMapping.ColumnMappings.Add("TotalPuntos", "TotalPuntos");
             tableMapping.ColumnMappings.Add("Fecha", "Fecha");
@@ -11410,25 +11410,25 @@ namespace TeacherControlWeb.PrincipalDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CalificacionId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CalificacionId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Calificaciones] ([EstudianteIdM], [MateriaId], [Curso], [Grupo" +
-                "], [TotalPuntos], [Fecha]) VALUES (@EstudianteIdM, @MateriaId, @Curso, @Grupo, @" +
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Calificaciones] ([EstudianteIdM], [MateriaId], [CursoId], [Grupo" +
+                "], [TotalPuntos], [Fecha]) VALUES (@EstudianteIdM, @MateriaId, @CursoId, @Grupo, @" +
                 "TotalPuntos, @Fecha)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EstudianteIdM", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EstudianteIdM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MateriaId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MateriaId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Curso", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Curso", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CursoId", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CursoId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Grupo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Grupo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TotalPuntos", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalPuntos", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Calificaciones] SET [EstudianteIdM] = @EstudianteIdM, [MateriaId] =" +
-                " @MateriaId, [Curso] = @Curso, [Grupo] = @Grupo, [TotalPuntos] = @TotalPuntos, [" +
+                " @MateriaId, [CursoId] = @CursoId, [Grupo] = @Grupo, [TotalPuntos] = @TotalPuntos, [" +
                 "Fecha] = @Fecha WHERE (([CalificacionId] = @Original_CalificacionId))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EstudianteIdM", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EstudianteIdM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MateriaId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MateriaId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Curso", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Curso", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CursoId", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CursoId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Grupo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Grupo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TotalPuntos", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalPuntos", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -11448,7 +11448,7 @@ namespace TeacherControlWeb.PrincipalDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT CalificacionId, EstudianteIdM, MateriaId, Curso, Grupo, TotalPuntos, Fecha" +
+            this._commandCollection[0].CommandText = "SELECT CalificacionId, EstudianteIdM, MateriaId, CursoId, Grupo, TotalPuntos, Fecha" +
                 " FROM dbo.Calificaciones";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
@@ -12090,7 +12090,7 @@ namespace TeacherControlWeb.PrincipalDataSetTableAdapters {
             tableMapping.DataSetTable = "EstudiantePorCursos";
             tableMapping.ColumnMappings.Add("Nombre", "Nombre");
             tableMapping.ColumnMappings.Add("Matricula", "Matricula");
-            tableMapping.ColumnMappings.Add("Curso", "Curso");
+            tableMapping.ColumnMappings.Add("CursoId", "CursoId");
             tableMapping.ColumnMappings.Add("Seccion", "Seccion");
             tableMapping.ColumnMappings.Add("Edad", "Edad");
             this._adapter.TableMappings.Add(tableMapping);
@@ -12109,7 +12109,7 @@ namespace TeacherControlWeb.PrincipalDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Nombre, Matricula, Curso, Seccion, Edad FROM dbo.EstudiantePorCursos";
+            this._commandCollection[0].CommandText = "SELECT Nombre, Matricula, CursoId, Seccion, Edad FROM dbo.EstudiantePorCursos";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -12266,7 +12266,7 @@ namespace TeacherControlWeb.PrincipalDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Celular", "Celular");
             tableMapping.ColumnMappings.Add("Email", "Email");
             tableMapping.ColumnMappings.Add("Direccion", "Direccion");
-            tableMapping.ColumnMappings.Add("Curso", "Curso");
+            tableMapping.ColumnMappings.Add("CursoId", "CursoId");
             tableMapping.ColumnMappings.Add("Seccion", "Seccion");
             tableMapping.ColumnMappings.Add("Edad", "Edad");
             tableMapping.ColumnMappings.Add("Fecha", "Fecha");
@@ -12286,7 +12286,7 @@ namespace TeacherControlWeb.PrincipalDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id, Nombre, Matricula, Sexo, Celular, Email, Direccion, Curso, Seccion, Ed" +
+            this._commandCollection[0].CommandText = "SELECT Id, Nombre, Matricula, Sexo, Celular, Email, Direccion, CursoId, Seccion, Ed" +
                 "ad, Fecha FROM dbo.View_Estudiantes";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }

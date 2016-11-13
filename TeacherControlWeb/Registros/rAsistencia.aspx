@@ -33,7 +33,7 @@
                                 </div>
 
                             </div>
-                           <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                 <ContentTemplate>
                                     <%-- Cursos y Grupos --%>
 
@@ -46,10 +46,14 @@
                                             </asp:DropDownList>
                                         </div>
                                         <%--  Grupo--%>
-                                        <div class="input-field col s10 m4 l4">
-                                            <asp:DropDownList ID="GrupoDropDownList" runat="server" CssClass="dropdown-button btn white black-text" AutoPostBack="True"  OnTextChanged="GrupoDropDownList_TextChanged">
+                                        <div class="input-field col s10 m2 l2">
+                                            <asp:DropDownList ID="GrupoDropDownList" runat="server" CssClass="dropdown-button btn white black-text" AutoPostBack="True">
                                                 <asp:ListItem Selected="false" Text="[Elija un Grupo]"></asp:ListItem>
                                             </asp:DropDownList>
+                                        </div>
+                                        <div class="col s10 m6 l6">
+                                            <asp:LinkButton Visible="true" ToolTip="Cargar Estudiantes" ID="CargarButton" runat="server" CssClass=" waves-effect green darken-1 white-text btn " OnClick="CargarButton_Click"><i class="material-icons prefix">play_for_work</i></asp:LinkButton>
+
                                         </div>
                                     </div>
 
@@ -59,7 +63,7 @@
                                     <div class="row">
                                         <%--Estudiantes--%>
                                         <div class=" input-field col s10 m3 l3">
-                                            <asp:DropDownList ID="EstudiantesDropDownList" runat="server" CssClass="dropdown-button btn  white black-text" AutoPostBack="True" OnTextChanged="EstudiantesDropDownList_TextChanged" >
+                                            <asp:DropDownList ID="EstudiantesDropDownList" runat="server" CssClass="dropdown-button btn  white black-text" AutoPostBack="True" OnTextChanged="EstudiantesDropDownList_TextChanged">
                                                 <asp:ListItem Selected="false" Text="[Elija un Estuadiante]"></asp:ListItem>
                                             </asp:DropDownList>
                                         </div>
@@ -80,11 +84,21 @@
                                             <asp:LinkButton Visible="true" ToolTip="Agregar" ID="AddButton" runat="server" CssClass=" waves-effect green darken-1 white-text btn " OnClick="AddButton_Click"><i class="material-icons prefix">add</i></asp:LinkButton>
                                         </div>
                                     </div>
-                             
-                                    <div class="col s12 m12 l12">
-                                        <asp:GridView CssClass="table-of-contents responsive-table highlight" ID="AsistenciaGridView" runat="server">
-                                        </asp:GridView>
+                                    <div class="row">
+                                        <div class="col s12 m12 l12">
+                                            <asp:GridView CssClass="table-of-contents striped responsive-table highlight" ID="AsistenciaGridView" runat="server">
+                                            </asp:GridView>
+                                        </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col s10 m4 l4">
+                                            <asp:Label ID="letraLabel" runat="server" Text="Cantidad de Estudiantes: "></asp:Label>
+                                        </div>
+                                        <div class="col s2 m2 l2">
+                                            <asp:Label ID="CantidadLabel" CssClass="amber-text" runat="server" Text=""></asp:Label>
+                                        </div>
+                                    </div>
+
                                 </ContentTemplate>
                             </asp:UpdatePanel>
                             <div class="row">

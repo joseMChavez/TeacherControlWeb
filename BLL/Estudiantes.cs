@@ -70,7 +70,7 @@ namespace BLL
 
             try
             {
-                retorno = conexion.Ejecutar(string.Format("update Estudiantes set Matricula= {0}, Nombre= '{1}', Genero= {2} , FechaNacimiento='{3}', Celular='{4}',Email='{5}',Direccion='{6}', CursoId={7}, Grupo='{8}', Fecha='{9}', Foto='{10}' where EstudianteId= {11}", this.Matricula, this.Nombre, this.Genero, this.FechaNacimiento, this.Celular, this.Email, this.Direccion, this.Curso, this.Grupo, Fecha, this.Foto,this.EstudianteId));
+                retorno = conexion.Ejecutar(string.Format("update Estudiantes set Matricula= {0}, Nombre= '{1}', Genero= {2} , FechaNacimiento='{3}', Celular='{4}',Email='{5}',Direccion='{6}', CursoId={7}, Grupo='{8}', Fecha='{9}', Foto='{10}' where Estudiante= {11}", this.Matricula, this.Nombre, this.Genero, this.FechaNacimiento, this.Celular, this.Email, this.Direccion, this.Curso, this.Grupo, Fecha, this.Foto,this.EstudianteId));
 
 
             }
@@ -88,7 +88,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("delete from Estudiantes where EstudianteId= {0}", this.EstudianteId));
+                retorno = conexion.Ejecutar(string.Format("delete from Estudiantes where Estudiante= {0}", this.EstudianteId));
 
             }
 
@@ -105,10 +105,10 @@ namespace BLL
             DataTable dt = new DataTable();
             try
             {
-                dt = conexion.ObtenerDatos(string.Format("select * From Estudiantes where EstudianteId=" + IdBuscado));
+                dt = conexion.ObtenerDatos(string.Format("select * From Estudiantes where Estudiante=" + IdBuscado));
                 if (dt.Rows.Count > 0)
                 {
-                    this.EstudianteId = (int)dt.Rows[0]["EstudianteId"];
+                    this.EstudianteId = (int)dt.Rows[0]["Estudiante"];
                     this.Matricula = (int)dt.Rows[0]["Matricula"];
                     this.Nombre = dt.Rows[0]["Nombre"].ToString();
                     this.Foto = dt.Rows[0]["Foto"].ToString();

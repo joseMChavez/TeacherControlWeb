@@ -11,10 +11,12 @@ namespace BLL
     {
 
         public int GrupoId { get; set; }
+        public int CursoId { get; set; }
         public string Descripcion { get; set; }
         public Grupos()
         {
             this.GrupoId = 0;
+            CursoId = 0;
             this.Descripcion = "";
         }
        
@@ -24,7 +26,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("Insert Into Grupos(Descripcion) values('{0}')", this.Descripcion));
+                retorno = conexion.Ejecutar(string.Format("Insert Into Grupos(CursoId,Descripcion) values({0},'{1}')",this.CursoId, this.Descripcion));
 
             }
             catch (Exception ex)
@@ -42,7 +44,7 @@ namespace BLL
             try
             {
 
-                retorno = conexion.Ejecutar(String.Format(" Update Grupos set Descripcion = '{0}' where GrupoId = {1} ", this.Descripcion, this.GrupoId));
+                retorno = conexion.Ejecutar(String.Format(" Update Grupos set CursoId ={0}, Descripcion = '{1}' where GrupoId = {1} ", CursoId , this.Descripcion, this.GrupoId));
 
             }
             catch (Exception exc)
@@ -80,6 +82,7 @@ namespace BLL
                 if (datatable.Rows.Count > 0)
                 {
                     this.GrupoId = (int)datatable.Rows[0]["GrupoId"];
+                    this.CursoId = (int)datatable.Rows[0]["CursoId"];
                     this.Descripcion = datatable.Rows[0]["Descripcion"].ToString();
                 }
 
@@ -119,9 +122,7 @@ namespace BLL
         public static DataTable ListadoDos(string Condicion)
         {
             ConexionDb conexion = new ConexionDb();
-           
-
-            return conexion.ObtenerDatos("Select * From Grupos Where " + Condicion);
+            return conexion.ObtenerDatos("Select * from Grupos_View Where " + Condicion);
         }
     }
 }

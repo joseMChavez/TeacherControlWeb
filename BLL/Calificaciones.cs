@@ -60,7 +60,7 @@ namespace BLL
             object identity;
             try
             {
-                identity = conexion.ObtenerValor(string.Format("Insert into Calificaciones(Estudiante,Matricula,Materia,Curso,Cursogrupo,TotalPuntos,Fecha) values('{0}',{1},'{2}','{3}','{4}',{5},'{6}') select @@Identity", this.Estudiante,this.Matricula ,this.Materia, this.Curso, this.CursoGrupo, this.TotalPuntos,this.Fecha));
+                identity = conexion.ObtenerValor(string.Format("Insert into Calificaciones(Estudiante,Matricula,Materia,CursoId,Cursogrupo,TotalPuntos,Fecha) values('{0}',{1},'{2}','{3}','{4}',{5},'{6}') select @@Identity", this.Estudiante,this.Matricula ,this.Materia, this.Curso, this.CursoGrupo, this.TotalPuntos,this.Fecha));
                 retorno=Utility.ConvierteEntero(identity.ToString());
                 //this.CalificacionId = retorno;
           
@@ -83,7 +83,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("update Calificaciones set Estudiante='{0}',Matricula={1}, Materia='{2}',Curso='{3}', Cursogrupo='{4}', TotalPuntos={5},  Fecha='{6}' where CalificacionId={7}", this.Estudiante,this.Matricula,this.Materia, this.Curso, this.CursoGrupo, this.TotalPuntos, this.Fecha, this.CalificacionId));
+                retorno = conexion.Ejecutar(string.Format("update Calificaciones set Estudiante='{0}',Matricula={1}, Materia='{2}',CursoId='{3}', Cursogrupo='{4}', TotalPuntos={5},  Fecha='{6}' where CalificacionId={7}", this.Estudiante,this.Matricula,this.Materia, this.Curso, this.CursoGrupo, this.TotalPuntos, this.Fecha, this.CalificacionId));
                 if (retorno)
                 {
                     conexion.Ejecutar(string.Format("Delete  from CalificacionDetalle where CalificacionId={0}", this.CalificacionId));
@@ -132,7 +132,7 @@ namespace BLL
                 {
                     Estudiante = dt.Rows[0]["Estudiante"].ToString();
                     Materia = dt.Rows[0]["Materia"].ToString();
-                    Curso = dt.Rows[0]["Curso"].ToString();
+                    Curso = dt.Rows[0]["CursoId"].ToString();
                     CursoGrupo = dt.Rows[0]["Cursogrupo"].ToString();
                     TotalPuntos = (float)Convert.ToDecimal(dt.Rows[0]["TotalPuntos"]);
                     Matricula = (int)dt.Rows[0]["Matricula"];
@@ -163,7 +163,7 @@ namespace BLL
             {
                 ordenFinal = "order by " + Orden;
             }
-            return dt = conexion.ObtenerDatos(string.Format("select C.CalificacionId as Id,C.Estudiante,C.Matricula,C.Materia,CD.Descripcion Categoria,CD.Puntuacion,C.Curso,C.Cursogrupo as Grupo,C.TotalPuntos as Puntos,C.Fecha from Calificaciones as C inner join CalificacionDetalle as CD on C.CalificacionId=CD.CalificacionId  where " + Condicion + ordenFinal));
+            return dt = conexion.ObtenerDatos(string.Format("select C.CalificacionId as Id,C.Estudiante,C.Matricula,C.Materia,CD.Descripcion Categoria,CD.Puntuacion,C.CursoId,C.Cursogrupo as Grupo,C.TotalPuntos as Puntos,C.Fecha from Calificaciones as C inner join CalificacionDetalle as CD on C.CalificacionId=CD.CalificacionId  where " + Condicion + ordenFinal));
 
         }
         public static DataTable ListadoVista( string Condicion)

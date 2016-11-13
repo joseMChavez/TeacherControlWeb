@@ -19,8 +19,9 @@
                                 </div>
                                 <div class="col s3">
                                     <asp:DropDownList ToolTip="Seleccione una Opcion" ID="FiltroDropDownList" runat="server" CssClass="select-dropdown btn white black-text">
-                                        <asp:ListItem Value="GrupoId">Id</asp:ListItem>
-                                        <asp:ListItem Value="Descripcion">Descripcion</asp:ListItem>
+                                        <asp:ListItem Value="Id">Id</asp:ListItem>
+                                        <asp:ListItem Value="Curso">Curso</asp:ListItem>
+                                        <asp:ListItem Value="Seccion">Seccion</asp:ListItem>
                                        
                                     </asp:DropDownList>
                                 </div>
@@ -35,7 +36,7 @@
                                 <asp:GridView ID="GruposGridView" CssClass=" striped highlight responsive-table picker__table" runat="server">
                                    <Columns>
                                         <asp:HyperLinkField
-                                        DataNavigateUrlFields="GrupoId"
+                                        DataNavigateUrlFields="Id"
                                         DataNavigateUrlFormatString="/Registros/rGrupos.aspx?Id={0}"
                                         Text="Editar"
                                          ControlStyle-CssClass="btn waves-effect white-text"  />

@@ -23,7 +23,7 @@
         <ul id="Registros-dropdown-desktop" class="dropdown-content">
             <li><a href="/Registros/rUsuarios.aspx">Usuarios</a></li>
             <li><a href="/Registros/rCursos.aspx">Cursos</a></li>
-            <li><a href="/Registros/rGrupos.aspx">Grupos</a></li>
+            <li><a href="/Registros/rGrupos.aspx">Secciones</a></li>
             <li><a href="/Registros/rMaterias.aspx">Materias</a></li>
             <li><a href="/Registros/rCategorias.aspx">Categorias de Calificaciones</a></li>
             <li class="divider"></li>
@@ -36,7 +36,7 @@
         <ul id="Consultas-dropdown-desktop" class="dropdown-content">
             <li><a href="/Consultas/cUsuarios.aspx">Usuarios</a></li>
             <li><a href="/Consultas/cCursos.aspx">Cursos</a></li>
-            <li><a href="/Consultas/cGrupos.aspx">Grupos</a></li>
+            <li><a href="/Consultas/cGrupos.aspx">Secciones</a></li>
             <li><a href="/Consultas/cMaterias.aspx">Materias</a></li>
             <li><a href="/Consultas/cCategorias.aspx">Categorias de Calificaciones</a></li>
             <li class="divider"></li>
@@ -50,14 +50,14 @@
 
         <!--opciones menu movil-->
         <ul id="Registros-dropdown-movil" class="dropdown-content">
-            <li><a href="/Registros/rUsuarios.aspx"></a></li>
+            <li><a href="/Registros/rUsuarios.aspx">Usuarios</a></li>
             <li><a href="/Registros/rCursos.aspx">Cursos</a></li>
-            <li><a href="/Registros/rGrupos.aspx">Grupos</a></li>
+            <li><a href="/Registros/rGrupos.aspx">Secciones</a></li>
             <li><a href="/Registros/rMaterias.aspx">Materias</a></li>
             <li><a href="/Registros/rCategorias.aspx">Categorias de Calificaciones</a></li>
             <li class="divider"></li>
             <li><a href="/Registros/rEstudiantes.aspx">Estudiantes</a></li>
-            <li><a href="#">Asistencias</a></li>
+            <li><a href="/Registros/rAsistencia.aspx">Asistencias</a></li>
             <li><a href="#">Calificaciones</a></li>
 
         </ul>
@@ -127,9 +127,9 @@
     </footer>
     <%--<script src="/js/angular.min.js"></script>--%>
 
-    <%--<script src="/js/jquery-2.2.0.min.js"></script>--%>
+    <script src="/js/jquery-2.2.0.min.js"></script>
     <%-- <script src="/js/jquery-3.1.1.min.js"></script>--%>
-    <script src="/js/jquery-1.9.1.min.js"></script>
+<%--    <script src="/js/jquery-1.9.1.min.js"></script>--%>
     <script src="/js/toastr.min.js"></script>
     <script src="/js/plugin-min.js"></script>
     <script src="/js/custom-min.js"></script>

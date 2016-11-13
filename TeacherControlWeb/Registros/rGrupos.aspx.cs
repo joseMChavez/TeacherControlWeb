@@ -15,8 +15,9 @@ namespace TeacherControlWeb.Registros
             Grupos grupos = new Grupos();
             if (!IsPostBack)
             {
-                GrupoGridView.DataSource = grupos.Listado("*","1=1","");
+                GrupoGridView.DataSource = Grupos.ListadoDos("0=0");
                 GrupoGridView.DataBind();
+                CargarDropDL();
                 if (Request.QueryString["ID"] != null)
                 {
                    int id = Utility.ConvierteEntero(Request.QueryString["ID"].ToString());
@@ -35,27 +36,26 @@ namespace TeacherControlWeb.Registros
             DescripcionTextBox.Text = string.Empty;
             DescripcionTextBox.Focus();
         }
+        private void CargarDropDL()
+        {
+            Cursos curso = new Cursos();
+            CursosDropDownList.DataSource = curso.Listado("*", "1=1", "");
+            CursosDropDownList.DataTextField = "Descripcion";
+            CursosDropDownList.DataValueField = "CursoId";
+            CursosDropDownList.DataBind();
+        }
         private void LlenarDatos(Grupos grupo)
         {
             grupo.GrupoId= Utility.ConvierteEntero(IdTextBox.Text);
+            grupo.CursoId = Utility.ConvierteEntero(CursosDropDownList.SelectedValue);
             grupo.Descripcion = DescripcionTextBox.Text;
 
         }
         private void Devolverdatos(Grupos grupo)
         {
             IdTextBox.Text = grupo.GrupoId.ToString();
+            CursosDropDownList.SelectedValue = grupo.CursoId.ToString();
             DescripcionTextBox.Text = grupo.Descripcion;
-        }
-        private bool Validad(Grupos grupo)
-        {
-            if (!string.IsNullOrWhiteSpace(DescripcionTextBox.Text) && grupo.BuscarDescripcion(DescripcionTextBox.Text).Equals(false))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
         }
 
         protected void NuevoButton_Click(object sender, EventArgs e)

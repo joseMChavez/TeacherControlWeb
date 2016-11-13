@@ -42,7 +42,7 @@ namespace TeacherControlWeb
 
             GruposDropDownList.DataSource = grupo.Listado("*", "1=1", "");
             GruposDropDownList.DataTextField = "Descripcion";
-            GruposDropDownList.DataValueField = "GrupoId";
+            GruposDropDownList.DataValueField = "Descripcion";
             GruposDropDownList.DataBind();
 
         }
@@ -147,7 +147,7 @@ namespace TeacherControlWeb
             {
                 if (Request.QueryString["ID"]!= null)
                 {
-                    estudiante.EstudianteId = Utility.ConvierteEntero(IdTextBox.Text);
+                    estudiante.EstudianteId = Utility.ConvierteEntero(Request.QueryString["ID"].ToString());
                     if (estudiante.Eliminar())
                     {
                         Utility.MensajeToastr(this.Page, "Se Elimino Correctamente!", "TC", "Success");

@@ -13,18 +13,7 @@ namespace TeacherControlWeb.Consultas
         protected void Page_Load(object sender, EventArgs e)
         {
             
-            Grupos grupos = new Grupos();
-            string filtro = Mostrar(grupos);
-           
-            if (!IsPostBack)
-            {
-                if (filtro.Equals(""))
-                {
-                    filtro = "1=1";
-                }
-                GruposGridView.DataSource = grupos.Listado("*",filtro , "");
-                GruposGridView.DataBind();
-            }
+            
         }
         private string Mostrar(Grupos grupo)
         {
@@ -38,21 +27,11 @@ namespace TeacherControlWeb.Consultas
             }
             else
             {
-
-                if (FiltroDropDownList.SelectedIndex == 0)
-                {
-                    filtro = "GrupoId = " + FiltroTextBox.Text;
-                }
-                else
-                {
                     filtro = FiltroDropDownList.SelectedValue + " like '%" + FiltroTextBox.Text + "%'";
-                }
-
-
-
+                
             }
 
-            GruposGridView.DataSource = grupo.Listado("* ", filtro, "");
+            GruposGridView.DataSource = Grupos.ListadoDos(filtro);
             GruposGridView.DataBind();
             return filtro;
         }
