@@ -21,7 +21,20 @@ namespace TeacherControlWeb.Registros
                 ViewState["Asistencia"] = dt;
                 CargarDropDs();
                 CargarGrupos();
-
+                Asistencia asistencia = new Asistencia();
+                int id = 0;
+                if (Request.QueryString["ID"] != null)
+                {
+                    id = Utility.ConvierteEntero(Request.QueryString["ID"].ToString());
+                    if (asistencia.Buscar(id))
+                    {
+                        if (AsistenciaGridView.Rows.Count == 0)
+                        {
+                            DevolverDatos(asistencia);
+                            GrupoDropDownList.Focus();
+                        }
+                    }
+                }
                 FechaLabel.Text = DateTime.Now.ToString("dd/MM/yyyy"); 
             }
         }
@@ -144,6 +157,58 @@ namespace TeacherControlWeb.Registros
         {
             CargarEstudiantes();
             Cargarmatricula();
+        }
+
+        protected void GuardarButton_Click(object sender, EventArgs e)
+        {
+            Asistencia asitencia = new Asistencia();
+            LlenarDatos(asitencia);
+            bool paso = false;
+            try
+            {
+                if (string.IsNullOrWhiteSpace(IdTextBox.Text))
+                {
+                    paso = asitencia.Insertar();
+                }
+                else
+                {
+                    paso = asitencia.Editar();
+                }
+
+                if (paso)
+                {
+                    Utility.MensajeToastr(this.Page, "TC", "Exito", "success");
+                    Limpiar();
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message);
+            }
+        }
+
+        protected void EliminarButton_Click(object sender, EventArgs e)
+        {
+            Asistencia asitencia = new Asistencia();
+            bool paso = false;
+            try
+            {
+                if (Request.QueryString["ID"]!=null)
+                {
+                    asitencia.AsistenciaId = Utility.ConvierteEntero(Request.QueryString["ID"].ToString());
+                    paso = asitencia.Eliminar();
+                }
+                if (paso)
+                {
+                    Utility.MensajeToastr(this.Page, "TC", "Elimino", "success");
+                    Limpiar();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message);
+            }
         }
     }
 }
