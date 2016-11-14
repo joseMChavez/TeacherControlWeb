@@ -31,6 +31,7 @@ namespace TeacherControlWeb.Registros
             dt.Columns.AddRange(new DataColumn[4] { new DataColumn("Estudiante"), new DataColumn("Matricula"), new DataColumn("Descripcion"), new DataColumn("Puntuacion") });
             ViewState["Calificacion"] = dt;
             CargarGrid();
+            EstudiantesDropDownList.Focus();
         }
 
         private void CargarDropDs()
@@ -122,22 +123,72 @@ namespace TeacherControlWeb.Registros
 
         protected void AddButton_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(PuntosTextBox.Text))
+                {
+                    DataTable dt = (DataTable)ViewState["Calificacion"];
+                    dt.Rows.Add(EstudiantesDropDownList.SelectedValue, MatDropDownList.SelectedValue,DescripcionDropDownList.SelectedValue, PuntosTextBox.Text);
+                    ViewState["Calificacion"] = dt;
+                    CargarGrid();
+                    PuntosTextBox.Text = string.Empty;
+                }
+            }
+            catch (Exception ex)
+            {
 
+                Response.Write(ex.Message);
+            }
         }
 
         protected void NuevoButton_Click(object sender, EventArgs e)
         {
-
+            Limpiar();
         }
 
         protected void GuardarButton_Click(object sender, EventArgs e)
         {
+            Calificaciones cal = new Calificaciones();
+            bool paso = false;
+            Llenardatos(cal);
+            try
+            {
+                if (string.IsNullOrWhiteSpace(IdTextBox.Text))
+                    paso = cal.Insertar();
+                else
+                    paso = cal.Editar();
 
+                if (paso) {
+                    Utility.MensajeToastr(this.Page, "TC", "Exito", "Success");
+                    Limpiar();
+                }
+         
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message);
+            }
         }
 
         protected void EliminarButton_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                Calificaciones cal = new Calificaciones();
+                if (Request.QueryString["ID"]!=null)
+                {
+                   cal.CalificacionId = Utility.ConvierteEntero(Request.QueryString["ID"].ToString());
+                    if (cal.Eliminar())
+                    {
+                        Utility.MensajeToastr(this.Page, "TC", "Se Elimino", "Success");
+                        Limpiar();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message);
+            }
         }
     }
 }
