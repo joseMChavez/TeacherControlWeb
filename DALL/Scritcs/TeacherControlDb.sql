@@ -71,17 +71,17 @@ Create table AsistenciaDetalle(
 go
 create table Calificaciones(
 		CalificacionId int identity(1,1) primary key,
-		EstudianteIdM int foreign key references Estudiantes(EstudianteId), 
+		CursoId int  references Cursos(CursoId), 
 		MateriaId int references Materias(MateriaId), 
-	    Curso varchar(20),
-	    Grupo varchar(5),
-		TotalPuntos float,
-	    Fecha DateTime	
+	    Grupo varchar(20),
+	    Fecha Date
 )
 go
 create table CalificacionDetalle(
 		Id int identity(1,1) primary key,
-		CalificacionIdM int foreign key references Calificaciones(CalificacionId),
+		CalificacionId int foreign key references Calificaciones(CalificacionId),
+		 Estudiante Varchar(70),
+		 Matricula int,
 		Descripcion varchar(70),
 		Puntuacion float
 )

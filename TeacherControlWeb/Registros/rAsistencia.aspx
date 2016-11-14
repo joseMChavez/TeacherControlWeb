@@ -10,7 +10,7 @@
 
                 <div class="card-panel">
                     <div class=" card-title center-align light-green-text">
-                        <h3>Registro de Asitencia</h3>
+                        <h3>Registro de Asistencia</h3>
                     </div>
                     <div class="card-small">
                         <div class=" card-content">
@@ -45,7 +45,7 @@
                                             </asp:DropDownList>
                                         </div>
                                         <%--  Grupo--%>
-                                        <div class="input-field col s10 m2 l2">
+                                        <div class="col s10 m2 l2">
                                             <asp:DropDownList ID="GrupoDropDownList" runat="server" CssClass="dropdown-button btn white black-text" AutoPostBack="True">
                                                 <asp:ListItem Selected="false" Text="[Elija un Grupo]"></asp:ListItem>
                                             </asp:DropDownList>

@@ -21,6 +21,7 @@ namespace TeacherControlWeb.Registros
                 ViewState["Asistencia"] = dt;
                 CargarDropDs();
                 CargarGrupos();
+                FechaLabel.Text = DateTime.Now.ToString("dd/MM/yyyy");
                 Asistencia asistencia = new Asistencia();
                 int id = 0;
                 if (Request.QueryString["ID"] != null)
@@ -35,7 +36,7 @@ namespace TeacherControlWeb.Registros
                         }
                     }
                 }
-                FechaLabel.Text = DateTime.Now.ToString("dd/MM/yyyy"); 
+              
             }
         }
         public void CargarGrid()
@@ -75,13 +76,7 @@ namespace TeacherControlWeb.Registros
         {
             DataTable dt = new DataTable();
 
-            if (!string.IsNullOrWhiteSpace(GrupoDropDownList.Text))
-            {
-                CursoDropDownList.SelectedIndex = 0;
-                GrupoDropDownList.SelectedIndex = 0;
-                EstadoDropDownList.SelectedIndex = 0;
-               
-            }
+         
             CantidadLabel.Text = "0";
             dt.Columns.AddRange(new DataColumn[3] { new DataColumn("Estudiante"), new DataColumn("Matricula"), new DataColumn("Estado") });
             ViewState["Asistencia"] = dt;
@@ -126,6 +121,7 @@ namespace TeacherControlWeb.Registros
                 {
                     DataTable dt = (DataTable)ViewState["Asistencia"];
                     dt.Rows.Add(EstudiantesDropDownList.Text, MatDropDownList.Text, EstadoDropDownList.SelectedValue);
+                    ViewState["Asistencia"] = dt;
                     CargarGrid();
                     EstadoDropDownList.SelectedIndex = 0;
 
@@ -183,7 +179,8 @@ namespace TeacherControlWeb.Registros
             }
             catch (Exception ex)
             {
-                Response.Write(ex.Message);
+                //Response.Write(ex.Message);
+                throw ex;
             }
         }
 

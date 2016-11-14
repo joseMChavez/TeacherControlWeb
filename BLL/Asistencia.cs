@@ -19,7 +19,7 @@ namespace BLL
         public string Activo { get; set; }
         public string Fecha { get; set; }
         public List<AsistenciaDetalle> aDetalle { get; set; }
-        AsistenciaDetalle AsisDetalle = new AsistenciaDetalle();
+     
         public Asistencia()
         {
             this.AsistenciaId = 0;
@@ -75,7 +75,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("update Asistencias set CursoId='{0}', CursoGrupo='{1}',CantidaEst={2}, Fecha='{3}' where AsistenciaId={4}", this.CursoId, this.CursoGrupo, this.CantidadEst, this.Fecha, this.AsistenciaId));
+                retorno = conexion.Ejecutar(string.Format("update Asistencias set CursoId='{0}', Grupo='{1}',CantidaEst={2}, Fecha='{3}' where AsistenciaId={4}", this.CursoId, this.CursoGrupo, this.CantidadEst, this.Fecha, this.AsistenciaId));
                 if (retorno)
                 {
                     conexion.Ejecutar(string.Format("Delete  from AsistenciaDetalle where AsistenciaId={0}", this.AsistenciaId));
@@ -154,7 +154,7 @@ namespace BLL
             {
                 ordenFinal = "order by " + Orden;
             }
-            return conexion.ObtenerDatos(string.Format("select  A.AsistenciaId as Id,A.CursoId, A.CursoGrupo as Grupo,AD.Estudiante,AD.Matricula,AD.Activo as Estado,A.CantidaEst as Cantidad, A.Fecha from Asistencias as  A Inner join AsistenciaDetalle as AD ON A.AsistenciaId=AD.AsistenciaId where " + Condicion + ordenFinal));
+            return conexion.ObtenerDatos(string.Format("select  A.AsistenciaId as Id,A.CursoId, A.Grupo as Grupo,AD.Estudiante,AD.Matricula,AD.Activo as Estado,A.CantidaEst as Cantidad, A.Fecha from Asistencias as  A Inner join AsistenciaDetalle as AD ON A.AsistenciaId=AD.AsistenciaId where " + Condicion + ordenFinal));
 
         }
     }

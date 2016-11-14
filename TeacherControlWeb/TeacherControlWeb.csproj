@@ -99,7 +99,6 @@
     <Content Include="js\toastr.js" />
     <Content Include="login.aspx" />
     <Content Include="Registros\rAsistencia.aspx" />
-    <Content Include="Registros\rAsistencias.aspx" />
     <Content Include="Registros\rCalificaciones.aspx" />
     <Content Include="Registros\rCategorias.aspx" />
     <Content Include="Registros\rCursos.aspx" />
@@ -214,13 +213,6 @@
     </Compile>
     <Compile Include="Registros\rAsistencia.aspx.designer.cs">
       <DependentUpon>rAsistencia.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Registros\rAsistencias.aspx.cs">
-      <DependentUpon>rAsistencias.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Registros\rAsistencias.aspx.designer.cs">
-      <DependentUpon>rAsistencias.aspx</DependentUpon>
     </Compile>
     <Compile Include="Registros\rCalificaciones.aspx.cs">
       <DependentUpon>rCalificaciones.aspx</DependentUpon>
