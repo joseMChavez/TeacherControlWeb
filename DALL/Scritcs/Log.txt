@@ -16,8 +16,10 @@ select
   from Estudiantes as E inner join Cursos as C on E.CursoId = C.CursoId;
 
   ***Creacion de Vista para Estudianes***
-  create view View_Estudiantes as
- select E.EstudianteId Id, E.Nombre, E.Matricula,E.Celular,E.Email,E.Direccion,C.Descripcion as Curso, E.Grupo as Seccion, YEar(GETDate())-YEAR(E.FechaNacimiento) as Edad,E.Fecha from Estudiantes as E inner join Cursos as C on E.CursoId = C.CursoId;
-
+ CREATE view View_Estudiantes as
+ select E.EstudianteId Id, E.Nombre, E.Matricula, case E.Genero when 1 then 'M' Else 'F' end as Sexo, E.Celular, E.Email,E.Direccion,C.Descripcion as Curso, E.Grupo as Seccion, YEar(GETDate())-YEAR(E.FechaNacimiento) as Edad,E.Fecha from Estudiantes as E inner join Cursos as C on E.CursoId = C.CursoId;
   create view Grupos_View as
  Select G.GrupoId as Id, C.Descripcion as Curso,G.Descripcion as Seccion From Grupos as G inner join Cursos as C on G.CursoId=C.CursoId
+
+  CREATE View AsistenciaPorEstudiante_View AS
+	SELECT A.AsistenciaId Id,AD.Estudiante Nombre, AD.Matricula, case AD.Estado when 'Presente' then COUNT(AD.Id) else '0' end as Asistencia from Asistencias A inner join AsistenciaDetalle AD on A.AsistenciaId = AD.AsistenciaId group by A.AsistenciaId,AD.Estudiante,AD.Matricula,AD.Estado

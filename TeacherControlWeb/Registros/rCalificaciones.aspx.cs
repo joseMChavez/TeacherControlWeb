@@ -20,7 +20,7 @@ namespace TeacherControlWeb.Registros
                 DataTable dt = new DataTable();
                 dt.Columns.AddRange(new DataColumn[4] { new DataColumn("Estudiante"), new DataColumn("Matricula"), new DataColumn("Descripcion"), new DataColumn("Puntuacion") });
                 ViewState["Calificacion"] = dt;
-                FechaLabel.Text = DateTime.Now.ToShortDateString();
+                FechaTextBox.Text = DateTime.Today.ToString("dd/MM/yyyy");
             }
         }
         private void Limpiar()
@@ -28,6 +28,7 @@ namespace TeacherControlWeb.Registros
             DataTable dt = new DataTable();
             IdTextBox.Text = string.Empty;
             PuntosTextBox.Text = string.Empty;
+            FechaTextBox.Text = DateTime.Today.ToString("dd/MM/yyyy");
             dt.Columns.AddRange(new DataColumn[4] { new DataColumn("Estudiante"), new DataColumn("Matricula"), new DataColumn("Descripcion"), new DataColumn("Puntuacion") });
             ViewState["Calificacion"] = dt;
             CargarGrid();
@@ -86,8 +87,8 @@ namespace TeacherControlWeb.Registros
             calificacion.CalificacionId = Utility.ConvierteEntero(IdTextBox.Text);
             calificacion.CursoId = Utility.ConvierteEntero(CursoDropDownList.SelectedValue);
             calificacion.Grupo = GrupoDropDownList.SelectedValue;
-            calificacion.Fecha = FechaLabel.Text;
-
+            calificacion.Fecha = FechaTextBox.Text;
+            calificacion.MateriaId = Utility.ConvierteEntero(MateriaDropDownList.SelectedValue);
             foreach (GridViewRow item in CalificacionesGridView.Rows)
             {
                 calificacion.AgregarCalificaiones(item.Cells[0].Text, Utility.ConvierteEntero(item.Cells[1].Text), item.Cells[2].Text, Utility.ConvierteFloat(item.Cells[3].Text));
@@ -99,7 +100,7 @@ namespace TeacherControlWeb.Registros
             CursoDropDownList.SelectedValue = calificacion.CursoId.ToString();
             GrupoDropDownList.SelectedValue = calificacion.Grupo;
             MateriaDropDownList.SelectedValue = calificacion.MateriaId.ToString();
-            FechaLabel.Text = calificacion.Fecha;
+            FechaTextBox.Text = calificacion.Fecha;
 
             foreach (var item in calificacion.DetalleC)
             {

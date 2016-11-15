@@ -21,7 +21,7 @@ namespace TeacherControlWeb.Registros
                 ViewState["Asistencia"] = dt;
                 CargarDropDs();
                 CargarGrupos();
-                FechaLabel.Text = DateTime.Now.ToString("dd/MM/yyyy");
+                FechaTextBox.Text = DateTime.Today.ToString("dd/MM/yyyy");
                 Asistencia asistencia = new Asistencia();
                 int id = 0;
                 if (Request.QueryString["ID"] != null)
@@ -49,7 +49,7 @@ namespace TeacherControlWeb.Registros
             asistencia.AsistenciaId = Utility.ConvierteEntero(IdTextBox.Text);
             asistencia.CursoId = Utility.ConvierteEntero(CursoDropDownList.SelectedValue);
             asistencia.CursoGrupo = GrupoDropDownList.SelectedValue;
-            asistencia.Fecha = FechaLabel.Text;
+            asistencia.Fecha = FechaTextBox.Text;
             asistencia.CantidadEst = Utility.ConvierteEntero(CantidadLabel.Text);
             foreach (GridViewRow item in AsistenciaGridView.Rows)
             {
@@ -61,7 +61,7 @@ namespace TeacherControlWeb.Registros
             IdTextBox.Text = asistencia.AsistenciaId.ToString();
             CursoDropDownList.SelectedValue = asistencia.CursoId.ToString();
             GrupoDropDownList.SelectedValue = asistencia.CursoGrupo;
-            FechaLabel.Text = asistencia.Fecha;
+            FechaTextBox.Text = asistencia.Fecha;
             CantidadLabel.Text = asistencia.CantidadEst.ToString();
             foreach (var item in asistencia.aDetalle)
             {
@@ -179,8 +179,8 @@ namespace TeacherControlWeb.Registros
             }
             catch (Exception ex)
             {
-                //Response.Write(ex.Message);
-                throw ex;
+                Response.Write(ex.Message);
+                //throw ex;
             }
         }
 

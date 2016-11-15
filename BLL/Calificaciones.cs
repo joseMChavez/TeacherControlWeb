@@ -44,7 +44,7 @@ namespace BLL
             object identity;
             try
             {
-                identity = conexion.ObtenerValor(string.Format("Insert into Calificaciones(CursoId,Cursogrupo,MateriaId,Fecha) values({0},'{1}',{2},'{3}'); select SCOPE_IDENTITY()", this.CursoId, this.Grupo, this.MateriaId, this.Fecha));
+                identity = conexion.ObtenerValor(string.Format("Insert into Calificaciones(CursoId,Grupo,MateriaId,Fecha) values({0},'{1}',{2},'{3}'); select SCOPE_IDENTITY()", this.CursoId, this.Grupo, this.MateriaId, this.Fecha));
                 retorno = Utility.ConvierteEntero(identity.ToString());
                 //this.CalificacionId = retorno;
 

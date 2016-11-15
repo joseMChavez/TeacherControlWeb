@@ -57,7 +57,7 @@ namespace BLL
                 retorno = Utility.ConvierteEntero(conexion.ObtenerValor(string.Format("Insert Into Asistencias(CursoId,Grupo,CantidaEst,Fecha) values({0},'{1}',{2},'{3}'); select SCOPE_IDENTITY()", this.CursoId, this.CursoGrupo, this.CantidadEst, this.Fecha)).ToString());
                 foreach (AsistenciaDetalle asistenciaD in aDetalle)
                 {
-                    conexion.Ejecutar(string.Format("Insert into AsistenciaDetalle(AsistenciaId,Estudiante,Matricula,Estado) Values({0},'{1}','{2}',{3})", retorno, asistenciaD.EstudianteId, asistenciaD.Matricula,asistenciaD.Activo));
+                    conexion.Ejecutar(string.Format("Insert into AsistenciaDetalle(AsistenciaId,Estudiante,Matricula,Estado) Values({0},'{1}',{2},'{3}')", retorno, asistenciaD.EstudianteId, asistenciaD.Matricula,asistenciaD.Activo));
                 }
 
             }

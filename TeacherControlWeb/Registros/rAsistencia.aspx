@@ -28,7 +28,7 @@
                                     <asp:LinkButton data-target="modal1" Visible="true" ToolTip="Buscar" ID="BuscarButton" runat="server" CssClass=" waves-effect blue darken-1 white-text btn modal-trigger"><i class="material-icons prefix">search</i></asp:LinkButton>
                                 </div>
                                 <div class="input-field col l2 m4 s8">
-                                    <asp:Label ID="FechaLabel" runat="server" CssClass="amber-text" Text=""></asp:Label>
+                                   <asp:TextBox ID="FechaTextBox" TextMode="Date" runat="server"></asp:TextBox>
                                 </div>
 
                             </div>
