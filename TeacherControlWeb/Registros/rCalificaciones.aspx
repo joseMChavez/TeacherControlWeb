@@ -68,26 +68,26 @@
                                     <div class="row">
                                         <%--Estudiantes--%>
                                         <div class=" input-field col s10 m4 l4">
-                                            <asp:DropDownList ID="EstudiantesDropDownList" runat="server" CssClass="dropdown-button btn  white black-text" AutoPostBack="True">
+                                            <asp:DropDownList visible="false" ID="EstudiantesDropDownList" runat="server" CssClass="dropdown-button btn  white black-text" AutoPostBack="True">
                                                 <asp:ListItem Selected="false" Text="[Elija un Estuadiante]"></asp:ListItem>
                                             </asp:DropDownList>
                                         </div>
                                         <%--  Matricula--%>
                                         <div class=" input-field col s10 m2 l2">
-                                            <asp:DropDownList ID="MatDropDownList" runat="server" CssClass="dropdown-button btn btn white black-text" AutoPostBack="True">
+                                            <asp:DropDownList visible="false"  ID="MatDropDownList" runat="server" CssClass="dropdown-button btn btn white black-text" AutoPostBack="True">
                                             </asp:DropDownList>
                                         </div>
                                         <%--Descripcion--%>
                                         <div class=" input-field col s10 m3 l3">
-                                            <asp:DropDownList ToolTip="Dscripcion" ID="DescripcionDropDownList" runat="server" CssClass="dropdown-button btn  white black-text">
+                                            <asp:DropDownList visible="false" ToolTip="Dscripcion" ID="DescripcionDropDownList" runat="server" CssClass="dropdown-button btn  white black-text">
                                             </asp:DropDownList>
                                         </div>
                                         <div class=" input-field col s10 m1 l1">
-                                            <label for="PuntosTextBox">Puncuacion</label>
-                                            <asp:TextBox ID="PuntosTextBox" runat="server"></asp:TextBox>
+                                            <asp:Label visible="false" ID="PuntosLabel" runat="server" AssociatedControlID="PuntosTextBox" Text="Calificacion"></asp:Label>
+                                            <asp:TextBox visible="false" ID="PuntosTextBox" runat="server"></asp:TextBox>
                                         </div>
                                         <div class="col s1 m3 l2">
-                                            <asp:LinkButton Visible="true" ToolTip="Agregar" ID="AddButton" runat="server" CssClass=" waves-effect green darken-1 white-text btn " OnClick="AddButton_Click"><i class="material-icons prefix">add</i></asp:LinkButton>
+                                            <asp:LinkButton visible="false"  ToolTip="Agregar" ID="AddButton" runat="server" CssClass=" waves-effect green darken-1 white-text btn " OnClick="AddButton_Click"><i class="material-icons prefix">add</i></asp:LinkButton>
                                         </div>
                                     </div>
                                     <div class="row">

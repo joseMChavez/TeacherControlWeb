@@ -75,8 +75,12 @@ namespace TeacherControlWeb.Registros
         private void Limpiar()
         {
             DataTable dt = new DataTable();
-
-         
+            EstudiantesDropDownList.Visible = false;
+            MatDropDownList.Visible = false;
+            EstadoDropDownList.Visible = false;
+            AddButton.Visible = false;
+            letraLabel.Visible = false;
+            CantidadLabel.Visible = false;
             CantidadLabel.Text = "0";
             dt.Columns.AddRange(new DataColumn[3] { new DataColumn("Estudiante"), new DataColumn("Matricula"), new DataColumn("Estado") });
             ViewState["Asistencia"] = dt;
@@ -151,6 +155,12 @@ namespace TeacherControlWeb.Registros
 
         protected void CargarButton_Click(object sender, EventArgs e)
         {
+            EstudiantesDropDownList.Visible = true;
+            MatDropDownList.Visible = true;
+            EstadoDropDownList.Visible = true;
+            AddButton.Visible = true;
+            letraLabel.Visible = true;
+            CantidadLabel.Visible = true;
             CargarEstudiantes();
             Cargarmatricula();
         }

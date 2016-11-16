@@ -64,6 +64,7 @@
     <Content Include="App_Data\TeacherControlWebDB_log.ldf">
       <DependentUpon>TeacherControlWebDB.mdf</DependentUpon>
     </Content>
+    <Content Include="Consultas\cAsistencia.aspx" />
     <Content Include="Consultas\cCalificaciones.aspx" />
     <Content Include="Consultas\cCategoria.aspx" />
     <Content Include="Consultas\cCursos.aspx" />
@@ -119,6 +120,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Consultas\cAsistencia.aspx.cs">
+      <DependentUpon>cAsistencia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cAsistencia.aspx.designer.cs">
+      <DependentUpon>cAsistencia.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Consultas\cCalificaciones.aspx.cs">
       <DependentUpon>cCalificaciones.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

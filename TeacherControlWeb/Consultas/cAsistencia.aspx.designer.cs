@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TeacherControlWeb.Registros {
+namespace TeacherControlWeb.Consultas {
     
     
-    public partial class rCalificaciones {
+    public partial class cAsistencia {
         
         /// <summary>
         /// ScriptManager1 control.
@@ -22,13 +22,31 @@ namespace TeacherControlWeb.Registros {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// IdTextBox control.
+        /// FiltroLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox IdTextBox;
+        protected global::System.Web.UI.WebControls.Label FiltroLabel;
+        
+        /// <summary>
+        /// FiltroDropDownList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList FiltroDropDownList;
+        
+        /// <summary>
+        /// FiltroTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox FiltroTextBox;
         
         /// <summary>
         /// BuscarButton control.
@@ -40,112 +58,58 @@ namespace TeacherControlWeb.Registros {
         protected global::System.Web.UI.WebControls.LinkButton BuscarButton;
         
         /// <summary>
-        /// FechaTextBox control.
+        /// DesdeLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox FechaTextBox;
+        protected global::System.Web.UI.WebControls.Label DesdeLabel;
         
         /// <summary>
-        /// UpdatePanel1 control.
+        /// DesdeTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        protected global::System.Web.UI.WebControls.TextBox DesdeTextBox;
         
         /// <summary>
-        /// CursoDropDownList control.
+        /// HastaLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList CursoDropDownList;
+        protected global::System.Web.UI.WebControls.Label HastaLabel;
         
         /// <summary>
-        /// GrupoDropDownList control.
+        /// HastaTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList GrupoDropDownList;
+        protected global::System.Web.UI.WebControls.TextBox HastaTextBox;
         
         /// <summary>
-        /// MateriaDropDownList control.
+        /// ActivadorLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList MateriaDropDownList;
+        protected global::System.Web.UI.WebControls.Label ActivadorLabel;
         
         /// <summary>
-        /// CargarButton control.
+        /// ONCheckBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton CargarButton;
-        
-        /// <summary>
-        /// EstudiantesDropDownList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList EstudiantesDropDownList;
-        
-        /// <summary>
-        /// MatDropDownList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList MatDropDownList;
-        
-        /// <summary>
-        /// DescripcionDropDownList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DescripcionDropDownList;
-        
-        /// <summary>
-        /// PuntosLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label PuntosLabel;
-        
-        /// <summary>
-        /// PuntosTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PuntosTextBox;
-        
-        /// <summary>
-        /// AddButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton AddButton;
+        protected global::System.Web.UI.WebControls.CheckBox ONCheckBox;
         
         /// <summary>
         /// CalificacionesGridView control.
@@ -157,30 +121,12 @@ namespace TeacherControlWeb.Registros {
         protected global::System.Web.UI.WebControls.GridView CalificacionesGridView;
         
         /// <summary>
-        /// NuevoButton control.
+        /// ImprimirButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button NuevoButton;
-        
-        /// <summary>
-        /// GuardarButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button GuardarButton;
-        
-        /// <summary>
-        /// EliminarButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button EliminarButton;
+        protected global::System.Web.UI.WebControls.LinkButton ImprimirButton;
     }
 }

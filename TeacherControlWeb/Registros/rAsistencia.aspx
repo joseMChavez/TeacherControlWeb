@@ -62,25 +62,25 @@
                                     <div class="row">
                                         <%--Estudiantes--%>
                                         <div class=" input-field col s10 m3 l3">
-                                            <asp:DropDownList ID="EstudiantesDropDownList" runat="server" CssClass="dropdown-button btn  white black-text" AutoPostBack="True" OnTextChanged="EstudiantesDropDownList_TextChanged">
+                                            <asp:DropDownList visible="false" ID="EstudiantesDropDownList" runat="server" CssClass="dropdown-button btn  white black-text" AutoPostBack="True" OnTextChanged="EstudiantesDropDownList_TextChanged">
                                                 <asp:ListItem Selected="false" Text="[Elija un Estuadiante]"></asp:ListItem>
                                             </asp:DropDownList>
                                         </div>
                                         <%--  Matricula--%>
                                         <div class=" input-field col s10 m3 l3">
-                                            <asp:DropDownList ID="MatDropDownList" runat="server" CssClass="dropdown-button btn btn white black-text" AutoPostBack="True">
+                                            <asp:DropDownList visible="false" ID="MatDropDownList" runat="server" CssClass="dropdown-button btn btn white black-text" AutoPostBack="True">
                                             </asp:DropDownList>
                                         </div>
                                         <%--Estado--%>
                                         <div class=" input-field col s10 m3 l3">
-                                            <asp:DropDownList ID="EstadoDropDownList" runat="server" CssClass="dropdown-button btn  white black-text">
+                                            <asp:DropDownList visible="false" ID="EstadoDropDownList" runat="server" CssClass="dropdown-button btn  white black-text">
                                                 <asp:ListItem Value="Presente">Presente</asp:ListItem>
                                                 <asp:ListItem Value="Ausente">Ausente</asp:ListItem>
                                                 <asp:ListItem Value="Excusa">Excusa</asp:ListItem>
                                             </asp:DropDownList>
                                         </div>
                                         <div class="col s1 m3 l2">
-                                            <asp:LinkButton Visible="true" ToolTip="Agregar" ID="AddButton" runat="server" CssClass=" waves-effect green darken-1 white-text btn " OnClick="AddButton_Click"><i class="material-icons prefix">add</i></asp:LinkButton>
+                                            <asp:LinkButton visible="false" ToolTip="Agregar" ID="AddButton" runat="server" CssClass=" waves-effect green darken-1 white-text btn " OnClick="AddButton_Click"><i class="material-icons prefix">add</i></asp:LinkButton>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -91,10 +91,10 @@
                                     </div>
                                     <div class="row">
                                         <div class="col s10 m4 l4">
-                                            <asp:Label ID="letraLabel" runat="server" Text="Cantidad de Estudiantes: "></asp:Label>
+                                            <asp:Label visible="false" ID="letraLabel" runat="server" Text="Cantidad de Estudiantes: "></asp:Label>
                                         </div>
                                         <div class="col s2 m2 l2">
-                                            <asp:Label ID="CantidadLabel" CssClass="amber-text" runat="server" Text=""></asp:Label>
+                                            <asp:Label visible="false" ID="CantidadLabel" CssClass="amber-text" runat="server" Text=""></asp:Label>
                                         </div>
                                     </div>
 

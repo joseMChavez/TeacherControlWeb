@@ -132,13 +132,13 @@ namespace BLL
             }
             return dt.Rows.Count > 0;
         }
-        public bool BuscarMatricula(int IdBuscado, string curso, string grupo)
+        public static bool BuscarMatricula(int IdBuscado, int curso, string grupo)
         {
             ConexionDb conexion = new ConexionDb();
             DataTable dt = new DataTable();
             try
             {
-                dt = conexion.ObtenerDatos(string.Format("select * From Estudiante where Matricula={0} and CursoId='{1}' and Grupo='{2}'", IdBuscado, curso, grupo));
+                dt = conexion.ObtenerDatos(string.Format("select * From Estudiantes where Matricula={0} and CursoId={1} and Grupo='{2}'", IdBuscado, curso, grupo));
 
             }
             catch (Exception ex)

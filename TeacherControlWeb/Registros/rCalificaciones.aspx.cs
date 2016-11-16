@@ -18,9 +18,24 @@ namespace TeacherControlWeb.Registros
                 CargarDropDs();
                 CargarGrupos();
                 DataTable dt = new DataTable();
-                dt.Columns.AddRange(new DataColumn[4] { new DataColumn("Estudiante"), new DataColumn("Matricula"), new DataColumn("Descripcion"), new DataColumn("Puntuacion") });
+                int id = 0;
+                Calificaciones cal = new Calificaciones();
+                dt.Columns.AddRange(new DataColumn[4] { new DataColumn("Estudiante"), new DataColumn("Matricula"), new DataColumn("Descripcion"), new DataColumn("Calificacion") });
                 ViewState["Calificacion"] = dt;
                 FechaTextBox.Text = DateTime.Today.ToString("dd/MM/yyyy");
+               
+                if (Request.QueryString["ID"] != null)
+                {
+                    id = Utility.ConvierteEntero(Request.QueryString["ID"].ToString());
+                    if (cal.Buscar(id))
+                    {
+                        if (CalificacionesGridView.Rows.Count == 0)
+                        {
+                            DevolverDatos(cal);
+                            GrupoDropDownList.Focus();
+                        }
+                    }
+                }
             }
         }
         private void Limpiar()
@@ -28,6 +43,12 @@ namespace TeacherControlWeb.Registros
             DataTable dt = new DataTable();
             IdTextBox.Text = string.Empty;
             PuntosTextBox.Text = string.Empty;
+            EstudiantesDropDownList.Visible = false;
+            MatDropDownList.Visible = false;
+            DescripcionDropDownList.Visible = false;
+            PuntosLabel.Visible = false;
+            PuntosTextBox.Visible = false;
+            AddButton.Visible = false;
             FechaTextBox.Text = DateTime.Today.ToString("dd/MM/yyyy");
             dt.Columns.AddRange(new DataColumn[4] { new DataColumn("Estudiante"), new DataColumn("Matricula"), new DataColumn("Descripcion"), new DataColumn("Puntuacion") });
             ViewState["Calificacion"] = dt;
@@ -118,6 +139,12 @@ namespace TeacherControlWeb.Registros
 
         protected void CargarButton_Click(object sender, EventArgs e)
         {
+            EstudiantesDropDownList.Visible = true;
+            MatDropDownList.Visible = true;
+            DescripcionDropDownList.Visible = true;
+            PuntosLabel.Visible = true;
+            PuntosTextBox.Visible = true;
+            AddButton.Visible = true;
             CargarEstudiantes();
             Cargarmatricula();
         }

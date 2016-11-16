@@ -61,14 +61,7 @@ namespace TeacherControlWeb.Registros
         }
         private bool Validar()
         {
-            if (!String.IsNullOrWhiteSpace(NombresTextBox.Text) && !string.IsNullOrWhiteSpace(UserTextBox.Text) && !string.IsNullOrWhiteSpace(EmailTextBox.Text) && !string.IsNullOrWhiteSpace(TelefonoTextBox.Text) && !string.IsNullOrWhiteSpace(ClaveTextBox.Text) && !string.IsNullOrWhiteSpace(ConfirmarTextBox.Text) && ConfirmarTextBox.Text.Equals(ClaveTextBox.Text))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return ConfirmarTextBox.Text.Equals(ClaveTextBox.Text);
         }
 
         protected void NuevoButton_Click(object sender, EventArgs e)
@@ -79,43 +72,43 @@ namespace TeacherControlWeb.Registros
         protected void GuardarButton_Click(object sender, EventArgs e)
         {
             Usuarios user = new Usuarios();
+            bool exito = false, paso = false;
             try
             {
-                if (string.IsNullOrWhiteSpace(IdTextBox.Text))
+                if (Utility.BuscarDuplicado("Usuarios", "UserName", UserTextBox.Text))
                 {
-                    if (Validar())
+                    Utility.MensajeToastr(this.Page, "Ya Existe un usuario con este Nombre!", "TC", "info");
+                    UserTextBox.Text = string.Empty;
+                    UserTextBox.Focus();
+                }
+                else { paso = true; }
+                Llenardatos(user);
+                if (Validar())
+                {
+                    if (string.IsNullOrWhiteSpace(IdTextBox.Text) && paso)
                     {
-                        Llenardatos(user);
-                        if (user.Insertar())
+                        exito = user.Insertar();
+                    }
+                    else
+                    {
+                        if (paso)
                         {
-                            Utility.MensajeToastr(this.Page, "Se Guardo con exito", "Exito", "success");
-                           
-                            Limpiar();
-                            NombresTextBox.Focus();
-                        }
-                        else
-                        {
-                            Utility.MensajeToastr(this.Page, "No Se Guardo", "Exito", "Error");
+                            exito = user.Editar();
                         }
                     }
                 }
                 else
                 {
-                    if (Validar())
-                    {
-                        Llenardatos(user);
-                        if (user.Editar())
-                        {
-                            Utility.MensajeToastr(this.Page, "Se Modifico con exito", "Error", "success");
-                            Limpiar();
-                            NombresTextBox.Focus();
-                        }
-                        else
-                        {
-                            Utility.MensajeToastr(this.Page, "No se Modifico", "Error", "Error");
-                        }
-                    }
+                    Utility.MensajeToastr(this.Page, "Debe de confirmar la contraseña!", "TC", "info");
+                    ConfirmarTextBox.Text = string.Empty;
+                    ConfirmarTextBox.Focus();
                 }
+                if (exito)
+                {
+                    Utility.MensajeToastr(this.Page, "Exito!", "TC", "Success");
+                    Limpiar();
+                }
+
             }
             catch (Exception ex)
             {
@@ -131,17 +124,14 @@ namespace TeacherControlWeb.Registros
             {
                 if (!string.IsNullOrWhiteSpace(IdTextBox.Text))
                 {
+                    user.usuarioId = Utility.ConvierteEntero(IdTextBox.Text);
                     if (user.Eliminar())
                     {
-
-                        Limpiar();
                         Utility.MensajeToastr(this.Page, "Se Elimino con exito", "Exito", "success");
                         NombresTextBox.Focus();
+                        Limpiar();
                     }
-                    else
-                    {
-                        Utility.MensajeToastr(this.Page, "No se Elimino", "Error", "Error");
-                    }
+
                 }
             }
             catch (Exception ex)

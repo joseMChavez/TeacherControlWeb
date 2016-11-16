@@ -21,13 +21,14 @@ namespace TeacherControlWeb
                 if (Request.QueryString["ID"] != null)
                 {
                     id = Utility.ConvierteEntero(Request.QueryString["Id"].ToString());
-                    if (id > 0) {
+                    if (id > 0)
+                    {
                         if (estudiante.Buscar(id))
                         {
                             DevolverDatos(estudiante);
                             MatriculaTextBox.Focus();
                         }
-                    }  
+                    }
                 }
             }
         }
@@ -79,7 +80,7 @@ namespace TeacherControlWeb
             {
                 estudiante.Genero = 0;
             }
-         
+
             estudiante.FechaNacimiento = FNacTextBox.Text;
             estudiante.Fecha = FechaLabel.Text;
             estudiante.Curso = Utility.ConvierteEntero(CursosDropDownList.SelectedValue);
@@ -118,8 +119,15 @@ namespace TeacherControlWeb
             try
             {
                 LLenarDatos(estudiante);
-                bool exito = false;
-               
+                bool exito = false, paso = false;
+                if (Utility.BuscarDuplicado("Estudiantes", "Matricula", MatriculaTextBox.Text))
+                {
+                    Utility.MensajeToastr(this.Page, "Ya Existe un estudiante con esa Matricula!", "TC", "info");
+                    MatriculaTextBox.Text = string.Empty;
+                    MatriculaTextBox.Focus();
+                }
+                else { paso = true; }
+
                 if (IdTextBox.Text.Equals(""))
                 {
                     exito = estudiante.Insertar();
@@ -127,7 +135,7 @@ namespace TeacherControlWeb
                 else { exito = estudiante.Editar(); }
 
 
-                if (exito)
+                if (paso && exito)
                 {
                     Utility.MensajeToastr(this.Page, "Exito!", "TC", "Success");
                     Limpiar();
@@ -145,7 +153,7 @@ namespace TeacherControlWeb
             Estudiantes estudiante = new Estudiantes();
             try
             {
-                if (Request.QueryString["ID"]!= null)
+                if (Request.QueryString["ID"] != null)
                 {
                     estudiante.EstudianteId = Utility.ConvierteEntero(Request.QueryString["ID"].ToString());
                     if (estudiante.Eliminar())
@@ -154,7 +162,7 @@ namespace TeacherControlWeb
                         Limpiar();
                     }
                 }
-                
+
             }
             catch (Exception ex)
             {
