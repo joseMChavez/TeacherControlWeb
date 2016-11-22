@@ -5,6 +5,7 @@ using System.Web;
 using System.Security.Permissions;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Text.RegularExpressions;
 using BLL;
 
 namespace TeacherControlWeb.Registros
@@ -63,7 +64,7 @@ namespace TeacherControlWeb.Registros
         {
             return ConfirmarTextBox.Text.Equals(ClaveTextBox.Text);
         }
-
+    
         protected void NuevoButton_Click(object sender, EventArgs e)
         {
             Limpiar();

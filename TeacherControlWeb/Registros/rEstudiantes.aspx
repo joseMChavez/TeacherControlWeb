@@ -63,7 +63,7 @@
                                     <i class="material-icons prefix">perm_identity</i>
                                     <label for="NombresTextBox">Nombres:</label>
                                     <asp:TextBox CssClass="validate" ID="NombresTextBox" runat="server"></asp:TextBox>
-                                    <%-- <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Solo se Aceptan Matriculas Numericas" Text="*" ControlToValidate="MatriculaTextBox" ForeColor="Red" ValidationGroup="G">*</asp:RegularExpressionValidator>--%>
+                                    <asp:RegularExpressionValidator ControlToValidate="NombresTextBox" ID="RegularExpressionValidator6" ValidationExpression="^[a-zA-Z/s]{3,60}$" runat="server" ErrorMessage="Solo textos." ValidationGroup="G" ForeColor="Red">*</asp:RegularExpressionValidator>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Introduzca Nombre Y Apellidos del Estudiante." ValidationGroup="G" ControlToValidate="NombresTextBox" ForeColor="Red">*</asp:RequiredFieldValidator>
                                 </div>
                             </div>

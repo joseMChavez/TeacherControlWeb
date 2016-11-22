@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div class=" container">
 
-        
+
         <div class="row">
             <div class=" col s12">
 
@@ -53,7 +53,7 @@
                                     <label for="NombresTextBox">Nombres:</label>
                                     <asp:TextBox CssClass="validate" ID="NombresTextBox" runat="server"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="NombresTextBox" ValidationGroup="G" ForeColor="red" ErrorMessage="Introduzca Su Nombre y Apellidos,">*</asp:RequiredFieldValidator>
-
+                                      <asp:RegularExpressionValidator ControlToValidate="NombresTextBox" ID="RegularExpressionValidator6" ValidationExpression="^[a-zA-Z/s]{3,60}$" runat="server" ErrorMessage="Solo textos." ValidationGroup="G" ForeColor="Red">*</asp:RegularExpressionValidator>
                                 </div>
                             </div>
                             <%-- Nombre de Usuario --%>
@@ -63,7 +63,8 @@
                                     <i class="material-icons prefix">account_circle</i>
                                     <label for="UserTextBox">Nombre de Usuarios:</label>
                                     <asp:TextBox CssClass="validate" ID="UserTextBox" runat="server"></asp:TextBox>
-                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="UserTextBox" ValidationGroup="G" ForeColor="red" ErrorMessage="Introduzca un nombre de Usuario.">*</asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="UserTextBox" ValidationGroup="G" ForeColor="red" ErrorMessage="Introduzca un nombre de Usuario.">*</asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator ControlToValidate="UserTextBox" ID="RegularExpressionValidator5" ValidationExpression="^[a-zA-Z./s]{3,20}$" runat="server" ErrorMessage="Formato Incorrecto" ValidationGroup="G" ForeColor="Red">*</asp:RegularExpressionValidator>
                                 </div>
                             </div>
                             <%-- Telefono --%>
@@ -94,6 +95,7 @@
                                     <label for="ClaveTextBox">Contraseña:</label>
                                     <asp:TextBox CssClass="validate" ID="ClaveTextBox" runat="server" TextMode="Password" MaxLength="10"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="Introduzca una Clave de Seguridad" ValidationGroup="G" ControlToValidate="ClaveTextBox"></asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator ControlToValidate="ClaveTextBox" ID="RegularExpressionValidator4" ValidationExpression="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,10}$" runat="server" ErrorMessage="Su Contraseña es Debil " ValidationGroup="G" ForeColor="Red">*</asp:RegularExpressionValidator>
                                 </div>
                             </div>
                             <%-- Repetir Clave --%>
@@ -103,6 +105,7 @@
                                     <label for="ConfirmarTextBox">Repetir Contraseña:</label>
                                     <asp:TextBox CssClass="validate" ID="ConfirmarTextBox" runat="server" TextMode="Password" MaxLength="10"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Se Debe de Repetir" ValidationGroup="G" ControlToValidate="ConfirmarTextBox"></asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator ControlToValidate="ConfirmarTextBox" ID="RegularExpressionValidator3" ValidationExpression="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,10}$" runat="server" ErrorMessage="Su Contraseña es Debil " ValidationGroup="G" ForeColor="Red">*</asp:RegularExpressionValidator>
                                 </div>
                             </div>
                             <%-- tipo de Usuario --%>
@@ -125,14 +128,14 @@
                         <div class="col m3 l3"></div>
                         <div class="col s12">
                             <div class="card-action center">
-                               
+
                                 <asp:Button CssClass="waves-effect  light-blue lighten-1 btn " ID="NuevoButton" runat="server" Text="Nuevo" OnClick="NuevoButton_Click" />
                                 <asp:Button CssClass="waves-effect  waves-light btn" ID="GuardarButton" runat="server" Text="Guardar" OnClick="GuardarButton_Click" Style="left: 0px; top: 0px" ValidationGroup="G" />
                                 <asp:Button CssClass="waves-effect  red  btn materialize-red " ID="EliminarButton" runat="server" Text="Eliminar" OnClick="EliminarButton_Click" />
                             </div>
                         </div>
                         <div class=" center-align col m3 l3">
-                             <asp:ValidationSummary ID="ValidationSummary1" runat="server"  ValidationGroup="G" BorderStyle="Dotted" ForeColor="#CC0000" HeaderText="Atencion!"/>
+                            <asp:ValidationSummary ID="ValidationSummary1" runat="server" ValidationGroup="G" BorderStyle="Dotted" ForeColor="#CC0000" HeaderText="Atencion!" />
                         </div>
 
                     </div>

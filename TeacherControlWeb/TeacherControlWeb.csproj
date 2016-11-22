@@ -99,6 +99,7 @@
     <Content Include="js\materialize.min.js" />
     <Content Include="js\toastr.js" />
     <Content Include="login.aspx" />
+    <Content Include="Registrar.aspx" />
     <Content Include="Registros\rAsistencia.aspx" />
     <Content Include="Registros\rCalificaciones.aspx" />
     <Content Include="Registros\rCategorias.aspx" />
@@ -106,6 +107,7 @@
     <Content Include="Registros\rEstudiantes.aspx" />
     <Content Include="Registros\rGrupos.aspx" />
     <Content Include="Registros\rMaterias.aspx" />
+    <Content Include="Registros\rSalir.aspx" />
     <Content Include="Registros\rUsuarios.aspx" />
     <Content Include="packages.config" />
     <Content Include="content\toastr.scss" />
@@ -215,6 +217,13 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Registrar.aspx.cs">
+      <DependentUpon>Registrar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registrar.aspx.designer.cs">
+      <DependentUpon>Registrar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Registros\rAsistencia.aspx.cs">
       <DependentUpon>rAsistencia.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -263,6 +272,13 @@
     </Compile>
     <Compile Include="Registros\rMaterias.aspx.designer.cs">
       <DependentUpon>rMaterias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rSalir.aspx.cs">
+      <DependentUpon>rSalir.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rSalir.aspx.designer.cs">
+      <DependentUpon>rSalir.aspx</DependentUpon>
     </Compile>
     <Compile Include="Registros\rUsuarios.aspx.cs">
       <DependentUpon>rUsuarios.aspx</DependentUpon>

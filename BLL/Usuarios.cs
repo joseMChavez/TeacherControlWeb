@@ -133,14 +133,14 @@ namespace BLL
             return dt.Rows.Count > 0;
 
         }
-        public bool BuscarAdministrador(string nombre, string clave)
+        public static bool BuscarAdministrador(string nombre, string clave)
         {
             ConexionDb conexion = new ConexionDb();
             DataTable dt = new DataTable();
 
             try
             {
-                dt = conexion.ObtenerDatos(string.Format("select * from Usuarios where UserName= '{0}' AND clave='{1}' AND TipoUsuario='Administrador'", nombre, clave));
+                dt = conexion.ObtenerDatos(string.Format("select * from Usuarios where UserName= '{0}' AND Clave='{1}' AND TipoUsuario='Administrador'", nombre, clave));
                 
             }
             catch (Exception ex)
@@ -151,7 +151,24 @@ namespace BLL
             return dt.Rows.Count > 0;
 
         }
-     
+        public static bool Acceder(string nombre, string clave)
+        {
+            ConexionDb conexion = new ConexionDb();
+            DataTable dt = new DataTable();
+
+            try
+            {
+                dt = conexion.ObtenerDatos(string.Format("select * from Usuarios where UserName= '{0}' AND Clave='{1}' ", nombre, clave));
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            return dt.Rows.Count > 0;
+
+        }
         public override DataTable Listado(string Campos, string Condicion, string Orden)
         {
             ConexionDb conexion = new ConexionDb();

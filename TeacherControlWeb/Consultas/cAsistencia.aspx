@@ -93,7 +93,7 @@
                       <%--  <rsweb:ReportViewer ID="CalificacionesReport" runat="server" Width="721px"></rsweb:ReportViewer>--%>
                     </div>
                     <div class="modal-footer">
-                        <hr width="90%" align="center">
+                        
                          <asp:LinkButton data-target="modal1" ID="ImprimirButton" CausesValidation="false" CssClass=" waves-effect green darken-1 white-text btn " runat="server" Style="left: 0px; top: 1px" OnClick="ImprimirButton_Click"><i class="material-icons prefix">repeat</i></asp:LinkButton>
                         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
                     </div>

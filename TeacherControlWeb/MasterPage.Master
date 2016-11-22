@@ -21,58 +21,81 @@
     <header class="navbar-fixed">
         <!--opciones menu desktop-->
         <ul id="Registros-dropdown-desktop" class="dropdown-content">
-            <li><a href="/Registros/rUsuarios.aspx">Usuarios</a></li>
-            <li><a href="/Registros/rCursos.aspx">Cursos</a></li>
-            <li><a href="/Registros/rGrupos.aspx">Secciones</a></li>
-            <li><a href="/Registros/rMaterias.aspx">Materias</a></li>
-            <li><a href="/Registros/rCategorias.aspx">Categorias de Calificaciones</a></li>
+
+            <li id="CursoDe" runat="server"><a href="/Registros/rCursos.aspx">Cursos</a></li>
+            <li id="GrupoDe" runat="server"><a href="/Registros/rGrupos.aspx">Secciones</a></li>
+            <li id="MateriasDe" runat="server"><a href="/Registros/rMaterias.aspx">Materias</a></li>
+            <li id="CategoriaDe" runat="server"><a href="/Registros/rCategorias.aspx">Categorias de Calificaciones</a></li>
             <li class="divider"></li>
-            <li><a href="/Registros/rEstudiantes.aspx">Estudiantes</a></li>
-            <li><a href="#">Asistencias</a></li>
-            <li><a href="#">Calificaciones</a></li>
+            <li id="EstudianteDe" runat="server"><a href="/Registros/rEstudiantes.aspx">Estudiantes</a></li>
             <li class="divider"></li>
         </ul>
 
         <ul id="Consultas-dropdown-desktop" class="dropdown-content">
-            <li><a href="/Consultas/cUsuarios.aspx">Usuarios</a></li>
-            <li><a href="/Consultas/cCursos.aspx">Cursos</a></li>
-            <li><a href="/Consultas/cGrupos.aspx">Secciones</a></li>
-            <li><a href="/Consultas/cMaterias.aspx">Materias</a></li>
-            <li><a href="/Consultas/cCategoria.aspx">Categorias de Calificaciones</a></li>
+
+            <li id="cCursosD" runat="server"><a href="/Consultas/cCursos.aspx">Cursos</a></li>
+            <li id="cGruposD" runat="server"><a href="/Consultas/cGrupos.aspx">Secciones</a></li>
+            <li id="cMateriaD" runat="server"><a href="/Consultas/cMaterias.aspx">Materias</a></li>
+            <li id ="cCategoriaD" runat="server"><a href="/Consultas/cCategoria.aspx">Categorias de Calificaciones</a></li>
             <li class="divider"></li>
-            <li><a href="/Consultas/cEstudiantes.aspx">Estudiantes</a></li>
-            <li><a href="/Consultas/cAsistencia.aspx">Asistencias</a></li>
-            <li><a href="/Consultas/cCalificaciones.aspx">Calificaciones</a></li>
+            <li id="cUsuarioD" runat="server"><a href="/Consultas/cUsuarios.aspx">Usuarios</a></li>
+            <li id="cEstudianteD" runat="server"><a href="/Consultas/cEstudiantes.aspx">Estudiantes</a></li>
+            <li id="cAsistenciaD" runat="server"><a href="/Consultas/cAsistencia.aspx">Asistencias</a></li>
+            <li id="cCalificacionesD" runat="server"><a href="/Consultas/cCalificaciones.aspx">Calificaciones</a></li>
             <li class="divider"></li>
         </ul>
+        <ul id="Salon-dropdown-desktop" class="dropdown-content">
 
+            <li id="AsistenciaDe" runat="server"><a href="/Registros/rAsistencia.aspx">Pasar Lista</a></li>
+            <li class="divider"></li>
+            <li id="CalificacionDe" runat="server"><a href="/Registros/rCalificaciones.aspx">Agregar Calificaciones</a></li>
+            <li class="divider"></li>
+        </ul>
+        <ul id="User-dropdown-desktop" class="dropdown-content">
+
+            <li id="Salir" runat="server"><a href="/Registros/rSalir.aspx">Salir</a></li>
+            <li class="divider"></li>
+            <li runat="server" id="UsuarioDe"><a href="/Registros/rUsuarios.aspx">Agregar Usuarios</a></li>
+            <li class="divider"></li>
+        </ul>
 
 
         <!--opciones menu movil-->
         <ul id="Registros-dropdown-movil" class="dropdown-content">
-            <li><a href="/Registros/rUsuarios.aspx">Usuarios</a></li>
-            <li><a href="/Registros/rCursos.aspx">Cursos</a></li>
-            <li><a href="/Registros/rGrupos.aspx">Secciones</a></li>
-            <li><a href="/Registros/rMaterias.aspx">Materias</a></li>
-            <li><a href="/Registros/rCategorias.aspx">Categorias de Calificaciones</a></li>
+
+            <li id="CursoM" runat="server"><a href="/Registros/rCursos.aspx">Cursos</a></li>
+            <li id="GrupoM" runat="server"><a href="/Registros/rGrupos.aspx">Secciones</a></li>
+            <li id="MateriasM" runat="server"><a href="/Registros/rMaterias.aspx">Materias</a></li>
+            <li id="CategoriaM" runat="server"><a href="/Registros/rCategorias.aspx">Categorias de Calificaciones</a></li>
             <li class="divider"></li>
-            <li><a href="/Registros/rEstudiantes.aspx">Estudiantes</a></li>
-            <li><a href="/Registros/rAsistencia.aspx">Asistencias</a></li>
-            <li><a href="/Registros/rCalificaciones.aspx">Calificaciones</a></li>
+            <li id="EstudianteM" runat="server"><a href="/Registros/rEstudiantes.aspx">Estudiantes</a></li>
 
         </ul>
-        <ul id="Consultas-dropdown-movil" class="dropdown-content">
-            <li><a href="/Consultas/cCursos.aspx">Cursos</a></li>
-            <li><a href="/Consultas/cGrupos.aspx">Grupos</a></li>
-            <li><a href="/Consultas/cMaterias.aspx">Materias</a></li>
-            <li><a href="Consultas/cCategoria.aspx">Categorias de Calificaciones</a></li>
+        <ul id="Consultas-dropdown-movil"  class="dropdown-content">
+            <li id="cCusosM" runat="server"><a href="/Consultas/cCursos.aspx">Cursos</a></li>
+            <li id="cGrupoM" runat="server"><a href="/Consultas/cGrupos.aspx">Grupos</a></li>
+            <li id ="cMateriasM" runat="server"><a href="/Consultas/cMaterias.aspx">Materias</a></li>
+            <li id="cCategoriaM" runat="server"><a href="/Consultas/cCategoria.aspx">Categorias de Calificaciones</a></li>
             <li class="divider"></li>
-            <li><a href="/Consultas/cEstudiantes.aspx">Estudiantes</a></li>
-            <li><a href="/Consultas/cAsistencia.aspx">Asistencias</a></li>
-            <li><a href="/Consultas/cCalificaciones.aspx">Calificaciones</a></li>
+            <li id="cEstudianteM" runat="server"><a href="/Consultas/cEstudiantes.aspx">Estudiantes</a></li>
+            <li id="cAsistenciaM" runat="server"><a href="/Consultas/cAsistencia.aspx">Asistencias</a></li>
+            <li id="cCalificacionM" runat="server"><a href="/Consultas/cCalificaciones.aspx">Calificaciones</a></li>
 
         </ul>
+        <ul id="Salon-dropdown-movil" class="dropdown-content">
 
+            <li id="AsistenciaM" runat="server"><a href="/Registros/rAsistencia.aspx">Pasar Lista</a></li>
+            <li class="divider"></li>
+            <li id="CalificacionesM" runat="server"><a href="/Registros/rCalificaciones.aspx">Agregar Calificaciones</a></li>
+            <li class="divider"></li>
+        </ul>
+        <ul id="User-dropdown-movil" class="dropdown-content">
+
+            <li id="SalirM" runat="server"><a href="/Registros/rSalir.aspx">Salir</a></li>
+            <li class="divider"></li>
+            <li runat="server" id="UsuriosDe"><a href="/Registros/rUsuarios.aspx">Agregar Usuarios</a></li>
+            <li class="divider"></li>
+        </ul>
         <%-- Menu --%>
         <nav class="light-blue lighten-2 z-depth-4" role="navigation">
             <div class="nav-wrapper container ">
@@ -81,24 +104,28 @@
                     <li><a href="../Default.aspx">Inicio</a></li>
                     <li><a class="dropdown-button" href="#!" data-activates="Registros-dropdown-desktop">Registros<i class="material-icons right">arrow_drop_down</i></a></li>
                     <li><a class="dropdown-button" href="#!" data-activates="Consultas-dropdown-desktop">Consultas<i class="material-icons right">arrow_drop_down</i></a></li>
-                    <li><a class="dropdown-button" href="#!">Calificaciones</a></li>
-                    <li><a class="dropdown-button" href="#!">Asistencias</a></li>
+                    <li><a class="dropdown-button" href="#!" data-activates="Salon-dropdown-desktop">Salon de Clases<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a class="dropdown-button" href="#!" data-activates="User-dropdown-desktop">Bienvenid@
+                        <asp:Label ID="user" runat="server"></asp:Label></a></li>
 
-                    <li><a href="#">Acceder</a></li>
                 </ul>
 
                 <ul id="nav-mobile" class="side-nav">
-                    <li><a href="Default.aspx">Inicio</a></li>
+                    <li><a href="../Default.aspx">Inicio</a></li>
                     <li><a class="dropdown-button" href="#!" data-activates="Registros-dropdown-movil">Registros<i class="material-icons right">arrow_drop_down</i></a></li>
                     <li><a class="dropdown-button" href="#!" data-activates="Consultas-dropdown-movil">Consultas<i class="material-icons right">arrow_drop_down</i></a></li>
-                    <li><a href="#!">Calificaciones</a></li>
-                    <li><a href="#!">Asistencias</a></li>
-                    <li><a href="#">Usuario</a></li>
+                    <li><a class="dropdown-button" href="#!" data-activates="Salon-dropdown-movil">Salon de Clases<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a class="dropdown-button" href="#!">Bienvenid@
+                        <asp:Label ID="userM" runat="server"></asp:Label>
+                        <i class="material-icons right">arrow_drop_down</i>
+                    </a>
+
+                    </li>
                 </ul>
-                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">Menu</i></a>
             </div>
         </nav>
-      
+
     </header>
 
 
@@ -125,7 +152,7 @@
 
 
     </footer>
- 
+
 
     <script src="/js/jquery-2.2.0.min.js"></script>
 
@@ -133,7 +160,7 @@
     <script src="/js/plugin-min.js"></script>
     <script src="/js/custom-min.js"></script>
     <script src="/js/materialize.min.js"></script>
-     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
 
 
 
@@ -151,7 +178,7 @@
   )
   ));
 
-       
+
         $(document).ready(function () {
             // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
             $('.modal-trigger').leanModal();
