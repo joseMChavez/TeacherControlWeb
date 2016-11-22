@@ -151,24 +151,7 @@ namespace BLL
             return dt.Rows.Count > 0;
 
         }
-        public bool BuscarPass(string clave)
-        {
-            ConexionDb conexion = new ConexionDb();
-            DataTable dt = new DataTable();
-
-            try
-            {
-                dt = conexion.ObtenerDatos(string.Format("select * from Usuarios where clave='{0}'", clave));
-
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-            return dt.Rows.Count > 0;
-
-        }
+     
         public override DataTable Listado(string Campos, string Condicion, string Orden)
         {
             ConexionDb conexion = new ConexionDb();

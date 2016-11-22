@@ -34,6 +34,7 @@ namespace TeacherControlWeb.Registros
         {
             IdTextBox.Text = string.Empty;
             DescripcionTextBox.Text = string.Empty;
+           
             DescripcionTextBox.Focus();
         }
         private void CargarDropDL()
@@ -102,8 +103,9 @@ namespace TeacherControlWeb.Registros
                     if (grupos.Eliminar())
                     {
                         Limpiar();
+                        Response.Write("Se Elimino Correctamente!");
                         Utility.MensajeToastr(this.Page, "Se Elimino Correctamente!", "TC", "Success");
-                       
+                        
                     }
                 }
             

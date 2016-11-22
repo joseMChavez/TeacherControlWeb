@@ -9,6 +9,13 @@ select
    Group by Calificaciones.CalificacionId, E.Nombre, E.Matricula, Calificaciones.Curso, Calificaciones.Grupo, Calificaciones.Fecha;
 
 
+   create view Calificaciones_view as 
+ select 
+      C.CalificacionId as Id, Cs.Descripcion as Curso, C.Grupo as Seccion, M.Descripcion as Materia, CD.Estudiante, CD.Matricula, CD.Descripcion, CD.Puntuacion, C.Fecha
+  from 
+  Calificaciones as C inner join CalificacionDetalle as CD on C.CalificacionId= CD.CalificacionId
+  inner join Cursos as Cs on C.CursoId = Cs.CursoId inner join Materias as M on C.MateriaId = M.MateriaId;
+
    ****Creacion de Vista Estudiantes Por Cursos****
     create view EstudiantePorCursos as
  select

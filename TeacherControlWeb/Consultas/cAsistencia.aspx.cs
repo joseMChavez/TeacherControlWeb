@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BLL;
 
 namespace TeacherControlWeb.Consultas
 {
@@ -12,6 +13,31 @@ namespace TeacherControlWeb.Consultas
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+        private string Mostrar()
+        {
+
+            string filtro = "";
+            if (ONCheckBox.Checked.Equals(false))
+            {
+                if (string.IsNullOrWhiteSpace(FiltroTextBox.Text))
+                {
+                    filtro = "1=1";
+                }
+                else
+                {
+                    filtro = FiltroDropDownList.SelectedValue + " like '%" + FiltroTextBox.Text + "%'";
+                }
+            }
+            else
+            {
+                filtro = "Fecha  BETWEEN '" + DesdeTextBox.Text + "' AND '" + HastaTextBox.Text + "' ";
+
+            }
+
+            AsGridView.DataSource = Utility.ListadoView("", "", "");
+            AsGridView.DataBind();
+            return filtro;
         }
     }
 }

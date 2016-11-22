@@ -20,12 +20,12 @@
                                     <asp:Label CssClass=" select-label" ID="FiltroLabel" runat="server" Text="Filtrar por:"></asp:Label>
                                 </div>
                                 <div class="col s3">
-                                    <asp:DropDownList ToolTip="Tipo de Usuarios" ID="FiltroDropDownList" runat="server" CssClass="select-dropdown btn white black-text">
+                                    <asp:DropDownList ID="FiltroDropDownList" runat="server" CssClass="select-dropdown btn white black-text">
                                         <asp:ListItem Value="Id">Id</asp:ListItem>
-                                        <asp:ListItem Value="Nombre">Nombre</asp:ListItem>
-                                        <asp:ListItem Value="Matricula">Matricula</asp:ListItem>
-                                        <asp:ListItem Value="Materia">Materia</asp:ListItem>
                                         <asp:ListItem Value="Curso">Curso</asp:ListItem>
+                                        <asp:ListItem Value="Materia">Materia</asp:ListItem>
+                                        <asp:ListItem Value="Estudiante">Estudiante</asp:ListItem>
+                                         <asp:ListItem Value="Matricula">Matricula</asp:ListItem>
                                     </asp:DropDownList>
                                 </div>
                                 <div class="input-field col s6">
@@ -35,36 +35,34 @@
                                     <asp:LinkButton ToolTip="Buscar" ID="BuscarButton" runat="server" CssClass=" waves-effect blue darken-1 white-text btn" OnClick="BuscarButton_Click"><i class="material-icons prefix">search</i></asp:LinkButton>
                                 </div>
                             </div>
-                               
+
                             <div class="row">
-                             
+
                                 <div class="col s1">
                                     <asp:Label ID="DesdeLabel" runat="server" Text="Desde:"></asp:Label>
-                                   
+
                                 </div>
                                 <div class="col s2">
 
-                                     <asp:TextBox ID="DesdeTextBox" runat="server" type="date"></asp:TextBox>
+                                    <asp:TextBox ID="DesdeTextBox" runat="server" type="date"></asp:TextBox>
                                 </div>
                                 <div class="col s1">
                                     <asp:Label ID="HastaLabel" runat="server" Text="Hasta:"></asp:Label>
-                                    
+
                                 </div>
                                 <div class="col s2">
 
-                                    <asp:TextBox ID="HastaTextBox" runat="server" type="date" ></asp:TextBox>
+                                    <asp:TextBox ID="HastaTextBox" runat="server" type="date"></asp:TextBox>
                                 </div>
                                 <div class="col s1">
-                                    <asp:Label ID="ActivadorLabel" runat="server" Text="Activar"></asp:Label>
-                                    
-
+                                    <asp:Label ID="ActivadorLabel" runat="server" Text="Activar Filtro por Fecha."></asp:Label>
                                 </div>
                                 <div class="col s3 switch">
-                                    <label >
-                                      
-                                      <asp:CheckBox ID="ONCheckBox" runat="server"  />
+                                    <label>
+
+                                        <asp:CheckBox ID="ONCheckBox" runat="server" />
                                         <span class="lever"></span>
-                                        
+
                                     </label>
                                 </div>
 
@@ -90,13 +88,13 @@
                 <div id="modal1" class="modal modal-fixed-footer">
 
                     <div class="modal-content">
-                       
-                        
+
+
                         <rsweb:ReportViewer ID="CalificacionesReport" runat="server" Width="721px"></rsweb:ReportViewer>
                     </div>
                     <div class="modal-footer">
                         <hr width="90%" align="center">
-                         <asp:LinkButton data-target="modal1" ID="ImprimirButton" CausesValidation="false" CssClass=" waves-effect green darken-1 white-text btn " runat="server" Style="left: 0px; top: 1px" OnClick="ImprimirButton_Click"><i class="material-icons prefix">repeat</i></asp:LinkButton>
+                        <asp:LinkButton data-target="modal1" ID="ImprimirButton" CausesValidation="false" CssClass=" waves-effect green darken-1 white-text btn " runat="server" Style="left: 0px; top: 1px" OnClick="ImprimirButton_Click"><i class="material-icons prefix">repeat</i></asp:LinkButton>
                         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
                     </div>
                 </div>

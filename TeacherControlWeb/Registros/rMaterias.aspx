@@ -29,12 +29,13 @@
                                 </div>
 
                             </div>
-                            <%-- Nombres --%>
+                            <%-- Descripcion --%>
                             <div class="row">
                                 <div class="input-field col s8">
                                     <i class="material-icons prefix">description</i>
                                     <label for="DescripcionTextBox">Descripcion:</label>
                                     <asp:TextBox CssClass="validate" ID="DescripcionTextBox" runat="server"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="DescripcionTextBox" runat="server" ForeColor="DarkRed" ValidationGroup="G" ErrorMessage="Introduzca una Materia.">*</asp:RequiredFieldValidator>
                                 </div>
                             </div>
 
@@ -43,9 +44,9 @@
                                 <div class="col s3"></div>
                                 <div class="col s6 m6 l6">
                                     <div class="card-action center">
-
+                                        <asp:ValidationSummary ID="ValidationSummary1" ValidationGroup="G" runat="server" BorderStyle="Dotted" DisplayMode="SingleParagraph" ForeColor="#CC0000" HeaderText="Atencion!" ToolTip="Error" />
                                         <asp:Button CssClass="waves-effect  light-blue lighten-1 btn " ID="NuevoButton" runat="server" Text="Nuevo" OnClick="NuevoButton_Click" Style="left: 0px; top: 0px" />
-                                        <asp:Button CssClass="waves-effect  waves-light btn" ID="GuardarButton" runat="server" Text="Guardar" Style="left: 0px; top: 0px" OnClick="GuardarButton_Click" />
+                                        <asp:Button CssClass="waves-effect  waves-light btn" ID="GuardarButton" runat="server" Text="Guardar" ValidationGroup="G" Style="left: 0px; top: 0px" OnClick="GuardarButton_Click" />
                                         <asp:Button CssClass="waves-effect  red  btn materialize-red " ID="EliminarButton" runat="server" Text="Eliminar" OnClick="EliminarButton_Click" />
                                     </div>
                                 </div>

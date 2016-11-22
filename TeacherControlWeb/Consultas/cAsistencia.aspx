@@ -69,7 +69,7 @@
                             </div>
                             <div class="row">
                                 <div class=" col s12 m12 l2 ">
-                                    <asp:GridView ID="CalificacionesGridView" CssClass="Table responsive-table table-of-contents highlight" runat="server"></asp:GridView>
+                                    <asp:GridView ID="AsGridView" CssClass="Table responsive-table table-of-contents highlight" runat="server"></asp:GridView>
                                 </div>
                             </div>
                         </div>

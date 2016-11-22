@@ -38,10 +38,10 @@
             <li><a href="/Consultas/cCursos.aspx">Cursos</a></li>
             <li><a href="/Consultas/cGrupos.aspx">Secciones</a></li>
             <li><a href="/Consultas/cMaterias.aspx">Materias</a></li>
-            <li><a href="/Consultas/cCategorias.aspx">Categorias de Calificaciones</a></li>
+            <li><a href="/Consultas/cCategoria.aspx">Categorias de Calificaciones</a></li>
             <li class="divider"></li>
             <li><a href="/Consultas/cEstudiantes.aspx">Estudiantes</a></li>
-            <li><a href="#">Asistencias</a></li>
+            <li><a href="/Consultas/cAsistencia.aspx">Asistencias</a></li>
             <li><a href="/Consultas/cCalificaciones.aspx">Calificaciones</a></li>
             <li class="divider"></li>
         </ul>
@@ -58,7 +58,7 @@
             <li class="divider"></li>
             <li><a href="/Registros/rEstudiantes.aspx">Estudiantes</a></li>
             <li><a href="/Registros/rAsistencia.aspx">Asistencias</a></li>
-            <li><a href="#">Calificaciones</a></li>
+            <li><a href="/Registros/rCalificaciones.aspx">Calificaciones</a></li>
 
         </ul>
         <ul id="Consultas-dropdown-movil" class="dropdown-content">
@@ -68,7 +68,7 @@
             <li><a href="Consultas/cCategoria.aspx">Categorias de Calificaciones</a></li>
             <li class="divider"></li>
             <li><a href="/Consultas/cEstudiantes.aspx">Estudiantes</a></li>
-            <li><a href="#">Asistencias</a></li>
+            <li><a href="/Consultas/cAsistencia.aspx">Asistencias</a></li>
             <li><a href="/Consultas/cCalificaciones.aspx">Calificaciones</a></li>
 
         </ul>
@@ -125,16 +125,15 @@
 
 
     </footer>
-    <%--<script src="/js/angular.min.js"></script>--%>
+ 
 
     <script src="/js/jquery-2.2.0.min.js"></script>
-    <%-- <script src="/js/jquery-3.1.1.min.js"></script>--%>
-<%--    <script src="/js/jquery-1.9.1.min.js"></script>--%>
+
     <script src="/js/toastr.min.js"></script>
     <script src="/js/plugin-min.js"></script>
     <script src="/js/custom-min.js"></script>
     <script src="/js/materialize.min.js"></script>
-
+     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
 
 
 

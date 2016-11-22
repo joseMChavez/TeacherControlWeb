@@ -35,6 +35,7 @@ namespace TeacherControlWeb.Registros
         {
             IdTextBox.Text = string.Empty;
             DescripcionTextBox.Text = string.Empty;
+            Request.QueryString["ID"] = null;
             DescripcionTextBox.Focus();
         }
         private void LlenarDatos(Materias materia)

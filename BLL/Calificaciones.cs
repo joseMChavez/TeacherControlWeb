@@ -150,7 +150,7 @@ namespace BLL
         public static DataTable ListadoVista(string Condicion)
         {
             ConexionDb conexion = new ConexionDb();
-            return  conexion.ObtenerDatos(string.Format(" Select * from CalificacionesPromedioView where " + Condicion));
+            return  conexion.ObtenerDatos(string.Format(" Select * from Calificaciones_view where " + Condicion));
         }
     }
 }

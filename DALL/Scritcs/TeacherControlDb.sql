@@ -113,4 +113,4 @@ select E.Nombre, E.Matricula,C.Descripcion as Curso, E.Grupo as Seccion, YEar(GE
 
  select *  from AsistenciaPorEstudiante_View 
 
-
+   select * from Calificaciones_view

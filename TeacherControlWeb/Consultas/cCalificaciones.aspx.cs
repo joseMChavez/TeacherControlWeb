@@ -16,15 +16,15 @@ namespace TeacherControlWeb.Consultas
             
             if (!IsPostBack)
             {
-                string filtro = Mostrar();
-                if (filtro=="")
-                {
-                    filtro = "1=1";
-                }
-                Utility.ConfigurarReporte(CalificacionesReport, @"Reportes\CalificacionesReport.rdlc", "Calificaciones", Calificaciones.ListadoVista(filtro));
+                //string filtro = Mostrar();
+                //if (filtro=="")
+                //{
+                //    filtro = "1=1";
+                //}
+                //Utility.ConfigurarReporte(CalificacionesReport, @"Reportes\CalificacionesReport.rdlc", "Calificaciones", Calificaciones.ListadoVista(filtro));
                
-                CalificacionesGridView.DataSource = Calificaciones.ListadoVista("1=1");
-                CalificacionesGridView.DataBind(); 
+                //CalificacionesGridView.DataSource = Calificaciones.ListadoVista("1=1");
+                //CalificacionesGridView.DataBind(); 
         }
         }
         private string Mostrar()
@@ -39,9 +39,7 @@ namespace TeacherControlWeb.Consultas
                 }
                 else
                 {
-
                     filtro = FiltroDropDownList.SelectedValue + " like '%" + FiltroTextBox.Text + "%'";
-
                 }
             }
             else

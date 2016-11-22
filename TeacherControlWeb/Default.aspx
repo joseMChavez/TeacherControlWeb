@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <!--Hero-->
+    <!--panel-->
 <div class="section no-pad-bot" id="index-banner">
     <div class="container">
         <h1 class="text_h center header cd-headline letters type">

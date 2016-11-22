@@ -8,12 +8,12 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link href="/css/materialize.css" rel="stylesheet" />
 </head>
-<body class="responsive-img background center-block" background="/img/fondo2.jpg">
+<body class="responsive-img col s12 m12 l12 container background" background="/img/fondo2.jpg">
 
     <form id="form1" runat="server">
 
         <div class="container  center-align">
-            <div class="container">
+            <div class="container right-aligned">
                 <div class="row">
                     <div class="col s12 m6 l8">
                         <div class="card center-on-small-only z-depth-4 ">
@@ -35,7 +35,11 @@
                                 </div>
                                 <div class="card-action center">
                                     <asp:Button CssClass="btn btn-block waves-effect waves-green" ID="EntrarButton" runat="server" Text="Entrar" />
-
+                                    
+                                            <asp:CheckBox ID="RememberMeCheckBox" runat="server" Text="Recordarme" />
+                                            
+                                    </div>
+                                
                                 </div>
 
                             </div>
