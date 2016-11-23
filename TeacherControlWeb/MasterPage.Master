@@ -39,6 +39,7 @@
             <li id ="cCategoriaD" runat="server"><a href="/Consultas/cCategoria.aspx">Categorias de Calificaciones</a></li>
             <li class="divider"></li>
             <li id="cUsuarioD" runat="server"><a href="/Consultas/cUsuarios.aspx">Usuarios</a></li>
+              <li id="cEstPorCursos" runat="server"><a href="/Consultas/cEstudiantesCursos.aspx">Estudiante Por Curso</a></li>
             <li id="cEstudianteD" runat="server"><a href="/Consultas/cEstudiantes.aspx">Estudiantes</a></li>
             <li id="cAsistenciaD" runat="server"><a href="/Consultas/cAsistencia.aspx">Asistencias</a></li>
             <li id="cCalificacionesD" runat="server"><a href="/Consultas/cCalificaciones.aspx">Calificaciones</a></li>
@@ -52,11 +53,17 @@
             <li class="divider"></li>
         </ul>
         <ul id="User-dropdown-desktop" class="dropdown-content">
-
+            <li id="Imagen" class=" responsive-img circle" runat="server">
+                <asp:Image CssClass=" responsive-img circle" ID="Image" runat="server" /></li>
+            <li class="divider"></li>
+            <li id="Email" runat="server">
+                <asp:Label CssClass="amber-text" ID="EmailLabel" runat="server" Text=""></asp:Label></li>
+            <li class="divider"></li>
             <li id="Salir" runat="server"><a href="/Registros/rSalir.aspx">Salir</a></li>
             <li class="divider"></li>
             <li runat="server" id="UsuarioDe"><a href="/Registros/rUsuarios.aspx">Agregar Usuarios</a></li>
             <li class="divider"></li>
+
         </ul>
 
 

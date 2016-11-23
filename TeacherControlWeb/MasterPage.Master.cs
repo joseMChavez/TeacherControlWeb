@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Data;
 using System.Web.UI.WebControls;
 using BLL;
 
@@ -14,18 +15,31 @@ namespace TeacherControlWeb
         {
             if (!IsPostBack)
             {
-                user.Text = this.Session["User"].ToString();
-                userM.Text = this.Session["User"].ToString();
+                DataTable dt = new DataTable();
+                dt = Usuarios.ConocerTipoDeUsuario(this.Session["User"].ToString(), this.Session["Clave"].ToString());
+                user.Text = dt.Rows[0]["Nombres"].ToString();
+                userM.Text = dt.Rows[0]["Nombres"].ToString();
+                EmailLabel.Text = dt.Rows[0]["Email"].ToString();
+                Image.ImageUrl = dt.Rows[0]["Imagen"].ToString();
 
-                if (Usuarios.BuscarAdministrador(this.Session["User"].ToString(), this.Session["Clave"].ToString()))
+                if (dt.Rows[0]["TipoUsuario"].ToString()=="Administrador")
                 {
-                    ControlUsuariosUno(true);
-                    ControlUsuarioDos(true);
+                    ControlUsuariosMaestro(true);
+                    ControlUsuarioAdmin(true);
+                    ControlUsuarioAsistente(true);
+                }else
+                if (dt.Rows[0]["TipoUsuario"].ToString() == "Maestro")
+                {
+                    ControlUsuariosMaestro(true);
+                    ControlUsuarioAdmin(false);
+                    ControlUsuarioAsistente(true);
                 }
                 else
+                if (dt.Rows[0]["TipoUsuario"].ToString() == "Asistente")
                 {
-                    ControlUsuariosUno(true);
-                    ControlUsuarioDos(false);
+                    ControlUsuariosMaestro(false);
+                    ControlUsuarioAdmin(false);
+                    ControlUsuarioAsistente(true);
                 }
 
 
@@ -33,10 +47,11 @@ namespace TeacherControlWeb
             }
         }
 
-        private void ControlUsuariosUno(Boolean ok)
+        private void ControlUsuariosMaestro(Boolean ok)
         {
             CursoDe.Visible = ok;
             CursoM.Visible = ok;
+            cEstPorCursos.Visible = ok;
             cCursosD.Visible = ok;
             cCusosM.Visible = ok;
             MateriasDe.Visible = ok;
@@ -51,23 +66,27 @@ namespace TeacherControlWeb
             GrupoM.Visible = ok;
             cGruposD.Visible = ok;
             cGrupoM.Visible = ok;
+            EstudianteDe.Visible = ok;
+            EstudianteM.Visible = ok;
             AsistenciaDe.Visible = ok;
             AsistenciaM.Visible = ok;
             cAsistenciaD.Visible = ok;
             cAsistenciaM.Visible = ok;
-
-        }
-
-        private void ControlUsuarioDos(Boolean ok)
-        {
-            EstudianteDe.Visible = ok;
-            EstudianteM.Visible = ok;
             cAsistenciaD.Visible = ok;
             cEstudianteM.Visible = ok;
             CalificacionDe.Visible = ok;
             CalificacionesM.Visible = ok;
             cCalificacionesD.Visible = ok;
             cCalificacionM.Visible = ok;
+
+        }
+        private void ControlUsuarioAsistente(bool ok)
+        {
+            AsistenciaDe.Visible = ok;
+            AsistenciaM.Visible = ok;
+        }
+        private void ControlUsuarioAdmin(Boolean ok)
+        {
             UsuarioDe.Visible = ok;
             UsuriosDe.Visible = ok;
             cUsuarioD.Visible = ok;

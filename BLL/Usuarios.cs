@@ -169,6 +169,24 @@ namespace BLL
             return dt.Rows.Count > 0;
 
         }
+        public static DataTable ConocerTipoDeUsuario(string nombre, string clave)
+        {
+            ConexionDb conexion = new ConexionDb();
+            DataTable dt = new DataTable();
+
+            try
+            {
+                dt = conexion.ObtenerDatos(string.Format("select TipoUsuario,Nombres,Email,Imagen from Usuarios where UserName= '{0}' AND Clave='{1}' ", nombre, clave));
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            return dt;
+
+        }
         public override DataTable Listado(string Campos, string Condicion, string Orden)
         {
             ConexionDb conexion = new ConexionDb();

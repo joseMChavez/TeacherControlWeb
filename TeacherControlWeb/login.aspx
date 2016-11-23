@@ -33,7 +33,7 @@
                                     <div class="input-field col s12">
                                         <asp:TextBox ID="PassTextBox" runat="server" TextMode="Password"></asp:TextBox>
                                         <asp:RequiredFieldValidator ControlToValidate="PassTextBox" ID="RequiredFieldValidator2" runat="server" ErrorMessage="Introduzca la Clave" ValidationGroup="G" ForeColor="Red">*</asp:RequiredFieldValidator>
-                                        <asp:RegularExpressionValidator ControlToValidate="PassTextBox" ID="RegularExpressionValidator2" ValidationExpression="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,10}$" runat="server" ErrorMessage="Debe de Conter al Menos 6 digitos" ValidationGroup="G" ForeColor="Red">*</asp:RegularExpressionValidator>
+                                      <%--  <asp:RegularExpressionValidator ControlToValidate="PassTextBox" ID="RegularExpressionValidator2" ValidationExpression="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4-12}$" runat="server" ErrorMessage="Debe de Conter al Menos 6 digitos" ValidationGroup="G" ForeColor="Red">*</asp:RegularExpressionValidator>--%>
                                         <label class="active" for="PassTextBox" >Contraseña</label>
                                     </div>
                                 </div>
