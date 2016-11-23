@@ -42,7 +42,7 @@ namespace TeacherControlWeb.Consultas
 
             }
 
-            CursosEstGridView.DataSource = Estudiantes.ListadoEstudianteCurso(filtro, "CursoId, Seccion");
+            CursosEstGridView.DataSource = Estudiantes.ListadoEstudianteCurso(filtro, "Curso, Seccion");
             CursosEstGridView.DataBind();
             return filtro;
         }
