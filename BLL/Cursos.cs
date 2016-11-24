@@ -12,6 +12,7 @@ namespace BLL
     {
        
         public int CursoId { get; set; }
+        public int UsuarioId { get; set; }
         public string Descripcion { get; set; }
 
         public Cursos(int Id, string DescripcionCategoria)
@@ -23,6 +24,7 @@ namespace BLL
         public Cursos()
         {
             this.CursoId = 0;
+            this.UsuarioId = 0;
             this.Descripcion = "";
         }
         public override bool Insertar()
@@ -31,7 +33,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("Insert Into Cursos(Descripcion) values('{0}')", this.Descripcion));
+                retorno = conexion.Ejecutar(string.Format("Insert Into Cursos(Descripcion,UsuarioId) values('{0}',{1})", this.Descripcion,this.UsuarioId));
             }
             catch (Exception ex)
             {
@@ -50,7 +52,7 @@ namespace BLL
             try
             {
 
-                retorno = conexion.Ejecutar(String.Format(" Update Cursos set Descripcion = '{0}' where CursoId = {1} ", this.Descripcion, this.CursoId));
+                retorno = conexion.Ejecutar(String.Format(" Update Cursos set Descripcion = '{0}' where CursoId = {1} and UsurioId={2} ", this.Descripcion, this.CursoId,this.UsuarioId));
 
             }
             catch (Exception exc)
@@ -67,7 +69,7 @@ namespace BLL
             try
             {
 
-                retorno = conexion.Ejecutar(String.Format(" delete from Cursos where CursoId = {0}  ", this.CursoId));
+                retorno = conexion.Ejecutar(String.Format(" delete from Cursos where CursoId = {0} and UsuarioId={1}", this.CursoId,this.UsuarioId));
 
             }
             catch (Exception ex)
@@ -84,7 +86,7 @@ namespace BLL
             DataTable datatable = new DataTable();
             try
             {
-                datatable = conexion.ObtenerDatos(string.Format("select * from Cursos where CursoId= {0}", IdBuscado));
+                datatable = conexion.ObtenerDatos(string.Format("select * from Cursos where CursoId= {0} and UsuarioId={1}", IdBuscado,this.UsuarioId));
                 if (datatable.Rows.Count > 0)
                 {
                     this.CursoId = (int)datatable.Rows[0]["CursoId"];

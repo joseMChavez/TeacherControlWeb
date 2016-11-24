@@ -40,7 +40,7 @@ namespace TeacherControlWeb.Registros
         private void CargarDropDL()
         {
             Cursos curso = new Cursos();
-            CursosDropDownList.DataSource = curso.Listado("*", "1=1", "");
+            CursosDropDownList.DataSource = curso.Listado("*", "UsuarioId", "");
             CursosDropDownList.DataTextField = "Descripcion";
             CursosDropDownList.DataValueField = "CursoId";
             CursosDropDownList.DataBind();
@@ -48,6 +48,7 @@ namespace TeacherControlWeb.Registros
         private void LlenarDatos(Grupos grupo)
         {
             grupo.GrupoId= Utility.ConvierteEntero(IdTextBox.Text);
+            grupo.UsuarioId = Utility.ConvierteEntero(Session["UsiarioId"].ToString());
             grupo.CursoId = Utility.ConvierteEntero(CursosDropDownList.SelectedValue);
             grupo.Descripcion = DescripcionTextBox.Text;
 

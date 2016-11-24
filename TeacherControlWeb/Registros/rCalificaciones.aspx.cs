@@ -105,6 +105,7 @@ namespace TeacherControlWeb.Registros
 
         private void Llenardatos(Calificaciones calificacion)
         {
+            calificacion.UsuarioId = Utility.ConvierteEntero(Session["UsuarioId"].ToString());
             calificacion.CalificacionId = Utility.ConvierteEntero(IdTextBox.Text);
             calificacion.CursoId = Utility.ConvierteEntero(CursoDropDownList.SelectedValue);
             calificacion.Grupo = GrupoDropDownList.SelectedValue;

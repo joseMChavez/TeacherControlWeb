@@ -10,12 +10,14 @@ namespace BLL
 {
     public class Materias : ClaseMaestra
     {
-        
+
         public int MateriaId { get; set; }
+        public int UsuarioId { get; set; }
         public string Descripcion { get; set; }
         public Materias()
         {
             this.MateriaId = 0;
+            this.UsuarioId = 0;
             this.Descripcion = "";
         }
         public Materias(int MateriaId, string Descripcion)
@@ -29,8 +31,8 @@ namespace BLL
             bool retorno = false;
             try
             {
-               retorno= conexion.Ejecutar(string.Format("Insert Into Materias(Descripcion) values('{0}')", this.Descripcion));
-        
+                retorno = conexion.Ejecutar(string.Format("Insert Into Materias(Descripcion,UsuarioId) values('{0}',{1})", this.Descripcion, UsuarioId));
+
             }
             catch (Exception ex)
             {
@@ -47,7 +49,7 @@ namespace BLL
             try
             {
 
-                retorno = conexion.Ejecutar(String.Format(" Update Materias set Descripcion = '{0}' where MateriaId = {1} ", this.Descripcion, this.MateriaId));
+                retorno = conexion.Ejecutar(String.Format(" Update Materias set Descripcion = '{0}' where MateriaId = {1} and UsuarioId={2}", this.Descripcion, this.MateriaId, this.UsuarioId));
 
             }
             catch (Exception exc)
@@ -64,7 +66,7 @@ namespace BLL
             try
             {
 
-                retorno = conexion.Ejecutar(String.Format(" delete from Materias where MateriaId = {0}  ", this.MateriaId));
+                retorno = conexion.Ejecutar(String.Format(" delete from Materias where MateriaId = {0} and UsuarioId={1} ", this.MateriaId, this.UsuarioId));
 
             }
             catch (Exception ex)
@@ -74,14 +76,14 @@ namespace BLL
             }
             return retorno;
         }
-        
+
         public override bool Buscar(int IdBuscado)
         {
             ConexionDb conexion = new ConexionDb();
             DataTable datatable = new DataTable();
             try
             {
-                datatable = conexion.ObtenerDatos(string.Format("select * from Materias where MateriaId=" + IdBuscado));
+                datatable = conexion.ObtenerDatos(string.Format("select * from Materias where MateriaId=" + IdBuscado + " and UsuarioId=" + this.UsuarioId));
                 if (datatable.Rows.Count > 0)
                 {
                     this.MateriaId = (int)datatable.Rows[0]["MateriaId"];
@@ -102,7 +104,7 @@ namespace BLL
             DataTable datatable = new DataTable();
             try
             {
-                datatable = conexion.ObtenerDatos(string.Format("select * from Materias where Descripcion='{0}'", DescripcionBuscada));
+                datatable = conexion.ObtenerDatos(string.Format("select * from Materias where Descripcion='{0}' and UsuarioId={1}", DescripcionBuscada, UsuarioId));
             }
             catch (Exception exc)
             {
@@ -124,8 +126,6 @@ namespace BLL
         public static DataTable ListadoMMat(string Condicion)
         {
             ConexionDb conexion = new ConexionDb();
-           
-
             return conexion.ObtenerDatos("Select * From Materias Where " + Condicion);
         }
     }

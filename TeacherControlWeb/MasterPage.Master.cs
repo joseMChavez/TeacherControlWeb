@@ -15,38 +15,40 @@ namespace TeacherControlWeb
         {
             if (!IsPostBack)
             {
-                DataTable dt = new DataTable();
-                dt = Usuarios.ConocerTipoDeUsuario(this.Session["User"].ToString(), this.Session["Clave"].ToString());
-                user.Text = dt.Rows[0]["Nombres"].ToString();
-                userM.Text = dt.Rows[0]["Nombres"].ToString();
-                EmailLabel.Text = dt.Rows[0]["Email"].ToString();
-                Image.ImageUrl = dt.Rows[0]["Imagen"].ToString();
-
-                if (dt.Rows[0]["TipoUsuario"].ToString()=="Administrador")
-                {
-                    ControlUsuariosMaestro(true);
-                    ControlUsuarioAdmin(true);
-                    ControlUsuarioAsistente(true);
-                }else
-                if (dt.Rows[0]["TipoUsuario"].ToString() == "Maestro")
-                {
-                    ControlUsuariosMaestro(true);
-                    ControlUsuarioAdmin(false);
-                    ControlUsuarioAsistente(true);
-                }
-                else
-                if (dt.Rows[0]["TipoUsuario"].ToString() == "Asistente")
-                {
-                    ControlUsuariosMaestro(false);
-                    ControlUsuarioAdmin(false);
-                    ControlUsuarioAsistente(true);
-                }
-
-
-
+                Cargar();
             }
         }
-
+        private void Cargar()
+        {
+            DataTable dt = new DataTable();
+            Session["UsuarioId"] = new DataTable();
+            dt = Usuarios.ConocerTipoDeUsuario(this.Session["User"].ToString(), this.Session["Clave"].ToString());
+            user.Text = dt.Rows[0]["Nombres"].ToString();
+            userM.Text = dt.Rows[0]["Nombres"].ToString();
+            EmailLabel.Text = dt.Rows[0]["Email"].ToString();
+            Image.ImageUrl = dt.Rows[0]["Imagen"].ToString();
+            Session["UsuarioId"] = dt.Rows[0]["UsuarioId"].ToString();
+            if (dt.Rows[0]["TipoUsuario"].ToString() == "Administrador")
+            {
+                ControlUsuariosMaestro(true);
+                ControlUsuarioAdmin(true);
+                ControlUsuarioAsistente(true);
+            }
+            else
+            if (dt.Rows[0]["TipoUsuario"].ToString() == "Maestro")
+            {
+                ControlUsuariosMaestro(true);
+                ControlUsuarioAdmin(false);
+                ControlUsuarioAsistente(true);
+            }
+            else
+            if (dt.Rows[0]["TipoUsuario"].ToString() == "Asistente")
+            {
+                ControlUsuariosMaestro(false);
+                ControlUsuarioAdmin(false);
+                ControlUsuarioAsistente(true);
+            }
+        }
         private void ControlUsuariosMaestro(Boolean ok)
         {
             CursoDe.Visible = ok;
@@ -80,7 +82,7 @@ namespace TeacherControlWeb
             cCalificacionM.Visible = ok;
 
         }
-        private void ControlUsuarioAsistente(bool ok)
+        private void ControlUsuarioAsistente(Boolean ok)
         {
             AsistenciaDe.Visible = ok;
             AsistenciaM.Visible = ok;

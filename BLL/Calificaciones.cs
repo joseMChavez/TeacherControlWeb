@@ -13,6 +13,7 @@ namespace BLL
 
         public int CalificacionId { get; set; }
         public int MateriaId { get; set; }
+        public int UsuarioId { get; set; }
         public int CursoId { get; set; }
         public string Grupo { get; set; }
         public string Fecha { get; set; }
@@ -23,6 +24,7 @@ namespace BLL
             this.CalificacionId = 0;
             this.MateriaId = 0;
             this.CursoId = 0;
+            this.UsuarioId = 0;
             this.Grupo = "";
             this.Fecha = "";
             this.DetalleC = new List<CalificacionesDetalle>();
@@ -44,7 +46,7 @@ namespace BLL
             object identity;
             try
             {
-                identity = conexion.ObtenerValor(string.Format("Insert into Calificaciones(CursoId,Grupo,MateriaId,Fecha) values({0},'{1}',{2},'{3}'); select SCOPE_IDENTITY()", this.CursoId, this.Grupo, this.MateriaId, this.Fecha));
+                identity = conexion.ObtenerValor(string.Format("Insert into Calificaciones(CursoId,Grupo,MateriaId,Fecha,UsuarioId) values({0},'{1}',{2},'{3}',{4}); select SCOPE_IDENTITY()", this.CursoId, this.Grupo, this.MateriaId, this.Fecha, UsuarioId));
                 retorno = Utility.ConvierteEntero(identity.ToString());
                 //this.CalificacionId = retorno;
 
@@ -67,7 +69,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("update Calificaciones set CursoId={0}, Grupo='{1}', MateriaId={2}, Fecha='{3}' where CalificacionId={4}", this.MateriaId, this.CursoId, this.Grupo, this.Fecha, this.CalificacionId));
+                retorno = conexion.Ejecutar(string.Format("update Calificaciones set CursoId={0}, Grupo='{1}', MateriaId={2}, Fecha='{3}' where CalificacionId={4} and UsuarioId={5}", this.MateriaId, this.CursoId, this.Grupo, this.Fecha, this.CalificacionId));
                 if (retorno)
                 {
                     conexion.Ejecutar(string.Format("Delete  from CalificacionDetalle where CalificacionId={0}", this.CalificacionId));
@@ -92,8 +94,8 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("Delete  from CalificacionDetalle where CalificacionIdM={0};" +
-                                                 "Delete  from Calificaciones where CalificacionId={0}", this.CalificacionId));
+                retorno = conexion.Ejecutar(string.Format("Delete  from CalificacionDetalle where CalificacionId={0};" +
+                                                 "Delete  from Calificaciones where CalificacionId={0} and UsuarioId={1}", this.CalificacionId, UsuarioId));
             }
             catch (Exception ex)
             {
@@ -111,7 +113,7 @@ namespace BLL
             CalificacionesDetalle calificaionDetalle = new CalificacionesDetalle();
             try
             {
-                dt = conexion.ObtenerDatos(string.Format("select * from Calificaciones where CalificacionId={0}", IdBuscado));
+                dt = conexion.ObtenerDatos(string.Format("select * from Calificaciones where CalificacionId={0} and UsuarioId={1}", IdBuscado, UsuarioId));
                 if (dt.Rows.Count > 0)
                 {
 

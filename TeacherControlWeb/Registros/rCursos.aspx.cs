@@ -41,6 +41,7 @@ namespace TeacherControlWeb.Registros
         private void LlenarDatos(Cursos curso)
         {
             curso.CursoId = Utility.ConvierteEntero(IdTextBox.Text);
+            curso.UsuarioId = Utility.ConvierteEntero(Session["UsuarioId"].ToString());
             curso.Descripcion = DescripcionTextBox.Text;
 
         }

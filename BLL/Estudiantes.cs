@@ -13,6 +13,7 @@ namespace BLL
     {
 
         public int EstudianteId { get; set; }
+        public int UsuarioId { get; set; }
         public int Matricula { get; set; }
         public string Nombre { get; set; }
         public int Genero { get; set; }
@@ -34,9 +35,8 @@ namespace BLL
             this.Nombre = "";
             this.Foto = "";
             this.Genero = 0;
-
+            this.UsuarioId = 0;
             this.FechaNacimiento = "";
-
             this.Celular = "";
             this.Email = "";
             this.Direccion = "";
@@ -53,7 +53,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("insert into Estudiantes(Matricula,Nombre,Genero,FechaNacimiento,Celular,Email, Direccion,CursoId,Grupo,Fecha,Foto) values({0},'{1}',{2},'{3}','{4}','{5}','{6}',{7},'{8}','{9}','{10}')", this.Matricula, this.Nombre, this.Genero, this.FechaNacimiento, this.Celular, this.Email, this.Direccion, this.Curso, this.Grupo, this.Fecha,this.Foto));
+                retorno = conexion.Ejecutar(string.Format("insert into Estudiantes(Matricula,Nombre,Genero,FechaNacimiento,Celular,Email, Direccion,CursoId,Grupo,Fecha,Foto,UsuarioId) values({0},'{1}',{2},'{3}','{4}','{5}','{6}',{7},'{8}','{9}','{10}',{11})", this.Matricula, this.Nombre, this.Genero, this.FechaNacimiento, this.Celular, this.Email, this.Direccion, this.Curso, this.Grupo, this.Fecha, this.Foto, this.UsuarioId));
 
             }
             catch (Exception ex)
@@ -70,9 +70,7 @@ namespace BLL
 
             try
             {
-                retorno = conexion.Ejecutar(string.Format("update Estudiantes set Matricula= {0}, Nombre= '{1}', Genero= {2} , FechaNacimiento='{3}', Celular='{4}',Email='{5}',Direccion='{6}', CursoId={7}, Grupo='{8}', Fecha='{9}', Foto='{10}' where Estudiante= {11}", this.Matricula, this.Nombre, this.Genero, this.FechaNacimiento, this.Celular, this.Email, this.Direccion, this.Curso, this.Grupo, Fecha, this.Foto,this.EstudianteId));
-
-
+                retorno = conexion.Ejecutar(string.Format("update Estudiantes set Matricula= {0}, Nombre= '{1}', Genero= {2} , FechaNacimiento='{3}', Celular='{4}',Email='{5}',Direccion='{6}', CursoId={7}, Grupo='{8}', Fecha='{9}', Foto='{10}' where Estudiante= {11} and UsuarioId={12}", this.Matricula, this.Nombre, this.Genero, this.FechaNacimiento, this.Celular, this.Email, this.Direccion, this.Curso, this.Grupo, Fecha, this.Foto, this.EstudianteId, this.UsuarioId));
             }
             catch (Exception ex)
             {
@@ -88,7 +86,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("delete from Estudiantes where Estudiante= {0}", this.EstudianteId));
+                retorno = conexion.Ejecutar(string.Format("delete from Estudiantes where Estudiante= {0} and UsuarioId={1}", this.EstudianteId, this.UsuarioId));
 
             }
 
@@ -105,7 +103,7 @@ namespace BLL
             DataTable dt = new DataTable();
             try
             {
-                dt = conexion.ObtenerDatos(string.Format("select * From Estudiantes where Estudiante=" + IdBuscado));
+                dt = conexion.ObtenerDatos(string.Format("select * From Estudiantes where EstudianteId={0} and UsuarioId={1}", IdBuscado, this.UsuarioId));
                 if (dt.Rows.Count > 0)
                 {
                     this.EstudianteId = (int)dt.Rows[0]["Estudiante"];

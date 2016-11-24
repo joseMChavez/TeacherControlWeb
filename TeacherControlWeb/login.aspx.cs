@@ -22,6 +22,8 @@ namespace TeacherControlWeb
         {
             Usuarios user = new Usuarios();
             bool paso = false;
+            Session["User"] = new Usuarios();
+            Session["Clave"] = new Usuarios();
             if (!string.IsNullOrWhiteSpace(UserTextBox.Text)&& !string.IsNullOrWhiteSpace(PassTextBox.Text))
             {
                 Session["User"] = UserTextBox.Text;

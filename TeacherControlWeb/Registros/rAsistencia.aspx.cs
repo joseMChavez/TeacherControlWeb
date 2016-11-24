@@ -46,6 +46,7 @@ namespace TeacherControlWeb.Registros
         }
         private void LlenarDatos(Asistencia asistencia)
         {
+            asistencia.UsuarioId = Utility.ConvierteEntero(Session["UsuarioId"].ToString());
             asistencia.AsistenciaId = Utility.ConvierteEntero(IdTextBox.Text);
             asistencia.CursoId = Utility.ConvierteEntero(CursoDropDownList.SelectedValue);
             asistencia.CursoGrupo = GrupoDropDownList.SelectedValue;

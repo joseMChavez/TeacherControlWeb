@@ -176,7 +176,7 @@ namespace BLL
 
             try
             {
-                dt = conexion.ObtenerDatos(string.Format("select TipoUsuario,Nombres,Email,Imagen from Usuarios where UserName= '{0}' AND Clave='{1}' ", nombre, clave));
+                dt = conexion.ObtenerDatos(string.Format("select UsuarioId,TipoUsuario,Nombres,Email,Imagen from Usuarios where UserName= '{0}' AND Clave='{1}' ", nombre, clave));
 
             }
             catch (Exception ex)

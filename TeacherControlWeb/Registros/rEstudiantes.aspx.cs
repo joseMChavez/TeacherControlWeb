@@ -80,7 +80,7 @@ namespace TeacherControlWeb
             {
                 estudiante.Genero = 0;
             }
-
+            estudiante.UsuarioId = Utility.ConvierteEntero(Session["UsuarioId"].ToString());
             estudiante.FechaNacimiento = FNacTextBox.Text;
             estudiante.Fecha = FechaLabel.Text;
             estudiante.Curso = Utility.ConvierteEntero(CursosDropDownList.SelectedValue);

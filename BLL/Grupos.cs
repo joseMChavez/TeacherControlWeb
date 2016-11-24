@@ -12,11 +12,13 @@ namespace BLL
 
         public int GrupoId { get; set; }
         public int CursoId { get; set; }
+        public int UsuarioId { get; set; }
         public string Descripcion { get; set; }
         public Grupos()
         {
             this.GrupoId = 0;
-            CursoId = 0;
+            this.CursoId = 0;
+            this.UsuarioId = 0;
             this.Descripcion = "";
         }
        
@@ -26,7 +28,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("Insert Into Grupos(CursoId,Descripcion) values({0},'{1}')",this.CursoId, this.Descripcion));
+                retorno = conexion.Ejecutar(string.Format("Insert Into Grupos(CursoId,Descripcion,UsuarioId) values({0},'{1}',{2})", this.CursoId, this.Descripcion,this.UsuarioId));
 
             }
             catch (Exception ex)
@@ -44,7 +46,7 @@ namespace BLL
             try
             {
 
-                retorno = conexion.Ejecutar(String.Format(" Update Grupos set CursoId ={0}, Descripcion = '{1}' where GrupoId = {1} ", CursoId , this.Descripcion, this.GrupoId));
+                retorno = conexion.Ejecutar(String.Format(" Update Grupos set CursoId ={0}, Descripcion = '{1}' where GrupoId = {2} and UsuarioId={3}", CursoId , this.Descripcion, this.GrupoId,this.UsuarioId));
 
             }
             catch (Exception exc)
@@ -60,9 +62,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-
-                retorno = conexion.Ejecutar(String.Format(" delete from Grupos where GrupoId = {0}  ", this.GrupoId));
-
+                retorno = conexion.Ejecutar(String.Format(" delete from Grupos where GrupoId = {0}  and UsuarioId={1}", this.GrupoId,this.UsuarioId));
             }
             catch (Exception ex)
             {
@@ -78,7 +78,7 @@ namespace BLL
             DataTable datatable = new DataTable();
             try
             {
-                datatable = conexion.ObtenerDatos(string.Format("select * from Grupos where GrupoId=" + IdBuscado));
+                datatable = conexion.ObtenerDatos(string.Format("select * from Grupos where GrupoId={0} and UsuarioId={1}", IdBuscado,this.UsuarioId));
                 if (datatable.Rows.Count > 0)
                 {
                     this.GrupoId = (int)datatable.Rows[0]["GrupoId"];
