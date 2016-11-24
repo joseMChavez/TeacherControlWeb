@@ -15,15 +15,33 @@
                     </div>
                     <div class="card-small">
                         <div class="card-content">
+                            <div class ="row">
+                                <div class="col s6">
+                                    <asp:DropDownList ID="TipoDropDownL" runat="server" CssClass="select-dropdown btn white black-text" AutoPostBack="True" OnSelectedIndexChanged="TipoDropDownL_SelectedIndexChanged">
+                                        <asp:ListItem Value="1">Listado de Calificaciones</asp:ListItem>
+                                        <asp:ListItem Value="0">Calificaciones Acumuladas</asp:ListItem>
+                                        
+                                    </asp:DropDownList>
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class=" col s1">
                                     <asp:Label CssClass=" select-label" ID="FiltroLabel" runat="server" Text="Filtrar por:"></asp:Label>
                                 </div>
-                                <div class="col s3">
+                                <div id="ListaFiltro" runat="server" class="col s3">
                                     <asp:DropDownList ID="FiltroDropDownList" runat="server" CssClass="select-dropdown btn white black-text">
                                         <asp:ListItem Value="Id">Id</asp:ListItem>
                                         <asp:ListItem Value="Curso">Curso</asp:ListItem>
                                         <asp:ListItem Value="Materia">Materia</asp:ListItem>
+                                        <asp:ListItem Value="Estudiante">Estudiante</asp:ListItem>
+                                         <asp:ListItem Value="Matricula">Matricula</asp:ListItem>
+                                    </asp:DropDownList>
+                                </div>
+                                 <div id="FiltroDDL" runat="server" class="col s3">
+                                    <asp:DropDownList ID="FiltroDropDownList2" runat="server" CssClass="select-dropdown btn white black-text">
+                                        <asp:ListItem Value="Id">Id</asp:ListItem>
+                                        <asp:ListItem Value="Curso">Curso</asp:ListItem>
+                                       
                                         <asp:ListItem Value="Estudiante">Estudiante</asp:ListItem>
                                          <asp:ListItem Value="Matricula">Matricula</asp:ListItem>
                                     </asp:DropDownList>
@@ -36,28 +54,28 @@
                                 </div>
                             </div>
 
-                            <div class="row">
+                            <div id="Desde" runat="server" class="row">
 
                                 <div class="col s1">
                                     <asp:Label ID="DesdeLabel" runat="server" Text="Desde:"></asp:Label>
 
                                 </div>
-                                <div class="col s2">
+                                <div id="DesdeDos" runat="server" class="col s2">
 
                                     <asp:TextBox ID="DesdeTextBox" runat="server" type="date"></asp:TextBox>
                                 </div>
-                                <div class="col s1">
+                                <div id="Hasta" runat="server" class="col s1">
                                     <asp:Label ID="HastaLabel" runat="server" Text="Hasta:"></asp:Label>
 
                                 </div>
-                                <div class="col s2">
+                                <div id="Hasta2" runat="server" class="col s2">
 
                                     <asp:TextBox ID="HastaTextBox" runat="server" type="date"></asp:TextBox>
                                 </div>
-                                <div class="col s1">
+                                <div id="Activador1" runat="server" class="col s1">
                                     <asp:Label ID="ActivadorLabel" runat="server" Text="Activar Filtro por Fecha."></asp:Label>
                                 </div>
-                                <div class="col s3 switch">
+                                <div id="Activador2" runat="server" class="col s5 switch">
                                     <label>
 
                                         <asp:CheckBox ID="ONCheckBox" runat="server" />

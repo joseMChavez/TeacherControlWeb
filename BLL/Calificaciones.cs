@@ -154,5 +154,11 @@ namespace BLL
             ConexionDb conexion = new ConexionDb();
             return  conexion.ObtenerDatos(string.Format(" Select * from Calificaciones_view where " + Condicion));
         }
+        public static DataTable Promedio(string Condicion)
+        {
+            ConexionDb conexion = new ConexionDb();
+            return conexion.ObtenerDatos(string.Format(" Select * from  CalificacionesPromedioView where " + Condicion));
+        }
+       
     }
 }

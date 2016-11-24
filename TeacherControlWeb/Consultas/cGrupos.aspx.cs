@@ -15,7 +15,7 @@ namespace TeacherControlWeb.Consultas
             
             
         }
-        private string Mostrar(Grupos grupo)
+        private string Mostrar()
         {
 
 
@@ -37,8 +37,7 @@ namespace TeacherControlWeb.Consultas
         }
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
-            Grupos grupo = new Grupos();
-            Mostrar(grupo);
+            Mostrar();
         }
     }
 }

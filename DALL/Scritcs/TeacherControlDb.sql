@@ -116,7 +116,18 @@ select E.Nombre, E.Matricula,C.Descripcion as Curso, E.Grupo as Seccion, YEar(GE
  Select * from CalificacionesPromedioView 
  select * from CalificacionDetalle
  select *  from EstudiantePorCursos
-select * from Grupos_view
+select * from CalificacionesPromedioView
  select *  from AsistenciaPorEstudiante_View 
+
+ --create view CalificacionesPromedioView as
+ --select
+ --      C.CalificacionId as Id, Cs.Descripcion as Curso,G.Descripcion as Seccion, CD.Estudiante, CD.Matricula, Sum(CD.Puntuacion) as Puntos_Acumulados, Sum(CD.Puntuacion)/COUNT(CD.Id) as Promedio
+ -- from 
+ -- Calificaciones as C inner join CalificacionDetalle as CD on C.CalificacionId= CD.CalificacionId
+ --  inner join Materias as M on M.MateriaId = C.MateriaId 
+ --  inner join Cursos Cs on C.CursoId = Cs.CursoId 
+ --  left join Grupos G on Cs.CursoId = G.CursoId
+ --  inner join Usuarios U on C.UsuarioId = U.UsuarioId
+ --  Group by C.CalificacionId, CD.Estudiante, CD.Matricula, Cs.Descripcion, G.Descripcion;
 
    select * from Calificaciones_view
