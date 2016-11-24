@@ -133,7 +133,7 @@ namespace BLL
             ConexionDb conexion = new ConexionDb();
           
 
-            return conexion.ObtenerDatos("Select * From Cursos Where " + Condicion);
+            return conexion.ObtenerDatos("Select C.CursoId as Id, C.Descripcion From Cursos as C inner join Usuarios as U on C.UsuarioId=U.UsuarioId Where " + Condicion);
         }
     }
 }

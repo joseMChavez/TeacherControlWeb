@@ -126,7 +126,7 @@ namespace BLL
         public static DataTable ListadoMMat(string Condicion)
         {
             ConexionDb conexion = new ConexionDb();
-            return conexion.ObtenerDatos("Select * From Materias Where " + Condicion);
+            return conexion.ObtenerDatos("Select MateriaId as Id, DesCripcion as Materia From Materias Where " + Condicion);
         }
     }
 }

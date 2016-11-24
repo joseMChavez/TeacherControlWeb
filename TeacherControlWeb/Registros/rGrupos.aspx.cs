@@ -55,6 +55,7 @@ namespace TeacherControlWeb.Registros
         }
         private void Devolverdatos(Grupos grupo)
         {
+            Session["UsuarioId"] = grupo.UsuarioId.ToString();
             IdTextBox.Text = grupo.GrupoId.ToString();
             CursosDropDownList.SelectedValue = grupo.CursoId.ToString();
             DescripcionTextBox.Text = grupo.Descripcion;

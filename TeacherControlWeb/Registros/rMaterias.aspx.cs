@@ -47,6 +47,7 @@ namespace TeacherControlWeb.Registros
         }
         private void Devolverdatos(Materias materia)
         {
+            Session["UsuarioId"] = materia.MateriaId.ToString();
             IdTextBox.Text = materia.MateriaId.ToString();
             DescripcionTextBox.Text = materia.Descripcion;
         }

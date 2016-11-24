@@ -18,7 +18,7 @@ namespace TeacherControlWeb.Registros
             {
                 Cursos curso = new Cursos();
                 int id = 0;
-                Cursos2GridView.DataSource = curso.Listado("*", "1=1", "");
+                Cursos2GridView.DataSource = Cursos.ListadoDos("1=1");
                 Cursos2GridView.DataBind();
                 if (Request.QueryString["ID"] != null)
                 {
@@ -47,6 +47,7 @@ namespace TeacherControlWeb.Registros
         }
         private void Devolverdatos(Cursos curso)
         {
+            Session["UsuarioId"] = curso.UsuarioId.ToString();
             IdTextBox.Text = curso.CursoId.ToString();
             DescripcionTextBox.Text = curso.Descripcion;
         }

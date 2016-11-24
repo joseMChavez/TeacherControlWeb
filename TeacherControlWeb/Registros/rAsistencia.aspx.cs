@@ -24,7 +24,7 @@ namespace TeacherControlWeb.Registros
                 FechaTextBox.Text = DateTime.Today.ToString("dd/MM/yyyy");
                 Asistencia asistencia = new Asistencia();
                 int id = 0;
-                if (Request.QueryString["ID"] != null)
+                if (Request.QueryString["Id"] != null)
                 {
                     id = Utility.ConvierteEntero(Request.QueryString["ID"].ToString());
                     if (asistencia.Buscar(id))
@@ -59,6 +59,7 @@ namespace TeacherControlWeb.Registros
         }
         private void DevolverDatos(Asistencia asistencia)
         {
+            Session["UsuarioId"] = asistencia.UsuarioId.ToString();
             IdTextBox.Text = asistencia.AsistenciaId.ToString();
             CursoDropDownList.SelectedValue = asistencia.CursoId.ToString();
             GrupoDropDownList.SelectedValue = asistencia.CursoGrupo;
@@ -201,7 +202,7 @@ namespace TeacherControlWeb.Registros
             bool paso = false;
             try
             {
-                if (Request.QueryString["ID"]!=null)
+                if (Request.QueryString["Id"] !=null)
                 {
                     asitencia.AsistenciaId = Utility.ConvierteEntero(Request.QueryString["ID"].ToString());
                     paso = asitencia.Eliminar();

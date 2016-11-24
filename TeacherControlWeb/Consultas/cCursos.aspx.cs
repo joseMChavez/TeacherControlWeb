@@ -15,11 +15,11 @@ namespace TeacherControlWeb.Consultas
             FiltroTextBox.MaxLength = 20;
             if (!IsPostBack)
             {
-                Cursos curso = new Cursos();
-                Utility.ConfigurarReporte(CursosReportViewer, @"Reportes\CursosReport.rdlc", "Cursos",curso.Listado("*",Mostrar(curso),""));
+                
+                Utility.ConfigurarReporte(CursosReportViewer, @"Reportes\CursosReport.rdlc", "Cursos",Cursos.ListadoDos(Mostrar()));
             }
         }
-        private string Mostrar(Cursos curso)
+        private string Mostrar()
         {
 
 
@@ -44,14 +44,14 @@ namespace TeacherControlWeb.Consultas
                 
 
             }
-            CursosGridView.DataSource = curso.Listado("*", filtro, "");
+            CursosGridView.DataSource = Cursos.ListadoDos(filtro);
             CursosGridView.DataBind();
             return filtro;
         }
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
-            Cursos curso = new Cursos();
-            Mostrar(curso);
+           
+            Mostrar();
         }
      
 

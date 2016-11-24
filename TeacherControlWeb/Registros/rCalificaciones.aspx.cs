@@ -118,6 +118,7 @@ namespace TeacherControlWeb.Registros
         }
         private void DevolverDatos(Calificaciones calificacion)
         {
+            Session["UsuarioId"] = calificacion.UsuarioId.ToString();
             IdTextBox.Text = calificacion.CalificacionId.ToString();
             CursoDropDownList.SelectedValue = calificacion.CursoId.ToString();
             GrupoDropDownList.SelectedValue = calificacion.Grupo;

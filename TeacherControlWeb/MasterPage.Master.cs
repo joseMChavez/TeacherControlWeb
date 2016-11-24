@@ -21,8 +21,11 @@ namespace TeacherControlWeb
         private void Cargar()
         {
             DataTable dt = new DataTable();
-            Session["UsuarioId"] = new DataTable();
+            
             dt = Usuarios.ConocerTipoDeUsuario(this.Session["User"].ToString(), this.Session["Clave"].ToString());
+            //Session["UsuarioId"] = new DataTable();
+            //Session["User"] = new DataTable();
+            //Session["Clave"] = new DataTable();
             user.Text = dt.Rows[0]["Nombres"].ToString();
             userM.Text = dt.Rows[0]["Nombres"].ToString();
             EmailLabel.Text = dt.Rows[0]["Email"].ToString();

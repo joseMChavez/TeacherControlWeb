@@ -67,7 +67,7 @@
                                             <asp:GridView ID="Cursos2GridView" CssClass=" striped highlight responsive-table picker__table" runat="server">
                                                 <Columns>
                                                     <asp:HyperLinkField
-                                                        DataNavigateUrlFields="CursoId"
+                                                        DataNavigateUrlFields="ID"
                                                         DataNavigateUrlFormatString="/Registros/rCursos.aspx?ID={0}"
                                                         Text="Editar"
                                                         ControlStyle-CssClass="btn waves-effect white-text " />

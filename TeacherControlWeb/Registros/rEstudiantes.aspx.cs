@@ -89,6 +89,7 @@ namespace TeacherControlWeb
         }
         private void DevolverDatos(Estudiantes estudiante)
         {
+            Session["UsuarioId"] = estudiante.UsuarioId.ToString();
             IdTextBox.Text = estudiante.EstudianteId.ToString();
             NombresTextBox.Text = estudiante.Nombre;
             MatriculaTextBox.Text = estudiante.Matricula.ToString();

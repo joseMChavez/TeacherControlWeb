@@ -45,9 +45,9 @@ Create table Estudiantes(
 		Direccion varchar(100),
 		CursoId int Foreign key References Cursos(CursoId),
 		Grupo varchar(10),
-		
+		Fecha Date
 )
-
+Drop table Estudiantes
 
 go
 create table Materias(
@@ -116,7 +116,7 @@ select E.Nombre, E.Matricula,C.Descripcion as Curso, E.Grupo as Seccion, YEar(GE
  Select * from CalificacionesPromedioView 
  select * from CalificacionDetalle
  select *  from EstudiantePorCursos
-select * from Estudiantes
+select * from Grupos_view
  select *  from AsistenciaPorEstudiante_View 
 
    select * from Calificaciones_view

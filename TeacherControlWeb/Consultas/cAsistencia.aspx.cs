@@ -35,9 +35,14 @@ namespace TeacherControlWeb.Consultas
 
             }
 
-            AsGridView.DataSource = Utility.ListadoView("", "", "");
+            AsGridView.DataSource = Asistencia.ListadoAsistencia(filtro);
             AsGridView.DataBind();
             return filtro;
+        }
+
+        protected void BuscarButton_Click(object sender, EventArgs e)
+        {
+            Mostrar();
         }
     }
 }
