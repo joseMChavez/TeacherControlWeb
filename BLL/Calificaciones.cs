@@ -149,15 +149,39 @@ namespace BLL
             return conexion.ObtenerDatos(string.Format("select C.CalificacionId as Id,C.Estudiante,C.Matricula,C.MateriaId,CD.Descripcion Categoria,CD.Puntuacion,C.CursoId,C.Cursogrupo as Grupo,C.TotalPuntos as Puntos,C.Fecha from Calificaciones as C inner join CalificacionDetalle as CD on C.CalificacionId=CD.CalificacionId  where " + Condicion + ordenFinal));
 
         }
-        public static DataTable ListadoVista(string Condicion)
+        public static DataTable ListadoVista(string Condicion,int usuario)
         {
+            
             ConexionDb conexion = new ConexionDb();
-            return  conexion.ObtenerDatos(string.Format(" Select * from Calificaciones_view where " + Condicion));
+            DataTable dt = new DataTable();
+            string sCondicion = "";
+            if (Condicion == "1=1")
+            {
+                dt = conexion.ObtenerDatos(string.Format(" Select * from  Calificaciones_view where Id=" + usuario));
+            }
+            else
+            {
+                sCondicion = " and " + Condicion;
+                dt = conexion.ObtenerDatos(string.Format(" Select * from  Calificaciones_view where Id=" + usuario + sCondicion));
+            }
+            return dt;
+     
         }
-        public static DataTable Promedio(string Condicion)
+        public static DataTable Promedio(string Condicion,int usuario)
         {
             ConexionDb conexion = new ConexionDb();
-            return conexion.ObtenerDatos(string.Format(" Select * from  CalificacionesPromedioView where " + Condicion));
+            DataTable dt = new DataTable();
+            string sCondicion = "";
+            if (Condicion=="1=1")
+            {
+                dt = conexion.ObtenerDatos(string.Format(" Select * from  CalificacionesPromedioView where Id=" + usuario));
+            }
+            else
+            {
+                sCondicion = " and " + Condicion;
+                dt= conexion.ObtenerDatos(string.Format(" Select * from  CalificacionesPromedioView where Id="+usuario+ sCondicion));
+            }
+            return dt;
         }
        
     }

@@ -159,10 +159,22 @@ namespace BLL
             return conexion.ObtenerDatos(string.Format("select  A.AsistenciaId as Id,A.CursoId, A.Grupo as Grupo,AD.Estudiante,AD.Matricula,AD.Activo as Estado,A.CantidaEst as Cantidad, A.Fecha from Asistencias as  A Inner join AsistenciaDetalle as AD ON A.AsistenciaId=AD.AsistenciaId where " + Condicion + ordenFinal));
 
         }
-        public static DataTable ListadoAsistencia( string Condicion)
+        public static DataTable ListadoAsistencia( string Condicion,int usuario)
         {
-            ConexionDb conexion = new ConexionDb(); 
-            return conexion.ObtenerDatos(string.Format("select * from AsistenciaPorEstudiante_View where " + Condicion));
+            ConexionDb conexion = new ConexionDb();
+            DataTable dt = new DataTable();
+            string sCondicion = "";
+            if (Condicion == "1=1")
+            {
+                dt = conexion.ObtenerDatos(string.Format(" Select * from  AsistenciaPorEstudiante_View where Id=" + usuario));
+            }
+            else
+            {
+                sCondicion = " and " + Condicion;
+                dt = conexion.ObtenerDatos(string.Format(" Select * from  AsistenciaPorEstudiante_View where Id=" + usuario + sCondicion));
+            }
+            return dt;
+
         }
         
     }

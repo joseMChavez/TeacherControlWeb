@@ -113,21 +113,21 @@ Insert into AsistenciaDetalle(AsistenciaId,EstudianteId,Activo) Values(5,'Jose',
 select A.AsistenciaId as Id,A.Curso, A.CursoGrupo as Grupo,AD.EstudianteId as Estudiante,AD.Activo as Estado, A.Fecha from Asistencias as  A Inner join AsistenciaDetalle as AD ON A.AsistenciaId=AD.AsistenciaId;
 select E.Nombre, E.Matricula,C.Descripcion as Curso, E.Grupo as Seccion, YEar(GETDate())-YEAR(E.FechaNacimiento) as Edad from Estudiantes as E inner join Cursos as C on E.CursoId = C.CursoId
 
+select * 
  Select * from CalificacionesPromedioView 
  select * from CalificacionDetalle
  select *  from EstudiantePorCursos
-select * from CalificacionesPromedioView
+select * from CalificacionesPromedioView where C.UsuarioId=1
  select *  from AsistenciaPorEstudiante_View 
-
- --create view CalificacionesPromedioView as
- --select
- --      C.CalificacionId as Id, Cs.Descripcion as Curso,G.Descripcion as Seccion, CD.Estudiante, CD.Matricula, Sum(CD.Puntuacion) as Puntos_Acumulados, Sum(CD.Puntuacion)/COUNT(CD.Id) as Promedio
- -- from 
- -- Calificaciones as C inner join CalificacionDetalle as CD on C.CalificacionId= CD.CalificacionId
- --  inner join Materias as M on M.MateriaId = C.MateriaId 
- --  inner join Cursos Cs on C.CursoId = Cs.CursoId 
- --  left join Grupos G on Cs.CursoId = G.CursoId
- --  inner join Usuarios U on C.UsuarioId = U.UsuarioId
- --  Group by C.CalificacionId, CD.Estudiante, CD.Matricula, Cs.Descripcion, G.Descripcion;
-
-   select * from Calificaciones_view
+--create view CalificacionesPromedioView as
+-- select
+--       C.CalificacionId as Id, Cs.Descripcion as Curso,G.Descripcion as Seccion, CD.Estudiante, CD.Matricula ,M.Descripcion as Materia, Sum(CD.Puntuacion) as Puntos_Acumulados, Sum(CD.Puntuacion)/100 as Promedio,case when Sum(CD.Puntuacion)>=70 then 'Aprobado' else 'Reprobado' end as Estado
+--  from 
+--  Calificaciones as C inner join CalificacionDetalle as CD on C.CalificacionId= CD.CalificacionId
+--   inner join Materias as M on M.MateriaId = C.MateriaId 
+--   inner join Cursos Cs on C.CursoId = Cs.CursoId 
+--   left join Grupos G on Cs.CursoId = G.CursoId
+--   inner join Usuarios U on C.UsuarioId = U.UsuarioId
+--   Group by C.CalificacionId, CD.Estudiante, CD.Matricula,M.Descripcion, Cs.Descripcion, G.Descripcion;
+   --select * from Calificaciones_view
+   --select E.EstudianteId Id, E.Nombre, E.Matricula, case E.Genero when 1 then 'M' Else 'F' end as Sexo, E.Celular, E.Email,E.Direccion,C.Descripcion as Curso, E.Grupo as Seccion, YEar(GETDate())-YEAR(E.FechaNacimiento) as Edad, E.Fecha from Estudiantes as E inner join Cursos as C on E.CursoId = C.CursoId inner join Usuarios as U on E.UsuarioId= U.UsuarioId where E.UsuarioId =3 ;

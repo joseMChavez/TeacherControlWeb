@@ -16,7 +16,7 @@ namespace TeacherControlWeb.Consultas
             if (!IsPostBack)
             {
                 
-                Utility.ConfigurarReporte(CursosReportViewer, @"Reportes\CursosReport.rdlc", "Cursos",Cursos.ListadoDos(Mostrar()));
+                Utility.ConfigurarReporte(CursosReportViewer, @"Reportes\CursosReport.rdlc", "Cursos",Cursos.ListadoDos(Mostrar(), Utility.ConvierteEntero(Session["UsuarioId"].ToString())));
             }
         }
         private string Mostrar()
@@ -44,7 +44,7 @@ namespace TeacherControlWeb.Consultas
                 
 
             }
-            CursosGridView.DataSource = Cursos.ListadoDos(filtro);
+            CursosGridView.DataSource = Cursos.ListadoDos(filtro, Utility.ConvierteEntero(Session["UsuarioId"].ToString()));
             CursosGridView.DataBind();
             return filtro;
         }

@@ -123,10 +123,21 @@ namespace BLL
 
             return conexion.ObtenerDatos("Select " + Campos + " From Materias Where " + Condicion + ordenFinal);
         }
-        public static DataTable ListadoMMat(string Condicion)
+        public static DataTable ListadoMat(string Condicion, int Usurio)
         {
             ConexionDb conexion = new ConexionDb();
-            return conexion.ObtenerDatos("Select MateriaId as Id, DesCripcion as Materia From Materias Where " + Condicion);
+            DataTable dt = new DataTable();
+            string scondicion = "";
+            if (Condicion == "1=1")
+            {
+                dt = conexion.ObtenerDatos(string.Format("Select MateriaId, Descripcion as Materia From Materias where UsuarioId=" + Usurio));
+            }
+            else
+            {
+                scondicion = " and " + Condicion;
+                dt = conexion.ObtenerDatos(string.Format("Select MateriaId, Descripcion as Materia From Materias where UsuarioId=" + Usurio + scondicion));
+            }
+            return dt;
         }
     }
 }

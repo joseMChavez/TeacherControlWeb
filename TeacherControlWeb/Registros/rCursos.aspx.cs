@@ -18,7 +18,7 @@ namespace TeacherControlWeb.Registros
             {
                 Cursos curso = new Cursos();
                 int id = 0;
-                Cursos2GridView.DataSource = Cursos.ListadoDos("1=1");
+                Cursos2GridView.DataSource = Cursos.ListadoDos("1=1", Utility.ConvierteEntero(Session["UsuarioId"].ToString()));
                 Cursos2GridView.DataBind();
                 if (Request.QueryString["ID"] != null)
                 {

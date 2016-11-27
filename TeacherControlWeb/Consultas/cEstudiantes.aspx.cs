@@ -27,7 +27,7 @@ namespace TeacherControlWeb.Consultas
             else
                 filtro = "Fecha  BETWEEN '" + DesdeTextBox.Text + "' AND '" + HastaTextBox.Text + "' ";
 
-            EstudianteGridView.DataSource = Utility.ListadoView("View_Estudiantes",filtro,"");
+            EstudianteGridView.DataSource = Estudiantes.ListadoEstudiante(filtro, Utility.ConvierteEntero(Session["UsuarioId"].ToString()));
             EstudianteGridView.DataBind();
             return filtro;
         }

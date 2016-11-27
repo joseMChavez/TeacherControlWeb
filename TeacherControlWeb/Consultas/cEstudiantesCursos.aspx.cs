@@ -19,9 +19,9 @@ namespace TeacherControlWeb.Consultas
                 {
                     filtro = "1=1";
                 }
-                CursosEstGridView.DataSource = Estudiantes.ListadoEstudianteCurso("1=1", "CursoId, Seccion");
+                CursosEstGridView.DataSource = Estudiantes.ListadoEstudianteCurso("1=1", "CursoId, Seccion", Utility.ConvierteEntero(Session["UsuarioId"].ToString()));
                 CursosEstGridView.DataBind();
-                Utility.ConfigurarReporte(CursosEstReportViewer, @"Reportes\CursoEstReport.rdlc", "CursoEst", Estudiantes.ListadoEstudianteCurso(filtro, "CursoId, Seccion"));
+                Utility.ConfigurarReporte(CursosEstReportViewer, @"Reportes\CursoEstReport.rdlc", "CursoEst", Estudiantes.ListadoEstudianteCurso(filtro, "", Utility.ConvierteEntero(Session["UsuarioId"].ToString())));
             }
         }
 
@@ -42,7 +42,7 @@ namespace TeacherControlWeb.Consultas
 
             }
 
-            CursosEstGridView.DataSource = Estudiantes.ListadoEstudianteCurso(filtro, "Curso, Seccion");
+            CursosEstGridView.DataSource = Estudiantes.ListadoEstudianteCurso(filtro,"Curso, Seccion", Utility.ConvierteEntero(Session["UsuarioId"].ToString()));
             CursosEstGridView.DataBind();
             return filtro;
         }

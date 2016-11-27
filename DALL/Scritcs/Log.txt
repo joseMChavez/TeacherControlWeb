@@ -1,13 +1,14 @@
 ﻿****Vista de Promedio primera Edicion****
-create view CalificacionesPromedioView as 
-select
- COUNT(Calificaciones.CalificacionId) as Id, Calificaciones.Curso, Calificaciones.Grupo, E.Nombre, E.Matricula, Sum(CD.Puntuacion) as Total, AVG(Calificaciones.TotalPuntos) as Promedio, Calificaciones.Fecha 
+create view CalificacionesPromedioView as
+ select
+       C.CalificacionId as Id, Cs.Descripcion as Curso,G.Descripcion as Seccion, CD.Estudiante, CD.Matricula, Sum(CD.Puntuacion) as Puntos_Acumulados, Sum(CD.Puntuacion)/COUNT(CD.Id) as Promedio,case when Sum(CD.Puntuacion)>=70 then 'Aprobado' else 'Reprobado' end as Estado
   from 
-  Calificaciones inner join CalificacionDetalle as CD on Calificaciones.CalificacionId= CD.CalificacionIdM
-   inner join Estudiantes as E on E.EstudianteId = Calificaciones.EstudianteIdM  
-   inner join Materias as M on M.MateriaId = Calificaciones.MateriaId 
-   Group by Calificaciones.CalificacionId, E.Nombre, E.Matricula, Calificaciones.Curso, Calificaciones.Grupo, Calificaciones.Fecha;
-
+  Calificaciones as C inner join CalificacionDetalle as CD on C.CalificacionId= CD.CalificacionId
+   inner join Materias as M on M.MateriaId = C.MateriaId 
+   inner join Cursos Cs on C.CursoId = Cs.CursoId 
+   left join Grupos G on Cs.CursoId = G.CursoId
+   inner join Usuarios U on C.UsuarioId = U.UsuarioId
+   Group by C.CalificacionId, CD.Estudiante, CD.Matricula, Cs.Descripcion, G.Descripcion;
 
    create view Calificaciones_view as 
  select 

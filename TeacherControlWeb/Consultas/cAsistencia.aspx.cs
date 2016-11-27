@@ -35,7 +35,7 @@ namespace TeacherControlWeb.Consultas
 
             }
 
-            AsGridView.DataSource = Asistencia.ListadoAsistencia(filtro);
+            AsGridView.DataSource = Asistencia.ListadoAsistencia(filtro, Utility.ConvierteEntero(Session["UsuarioId"].ToString()));
             AsGridView.DataBind();
             return filtro;
         }

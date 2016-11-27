@@ -15,7 +15,7 @@ namespace TeacherControlWeb.Registros
             Grupos grupos = new Grupos();
             if (!IsPostBack)
             {
-                GrupoGridView.DataSource = Grupos.ListadoDos("0=0");
+                GrupoGridView.DataSource = Grupos.ListadoDos("1=1", Utility.ConvierteEntero(Session["UsuarioId"].ToString()));
                 GrupoGridView.DataBind();
                 CargarDropDL();
                 if (Request.QueryString["ID"] != null)

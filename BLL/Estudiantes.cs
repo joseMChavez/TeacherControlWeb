@@ -165,13 +165,40 @@ namespace BLL
 
             return conexion.ObtenerDatos("Select " + Campos + " From Estudiantes Where " + Condicion + ordenFinal);
         }
-        public static DataTable ListadoEstudianteCurso(string Condicion, string Orden)
+        public static DataTable ListadoEstudianteCurso(string Condicion, string Orden,int Usuario)
         {
             ConexionDb conexion = new ConexionDb();
-            string ordenFinal = "";
+            string ordenFinal = "",sCondicion="";
+            DataTable dt = new DataTable();
             if (!Orden.Equals(""))
                 ordenFinal = " Order BY  " + Orden;
-            return conexion.ObtenerDatos("Select * From EstudiantePorCursos Where " + Condicion + ordenFinal);
+            if (Condicion=="1=1")
+            {
+                dt= conexion.ObtenerDatos("Select * From EstudiantePorCursos Where Id=" +Usuario + ordenFinal);
+            }
+            else
+            {
+                sCondicion = " and " + Condicion;
+                dt= conexion.ObtenerDatos("Select * From EstudiantePorCursos Where Id="+Usuario + sCondicion + ordenFinal);
+            }
+            return dt;
+        }
+        public static DataTable ListadoEstudiante(string Condicion, int Usuario)
+        {
+            ConexionDb conexion = new ConexionDb();
+            string sCondicion = "";
+            DataTable dt = new DataTable();
+           
+            if (Condicion == "1=1")
+            {
+                dt = conexion.ObtenerDatos("Select * From View_Estudiantes Where Id=" + Usuario );
+            }
+            else
+            {
+                sCondicion = " and " + Condicion;
+                dt = conexion.ObtenerDatos("Select * From View_Estudiantes Where Id=" + Usuario + sCondicion );
+            }
+            return dt;
         }
     }
 }

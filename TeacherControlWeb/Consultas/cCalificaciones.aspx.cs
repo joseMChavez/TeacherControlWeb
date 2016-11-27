@@ -16,21 +16,20 @@ namespace TeacherControlWeb.Consultas
             
             if (!IsPostBack)
             {
-                //string filtro = Mostrar();
-                //if (filtro=="")
-                //{
-                //    filtro = "1=1";
-                //}
-                //Utility.ConfigurarReporte(CalificacionesReport, @"Reportes\CalificacionesReport.rdlc", "Calificaciones", Calificaciones.ListadoVista(filtro));
-
-                //CalificacionesGridView.DataSource = Calificaciones.ListadoVista("1=1");
-                //CalificacionesGridView.DataBind(); 
 
                 if (TipoDropDownL.SelectedValue=="1")
                 {
                     FiltroDDL.Visible = false;
+                    string filtro = Mostrar();
+                    if (filtro == "")
+                    {
+                        filtro = "1=1";
+                    }
+                    Utility.ConfigurarReporte(CalificacionesReport, @"Reportes\ListadoCalificacionesReport.rdlc", "ListaCalificaciones", Calificaciones.ListadoVista(filtro, Utility.ConvierteEntero(Session["UsuarioId"].ToString())));
+
                 }
-        }
+                
+            }
         }
         private string Mostrar()
         {
@@ -53,7 +52,7 @@ namespace TeacherControlWeb.Consultas
                 
             }
 
-            CalificacionesGridView.DataSource = Calificaciones.ListadoVista(filtro);
+            CalificacionesGridView.DataSource = Calificaciones.ListadoVista(filtro, Utility.ConvierteEntero(Session["UsuarioId"].ToString()));
             CalificacionesGridView.DataBind();
             return filtro;
         }
@@ -71,13 +70,9 @@ namespace TeacherControlWeb.Consultas
                 }
             
 
-            CalificacionesGridView.DataSource = Calificaciones.Promedio(filtro);
+            CalificacionesGridView.DataSource = Calificaciones.Promedio(filtro, Utility.ConvierteEntero(Session["UsuarioId"].ToString()));
             CalificacionesGridView.DataBind();
             return filtro;
-        }
-        protected void ImprimirButton_Click(object sender, EventArgs e)
-        {
-            Utility.ConfigurarReporte(CalificacionesReport, @"Reportes\CalificacionesReport.rdlc", "Calificaciones", Calificaciones.ListadoVista("1=1"));
         }
 
         protected void BuscarButton_Click(object sender, EventArgs e)
@@ -104,6 +99,7 @@ namespace TeacherControlWeb.Consultas
                 Hasta2.Visible = true;
                 Activador1.Visible = true;
                 Activador2.Visible = true;
+                Mostrar();
             }
             else
             {
@@ -115,7 +111,13 @@ namespace TeacherControlWeb.Consultas
                 Hasta2.Visible = false;
                 Activador1.Visible = false;
                 Activador2.Visible = false;
-
+                MostrarDos();
+                string filtro = MostrarDos();
+                if (filtro == "")
+                {
+                    filtro = "1=1";
+                }
+                Utility.ConfigurarReporte(CalificacionesReport, @"Reportes\CalificacionesReport.rdlc", "Calificaciones", Calificaciones.Promedio(filtro, Utility.ConvierteEntero(Session["UsuarioId"].ToString())));
             }
         }
     }

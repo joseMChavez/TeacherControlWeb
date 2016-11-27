@@ -10,7 +10,7 @@ namespace BLL
 {
     public class Cursos : ClaseMaestra
     {
-       
+
         public int CursoId { get; set; }
         public int UsuarioId { get; set; }
         public string Descripcion { get; set; }
@@ -33,7 +33,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("Insert Into Cursos(Descripcion,UsuarioId) values('{0}',{1})", this.Descripcion,this.UsuarioId));
+                retorno = conexion.Ejecutar(string.Format("Insert Into Cursos(Descripcion,UsuarioId) values('{0}',{1})", this.Descripcion, this.UsuarioId));
             }
             catch (Exception ex)
             {
@@ -52,7 +52,7 @@ namespace BLL
             try
             {
 
-                retorno = conexion.Ejecutar(String.Format(" Update Cursos set Descripcion = '{0}' where CursoId = {1} and UsurioId={2} ", this.Descripcion, this.CursoId,this.UsuarioId));
+                retorno = conexion.Ejecutar(String.Format(" Update Cursos set Descripcion = '{0}' where CursoId = {1} and UsurioId={2} ", this.Descripcion, this.CursoId, this.UsuarioId));
 
             }
             catch (Exception exc)
@@ -69,7 +69,7 @@ namespace BLL
             try
             {
 
-                retorno = conexion.Ejecutar(String.Format(" delete from Cursos where CursoId = {0} and UsuarioId={1}", this.CursoId,this.UsuarioId));
+                retorno = conexion.Ejecutar(String.Format(" delete from Cursos where CursoId = {0} and UsuarioId={1}", this.CursoId, this.UsuarioId));
 
             }
             catch (Exception ex)
@@ -86,7 +86,7 @@ namespace BLL
             DataTable datatable = new DataTable();
             try
             {
-                datatable = conexion.ObtenerDatos(string.Format("select * from Cursos where CursoId= {0} and UsuarioId={1}", IdBuscado,this.UsuarioId));
+                datatable = conexion.ObtenerDatos(string.Format("select * from Cursos where CursoId= {0} and UsuarioId={1}", IdBuscado, this.UsuarioId));
                 if (datatable.Rows.Count > 0)
                 {
                     this.CursoId = (int)datatable.Rows[0]["CursoId"];
@@ -124,16 +124,26 @@ namespace BLL
             ConexionDb conexion = new ConexionDb();
             string ordenFinal = "";
             if (!Orden.Equals(""))
-                    ordenFinal = " Order by  " + Orden;
+                ordenFinal = " Order by  " + Orden;
 
             return conexion.ObtenerDatos("Select " + Campos + " From Cursos Where " + Condicion + Orden);
         }
-        public static DataTable ListadoDos(string Condicion)
+        public static DataTable ListadoDos(string Condicion,int Usuario)
         {
             ConexionDb conexion = new ConexionDb();
-          
+            string sCondicion = "";
+            DataTable dt = new DataTable();
 
-            return conexion.ObtenerDatos("Select C.CursoId as Id, C.Descripcion From Cursos as C inner join Usuarios as U on C.UsuarioId=U.UsuarioId Where " + Condicion);
-        }
-    }
+            if (Condicion == "1=1")
+            {
+                dt = conexion.ObtenerDatos("Select C.CursoId as Id, C.Descripcion From Cursos as C inner join Usuarios as U on C.UsuarioId=U.UsuarioId Where C.UsuarioId= " + Usuario);
+            }
+            else
+            {
+                sCondicion = " and " + Condicion;
+                dt = conexion.ObtenerDatos("Select C.CursoId as Id, C.Descripcion From Cursos as C inner join Usuarios as U on C.UsuarioId=U.UsuarioId Where C.UsuarioId= " + Usuario + sCondicion);
+            }
+            return dt;
+
+        }       }
 }

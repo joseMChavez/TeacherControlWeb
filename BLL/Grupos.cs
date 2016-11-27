@@ -119,10 +119,21 @@ namespace BLL
 
             return conexion.ObtenerDatos("Select " + Campos + " From Grupos Where " + Condicion + ordenFinal);
         }
-        public static DataTable ListadoDos(string Condicion)
+        public static DataTable ListadoDos(string Condicion, int usuario)
         {
             ConexionDb conexion = new ConexionDb();
-            return conexion.ObtenerDatos("Select * from Grupos_View Where " + Condicion);
+            DataTable dt = new DataTable();
+            string sCondicion = "";
+            if (Condicion=="1=1")
+            {
+                dt= conexion.ObtenerDatos("Select * from Grupos_View Where Id=" +usuario);
+            }
+            else
+            {
+                sCondicion = " and " + Condicion;
+                dt= conexion.ObtenerDatos("Select * from Grupos_View Where Id="+usuario + sCondicion);
+            }
+            return dt;
         }
     }
 }

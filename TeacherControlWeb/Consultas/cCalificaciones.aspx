@@ -72,10 +72,10 @@
 
                                     <asp:TextBox ID="HastaTextBox" runat="server" type="date"></asp:TextBox>
                                 </div>
-                                <div id="Activador1" runat="server" class="col s1">
+                                <div id="Activador1" runat="server" class="col s5">
                                     <asp:Label ID="ActivadorLabel" runat="server" Text="Activar Filtro por Fecha."></asp:Label>
                                 </div>
-                                <div id="Activador2" runat="server" class="col s5 switch">
+                                <div id="Activador2" runat="server" class="col s1 switch">
                                     <label>
 
                                         <asp:CheckBox ID="ONCheckBox" runat="server" />
@@ -108,11 +108,11 @@
                     <div class="modal-content">
 
 
-                        <rsweb:ReportViewer ID="CalificacionesReport" runat="server" Width="721px"></rsweb:ReportViewer>
+                        <rsweb:ReportViewer ID="CalificacionesReport" runat="server" Width="730px"></rsweb:ReportViewer>
                     </div>
                     <div class="modal-footer">
                         <hr width="90%" align="center">
-                        <asp:LinkButton data-target="modal1" ID="ImprimirButton" CausesValidation="false" CssClass=" waves-effect green darken-1 white-text btn " runat="server" Style="left: 0px; top: 1px" OnClick="ImprimirButton_Click"><i class="material-icons prefix">repeat</i></asp:LinkButton>
+                       <%-- <asp:LinkButton data-target="modal1" ID="ImprimirButton" CausesValidation="false" CssClass=" waves-effect green darken-1 white-text btn " runat="server" Style="left: 0px; top: 1px" OnClick="ImprimirButton_Click"><i class="material-icons prefix">repeat</i></asp:LinkButton>--%>
                         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
                     </div>
                 </div>

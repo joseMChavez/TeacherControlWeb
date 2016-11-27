@@ -31,7 +31,7 @@ namespace TeacherControlWeb.Consultas
                 
             }
 
-            GruposGridView.DataSource = Grupos.ListadoDos(filtro);
+            GruposGridView.DataSource = Grupos.ListadoDos(filtro, Utility.ConvierteEntero(Session["UsuarioId"].ToString()));
             GruposGridView.DataBind();
             return filtro;
         }

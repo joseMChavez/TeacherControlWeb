@@ -14,18 +14,18 @@ namespace TeacherControlWeb.Consultas
         {
             FiltroTextBox.MaxLength = 20;
           
-            Materias materias = new Materias();
-            string filtro = Mostrar(materias);
+           
+            string filtro = Mostrar();
             if (filtro.Equals(""))
             {
                 filtro = "1=1";
             }
             if (!Page.IsPostBack)
             {
-                Utility.ConfigurarReporte(MateriasReportViewer, @"Reportes/MateriaReport.rdlc", "Materias", Materias.ListadoMMat(filtro));
+                Utility.ConfigurarReporte(MateriasReportViewer, @"Reportes/MateriaReport.rdlc", "Materias", Materias.ListadoMat(filtro, Utility.ConvierteEntero(Session["UsuarioId"].ToString())));
             }
         }
-        private string Mostrar( Materias materia)
+        private string Mostrar()
         {
 
 
@@ -51,15 +51,14 @@ namespace TeacherControlWeb.Consultas
 
             }
 
-            MateriasGridView.DataSource = materia.Listado("* ", filtro, "");
+            MateriasGridView.DataSource = Materias.ListadoMat(filtro, Utility.ConvierteEntero(Session["UsuarioId"].ToString()));
             MateriasGridView.DataBind();
             return filtro;
         }
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
-            Materias materia = new Materias();
-            
-            Mostrar(materia);
+
+            Mostrar();
 
         }
     }
