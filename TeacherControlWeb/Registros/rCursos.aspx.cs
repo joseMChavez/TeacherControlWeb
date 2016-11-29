@@ -22,7 +22,10 @@ namespace TeacherControlWeb.Registros
                 Cursos2GridView.DataBind();
                 if (Request.QueryString["ID"] != null)
                 {
+                    
                     id = Utility.ConvierteEntero(Request.QueryString["ID"].ToString());
+                    curso.CursoId = id;
+                    curso.UsuarioId = Utility.ConvierteEntero(Session["UsuarioId"].ToString());
                     if (curso.Buscar(id))
                     {
                         Devolverdatos(curso);

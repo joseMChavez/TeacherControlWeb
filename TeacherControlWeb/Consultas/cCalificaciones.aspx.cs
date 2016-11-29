@@ -87,6 +87,7 @@ namespace TeacherControlWeb.Consultas
             if (TipoDropDownL.SelectedValue == "1")
             {
                 FiltroDDL.Visible = false;
+                ListaFiltro.Visible = true;
                 Desde.Visible = true;
                 DesdeDos.Visible = true;
                 Hasta.Visible = true;

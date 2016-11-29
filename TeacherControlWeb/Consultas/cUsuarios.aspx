@@ -16,6 +16,15 @@
                     </div>
                     <div class="card-small">
                         <div class="card-content">
+                             <div class="row">
+                                <div class="col s12 m2 l2">
+                                    <asp:DropDownList ID="TipoDropDownL" runat="server" CssClass="select-dropdown btn white black-text" AutoPostBack="True" OnSelectedIndexChanged="TipoDropDownL_SelectedIndexChanged">
+                                        <asp:ListItem Value="1">Lista</asp:ListItem>
+                                        <asp:ListItem Value="0">Mosaico</asp:ListItem>
+
+                                    </asp:DropDownList>
+                                </div>
+                                </div>
                             <div class="row">
                                 <div class=" col s1">
                                     <asp:Label CssClass=" select-label" ID="FiltroLabel" runat="server" Text="Filtrar por:"></asp:Label>
@@ -34,7 +43,40 @@
                                     <asp:LinkButton ToolTip="Buscar" ID="BuscarButton" runat="server" CssClass=" waves-effect blue darken-1 white-text btn" OnClick="BuscarButton_Click"><i class="material-icons prefix">search</i></asp:LinkButton>
                                 </div>
                             </div>
-                            <div class="row">
+                             <div id="fecha" runat="server" class="row">
+
+                                <div class="col s12 m1 l1">
+                                    <asp:Label ID="DesdeLabel" runat="server" Text="Desde:"></asp:Label>
+
+                                </div>
+                                <div class="col s12 m2 l2">
+
+                                    <asp:TextBox ID="DesdeTextBox" runat="server" type="date"></asp:TextBox>
+                                </div>
+                                <div class="col s12 m1 l1">
+                                    <asp:Label ID="HastaLabel" runat="server" Text="Hasta:"></asp:Label>
+
+                                </div>
+                                <div class="col s12 m2 l2">
+
+                                    <asp:TextBox ID="HastaTextBox" runat="server" type="date"></asp:TextBox>
+                                </div>
+                                <div class="col s10 m4 l4">
+                                    <asp:Label ID="ActivadorLabel" runat="server" Text="Activar Filtro por Fecha"></asp:Label>
+
+
+                                </div>
+                                <div class="col s2 m3 l3 switch">
+                                    <label>
+
+                                        <asp:CheckBox ID="ONCheckBox" runat="server" />
+                                        <span class="lever"></span>
+
+                                    </label>
+                                </div>
+
+                            </div>
+                            <div id="repeater" runat="server" class="row">
                                 <asp:Repeater ID="UsuariosRepeater" runat="server">
                                     <ItemTemplate>
                                         <div class="col s4">
@@ -56,6 +98,21 @@
                                     </ItemTemplate>
                                    
                                 </asp:Repeater>
+                            </div>
+                            <div id="grid" runat="server" class="row">
+                                <div class=" col s12 m12 l12 ">
+                                    <asp:GridView ID="UGridView" CssClass="Table responsive-table table-of-contents highlight" runat="server">
+                                        <Columns>
+                                            <asp:HyperLinkField
+                                                DataNavigateUrlFields="UsuarioId"
+                                                DataNavigateUrlFormatString="/Registros/rUsuarios.aspx?ID={0}"
+                                                Text="Editar"
+                                                ControlStyle-CssClass="btn waves-effect white-text" />
+                                        </Columns>
+                                    </asp:GridView>
+
+                                </div>
+                                </div>
                             </div>
                         </div>
 

@@ -13,6 +13,7 @@ create table Usuarios(
 			 ConfirmarClave Varchar(15),
 			 Imagen varchar(Max),
 			 TipoUsuario varchar(20),
+			 Fecha date,
 			 primary key(UsuarioId)
 ) 
 Go
@@ -117,7 +118,9 @@ select * from Materias where UsuarioId=1 and MateriaId=2;
  Select * from CalificacionesPromedioView 
  select * from CalificacionDetalle
  Select * from Grupos_View Where Id=1;
- select *  from EstudiantePorCursos
+ select *  from Cursos where UsuarioId = 1 and CursoId=1
+ 
+ Update Cursos set Descripcion = 'Lab B de Sis' where UsuarioId = 1 and CursoId=1;
 select * from CalificacionesPromedioView where C.UsuarioId=1
  select *  from Asistencia_View
 --create view Asistencia_View as

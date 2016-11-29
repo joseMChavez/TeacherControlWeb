@@ -204,6 +204,7 @@ namespace TeacherControlWeb.Registros
             {
                 if (Request.QueryString["Id"] !=null)
                 {
+                    asitencia.UsuarioId = Utility.ConvierteEntero(Session["UsuarioId"].ToString());
                     asitencia.AsistenciaId = Utility.ConvierteEntero(Request.QueryString["ID"].ToString());
                     paso = asitencia.Eliminar();
                 }

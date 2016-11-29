@@ -17,13 +17,15 @@ namespace TeacherControlWeb
                 int id = 0;
                 Estudiantes estudiante = new Estudiantes();
                 CargarDropD();
-                FechaLabel.Text = DateTime.Now.ToString("dd/MM/yyyy");
+                
+                FechaTbx.Text= DateTime.Now.ToString("dd/MM/yyyy");
                 if (Request.QueryString["ID"] != null)
                 {
                     id = Utility.ConvierteEntero(Request.QueryString["Id"].ToString());
                     if (id > 0)
                     {
-                        //estudiante.UsuarioId = Utility.ConvierteEntero(Session["UsuarioId"].ToString());
+                        estudiante.EstudianteId = id;
+                        estudiante.UsuarioId = Utility.ConvierteEntero(Session["UsuarioId"].ToString());
                         if (estudiante.Buscar(id))
                         {
                             DevolverDatos(estudiante);
@@ -56,6 +58,7 @@ namespace TeacherControlWeb
             TelefonoTextBox.Text = string.Empty;
             DireccionTextBox.Text = string.Empty;
             FNacTextBox.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            FechaTbx.Text = DateTime.Now.ToString("dd/MM/yyyy");
             FmRadioButton.Checked = false;
             McRadioButton.Checked = false;
             EmailTextBox.Text = string.Empty;
@@ -83,7 +86,7 @@ namespace TeacherControlWeb
             }
             estudiante.UsuarioId = Utility.ConvierteEntero(Session["UsuarioId"].ToString());
             estudiante.FechaNacimiento = FNacTextBox.Text;
-            estudiante.Fecha = FechaLabel.Text;
+            estudiante.Fecha = FechaTbx.Text;
             estudiante.Curso = Utility.ConvierteEntero(CursosDropDownList.SelectedValue);
             estudiante.Grupo = GruposDropDownList.Text;
             estudiante.Foto = Imagen.ImageUrl;
@@ -96,6 +99,7 @@ namespace TeacherControlWeb
             MatriculaTextBox.Text = estudiante.Matricula.ToString();
             TelefonoTextBox.Text = estudiante.Celular;
             EmailTextBox.Text = estudiante.Email;
+            FechaTbx.Text = estudiante.Fecha;
             DireccionTextBox.Text = estudiante.Direccion;
             FNacTextBox.Text = estudiante.FechaNacimiento;
             CursosDropDownList.SelectedValue = estudiante.Curso.ToString();

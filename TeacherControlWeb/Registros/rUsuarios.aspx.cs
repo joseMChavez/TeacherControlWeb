@@ -18,7 +18,18 @@ namespace TeacherControlWeb.Registros
             // Session["usiario"] = null;
             if (!IsPostBack)
             {
-                FechaLabel.Text = DateTime.Now.ToString("dd/MM/yyyy");
+                
+                FechaTbx.Text = DateTime.Now.ToString("dd/MM/yyyy");
+                Usuarios user = new Usuarios();
+                if (Request.QueryString["ID"]!=null)
+                {
+                    int id = Utility.ConvierteEntero(Request.QueryString["ID"].ToString());
+                    if (user.Buscar(id))
+                    {
+                        DevolverDatos(user);
+                        NombresTextBox.Focus();
+                    }
+                }
             }
         }
         private void Limpiar()
@@ -29,6 +40,8 @@ namespace TeacherControlWeb.Registros
             EmailTextBox.Text = string.Empty;
             TelefonoTextBox.Text = string.Empty;
             ClaveTextBox.Text = string.Empty;
+           
+            FechaTbx.Text = DateTime.Now.ToString("dd/MM/yyyy");
             ConfirmarTextBox.Text = string.Empty;
             TipoDropDownList.SelectedIndex = 0;
             Imagen.ImageUrl = "/img/images.png";
@@ -42,6 +55,7 @@ namespace TeacherControlWeb.Registros
             user.Telefonos = TelefonoTextBox.Text;
             user.UserName = UserTextBox.Text;
             user.Clave = ClaveTextBox.Text;
+            user.Fecha = FechaTbx.Text;
             user.ConfirmaClave = ConfirmarTextBox.Text;
             user.TipoUsuario = TipoDropDownList.SelectedValue;
             user.Imagen = Imagen.ImageUrl;// le agrega la ruta de la imagen a la BLL
@@ -54,6 +68,7 @@ namespace TeacherControlWeb.Registros
             NombresTextBox.Text = user.Nombres;
             UserTextBox.Text = user.UserName;
             EmailTextBox.Text = user.Email;
+            FechaTbx.Text = user.Fecha;
             TelefonoTextBox.Text = user.Telefonos;
             ClaveTextBox.Text = user.Clave;
             ConfirmarTextBox.Text = user.ConfirmaClave;
@@ -107,13 +122,14 @@ namespace TeacherControlWeb.Registros
                 if (exito)
                 {
                     Utility.MensajeToastr(this.Page, "Exito!", "TC", "Success");
+                    Response.Write("paso");
                     Limpiar();
                 }
 
             }
             catch (Exception ex)
             {
-
+                Response.Write(ex.Message);
                 Utility.MensajeToastr(this.Page, "Comunicase con el administrador \n" + ex.Message + "", "Error", "Warning");
             }
         }
@@ -144,25 +160,26 @@ namespace TeacherControlWeb.Registros
 
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
-            Usuarios user = new Usuarios();
-            int id = Utility.ConvierteEntero(IdTextBox.Text);
-            try
-            {
-                if (!string.IsNullOrWhiteSpace(IdTextBox.Text))
-                {
+            //Usuarios user = new Usuarios();
+            //int id = Utility.ConvierteEntero(IdTextBox.Text);
+            //try
+            //{
+            //    if (!string.IsNullOrWhiteSpace(IdTextBox.Text))
+            //    {
 
-                    if (user.Buscar(id))
-                    {
-                        DevolverDatos(user);
-                        NombresTextBox.Focus();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
+            //        if (user.Buscar(id))
+            //        {
+            //            DevolverDatos(user);
+            //            NombresTextBox.Focus();
+            //        }
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
 
-                Utility.MensajeToastr(this.Page, "Comunicase con el administrador \n" + ex.Message + "", "Error", "Warning");
-            }
+            //    Utility.MensajeToastr(this.Page, "Comunicase con el administrador \n" + ex.Message + "", "Error", "Warning");
+            //}
+            Response.Redirect("/Consultas/cUsuarios.aspx");
         }
 
         protected void CargarImgButton_Click(object sender, EventArgs e)

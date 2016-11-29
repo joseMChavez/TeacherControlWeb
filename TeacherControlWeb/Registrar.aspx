@@ -26,8 +26,9 @@
                         <div class="card-panel">
                             <div class=" card-title center-align light-green-text">
                                 <a class="left-align amber-text" href="login.aspx">Retornar</a>
-                                <h3>Registrar</h3>
-                                <asp:Label ID="FechaLabel" CssClass="amber-text center" runat="server"></asp:Label><br />
+                                <h1>Registrar</h1>
+                                  <asp:TextBox ID="FechaTbx" CssClass="amber-text center" TextMode="Date" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="Seleccione una Fecha" Text="*" ValidationGroup="G" Display="Dynamic" ControlToValidate="FechaTbx">*</asp:RequiredFieldValidator>
                             </div>
                             <div class="card-small">
                                 <div class=" card-content">
@@ -75,7 +76,7 @@
                                         <div class="input-field col s10 m4 l4">
                                             <i class="material-icons prefix">phone</i>
                                             <label for="TelefonoTextBox">Telefono:</label>
-                                            <asp:TextBox CssClass=" valign-wrapper" ID="TelefonoTextBox" runat="server"></asp:TextBox>
+                                            <asp:TextBox CssClass=" valign-wrapper" ID="TelefonoTextBox" runat="server" MaxLength="20"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TelefonoTextBox" ValidationGroup="G" ForeColor="red" ErrorMessage="introduzca un Numero de Telefono o Celular.">*</asp:RequiredFieldValidator>
                                             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Numero de Telefono Incorrecto!" ForeColor="Red" ControlToValidate="TelefonoTextBox" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}" ValidationGroup="G">*</asp:RegularExpressionValidator>
                                         </div>
@@ -86,7 +87,7 @@
                                         <div class="input-field col s12 m8 l8">
                                             <i class="material-icons prefix">email</i>
                                             <label for="EmailTextBox" data-error="wrong" data-success="right">Email:</label>
-                                            <asp:TextBox CssClass="validate" ID="EmailTextBox" runat="server"></asp:TextBox>
+                                            <asp:TextBox CssClass="validate" ID="EmailTextBox" runat="server" MaxLength="50"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="EmailTextBox" ValidationGroup="G" ForeColor="red" ErrorMessage="Introduzca un e-mail.">*</asp:RequiredFieldValidator>
                                             <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="EmailTextBox" ErrorMessage="e-mail Incorreco" ForeColor="#CC0000" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ValidationGroup="G">*</asp:RegularExpressionValidator>
                                         </div>

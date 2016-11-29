@@ -13,13 +13,22 @@ namespace TeacherControlWeb.Registros {
     public partial class rUsuarios {
         
         /// <summary>
-        /// FechaLabel control.
+        /// FechaTbx control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label FechaLabel;
+        protected global::System.Web.UI.WebControls.TextBox FechaTbx;
+        
+        /// <summary>
+        /// RequiredFieldValidator7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
         
         /// <summary>
         /// Imagen control.

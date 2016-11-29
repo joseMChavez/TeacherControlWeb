@@ -52,7 +52,7 @@ namespace BLL
             try
             {
 
-                retorno = conexion.Ejecutar(String.Format(" Update Cursos set Descripcion = '{0}' where CursoId = {1} and UsurioId={2} ", this.Descripcion, this.CursoId, this.UsuarioId));
+                retorno = conexion.Ejecutar(String.Format(" Update Cursos set Descripcion = '{0}' where UsuarioId = {1} and CursoId={2} ", this.Descripcion, this.UsuarioId, this.CursoId));
 
             }
             catch (Exception exc)

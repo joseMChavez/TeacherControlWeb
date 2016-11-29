@@ -7,7 +7,7 @@
     <div class="container">
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div class="row">
-            <div class=" col s12">
+            <div class=" col s12 m12 l12">
 
                 <div class=" card-panel">
                     <div class=" card-title center-align light-green-text">
@@ -16,10 +16,10 @@
                     <div class="card-small">
                         <div class="card-content">
                             <div class="row">
-                                <div class=" col s1">
+                                <div class=" col s2 m1 l1">
                                     <asp:Label CssClass=" select-label" ID="FiltroLabel" runat="server" Text="Filtrar por:"></asp:Label>
                                 </div>
-                                <div class="col s3">
+                                <div class="col s10 m3 l3">
                                     <asp:DropDownList ToolTip="Estudiantes" ID="FiltroDropDownList" runat="server" CssClass="select-dropdown btn white black-text">
                                         <asp:ListItem Value="Id">Id</asp:ListItem>
                                         <asp:ListItem Value="Nombre">Nombre</asp:ListItem>
@@ -28,38 +28,38 @@
 
                                     </asp:DropDownList>
                                 </div>
-                                <div class="input-field col s6">
-                                    <asp:TextBox ID="FiltroTextBox" runat="server"></asp:TextBox>
+                                <div class="input-field col s8 m6 l6">
+                                    <asp:TextBox ID="FiltroTextBox" MaxLength="40" runat="server"></asp:TextBox>
                                 </div>
-                                <div class="col s2">
+                                <div class="col s2 m2 l2">
                                     <asp:LinkButton ToolTip="Buscar" ID="BuscarButton" runat="server" CssClass=" waves-effect blue darken-1 white-text btn" OnClick="BuscarButton_Click"><i class="material-icons prefix">search</i></asp:LinkButton>
                                 </div>
                             </div>
 
                             <div class="row">
 
-                                <div class="col s1">
+                                <div class="col s12 m1 l1">
                                     <asp:Label ID="DesdeLabel" runat="server" Text="Desde:"></asp:Label>
 
                                 </div>
-                                <div class="col s2">
+                                <div class="col s12 m2 l2">
 
                                     <asp:TextBox ID="DesdeTextBox" runat="server" type="date"></asp:TextBox>
                                 </div>
-                                <div class="col s1">
+                                <div class="col s12 m1 l1">
                                     <asp:Label ID="HastaLabel" runat="server" Text="Hasta:"></asp:Label>
 
                                 </div>
-                                <div class="col s2">
+                                <div class="col s12 m2 l2">
 
                                     <asp:TextBox ID="HastaTextBox" runat="server" type="date"></asp:TextBox>
                                 </div>
-                                <div class="col s4">
+                                <div class="col s10 m4 l4">
                                     <asp:Label ID="ActivadorLabel" runat="server" Text="Activar Filtro por Fecha"></asp:Label>
 
 
                                 </div>
-                                <div class="col s3 switch">
+                                <div class="col s2 m3 l3 switch">
                                     <label>
 
                                         <asp:CheckBox ID="ONCheckBox" runat="server" />
@@ -70,7 +70,7 @@
 
                             </div>
                             <div class="row">
-                                <div class=" col s12 m12 l2 ">
+                                <div class=" col s12 m12 l12 ">
                                     <asp:GridView ID="EstudianteGridView" CssClass="Table responsive-table table-of-contents highlight" runat="server">
                                         <Columns>
                                             <asp:HyperLinkField

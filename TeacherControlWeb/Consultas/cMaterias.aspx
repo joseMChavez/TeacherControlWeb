@@ -16,20 +16,20 @@
                     <div class="card-small">
                         <div class="card-content">
                             <div class="row">
-                                <div class=" col s1">
+                                <div class=" col s2 m1 l1">
                                     <asp:Label CssClass=" select-label" ID="FiltroLabel" runat="server" Text="Filtrar por:"></asp:Label>
                                 </div>
-                                <div class="col s3">
+                                <div class="col s10 m3 l3">
                                     <asp:DropDownList ToolTip="Seleccione una Opcion" ID="FiltroDropDownList" runat="server" CssClass="select-dropdown btn white black-text">
                                         <asp:ListItem Value="MateriaId">Id</asp:ListItem>
                                         <asp:ListItem Value="Descripcion">Descripcion</asp:ListItem>
                                        
                                     </asp:DropDownList>
                                 </div>
-                                <div class="input-field col s6">
+                                <div class="input-field col s10 m6 l6">
                                     <asp:TextBox ID="FiltroTextBox" runat="server"></asp:TextBox>
                                 </div>
-                                <div class="col s2">
+                                <div class="col s2 m2 l2">
                                     <asp:LinkButton ToolTip="Buscar" ID="BuscarButton" runat="server" CssClass=" waves-effect blue darken-1 white-text btn" OnClick="BuscarButton_Click" ><i class="material-icons prefix">search</i></asp:LinkButton>
                                 </div>
                             </div>

@@ -207,7 +207,8 @@ namespace TeacherControlWeb.Registros
                 Calificaciones cal = new Calificaciones();
                 if (Request.QueryString["Id"]!=null)
                 {
-                   cal.CalificacionId = Utility.ConvierteEntero(Request.QueryString["Id"].ToString());
+                    cal.UsuarioId = Utility.ConvierteEntero(Session["UsuarioId"].ToString());
+                    cal.CalificacionId = Utility.ConvierteEntero(Request.QueryString["Id"].ToString());
                     if (cal.Eliminar())
                     {
                         Utility.MensajeToastr(this.Page, "TC", "Se Elimino", "Success");

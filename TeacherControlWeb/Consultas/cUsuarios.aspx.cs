@@ -14,13 +14,37 @@ namespace TeacherControlWeb.Consultas
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            Usuarios user = new Usuarios();
+            
             if (!IsPostBack)
             {
+                if (TipoDropDownL.SelectedValue == "1")
+                {
+                    repeater.Visible = false;
+                    grid.Visible = true;
+                    fecha.Visible = true;
+                }
+                Usuarios user = new Usuarios();
                 UsuariosRepeater.DataSource = user.Listado("Nombres,UserName,Imagen,Email,Telefono", "1=1", "");
                 UsuariosRepeater.DataBind();
-                Utility.ConfigurarReporte(UsuariosReportViewer, @"Reportes\UsuariosReport.rdlc", "Usuarios", Usuarios.ListadoDt(Mostrar(user)));
+                
             }
+        }
+        private string Mostrar()
+        {
+            string filtro = "";
+            if (ONCheckBox.Checked.Equals(false))
+            {
+                if (string.IsNullOrWhiteSpace(FiltroTextBox.Text))
+                    filtro = "1=1";
+                else
+                    filtro = FiltroDropDownList.SelectedValue + " like '%" + FiltroTextBox.Text + "%'";
+            }
+            else
+                filtro = " Fecha  BETWEEN '" + DesdeTextBox.Text + "' AND '" + HastaTextBox.Text + "' ";
+
+            UGridView.DataSource = Utility.ListadoView("Usuarios", filtro, "");
+            UGridView.DataBind();
+            return filtro;
         }
         private string Mostrar(Usuarios user)
         {
@@ -46,9 +70,32 @@ namespace TeacherControlWeb.Consultas
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
             Usuarios user = new Usuarios();
-            Mostrar(user);
+            if (TipoDropDownL.SelectedValue == "1")
+            {
+                Mostrar();
+                Utility.ConfigurarReporte(UsuariosReportViewer, @"Reportes\UsuariosReport.rdlc", "Usuarios", Usuarios.ListadoDt(Mostrar()));
+            }
+            else {
+                Mostrar(user);
+                Utility.ConfigurarReporte(UsuariosReportViewer, @"Reportes\UsuariosReport.rdlc", "Usuarios", Usuarios.ListadoDt(Mostrar(user)));
+            }
+            
         }
-
+        protected void TipoDropDownL_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (TipoDropDownL.SelectedValue=="1")
+            {
+                repeater.Visible = false;
+                grid.Visible = true;
+                fecha.Visible = true;
+            }
+            else
+            {
+                repeater.Visible = true;
+                grid.Visible = false;
+                fecha.Visible = false;
+            }
+        }
         protected void ImprimirButton_Click(object sender, EventArgs e)
         {
             Usuarios user = new Usuarios();

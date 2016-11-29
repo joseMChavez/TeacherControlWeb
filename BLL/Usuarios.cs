@@ -18,6 +18,7 @@ namespace BLL
         public string ConfirmaClave { get; set; }
         public string TipoUsuario { get; set; }
         public string Imagen { get; set; }
+        public string Fecha { get; set; }
         public Usuarios() {
             this.usuarioId = 0;
             this.UserName = "";
@@ -26,7 +27,7 @@ namespace BLL
             this.Clave = "";
             this.Imagen = "";
             this.TipoUsuario = "";
-          
+            this.Fecha = "";
 
         }
         public Usuarios(int id, string nombre, string pass) {
@@ -41,7 +42,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("insert into Usuarios(Nombres,UserName,Email,Telefono,Clave,ConfirmarClave,TipoUsuario,Imagen) Values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')", this.Nombres,this.UserName,this.Email, this.Telefonos,this.Clave,this.ConfirmaClave,this.TipoUsuario, this.Imagen));
+                retorno = conexion.Ejecutar(string.Format("insert into Usuarios(Nombres,UserName,Email,Telefono,Clave,ConfirmarClave,TipoUsuario,Imagen,Fecha) Values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}')", this.Nombres,this.UserName,this.Email, this.Telefonos,this.Clave,this.ConfirmaClave,this.TipoUsuario, this.Imagen,this.Fecha));
             }
             catch (Exception ex)
             {
@@ -57,7 +58,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("update Usuarios set Nombres= '{0}',UserName='{1}',Telefono='{2}',Email='{3}',clave='{4}', ConfirmarClave='{5}', TipoUsuario='{6}', Imagen='{7}' where UsuarioId= {8}",this.Nombres,this.UserName, this.Telefonos ,this.Email, this.Clave, this.ConfirmaClave,this.TipoUsuario ,this.Imagen,this.usuarioId));
+                retorno = conexion.Ejecutar(string.Format("update Usuarios set Nombres= '{0}',UserName='{1}',Telefono='{2}',Email='{3}',clave='{4}', ConfirmarClave='{5}', TipoUsuario='{6}', Imagen='{7}', Fecha='{8}' where UsuarioId= {9}",this.Nombres,this.UserName, this.Telefonos ,this.Email, this.Clave, this.ConfirmaClave,this.TipoUsuario ,this.Imagen,Fecha,this.usuarioId));
             }
             catch (Exception ex)
             {
@@ -101,6 +102,7 @@ namespace BLL
                     this.ConfirmaClave = dt.Rows[0]["ConfirmarClave"].ToString();
                     this.TipoUsuario = dt.Rows[0]["TipoUsuario"].ToString();
                     this.Imagen = dt.Rows[0]["Imagen"].ToString();
+                    this.Fecha = dt.Rows[0]["Fecha"].ToString();
                 }
             }
             catch (Exception ex)

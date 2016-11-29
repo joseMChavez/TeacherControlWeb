@@ -99,10 +99,10 @@ namespace TeacherControlWeb.Registros
             try
             {
                 Grupos grupos = new Grupos();
-                if (Request.QueryString["ID"] != null)
+                if (IdTextBox.Text != "")
                 {
                     grupos.GrupoId = Utility.ConvierteEntero(IdTextBox.Text);
-
+                    grupos.UsuarioId = Utility.ConvierteEntero(Session["UsuarioId"].ToString());
                     if (grupos.Eliminar())
                     {
                         Limpiar();

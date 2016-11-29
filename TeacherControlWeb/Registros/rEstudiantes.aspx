@@ -12,7 +12,8 @@
                 <div class="card-panel">
                     <div class=" card-title center-align light-green-text">
                         <h3 class="center">Registro de Estudiantes</h3>
-                        <asp:Label ID="FechaLabel" CssClass="amber-text center" runat="server"></asp:Label><br />
+                        <asp:TextBox ID="FechaTbx" CssClass="amber-text center" TextMode="Date" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="Seleccione una Fecha" Text="*" ValidationGroup="G" Display="Dynamic" ControlToValidate="FechaTbx">*</asp:RequiredFieldValidator>
                     </div>
                     <div class="card-small">
                         <div class=" card-content">
@@ -85,20 +86,20 @@
                                     <i class="material-icons prefix">email</i>
                                     <label for="EmailTextBox" data-error="wrong" data-success="right">Email:</label>
                                     <asp:TextBox CssClass="validate" ID="EmailTextBox" runat="server" TextMode="Email"></asp:TextBox>
-                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Formato Incorrecto" Text="*" ControlToValidate="EmailTextBox" ForeColor="Red" ValidationGroup="G" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ></asp:RegularExpressionValidator>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Formato Incorrecto" Text="*" ControlToValidate="EmailTextBox" ForeColor="Red" ValidationGroup="G" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="Introduzca un e-Mail." ValidationGroup="G" ControlToValidate="EmailTextBox" ForeColor="Red">*</asp:RequiredFieldValidator>
                                 </div>
-                               
+
                             </div>
                             <%-- Direccion --%>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <i class="material-icons prefix">email</i>
+                                    <i class="material-icons prefix">directions</i>
                                     <label for="DireccionTextBox" data-error="wrong" data-success="right">Direccion:</label>
                                     <asp:TextBox CssClass="validate" ID="DireccionTextBox" runat="server" TextMode="SingleLine"></asp:TextBox>
                                 </div>
-                                    
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Introduzca la Direccion." ValidationGroup="G" ControlToValidate="DireccionTextBox" ForeColor="Red">*</asp:RequiredFieldValidator>
+
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Introduzca la Direccion." ValidationGroup="G" ControlToValidate="DireccionTextBox" ForeColor="Red">*</asp:RequiredFieldValidator>
                             </div>
                             <%--Genero  --%>
                             <div class="row">
@@ -120,9 +121,9 @@
                                     <b>Fecha de Nacimiento:</b>
                                 </div>
                                 <div class="input-field col s6 m3 l3">
-                                   
+
                                     <asp:TextBox CssClass="validate" ID="FNacTextBox" runat="server" TextMode="Date" MaxLength="10"></asp:TextBox>
-                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Introduzca la Fecha de Nacimiento del Estudiante." ValidationGroup="G" ControlToValidate="FNacTextBox" ForeColor="Red">*</asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Introduzca la Fecha de Nacimiento del Estudiante." ValidationGroup="G" ControlToValidate="FNacTextBox" ForeColor="Red">*</asp:RequiredFieldValidator>
                                 </div>
                             </div>
                             <%-- Curso --%>
