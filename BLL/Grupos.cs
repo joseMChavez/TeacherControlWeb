@@ -78,9 +78,10 @@ namespace BLL
             DataTable datatable = new DataTable();
             try
             {
-                datatable = conexion.ObtenerDatos(string.Format("select * from Grupos where GrupoId={0} and UsuarioId={1}", IdBuscado,this.UsuarioId));
+                datatable = conexion.ObtenerDatos(string.Format("select GrupoId from Grupos where GrupoId={0}", IdBuscado));
                 if (datatable.Rows.Count > 0)
                 {
+                    
                     this.GrupoId = (int)datatable.Rows[0]["GrupoId"];
                     this.CursoId = (int)datatable.Rows[0]["CursoId"];
                     this.Descripcion = datatable.Rows[0]["Descripcion"].ToString();

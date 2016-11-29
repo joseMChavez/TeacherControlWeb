@@ -12,7 +12,7 @@ namespace TeacherControlWeb.Consultas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
         private string Mostrar()
         {
@@ -43,6 +43,12 @@ namespace TeacherControlWeb.Consultas
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
             Mostrar();
+            string filtro = Mostrar();
+            if (filtro=="")
+            {
+                filtro = "1=1";
+            }
+            Utility.ConfigurarReporte(AsistenciaReportViewer, @"Reportes/AsistenciasReport.rdlc", "Asistencias", Asistencia.ListadoAsistencia(filtro, Utility.ConvierteEntero(Session["UsuarioId"].ToString())));
         }
     }
 }

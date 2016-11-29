@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="cAsistencia.aspx.cs" Inherits="TeacherControlWeb.Consultas.cAsistencia" %>
 
+<%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
@@ -101,8 +103,8 @@
 
                     <div class="modal-content">
 
-
-                        <%--  <rsweb:ReportViewer ID="CalificacionesReport" runat="server" Width="721px"></rsweb:ReportViewer>--%>
+                        <rsweb:ReportViewer ID="AsistenciaReportViewer" Width="721" runat="server"></rsweb:ReportViewer>
+                     
                     </div>
                     <div class="modal-footer">
 

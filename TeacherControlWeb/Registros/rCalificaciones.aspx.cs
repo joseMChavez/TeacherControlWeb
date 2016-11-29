@@ -58,12 +58,12 @@ namespace TeacherControlWeb.Registros
 
         private void CargarDropDs()
         {
-            CursoDropDownList.DataSource = Utility.ListadoView("Cursos", "1=1", "");
+            CursoDropDownList.DataSource = Utility.ListadoView("Cursos", "UsuarioId=" + Session["UsuarioId"].ToString(), "");
             CursoDropDownList.DataTextField = "Descripcion";
             CursoDropDownList.DataValueField = "CursoId";
             CursoDropDownList.DataBind();
 
-            MateriaDropDownList.DataSource = Utility.ListadoView("Materias", "1=1", "");
+            MateriaDropDownList.DataSource = Utility.ListadoView("Materias", "UsuarioId=" + Session["UsuarioId"].ToString(), "");
             MateriaDropDownList.DataTextField= "Descripcion";
             MateriaDropDownList.DataValueField = "MateriaId";
             MateriaDropDownList.DataBind();
@@ -83,7 +83,7 @@ namespace TeacherControlWeb.Registros
         }
         private void CargarGrupos()
         {
-            GrupoDropDownList.DataSource = Estudiantes.ListadoDos("EstudianteId, Grupo", "CursoId='" + CursoDropDownList.SelectedValue + "'", "CursoId");
+            GrupoDropDownList.DataSource = Estudiantes.ListadoDos("EstudianteId, Grupo", "UsuarioId=" + Session["UsuarioId"].ToString()+" and CursoId ='" + CursoDropDownList.SelectedValue + "'", "");
             GrupoDropDownList.DataTextField = "Grupo";
             GrupoDropDownList.DataValueField = "Grupo";
             GrupoDropDownList.DataBind();

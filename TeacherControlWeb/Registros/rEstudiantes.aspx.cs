@@ -23,6 +23,7 @@ namespace TeacherControlWeb
                     id = Utility.ConvierteEntero(Request.QueryString["Id"].ToString());
                     if (id > 0)
                     {
+                        //estudiante.UsuarioId = Utility.ConvierteEntero(Session["UsuarioId"].ToString());
                         if (estudiante.Buscar(id))
                         {
                             DevolverDatos(estudiante);
@@ -34,14 +35,14 @@ namespace TeacherControlWeb
         }
         private void CargarDropD()
         {
-            Cursos curso = new Cursos();
-            Grupos grupo = new Grupos();
-            CursosDropDownList.DataSource = curso.Listado("*", "1=1", "");
+           
+           
+            CursosDropDownList.DataSource = Utility.ListadoView("Cursos", "UsuarioId=" + Session["UsuarioId"].ToString(), "");
             CursosDropDownList.DataTextField = "Descripcion";
             CursosDropDownList.DataValueField = "CursoId";
             CursosDropDownList.DataBind();
 
-            GruposDropDownList.DataSource = grupo.Listado("*", "1=1", "");
+            GruposDropDownList.DataSource = Utility.ListadoView("Grupos", "UsuarioId=" + Session["UsuarioId"].ToString(), "");
             GruposDropDownList.DataTextField = "Descripcion";
             GruposDropDownList.DataValueField = "Descripcion";
             GruposDropDownList.DataBind();
@@ -89,7 +90,7 @@ namespace TeacherControlWeb
         }
         private void DevolverDatos(Estudiantes estudiante)
         {
-            Session["UsuarioId"] = estudiante.UsuarioId.ToString();
+            //Session["UsuarioId"] = estudiante.UsuarioId.ToString();
             IdTextBox.Text = estudiante.EstudianteId.ToString();
             NombresTextBox.Text = estudiante.Nombre;
             MatriculaTextBox.Text = estudiante.Matricula.ToString();
@@ -175,9 +176,9 @@ namespace TeacherControlWeb
         {
             Estudiantes est = new Estudiantes();
             est.Foto = "/img/" + CargarArchivoBTN.FileName;
-            CargarArchivoBTN.SaveAs(Server.MapPath("/img/" + CargarArchivoBTN.FileName));
             if (CargarArchivoBTN.HasFile)
             {
+                CargarArchivoBTN.SaveAs(Server.MapPath("/img/" + CargarArchivoBTN.FileName));
                 Imagen.ImageUrl = "/img/" + CargarArchivoBTN.FileName;
             }
         }

@@ -12,9 +12,10 @@ namespace TeacherControlWeb.Registros
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Grupos grupos = new Grupos();
+            
             if (!IsPostBack)
             {
+                Grupos grupos = new Grupos();
                 GrupoGridView.DataSource = Grupos.ListadoDos("1=1", Utility.ConvierteEntero(Session["UsuarioId"].ToString()));
                 GrupoGridView.DataBind();
                 CargarDropDL();
@@ -40,7 +41,7 @@ namespace TeacherControlWeb.Registros
         private void CargarDropDL()
         {
             Cursos curso = new Cursos();
-            CursosDropDownList.DataSource = curso.Listado("*", "UsuarioId", "");
+            CursosDropDownList.DataSource = curso.Listado("*", "UsuarioId="+Session["UsuarioId"].ToString(), "");
             CursosDropDownList.DataTextField = "Descripcion";
             CursosDropDownList.DataValueField = "CursoId";
             CursosDropDownList.DataBind();
@@ -55,9 +56,9 @@ namespace TeacherControlWeb.Registros
         }
         private void Devolverdatos(Grupos grupo)
         {
-            Session["UsuarioId"] = grupo.UsuarioId.ToString();
+            //Session["UsuarioId"] = grupo.UsuarioId.ToString();
             IdTextBox.Text = grupo.GrupoId.ToString();
-            CursosDropDownList.SelectedValue = grupo.CursoId.ToString();
+            CursosDropDownList.Text = grupo.CursoId.ToString();
             DescripcionTextBox.Text = grupo.Descripcion;
         }
 

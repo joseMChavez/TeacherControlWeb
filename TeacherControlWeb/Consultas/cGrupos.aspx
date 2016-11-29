@@ -34,13 +34,13 @@
                             </div>
                             <div class="row">
                                 <asp:GridView ID="GruposGridView" CssClass=" striped highlight responsive-table picker__table" runat="server">
-                                   <Columns>
+                                   <%--<Columns>
                                         <asp:HyperLinkField
                                         DataNavigateUrlFields="Id"
                                         DataNavigateUrlFormatString="/Registros/rGrupos.aspx?Id={0}"
                                         Text="Editar"
                                          ControlStyle-CssClass="btn waves-effect white-text"  />
-                                       </Columns>
+                                       </Columns>--%>
                                 </asp:GridView>
 
                             </div>

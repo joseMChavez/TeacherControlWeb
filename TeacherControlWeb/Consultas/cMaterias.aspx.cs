@@ -12,17 +12,10 @@ namespace TeacherControlWeb.Consultas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            FiltroTextBox.MaxLength = 20;
-          
-           
-            string filtro = Mostrar();
-            if (filtro.Equals(""))
-            {
-                filtro = "1=1";
-            }
+            
             if (!Page.IsPostBack)
             {
-                Utility.ConfigurarReporte(MateriasReportViewer, @"Reportes/MateriaReport.rdlc", "Materias", Materias.ListadoMat(filtro, Utility.ConvierteEntero(Session["UsuarioId"].ToString())));
+                FiltroTextBox.MaxLength = 20;
             }
         }
         private string Mostrar()
@@ -59,7 +52,7 @@ namespace TeacherControlWeb.Consultas
         {
 
             Mostrar();
-
+            Utility.ConfigurarReporte(MateriasReportViewer, @"Reportes/MateriaReport.rdlc", "Materias", Materias.ListadoMat(Mostrar(), Utility.ConvierteEntero(Session["UsuarioId"].ToString())));
         }
     }
 }

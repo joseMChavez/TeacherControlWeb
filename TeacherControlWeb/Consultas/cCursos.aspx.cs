@@ -16,7 +16,7 @@ namespace TeacherControlWeb.Consultas
             if (!IsPostBack)
             {
                 
-                Utility.ConfigurarReporte(CursosReportViewer, @"Reportes\CursosReport.rdlc", "Cursos",Cursos.ListadoDos(Mostrar(), Utility.ConvierteEntero(Session["UsuarioId"].ToString())));
+               
             }
         }
         private string Mostrar()
@@ -31,17 +31,8 @@ namespace TeacherControlWeb.Consultas
             }
             else
             {
-                
-                    if (FiltroDropDownList.SelectedIndex == 0)
-                    {
-                        filtro = "CursoId = " + FiltroTextBox.Text;
-                    }
-                    else
-                    {
+   
                         filtro = FiltroDropDownList.SelectedValue + " like '%" + FiltroTextBox.Text + "%'";
-                    }
-
-                
 
             }
             CursosGridView.DataSource = Cursos.ListadoDos(filtro, Utility.ConvierteEntero(Session["UsuarioId"].ToString()));
@@ -50,8 +41,13 @@ namespace TeacherControlWeb.Consultas
         }
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
-           
             Mostrar();
+            string filtro = Mostrar();
+            if (filtro == "")
+            {
+                filtro = "1=1";
+            }
+            Utility.ConfigurarReporte(CursosReportViewer, @"Reportes\CursosReport.rdlc", "Cursos", Cursos.ListadoDos(filtro, Utility.ConvierteEntero(Session["UsuarioId"].ToString())));
         }
      
 

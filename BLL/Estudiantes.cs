@@ -101,18 +101,18 @@ namespace BLL
         {
             ConexionDb conexion = new ConexionDb();
             DataTable dt = new DataTable();
-            try
-            {
-                dt = conexion.ObtenerDatos(string.Format("select * From Estudiantes where EstudianteId={0} and UsuarioId={1}", IdBuscado, this.UsuarioId));
+            //try
+            //{
+                dt = conexion.ObtenerDatos(string.Format("select * From Estudiantes where EstudianteId={0}", IdBuscado));
                 if (dt.Rows.Count > 0)
                 {
-                    this.EstudianteId = (int)dt.Rows[0]["Estudiante"];
+                    this.EstudianteId = (int)dt.Rows[0]["EstudianteId"];
                     this.Matricula = (int)dt.Rows[0]["Matricula"];
                     this.Nombre = dt.Rows[0]["Nombre"].ToString();
                     this.Foto = dt.Rows[0]["Foto"].ToString();
                     this.Genero = (int)dt.Rows[0]["Genero"];
                     this.FechaNacimiento = dt.Rows[0]["FechaNacimiento"].ToString();
-
+                    this.UsuarioId = (int)dt.Rows[0]["UsuarioId"];
                     this.Celular = dt.Rows[0]["Celular"].ToString();
                     this.Email = dt.Rows[0]["Email"].ToString();
                     this.Direccion = dt.Rows[0]["Direccion"].ToString();
@@ -122,12 +122,12 @@ namespace BLL
 
 
                 }
-            }
-            catch (Exception ex)
-            {
+            //}
+            //catch (Exception ex)
+            //{
 
-                throw ex;
-            }
+            //    throw ex;
+            //}
             return dt.Rows.Count > 0;
         }
         public static bool BuscarMatricula(int IdBuscado, int curso, string grupo)

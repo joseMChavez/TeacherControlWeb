@@ -113,13 +113,16 @@ Insert into AsistenciaDetalle(AsistenciaId,EstudianteId,Activo) Values(5,'Jose',
 select A.AsistenciaId as Id,A.Curso, A.CursoGrupo as Grupo,AD.EstudianteId as Estudiante,AD.Activo as Estado, A.Fecha from Asistencias as  A Inner join AsistenciaDetalle as AD ON A.AsistenciaId=AD.AsistenciaId;
 select E.Nombre, E.Matricula,C.Descripcion as Curso, E.Grupo as Seccion, YEar(GETDate())-YEAR(E.FechaNacimiento) as Edad from Estudiantes as E inner join Cursos as C on E.CursoId = C.CursoId
 
-select * 
+select * from Materias where UsuarioId=1 and MateriaId=2;
  Select * from CalificacionesPromedioView 
  select * from CalificacionDetalle
+ Select * from Grupos_View Where Id=1;
  select *  from EstudiantePorCursos
 select * from CalificacionesPromedioView where C.UsuarioId=1
- select *  from AsistenciaPorEstudiante_View 
---create view CalificacionesPromedioView as
+ select *  from Asistencia_View
+--create view Asistencia_View as
+-- select A.UsuarioId as Id,CS.Descripcion as Curso,A.Grupo as Seccion,A.CantidaEst as Asistencia, case AD.Estado when 'Presente' then COUNT(AD.Id) else '0' end as Presencias,case AD.Estado when 'Ausente' then COUNT(AD.Id) else '0' end as Ausencias,case AD.Estado when 'Excusas' then COUNT(AD.Id) else '0' end as Excusas,A.Fecha from Asistencias A inner join AsistenciaDetalle as AD on A.AsistenciaId = AD.AsistenciaId inner join Cursos CS on A.CursoId=CS.CursoId inner join Usuarios U on A.UsuarioId = U.UsuarioId group by A.UsuarioId,CS.Descripcion,A.Grupo,A.CantidaEst,A.Fecha,AD.Estado 
+----create view CalificacionesPromedioView as
 -- select
 --       C.CalificacionId as Id, Cs.Descripcion as Curso,G.Descripcion as Seccion, CD.Estudiante, CD.Matricula ,M.Descripcion as Materia, Sum(CD.Puntuacion) as Puntos_Acumulados, Sum(CD.Puntuacion)/100 as Promedio,case when Sum(CD.Puntuacion)>=70 then 'Aprobado' else 'Reprobado' end as Estado
 --  from 

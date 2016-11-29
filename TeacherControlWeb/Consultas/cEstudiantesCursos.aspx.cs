@@ -12,17 +12,7 @@ namespace TeacherControlWeb.Consultas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                string filtro = Mostrar();
-                if (filtro == "")
-                {
-                    filtro = "1=1";
-                }
-                CursosEstGridView.DataSource = Estudiantes.ListadoEstudianteCurso("1=1", "CursoId, Seccion", Utility.ConvierteEntero(Session["UsuarioId"].ToString()));
-                CursosEstGridView.DataBind();
-                Utility.ConfigurarReporte(CursosEstReportViewer, @"Reportes\CursoEstReport.rdlc", "CursoEst", Estudiantes.ListadoEstudianteCurso(filtro, "", Utility.ConvierteEntero(Session["UsuarioId"].ToString())));
-            }
+           
         }
 
         private string Mostrar()
@@ -50,6 +40,7 @@ namespace TeacherControlWeb.Consultas
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
             Mostrar();
+            Utility.ConfigurarReporte(CursosEstReportViewer, @"Reportes\CursoEstReport.rdlc", "CursoEst", Estudiantes.ListadoEstudianteCurso(Mostrar(), "Curso", Utility.ConvierteEntero(Session["UsuarioId"].ToString())));
         }
     }
 }

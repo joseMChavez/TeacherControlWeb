@@ -113,10 +113,10 @@ namespace BLL
             CalificacionesDetalle calificaionDetalle = new CalificacionesDetalle();
             try
             {
-                dt = conexion.ObtenerDatos(string.Format("select * from Calificaciones where CalificacionId={0} and UsuarioId={1}", IdBuscado, UsuarioId));
+                dt = conexion.ObtenerDatos(string.Format("select * from Calificaciones where CalificacionId={0}", IdBuscado));
                 if (dt.Rows.Count > 0)
                 {
-
+                    this.UsuarioId = (int)dt.Rows[0]["UsuarioId"];
                     CursoId = (int)dt.Rows[0]["CursoId"];
                     Grupo = dt.Rows[0]["Grupo"].ToString();
                     MateriaId = (int)dt.Rows[0]["MateriaId"];

@@ -25,7 +25,7 @@ namespace TeacherControlWeb.Consultas
                     filtro = FiltroDropDownList.SelectedValue + " like '%" + FiltroTextBox.Text + "%'";
             }
             else
-                filtro = "Fecha  BETWEEN '" + DesdeTextBox.Text + "' AND '" + HastaTextBox.Text + "' ";
+                filtro = " Fecha  BETWEEN '" + DesdeTextBox.Text + "' AND '" + HastaTextBox.Text + "' ";
 
             EstudianteGridView.DataSource = Estudiantes.ListadoEstudiante(filtro, Utility.ConvierteEntero(Session["UsuarioId"].ToString()));
             EstudianteGridView.DataBind();
@@ -34,6 +34,7 @@ namespace TeacherControlWeb.Consultas
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
             Mostrar();
+            Utility.ConfigurarReporte(EstudianteReportViewer, @"Reportes/EstudiantesReport.rdlc", "Estudiantes", Asistencia.ListadoAsistencia(Mostrar(), Utility.ConvierteEntero(Session["UsuarioId"].ToString())));
         }
     }
 }

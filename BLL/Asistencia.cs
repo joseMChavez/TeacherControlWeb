@@ -120,7 +120,7 @@ namespace BLL
             DataTable detalle = new DataTable();
             try
             {
-                dt = conexion.ObtenerDatos(string.Format("Select * from Asistencias where AsistenciaId = {0} and UsuarioId={1}", IdBuscado,this.UsuarioId));
+                dt = conexion.ObtenerDatos(string.Format("Select * from Asistencias where AsistenciaId = {0}", IdBuscado));
                 if (dt.Rows.Count > 0)
                 {
                     AsistenciaId = (int)dt.Rows[0]["AsistenciaId"];
@@ -128,7 +128,7 @@ namespace BLL
                     CursoGrupo = dt.Rows[0]["Grupo"].ToString();
                     CantidadEst = (int)dt.Rows[0]["CantidaEst"];
                     Fecha = dt.Rows[0]["Fecha"].ToString();
-
+                    this.UsuarioId = (int)dt.Rows[0]["UsuarioId"];
                     detalle = conexion.ObtenerDatos(string.Format("Select * from AsistenciaDetalle where AsistenciaId={0}",this.AsistenciaId));
 
                    

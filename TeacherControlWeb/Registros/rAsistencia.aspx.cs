@@ -90,14 +90,14 @@ namespace TeacherControlWeb.Registros
         }
         private void CargarDropDs()
         {
-            CursoDropDownList.DataSource = Utility.ListadoView("Cursos", "1=1", "");
+            CursoDropDownList.DataSource = Utility.ListadoView("Cursos", "UsuarioId="+Session["UsuarioId"].ToString(), "");
             CursoDropDownList.DataTextField = "Descripcion"; 
             CursoDropDownList.DataValueField = "CursoId";
             CursoDropDownList.DataBind();
             
         }
         private void CargarEstudiantes() {
-            EstudiantesDropDownList.DataSource = Estudiantes.ListadoDos("EstudianteId, Nombre", "CursoId='" + CursoDropDownList.SelectedValue + "'And Grupo='" + GrupoDropDownList.SelectedValue + "'", "");
+            EstudiantesDropDownList.DataSource = Estudiantes.ListadoDos("EstudianteId, Nombre", "UsuarioId="+ Session["UsuarioId"].ToString() + " and CursoId='" + CursoDropDownList.SelectedValue + "'And Grupo='" + GrupoDropDownList.SelectedValue + "'", "");
             EstudiantesDropDownList.DataTextField = "Nombre";
             EstudiantesDropDownList.DataValueField = "Nombre";
             EstudiantesDropDownList.DataBind();
@@ -105,7 +105,7 @@ namespace TeacherControlWeb.Registros
         }
         private void CargarGrupos()
         {
-            GrupoDropDownList.DataSource = Estudiantes.ListadoDos("EstudianteId, Grupo", "CursoId='" + CursoDropDownList.SelectedValue + "'", "CursoId");
+            GrupoDropDownList.DataSource = Estudiantes.ListadoDos("EstudianteId, Grupo", "UsuarioId= " + Session["UsuarioId"].ToString() +" and CursoId ='" + CursoDropDownList.SelectedValue + "'", "");
             GrupoDropDownList.DataTextField = "Grupo";
             GrupoDropDownList.DataValueField = "Grupo";
             GrupoDropDownList.DataBind();
@@ -218,6 +218,11 @@ namespace TeacherControlWeb.Registros
             {
                 Response.Write(ex.Message);
             }
+        }
+
+        protected void BuscarButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Consultas/cAsistencia.aspx");
         }
     }
 }

@@ -42,7 +42,7 @@
 
                                 </div>
                                 <div class="col s3">
-                                    <a class="waves-effect blue darken-1 white-text btn modal-trigger" href="#modal1"><i class="material-icons prefix">search</i></a>
+                                    <a class="waves-effect blue darken-1 white-text btn modal-trigger" href="../Consultas/cEstudiantes.aspx"><i class="material-icons prefix">search</i></a>
                                 </div>
 
                             </div>

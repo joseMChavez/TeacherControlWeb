@@ -12,12 +12,7 @@ namespace TeacherControlWeb.Consultas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                CategoriaCalificaciones categoria = new CategoriaCalificaciones();
-                CategoriaGridView.DataSource = categoria.Listado("* ", "1=1", "");
-                CategoriaGridView.DataBind();
-            }
+           
         }
         private string Mostrar(CategoriaCalificaciones categoria)
         {
@@ -28,7 +23,7 @@ namespace TeacherControlWeb.Consultas
             else
                  filtro = FiltroDropDownList.SelectedValue + " like '%" + FiltroTextBox.Text + "%'";
 
-            CategoriaGridView.DataSource = categoria.Listado("CategoriaCalificacionesId as Id, Descripcion ", filtro, "");
+            CategoriaGridView.DataSource = categoria.Listado("* ", filtro, "");
             CategoriaGridView.DataBind();
             return filtro;
         }
