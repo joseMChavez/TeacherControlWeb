@@ -202,6 +202,15 @@ namespace TeacherControlWeb.Consultas {
         protected global::System.Web.UI.WebControls.CheckBox ONCheckBox;
         
         /// <summary>
+        /// Grid1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Grid1;
+        
+        /// <summary>
         /// CalificacionesGridView control.
         /// </summary>
         /// <remarks>
@@ -209,6 +218,24 @@ namespace TeacherControlWeb.Consultas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView CalificacionesGridView;
+        
+        /// <summary>
+        /// Grid2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Grid2;
+        
+        /// <summary>
+        /// CalGridView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView CalGridView;
         
         /// <summary>
         /// CalificacionesReport control.

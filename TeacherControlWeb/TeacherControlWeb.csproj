@@ -341,6 +341,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Reportes\AsistenciaR.rdlc" />
     <EmbeddedResource Include="Reportes\AsistenciasReport.rdlc" />
     <EmbeddedResource Include="Reportes\CalificacionesReport.rdlc" />
     <EmbeddedResource Include="Reportes\CursoEstReport.rdlc" />

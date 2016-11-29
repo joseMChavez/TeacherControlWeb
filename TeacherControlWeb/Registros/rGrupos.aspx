@@ -69,7 +69,7 @@
                                         <asp:GridView ID="GrupoGridView" CssClass=" striped highlight responsive-table picker__table" runat="server">
                                             <Columns>
                                                 <asp:HyperLinkField
-                                                    DataNavigateUrlFields="Id"
+                                                    DataNavigateUrlFields="GrupoId"
                                                     DataNavigateUrlFormatString="/Registros/rGrupos.aspx?Id={0}"
                                                     Text="Editar"
                                                     ControlStyle-CssClass="btn btn-block waves-effect white-text" />

@@ -20,12 +20,6 @@ namespace TeacherControlWeb.Consultas
                 if (TipoDropDownL.SelectedValue=="1")
                 {
                     FiltroDDL.Visible = false;
-                    string filtro = Mostrar();
-                    if (filtro == "")
-                    {
-                        filtro = "1=1";
-                    }
-                    Utility.ConfigurarReporte(CalificacionesReport, @"Reportes\ListadoCalificacionesReport.rdlc", "ListaCalificaciones", Calificaciones.ListadoVista(filtro, Utility.ConvierteEntero(Session["UsuarioId"].ToString())));
 
                 }
                 
@@ -52,8 +46,8 @@ namespace TeacherControlWeb.Consultas
                 
             }
 
-            CalificacionesGridView.DataSource = Calificaciones.ListadoVista(filtro, Utility.ConvierteEntero(Session["UsuarioId"].ToString()));
-            CalificacionesGridView.DataBind();
+            CalGridView.DataSource = Calificaciones.ListadoVista(filtro, Utility.ConvierteEntero(Session["UsuarioId"].ToString()));
+            CalGridView.DataBind();
             return filtro;
         }
         private string MostrarDos()
@@ -99,6 +93,8 @@ namespace TeacherControlWeb.Consultas
                 Hasta2.Visible = true;
                 Activador1.Visible = true;
                 Activador2.Visible = true;
+                Grid2.Visible = true;
+                Grid1.Visible = false;
                 Mostrar();
             }
             else
@@ -111,6 +107,8 @@ namespace TeacherControlWeb.Consultas
                 Hasta2.Visible = false;
                 Activador1.Visible = false;
                 Activador2.Visible = false;
+                Grid2.Visible = false;
+                Grid1.Visible = true;
                 MostrarDos();
                 string filtro = MostrarDos();
                 if (filtro == "")

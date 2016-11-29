@@ -24,9 +24,9 @@ namespace TeacherControlWeb.Registros
                 ViewState["Calificacion"] = dt;
                 FechaTextBox.Text = DateTime.Today.ToString("dd/MM/yyyy");
                
-                if (Request.QueryString["ID"] != null)
+                if (Request.QueryString["Id"] != null)
                 {
-                    id = Utility.ConvierteEntero(Request.QueryString["ID"].ToString());
+                    id = Utility.ConvierteEntero(Request.QueryString["Id"].ToString());
                     if (cal.Buscar(id))
                     {
                         if (CalificacionesGridView.Rows.Count == 0)
@@ -205,9 +205,9 @@ namespace TeacherControlWeb.Registros
             try
             {
                 Calificaciones cal = new Calificaciones();
-                if (Request.QueryString["ID"]!=null)
+                if (Request.QueryString["Id"]!=null)
                 {
-                   cal.CalificacionId = Utility.ConvierteEntero(Request.QueryString["ID"].ToString());
+                   cal.CalificacionId = Utility.ConvierteEntero(Request.QueryString["Id"].ToString());
                     if (cal.Eliminar())
                     {
                         Utility.MensajeToastr(this.Page, "TC", "Se Elimino", "Success");

@@ -16,7 +16,7 @@
                     <div class="card-small">
                         <div class="card-content">
                             <div class ="row">
-                                <div class="col s6">
+                                <div class="col s12 m12 l12">
                                     <asp:DropDownList ID="TipoDropDownL" runat="server" CssClass="select-dropdown btn white black-text" AutoPostBack="True" OnSelectedIndexChanged="TipoDropDownL_SelectedIndexChanged">
                                         <asp:ListItem Value="1">Listado de Calificaciones</asp:ListItem>
                                         <asp:ListItem Value="0">Calificaciones Acumuladas</asp:ListItem>
@@ -85,9 +85,23 @@
                                 </div>
 
                             </div>
-                            <div class="row">
+                            <div id="Grid1" runat="server" class="row">
                                 <div class=" col s12 m12 l2 ">
                                     <asp:GridView ID="CalificacionesGridView" CssClass="Table responsive-table table-of-contents highlight" runat="server"></asp:GridView>
+                                </div>
+                            </div>
+                            <div id="Grid2" runat="server" class="row">
+                                <div class=" col s12 m12 l2 ">
+                                    <asp:GridView ID="CalGridView" CssClass="Table responsive-table table-of-contents highlight" runat="server">
+                                        <Columns>
+                                                <asp:HyperLinkField
+                                                    DataNavigateUrlFields="CalificacionId"
+                                                    DataNavigateUrlFormatString="/Registros/rCalificaciones.aspx?Id={0}"
+                                                    Text="Editar"
+                                                    ControlStyle-CssClass="btn waves-effect white-text" />
+                                            </Columns>
+                                    </asp:GridView>
+
                                 </div>
                             </div>
                         </div>

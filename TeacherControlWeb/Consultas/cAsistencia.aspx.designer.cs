@@ -22,6 +22,15 @@ namespace TeacherControlWeb.Consultas {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
+        /// TipoDropDownL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList TipoDropDownL;
+        
+        /// <summary>
         /// FiltroLabel control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace TeacherControlWeb.Consultas {
         protected global::System.Web.UI.WebControls.Label FiltroLabel;
         
         /// <summary>
+        /// filtroDDL1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl filtroDDL1;
+        
+        /// <summary>
         /// FiltroDropDownList control.
         /// </summary>
         /// <remarks>
@@ -38,6 +56,24 @@ namespace TeacherControlWeb.Consultas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList FiltroDropDownList;
+        
+        /// <summary>
+        /// filtroDDL2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl filtroDDL2;
+        
+        /// <summary>
+        /// DropDownList1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
         
         /// <summary>
         /// FiltroTextBox control.
@@ -56,6 +92,15 @@ namespace TeacherControlWeb.Consultas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton BuscarButton;
+        
+        /// <summary>
+        /// fecha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl fecha;
         
         /// <summary>
         /// DesdeLabel control.
@@ -112,6 +157,15 @@ namespace TeacherControlWeb.Consultas {
         protected global::System.Web.UI.WebControls.CheckBox ONCheckBox;
         
         /// <summary>
+        /// Grid1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Grid1;
+        
+        /// <summary>
         /// AsGridView control.
         /// </summary>
         /// <remarks>
@@ -121,6 +175,24 @@ namespace TeacherControlWeb.Consultas {
         protected global::System.Web.UI.WebControls.GridView AsGridView;
         
         /// <summary>
+        /// Grid2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Grid2;
+        
+        /// <summary>
+        /// AsistenciaGridView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView AsistenciaGridView;
+        
+        /// <summary>
         /// AsistenciaReportViewer control.
         /// </summary>
         /// <remarks>
@@ -128,14 +200,5 @@ namespace TeacherControlWeb.Consultas {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Microsoft.Reporting.WebForms.ReportViewer AsistenciaReportViewer;
-        
-        /// <summary>
-        /// ImprimirButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton ImprimirButton;
     }
 }

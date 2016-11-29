@@ -74,7 +74,7 @@
                                     <asp:GridView ID="EstudianteGridView" CssClass="Table responsive-table table-of-contents highlight" runat="server">
                                         <Columns>
                                             <asp:HyperLinkField
-                                                DataNavigateUrlFields="Id"
+                                                DataNavigateUrlFields="EstudianteId"
                                                 DataNavigateUrlFormatString="/Registros/rEstudiantes.aspx?ID={0}"
                                                 Text="Editar"
                                                 ControlStyle-CssClass="btn waves-effect white-text" />

@@ -83,7 +83,7 @@ namespace BLL
                     conexion.Ejecutar(string.Format("Delete  from AsistenciaDetalle where AsistenciaId={0}", this.AsistenciaId));
                     foreach (AsistenciaDetalle asistenciaD in aDetalle)
                     {
-                        conexion.Ejecutar(string.Format("Insert into AsistenciaDetalle(AsistenciaId,Estudiante,Activo) Values({0},'{1}','{2}',{3})", this.AsistenciaId, asistenciaD.EstudianteId, asistenciaD.Activo,asistenciaD.Matricula));
+                        conexion.Ejecutar(string.Format("Insert into AsistenciaDetalle(AsistenciaId,Estudiante,Matricula,Estado) Values({0},'{1}',{2},'{3}')", this.AsistenciaId, asistenciaD.EstudianteId, asistenciaD.Matricula, asistenciaD.Activo));
                     }
 
                 }
@@ -134,7 +134,7 @@ namespace BLL
                    
                     foreach (DataRow row in detalle.Rows)
                     {
-                        AgregarAsistencia(row["Estudiante"].ToString(), row["Activo"].ToString(),(int)row["Matricula"]);
+                        AgregarAsistencia(row["Estudiante"].ToString(), row["Estado"].ToString(),(int)row["Matricula"]);
                     }
 
 
