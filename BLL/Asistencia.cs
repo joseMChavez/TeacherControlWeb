@@ -102,8 +102,8 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("Delete  from AsistenciaDetalle where AsistenciaId={0} and UsuarioId={1};" +
-                                                 "Delete  from Asistencias where AsistenciaId={0}", this.AsistenciaId,this.UsuarioId));
+                retorno = conexion.Ejecutar(string.Format("Delete  from AsistenciaDetalle where AsistenciaId={0};" +
+                                                 "Delete  from Asistencias where AsistenciaId={0}", this.AsistenciaId));
             }
             catch (Exception ex)
             {

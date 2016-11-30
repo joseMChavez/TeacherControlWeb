@@ -25,7 +25,7 @@
                                 </div>
                                 <div class="col l2 m2 s3">
                                     <%--<a class="waves-effect blue darken-1 white-text btn modal-trigger" href="#modal1"><i class="material-icons prefix" onclick="BuscarButton_Click">search</i></a>--%>
-                                    <asp:LinkButton data-target="modal1" Visible="true" ToolTip="Buscar" ID="BuscarButton" runat="server" CssClass=" waves-effect blue darken-1 white-text btn modal-trigger"><i class="material-icons prefix">search</i></asp:LinkButton>
+                                    <asp:LinkButton data-target="modal1" Visible="true" ToolTip="Buscar" ID="BuscarButton" runat="server" CssClass=" waves-effect blue darken-1 white-text btn" OnClick="BuscarButton_Click"><i class="material-icons prefix">search</i></asp:LinkButton>
                                 </div>
                                 <div class="input-field col l2 m4 s8">
                                     <asp:TextBox ID="FechaTextBox" TextMode="Date" runat="server"></asp:TextBox>

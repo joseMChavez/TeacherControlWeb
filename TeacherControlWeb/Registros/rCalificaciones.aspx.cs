@@ -27,6 +27,7 @@ namespace TeacherControlWeb.Registros
                 if (Request.QueryString["Id"] != null)
                 {
                     id = Utility.ConvierteEntero(Request.QueryString["Id"].ToString());
+                    cal.CalificacionId = id;
                     if (cal.Buscar(id))
                     {
                         if (CalificacionesGridView.Rows.Count == 0)
@@ -220,6 +221,11 @@ namespace TeacherControlWeb.Registros
             {
                 Response.Write(ex.Message);
             }
+        }
+
+        protected void BuscarButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Consultas/cCalificaciones.aspx");
         }
     }
 }
