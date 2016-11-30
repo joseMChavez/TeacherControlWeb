@@ -32,7 +32,7 @@
                             <div class="row">
                                 <div class="input-field col s12 m6 l4">
                                     <asp:DropDownList CssClass="select-dropdown accent-1 btn white black-text" ID="CursosDropDownList" runat="server"></asp:DropDownList>
-
+                                      <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="CursosDropDownList" runat="server" ForeColor="#CC0000" ValidationGroup="G" ErrorMessage="Registre Cursos Antes de los Grupos" SetFocusOnError="True">*</asp:RequiredFieldValidator>
                                 </div>
                             </div>
                             <%-- Desc --%>

@@ -25,11 +25,11 @@
             <div class="col s10 m4 l4">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class=" circle activator" src="/img/images.png">
+                        <img class=" circle activator" src="/img/e.png">
                     </div>
                     <div class="card-content">
                         <span class="card-title activator grey-text text-darken-4">Estudiantes <i class="mdi-navigation-more-vert right"></i></span>
-                        <p><a href="#">Regristrar Estudiantes</a></p>
+                        <p><a href="/Registros/rEstudiantes.aspx">Regristrar Estudiantes</a></p>
                     </div>
                     <div class="card-reveal">
                         <span class="card-title grey-text text-darken-4">Registro de estudiantes <i class="mdi-navigation-close right"></i></span>
@@ -40,34 +40,64 @@
             <div class="col s12 m4 l4">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class=" circle activator" src="img/Courses.png">
+                        <img class=" circle activator" src="img/Icon.png">
                     </div>
                     <div class="card-content">
                         <span class="card-title activator grey-text text-darken-4">Cursos<i class="mdi-navigation-more-vert right"></i></span>
-                        <p><a href="#">Registrar Curso</a></p>
+                        <p><a href="/Registros/rCursos.aspx">Registrar Curso</a></p>
                     </div>
                     <div class="card-reveal">
                         <span class="card-title grey-text text-darken-4">Registro de Curos <i class="mdi-navigation-close right"></i></span>
-                        <p>Here is some more information about this project that is only revealed once clicked on.</p>
+                        <p>Es Conveniente que Registre Cursos antes de intentar Registrar Estudiantes, y Luego Registre Grupos</p>
                     </div>
                 </div>
             </div>
             <div class="col s12 m4 l4">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator circle" src="img/a .png">
+                        <img class="activator circle" src="img/Asistencia.png">
                     </div>
                     <div class="card-content">
                         <span class="card-title activator grey-text text-darken-4">Asistencias <i class="mdi-navigation-more-vert right"></i></span>
-                        <p><a href="#">Pasar Lista</a></p>
+                        <p><a href="/Registros/rAsistencia.aspx">Pasar Lista</a></p>
                     </div>
                     <div class="card-reveal">
                         <span class="card-title grey-text text-darken-4">Registro de Asistencias<i class="mdi-navigation-close right"></i></span>
-                        <p>Here is some more information about this project that is only revealed once clicked on.</p>
+                        <p>Pasar Lista es algo que se realiza cada vez que se realiza o se imparte clases, Registre Cursos Y Grupos.</p>
                     </div>
                 </div>
             </div>
             <div class="col s12 m4 l4">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="/img/cali.jpg">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Project Title <i class="mdi-navigation-more-vert right"></i></span>
+                        <p><a href="/Registros/rCalificaciones.aspx">Agreagr Calificaciones</a></p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Project Title <i class="mdi-navigation-close right"></i></span>
+                        <p>te facilitamos que le agregues calificaciones a tus estudiantes una vez, se la ganen, cree las Categorias de Calificaiones un ejemplo seria una Parcial.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m4 l4">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="/img/book.png">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Project Title <i class="mdi-navigation-more-vert right"></i></span>
+                        <p><a href="/Registros/rMaterias.aspx">Registrar Materias</a></p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Project Title <i class="mdi-navigation-close right"></i></span>
+                        <p>Here is some more information about this project that is only revealed once clicked on.</p>
+                    </div>
+                </div>
+            </div>
+        <%--    <div class="col s12 m4 l4">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
                         <img class="activator" src="/img/images.png">
@@ -81,37 +111,7 @@
                         <p>Here is some more information about this project that is only revealed once clicked on.</p>
                     </div>
                 </div>
-            </div>
-            <div class="col s12 m4 l4">
-                <div class="card">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="/img/images.png">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">Project Title <i class="mdi-navigation-more-vert right"></i></span>
-                        <p><a href="#">Project link</a></p>
-                    </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Project Title <i class="mdi-navigation-close right"></i></span>
-                        <p>Here is some more information about this project that is only revealed once clicked on.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col s12 m4 l4">
-                <div class="card">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="/img/images.png">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">Project Title <i class="mdi-navigation-more-vert right"></i></span>
-                        <p><a href="#">Project link</a></p>
-                    </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Project Title <i class="mdi-navigation-close right"></i></span>
-                        <p>Here is some more information about this project that is only revealed once clicked on.</p>
-                    </div>
-                </div>
-            </div>
+            </div>--%>
         </div>
         <div class=" parallax-container">
     <div class=" parallax">
