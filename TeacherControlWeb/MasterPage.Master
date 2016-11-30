@@ -112,7 +112,7 @@
             <div class="nav-wrapper container ">
                 <a id="logo-container" href="Default.aspx" class="brand-logo"><i class="material-icons prefix">mode_edit</i>TC</a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="../Default.aspx">Inicio</a></li>
+                    <li><a href="/Default.aspx">Inicio</a></li>
                     <li><a class="dropdown-button" href="#!" data-activates="Registros-dropdown-desktop">Registros<i class="material-icons right">arrow_drop_down</i></a></li>
                     <li><a class="dropdown-button" href="#!" data-activates="Consultas-dropdown-desktop">Consultas<i class="material-icons right">arrow_drop_down</i></a></li>
                     <li><a class="dropdown-button" href="#!" data-activates="Salon-dropdown-desktop">Salon de Clases<i class="material-icons right">arrow_drop_down</i></a></li>
@@ -122,7 +122,7 @@
                 </ul>
 
                 <ul id="nav-mobile" class="side-nav">
-                    <li><a href="../Default.aspx">Inicio</a></li>
+                    <li><a href="/Default.aspx">Inicio</a></li>
                     <li><a class="dropdown-button" href="#!" data-activates="Registros-dropdown-movil">Registros<i class="material-icons right">arrow_drop_down</i></a></li>
                     <li><a class="dropdown-button" href="#!" data-activates="Consultas-dropdown-movil">Consultas<i class="material-icons right">arrow_drop_down</i></a></li>
                     <li><a class="dropdown-button" href="#!" data-activates="Salon-dropdown-movil">Clase<i class="material-icons right">arrow_drop_down</i></a></li>
