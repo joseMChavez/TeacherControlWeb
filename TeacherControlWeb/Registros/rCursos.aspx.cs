@@ -99,7 +99,7 @@ namespace TeacherControlWeb.Registros
                 if (Request.QueryString["ID"] != null)
                 {
                     curso.CursoId = Utility.ConvierteEntero(IdTextBox.Text);
-
+                    curso.UsuarioId = Utility.ConvierteEntero(Session["UsuarioId"].ToString());
                     if (curso.Eliminar())
                     {
                         Limpiar();

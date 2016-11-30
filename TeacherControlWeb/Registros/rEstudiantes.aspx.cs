@@ -161,6 +161,7 @@ namespace TeacherControlWeb
             {
                 if (Request.QueryString["ID"] != null)
                 {
+                    estudiante.UsuarioId = Utility.ConvierteEntero(Session["UsuarioId"].ToString());
                     estudiante.EstudianteId = Utility.ConvierteEntero(Request.QueryString["ID"].ToString());
                     if (estudiante.Eliminar())
                     {

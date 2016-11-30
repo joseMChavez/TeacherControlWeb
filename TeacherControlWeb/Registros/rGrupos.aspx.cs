@@ -49,14 +49,14 @@ namespace TeacherControlWeb.Registros
         private void LlenarDatos(Grupos grupo)
         {
             grupo.GrupoId= Utility.ConvierteEntero(IdTextBox.Text);
-            grupo.UsuarioId = Utility.ConvierteEntero(Session["UsiarioId"].ToString());
+            grupo.UsuarioId = Utility.ConvierteEntero(Session["UsuarioId"].ToString());
             grupo.CursoId = Utility.ConvierteEntero(CursosDropDownList.SelectedValue);
             grupo.Descripcion = DescripcionTextBox.Text;
 
         }
         private void Devolverdatos(Grupos grupo)
         {
-            //Session["UsuarioId"] = grupo.UsuarioId.ToString();
+            Session["UsuarioId"] = grupo.UsuarioId.ToString();
             IdTextBox.Text = grupo.GrupoId.ToString();
             CursosDropDownList.Text = grupo.CursoId.ToString();
             DescripcionTextBox.Text = grupo.Descripcion;
