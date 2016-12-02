@@ -112,6 +112,7 @@
     <Content Include="packages.config" />
     <Content Include="content\toastr.scss" />
     <Content Include="content\toastr.less" />
+    <None Include="Properties\PublishProfiles\TeacherControl - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="js\jquery-3.1.1.min.js" />
@@ -345,7 +346,6 @@
     <EmbeddedResource Include="Reportes\AsistenciasReport.rdlc" />
     <EmbeddedResource Include="Reportes\CalificacionesReport.rdlc" />
     <EmbeddedResource Include="Reportes\CursoEstReport.rdlc" />
-    <EmbeddedResource Include="Reportes\CursosReport.rdlc" />
     <EmbeddedResource Include="Reportes\EstudiantesReport.rdlc" />
     <EmbeddedResource Include="Reportes\ListadoCalificacionesReport.rdlc" />
     <EmbeddedResource Include="Reportes\MateriaReport.rdlc" />
